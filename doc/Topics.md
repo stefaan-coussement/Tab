@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-![logo](/img/tab-logo128.png)
+![logo](/doc/img/tab-logo128.png)
 
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 
@@ -87,12 +87,12 @@ Check it out...
 
 [top]: #top "back to the top of this page"
 [topics]: #topics "back to the 'Topics' section"
-[reference]: /reference.md "back to the 'Reference' section"
+[reference]: /doc/reference.md "back to the 'Reference' section"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: /doc/topics/a-basic-tab.md "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]: ./topics/a-basic-callback.md "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]: topics/a-basic-promise.md "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
+[topic-a-basic-tab]: /doc/topics/A-Basic-Tab.md "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-callback]: ./topics/A-Basic-Callback.md "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-promise]: topics/A-Basic-Promise.md "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
 [topic-basic-lazy-evaluation]: tbd "!!! having some vague ideas !!!"
 [topic-basic-concurrent-computing]: tbd "!!! coming soon !!!"
 
