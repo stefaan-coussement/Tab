@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-<img src="./doc/img/tab-logo96.png" alt="Tab logo" align="left" style="float:left;" /><img src="./doc/img/1x1.png" align="left" style="float:left;" height="96" width="20" />
+<img src="./doc/img/tab-logo96.png" alt="Tab logo" align="left" style="float:left; position:relative; top:20px;" />
 
 # [Tab][top]
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
