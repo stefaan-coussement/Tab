@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-<img src="./img/tab-logo64.png" alt="Tab logo" align="left" style="float:left;" /><img src="./img/1x1.png" align="left" style="float:left;" height="64" width="20" /><img src="./img/1x1.png" height="0" width="20" />
+<img src="./img/tab-logo64.png" alt="Tab logo" align="left" style="float:left;" /><img src="./img/1x1.png" align="left" style="float:left;" height="64" width="20" /><img src="./img/1x1.png" height="4px" width="20" />
 
 <a name="reference" ></a>
 ## [Reference]
