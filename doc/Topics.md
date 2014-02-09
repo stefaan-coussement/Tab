@@ -45,7 +45,7 @@ Check it out...
 > * [A Basic Tab][topic-a-basic-tab] :new:
 > * [A Basic Callback][topic-a-basic-callback] :new:
 > * [A Basic Promise][topic-a-basic-promise] :new:
-> * :thought_balloon: [ Basic Lazy Evaluation][topic-basic-lazy-evaluation]
+> * :zzz: [ Basic Lazy Evaluation][topic-basic-lazy-evaluation]
 > * :construction: [ Basic Concurrent Computing][topic-basic-concurrent-computing]
 
 <a name="cat-where-are-tabs-helping" ></a>
@@ -90,10 +90,10 @@ Check it out...
 [reference]: /doc/reference.md "back to the 'Reference' section"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: /doc/topics/A-Basic-Tab.md "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]: ./topics/A-Basic-Callback.md "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]: topics/A-Basic-Promise.md "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
-[topic-basic-lazy-evaluation]: tbd "!!! having some vague ideas !!!"
+[topic-a-basic-tab]: /doc/topics/a-basic-tab.md "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-callback]: /doc/topics/a-basic-callback.md "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-promise]: /doc/topics/a-basic-promise.md "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
+[topic-basic-lazy-evaluation]: tbd "!!! thinking hard !!!"
 [topic-basic-concurrent-computing]: tbd "!!! coming soon !!!"
 
 [cat-where-are-tabs-helping]: #cat-where-are-tabs-helping "more topics under 'Where Are Tabs Helping'"
