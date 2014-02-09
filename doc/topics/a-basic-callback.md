@@ -8,28 +8,26 @@
 In the example of [A Basic Tab][topic-a-basic-tab] there is still quite a bit of processing in the callback function for `setInterval`.  We can do better.
 
 ~~~~javascript
-var
-  id, interval = 0,
-  counter = new Tab();
+var id, interval = 0,
+    counter = new Tab();
 
 id = setInterval(counter.defer(function () {
-  interval += 1;
-  return interval;
+    interval += 1;
+    return interval;
 }), 1000);
 
 counter
 .try(function (value) {
-  if (value <= 3600) {
-    console.log(value % 2 === 1 ? "tick" : "tock");
-  }
-
-  if (value === 3600) {
-    clearInterval(id);
-    console.log("cuckoo");
-  }
+    if (value <= 3600) {
+        console.log(value % 2 === 1 ? "tick" : "tock");
+    }
+    if (value === 3600) {
+        clearInterval(id);
+        console.log("cuckoo");
+    }
 })
 .catch(function (error) {
-  console.log(error);
+    console.log(error);
 });
 ~~~~
 
@@ -40,26 +38,24 @@ Compared to the example in [A Basic Tab][topic-a-basic-tab], in this example:
 However, we can still do better.   
 
 ~~~~javascript
-var
-  id, interval = 0,
-  counter = new Tab();
+var id, interval = 0,
+    counter = new Tab();
 
 id = setInterval(counter.defer(Tab.prototype.update), 1000);
 
 counter
 .try(function () {
-  interval += 1;
-  if (interval <= 3600) {
-    console.log(interval % 2 === 1 ? "tick" : "tock");
-  }
-
-  if (value === 3600) {
-    clearInterval(id);
-    console.log("cuckoo");
-  }
+    interval += 1;
+    if (interval <= 3600) {
+        console.log(interval % 2 === 1 ? "tick" : "tock");
+    }
+    if (value === 3600) {
+        clearInterval(id);
+        console.log("cuckoo");
+    }
 })
 .catch(function (error) {
-  console.log(error);
+    console.log(error);
 });
 ~~~~
 

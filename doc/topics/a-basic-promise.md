@@ -6,28 +6,26 @@
 ## [A Basic Promise][topic-a-basic-promise]
 
 ~~~~javascript
-var
-  id, interval = 0,
-  counter = new Tab();
+var id, interval = 0,
+    counter = new Tab();
 
 id = setInterval(counter.defer(Tab.prototype.update), 1000);
 
 counter
-  .try(function () {
-    interval += 1;
-    if (interval <= 3600) {
-      console.log(interval % 2 === 1 ? "tick" : "tock");
-    }
-
-    if (value === 3600) {
-      clearInterval(id);
-      this.fulfill();
-    }
-  })
+    .try(function () {
+        interval += 1;
+        if (interval <= 3600) {
+            console.log(interval % 2 === 1 ? "tick" : "tock");
+        }
+        if (value === 3600) {
+            clearInterval(id);
+            this.fulfill();
+        }
+    })
 .eventually()
-  .try(function () {
-     console.log("cuckoo");
-  });
+    .try(function () {
+         console.log("cuckoo");
+    });
 ~~~~
 
 Compared to the examples in [A Basic Callback][topic-a-basic-callback], in this example:
@@ -41,30 +39,28 @@ Remark that we tried to make the two phases clear by using indentation.  Althoug
 Alternatively, we can also use more explicit scoping functions as in next example.
 
 ~~~~javascript
-var
-  id, interval = 0,
-  counter = new Tab();
+var id, interval = 0,
+    counter = new Tab();
 
 id = setInterval(counter.defer(Tab.prototype.update), 1000);
 
 counter
 .do(function (source, target) {
-  source.try(function () {
-    interval += 1;
-    if (interval <= 3600) {
-      console.log(interval % 2 === 1 ? "tick" : "tock");
-    }
-
-    if (value === 3600) {
-      clearInterval(id);
-      target.fulfill();
-    }
-  });
+    source.try(function () {
+        interval += 1;
+        if (interval <= 3600) {
+            console.log(interval % 2 === 1 ? "tick" : "tock");
+        }
+        if (value === 3600) {
+            clearInterval(id);
+            target.fulfill();
+        }
+    });
 })
 .eventually(function (source) {
-  source.try(function () {
-     console.log("cuckoo");
-  });
+    source.try(function () {
+        console.log("cuckoo");
+    });
 });
 ~~~~
 
@@ -77,17 +73,16 @@ Compared to the previous example, in this example:
 If you don't need to progress notifications, this can be simplified.
 
 ~~~~javascript
-var
-  id, interval = 0,
-  timer = new Tab();
+var id, interval = 0,
+    timer = new Tab();
 
 id = setTimeout(timer.defer(Tab.prototype.fulfill), 3600000);
 
 timer
 .eventually()
-  .try(function () {
-    console.log("cuckoo");
-  });
+    .try(function () {
+        console.log("cuckoo");
+    });
 ~~~~
 
 Compared to the previous examples, in this example:
@@ -100,27 +95,26 @@ Remark that in this very simple example, we can also keep updating `timer` inste
 Making the previous example a bit more explicit, making it easier to follow what is happening.
 
 ~~~~javascript
-var
-  id, interval = 0,
-  timer = new Tab();
+var id, interval = 0,
+    timer = new Tab();
 
 id = setTimeout(function () {
-  try {
-    timer.fulfill();
-  }
-  catch (e) {
-    timer.reject(e);
-  }  
+    try {
+        timer.fulfill();
+    }
+    catch (e) {
+        timer.reject(e);
+    }  
 }, 3600000);
 
 timer
 .eventually()
-  .try(function () {
-    console.log("cuckoo");
-   })
-  .catch(function (error) {
-    console.log(error);
-  });
+    .try(function () {
+        console.log("cuckoo");
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 ~~~~
 
 Compared to the previous example, in this example:
@@ -130,12 +124,14 @@ Compared to the previous example, in this example:
 
 Remark that in this very simple example, we can drop the `.eventually()` step, making the execution a bit faster. The `.fulfill()` method is equivalent to first applying the `.update()` method, and then applying [.settle()][ref-tab.prototype.settle].  This means that first an 'updated' notification will be sent out, followed by a 'fulfilled' notification.   
 
+:bulb: 
 ~~~~javascript
 tab.fulfill( value ) ~ tab.update( value ).settle()
 ~~~~
 
 A similar equivalence relationship exists between the `.reject()` and `.thow()` methods.
 
+:bulb: 
 ~~~~javascript
 tab.reject( value ) ~ tab.throw( value ).settle()
 ~~~~

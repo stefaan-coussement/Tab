@@ -6,33 +6,31 @@
 ## [A Basic Tap][topic-a-basic-tab]
 
 ~~~~javascript
-var
-  id, interval = 0,
-  counter = new Tab();
+var id, interval = 0,
+    counter = new Tab();
 
 id = setInterval(function () {
-  try {
-    interval += 1;
-    counter.update(interval);
-  }
-  catch (e) {
-    counter.throw(e);
-  }  
+    try {
+        interval += 1;
+        counter.update(interval);
+    }
+    catch (e) {
+        counter.throw(e);
+    }  
 }, 1000);
 
 counter
 .try(function (value) {
-  if (value <= 3600) {
-    console.log(value % 2 === 1 ? "tick" : "tock");
-  }
-
-  if (value === 3600) {
-    clearInterval(id);
-    console.log("cuckoo");
-  }
+    if (value <= 3600) {
+        console.log(value % 2 === 1 ? "tick" : "tock"); 
+    }
+    if (value === 3600) {
+        clearInterval(id);
+        console.log("cuckoo");
+    }
 })
 .catch(function (error) {
-  console.log(error);
+    console.log(error);
 });
 ~~~~
 
