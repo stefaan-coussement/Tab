@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-![logo](docs/img/tab-logo256.png)
+![logo](/doc/img/tab-logo256.png)
 
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 
@@ -83,8 +83,8 @@ Check it out...
 
 
 [top]: #top "back to the top of this page"
-[topics]: docs/topics "back to the 'Topics' section"
-[reference]: docs/reference "back to the 'Reference' section"
+[topics]: /doc/topics.md "back to the 'Topics' section"
+[reference]: /doc/reference "back to the 'Reference' section"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
 [topic-a-basic-tab]: doc/topics/a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
