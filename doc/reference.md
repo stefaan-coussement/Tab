@@ -1,9 +1,10 @@
 <a name="top" ></a>
 
-![logo]
+<img src="./img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="./img/1x1.png" style="float:left;" height="64" width="20" />
 
 <a name="reference" ></a>
 ## [Reference]
+<br />
 
 <a name="cat-tab-object" ></a>
 ### [Tab Object][cat-tab-object]
@@ -124,7 +125,6 @@
 [top]: #top "back to the top of this page"
 [topics]: /doc/topics.md#topics "back to the 'Topics' section"
 [reference]: #reference "back to the 'Reference' section"
-[logo]: /doc/img/tab-logo128.png "Tab logo"
 
 [cat-tab-object]: #cat-tab-object "more attributes and methods under 'Tab Object'"
 

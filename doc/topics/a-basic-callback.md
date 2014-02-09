@@ -1,9 +1,11 @@
 <a name="top" ></a>
 
-![logo]
-
 <a name="topic-a-basic-callback" ></a>
+
+<img src="../img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="../img/1x1.png" style="float:left;" height="64" width="20" />
+
 ## [A Basic Callback][topic-a-basic-callback]
+<br />
 
 In the example of [A Basic Tab][topic-a-basic-tab] there is still quite a bit of processing in the callback function for `setInterval`.  We can do better.
 

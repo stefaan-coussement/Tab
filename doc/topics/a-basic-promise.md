@@ -1,9 +1,11 @@
 <a name="top" ></a>
 
-![logo]
-
 <a name="topic-a-basic-promise" ></a>
+
+<img src="../img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="../img/1x1.png" style="float:left;" height="64" width="20" />
+
 ## [A Basic Promise][topic-a-basic-promise]
+<br />
 
 ~~~~javascript
 var id, interval = 0,
@@ -124,15 +126,15 @@ Compared to the previous example, in this example:
 
 Remark that in this very simple example, we can drop the `.eventually()` step, making the execution a bit faster. The `.fulfill()` method is equivalent to first applying the `.update()` method, and then applying [.settle()][ref-tab.prototype.settle].  This means that first an 'updated' notification will be sent out, followed by a 'fulfilled' notification.   
 
-:bulb: 
-~~~~javascript
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" style="float:left; margin:5px 5px 5px 0px;">
+~~~~
 tab.fulfill( value ) ~ tab.update( value ).settle()
 ~~~~
 
 A similar equivalence relationship exists between the `.reject()` and `.thow()` methods.
 
-:bulb: 
-~~~~javascript
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" style="float:left; margin:5px 5px 5px 0px;">
+~~~~
 tab.reject( value ) ~ tab.throw( value ).settle()
 ~~~~
 
@@ -154,7 +156,6 @@ tab.reject( value ) ~ tab.throw( value ).settle()
 [top]: #top "back to the top of this page"
 [topics]: /doc/topics.md#topics "back to the 'Topics' section"
 [reference]: /doc/reference.md#reference "back to the 'Reference' section"
-[logo]: /doc/img/tab-logo64.png "Tab logo"
 
 [cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
 [topic-a-basic-callback]: /doc/topics/a-basic-callback.md#topic-a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."

@@ -1,10 +1,10 @@
 <a name="top" ></a>
 
-![logo]
+<img src="./doc/img/tab-logo96.png" alt="Tab logo" style="float:left; margin-right:20px;" />
 
+# [Tab][top]
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
-
-
+<br />
 
 **tab** (noun)
 > A projection, flap, or short strip attached to an object to facilitate opening, handling, or identification. <br /> [http://www.thefreedictionary.com/tab]
@@ -85,7 +85,6 @@ Check it out...
 [top]: #top "back to the top of this page"
 [topics]: /doc/topics.md#topics "back to the 'Topics' section"
 [reference]: /doc/reference.md#reference "back to the 'Reference' section"
-[logo]: /doc/img/tab-logo128.png "Tab logo"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
 [topic-a-basic-tab]: /doc/topics/a-basic-tab.md#topic-a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."

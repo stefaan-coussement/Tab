@@ -1,9 +1,11 @@
 <a name="top" ></a>
 
-![logo]
-
 <a name="topic-a-basic-tab" ></a>
+
+<img src="../img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="../img/1x1.png" style="float:left;" height="64" width="20" />
+
 ## [A Basic Tap][topic-a-basic-tab]
+<br />
 
 ~~~~javascript
 var id, interval = 0,
@@ -53,7 +55,6 @@ In this example:
 [top]: #top "back to the top of this page"
 [topics]: /doc/topics.md#topics "back to the 'Topics' section"
 [reference]: /doc/reference.md#reference "back to the 'Reference' section"
-[logo]: /doc/img/tab-logo64.png "Tab logo"
 
 [cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
 [topic-a-basic-tab]: #topic-a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
