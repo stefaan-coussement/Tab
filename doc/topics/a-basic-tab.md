@@ -58,7 +58,7 @@ In this example:
 [logo]: /doc/img/tab-logo64.png "Tab logo"
 
 [cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: #a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-tab]: #topic-a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
 
 [ref-new-tab]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.catch]: tbd "!!! coming soon !!!"
