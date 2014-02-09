@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-![logo](/doc/img/tab-logo256.png)
+![logo](/doc/img/tab-logo128.png)
 
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 
@@ -42,7 +42,7 @@ Check it out...
 > * [A Basic Tab][topic-a-basic-tab] :new:
 > * [A Basic Callback][topic-a-basic-callback] :new:
 > * [A Basic Promise][topic-a-basic-promise] :new:
-> * :thought_balloon: [ Basic Lazy Evaluation][topic-basic-lazy-evaluation]
+> * :zzz: [ Basic Lazy Evaluation][topic-basic-lazy-evaluation]
 > * :construction: [ Basic Concurrent Computing][topic-basic-concurrent-computing]
 
 <a name="cat-where-are-tabs-helping" ></a>
@@ -83,14 +83,14 @@ Check it out...
 
 
 [top]: #top "back to the top of this page"
-[topics]: /doc/topics.md "back to the 'Topics' section"
-[reference]: /doc/reference "back to the 'Reference' section"
+[topics]: /doc/Topics.md "back to the 'Topics' section"
+[reference]: /doc/Reference.md "back to the 'Reference' section"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: doc/topics/a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]: doc/topics/a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]: doc/topics/a-basic-promise "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
-[topic-basic-lazy-evaluation]: tbd "!!! having some vague ideas !!!"
+[topic-a-basic-tab]: /doc/topics/a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-callback]: /doc/topics/a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-promise]: /doc/topics/a-basic-promise "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
+[topic-basic-lazy-evaluation]: tbd "!!! thinking hard !!!"
 [topic-basic-concurrent-computing]: tbd "!!! coming soon !!!"
 
 [cat-where-are-tabs-helping]: #cat-where-are-tabs-helping "more topics under 'Where Are Tabs Helping'"
