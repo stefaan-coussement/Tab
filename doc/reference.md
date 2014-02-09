@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-![logo](/doc/img/tab-logo128.png)
+![logo]
 
 <a name="reference" ></a>
 ## [Reference]
@@ -122,8 +122,9 @@
 
 
 [top]: #top "back to the top of this page"
-[topics]: /doc/topics "back to the 'Topics' section"
+[topics]: /doc/topics.md#topics "back to the 'Topics' section"
 [reference]: #reference "back to the 'Reference' section"
+[logo]: /doc/img/tab-logo128.png "Tab logo"
 
 [cat-tab-object]: #cat-tab-object "more attributes and methods under 'Tab Object'"
 

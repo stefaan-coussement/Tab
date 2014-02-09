@@ -1,5 +1,7 @@
 <a name="top" ></a>
 
+![logo]
+
 <a name="topic-a-basic-tab" ></a>
 ## [A Basic Tap][topic-a-basic-tab]
 
@@ -44,19 +46,20 @@ In this example:
 
 
 
-<br /> Back to [Home] | [Topics] / [The Basics][cat-the-basics] | [Reference] | [Top] <br />
+<br /> Back to [Top] | [Topics] / [The Basics][cat-the-basics] | [Reference] <br />
 
 
 
 
 
-[home]: home "back to the 'Home' page"
+[top]: #top "back to the top of this page"
+[topics]: /doc/topics.md#topics "back to the 'Topics' section"
+[reference]: /doc/reference.md#reference "back to the 'Reference' section"
+[logo]: /doc/img/tab-logo64.png "Tab logo"
 
-[topics]: home#topics "back to the 'Topics' section"
-[cat-the-basics]: home#cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
+[topic-a-basic-tab]: #a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
 
-[reference]: home#reference "back to the 'Reference' section"
 [ref-new-tab]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.catch]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.throw]: tbd "!!! coming soon !!!"

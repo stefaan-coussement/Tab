@@ -1,5 +1,7 @@
 <a name="top" ></a>
 
+![logo]
+
 <a name="topic-a-basic-promise" ></a>
 ## [A Basic Promise][topic-a-basic-promise]
 
@@ -147,20 +149,21 @@ tab.reject( value ) ~ tab.throw( value ).settle()
 
 
 
-<br /> Back to [Home] | [Topics] / [The Basics][cat-the-basics] | [Reference] | [Top] <br />
+<br /> Back to [Top] | [Topics] / [The Basics][cat-the-basics] | [Reference] <br />
 
 
 
 
 
-[home]: home "back to the 'Home' page"
+[top]: #top "back to the top of this page"
+[topics]: /doc/topics.md#topics "back to the 'Topics' section"
+[reference]: /doc/reference.md#reference "back to the 'Reference' section"
+[logo]: /doc/img/tab-logo64.png "Tab logo"
 
-[topics]: home#topics "back to the 'Topics' section"
-[cat-the-basics]: home#cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-callback]: a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]: a-basic-promise "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
+[cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
+[topic-a-basic-callback]: /doc/topics.md/a-basic-callback#top "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-promise]: #a-basic-promise "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
 
-[reference]: wiki/home#reference "back to the 'Reference' section"
 [ref-new-tab]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.catch]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.defer]: tbd "!!! coming soon !!!"

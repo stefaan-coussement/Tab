@@ -1,5 +1,7 @@
 <a name="top" ></a>
 
+![logo]
+
 <a name="topic-a-basic-callback" ></a>
 ## [A Basic Callback][topic-a-basic-callback]
 
@@ -75,20 +77,21 @@ Compared to the previous example, in this example:
 
 
 
-<br /> Back to [Home] | [Topics] / [The Basics][cat-the-basics] | [Reference] | [Top] <br />
+<br /> Back to [Top] | [Topics] / [The Basics][cat-the-basics] | [Reference] <br />
 
 
 
 
 
-[home]: home "back to the 'Home' page"
+[top]: #top "back to the top of this page"
+[topics]: /doc/topics.md#topics "back to the 'Topics' section"
+[reference]: /doc/reference.md#reference "back to the 'Reference' section"
+[logo]: /doc/img/tab-logo64.png "Tab logo"
 
-[topics]: home#topics "back to the 'Topics' section"
-[cat-the-basics]: home#cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-tab]: a-basic-tab "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]: a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
+[topic-a-basic-tab]: /doc/topics/a-basic-tab.md/#top "Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-callback]: #a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
 
-[reference]: wiki/home#reference "back to the 'Reference' section"
 [ref-new-tab]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.catch]: tbd "!!! coming soon !!!"
 [ref-tab.prototype.defer]: tbd "!!! coming soon !!!"
