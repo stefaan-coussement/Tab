@@ -49,12 +49,12 @@ Tabs can be a considered an extension to the traditional promises.  Tabs are obs
 
 
 
-[home]: https://github.com/stefaan-coussement/Tab/wiki/home.md "to the 'Wiki Home' page"
-[topics]: https://github.com/stefaan-coussement/Tab/wiki/home.md#topics "to the 'Wiki Topics' section"
-[topic-a-basic-tab]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-tab.md "Wiki Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-callback.md "Wiki Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-promise.md "Wiki Topics / The Basics / A Basic Promise - using a Tab object as a promise."
+[home]: https://github.com/stefaan-coussement/Tab/wiki/home "to the 'Wiki Home' page"
+[topics]: https://github.com/stefaan-coussement/Tab/wiki/home#topics "to the 'Wiki Topics' section"
+[topic-a-basic-tab]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-tab "Wiki Topics / The Basics / A Basic Tab - creating and using a basic Tab object."
+[topic-a-basic-callback]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-callback "Wiki Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-promise]: https://github.com/stefaan-coussement/Tab/wiki/a-basic-promise "Wiki Topics / The Basics / A Basic Promise - using a Tab object as a promise."
 [topic-basic-lazy-evaluation]: tbd "!!! thinking very hard !!!"
 [topic-basic-concurrent-computing]: tbd "!!! coming soon !!!"
-[reference]: https://github.com/stefaan-coussement/Tab/wiki/home.md#reference "back to the 'Wiki Reference' section"
+[reference]: https://github.com/stefaan-coussement/Tab/wiki/home#reference "back to the 'Wiki Reference' section"
 [top]: #top "back to the top of this page"
