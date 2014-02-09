@@ -161,7 +161,7 @@ tab.reject( value ) ~ tab.throw( value ).settle()
 [logo]: /doc/img/tab-logo64.png "Tab logo"
 
 [cat-the-basics]: /doc/topics.md#cat-the-basics "more topics under 'The Basics'"
-[topic-a-basic-callback]: /doc/topics.md/a-basic-callback#topic-a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
+[topic-a-basic-callback]: /doc/topics/a-basic-callback.md#topic-a-basic-callback "Topics / The Basics / A Basic Callback - using a Tab object to handle callbacks."
 [topic-a-basic-promise]: #topic-a-basic-promise "Topics / The Basics / A Basic Promise - using a Tab object as a promise."
 
 [ref-new-tab]: tbd "!!! coming soon !!!"
