@@ -2,7 +2,7 @@
 
 <a name="topic-a-basic-tab" ></a>
 
-<img src="../img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="../img/1x1.png" style="float:left;" height="64" width="20" />
+<img src="../img/tab-logo64.png" alt="Tab logo" align="left" style="float:left;" /><img src="../img/1x1.png" align="left" style="float:left;" height="64" width="20" /><img src="./img/1x1.png" height="0" width="20" />
 
 ## [A Basic Tap][topic-a-basic-tab]
 <br />

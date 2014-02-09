@@ -2,7 +2,7 @@
 
 <a name="topic-a-basic-promise" ></a>
 
-<img src="../img/tab-logo64.png" alt="Tab logo" style="float:left; margin-top:-13px;" /><img src="../img/1x1.png" style="float:left;" height="64" width="20" />
+<img src="../img/tab-logo64.png" alt="Tab logo" align="left" style="float:left;" /><img src="../img/1x1.png" align="left" style="float:left;" height="64" width="20" /><img src="./img/1x1.png" height="0" width="20" />
 
 ## [A Basic Promise][topic-a-basic-promise]
 <br />
@@ -126,14 +126,14 @@ Compared to the previous example, in this example:
 
 Remark that in this very simple example, we can drop the `.eventually()` step, making the execution a bit faster. The `.fulfill()` method is equivalent to first applying the `.update()` method, and then applying [.settle()][ref-tab.prototype.settle].  This means that first an 'updated' notification will be sent out, followed by a 'fulfilled' notification.   
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" style="float:left; margin:5px 5px 5px 0px;">
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
 ~~~~
 tab.fulfill( value ) ~ tab.update( value ).settle()
 ~~~~
 
 A similar equivalence relationship exists between the `.reject()` and `.thow()` methods.
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" style="float:left; margin:5px 5px 5px 0px;">
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
 ~~~~
 tab.reject( value ) ~ tab.throw( value ).settle()
 ~~~~
