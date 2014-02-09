@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-![logo](/docs/img/tab-logo256.png)
+![logo](/img/tab-logo256.png)
 
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 
@@ -36,6 +36,9 @@ Although there may be very good scientific, mathematical reasons for this 'non-m
 Tabs can be a considered an extension to the traditional promises.  Tabs are observing the asynchronous world from a 'progress' perspective, that can eventually lead to a final and non-mutable 'promised' state.
 
 Check it out...
+
+<a name="topics" ></a>
+## [Topics][topics]
 
 <a name="cat-the-basics" ></a>
 ### [The Basics][cat-the-basics]
@@ -83,7 +86,7 @@ Check it out...
 
 
 [top]: #top "back to the top of this page"
-[topics]: /docs/topics "back to the 'Topics' section"
+[topics]: #topics "back to the 'Topics' section"
 [reference]: /docs/reference "back to the 'Reference' section"
 
 [cat-the-basics]: #cat-the-basics "more topics under 'The Basics'"
@@ -119,3 +122,5 @@ Check it out...
 
 [cat-where-are-tabs-lacking]: #cat-where-are-tabs-lacking "more topics under 'Where Are Tabs Lacking'"
 [topic-debugging-asynchronous-events]: tbd "!!! having some vague ideas !!!"
+
+[reference]: /docs/reference "back to the 'Reference' section"
