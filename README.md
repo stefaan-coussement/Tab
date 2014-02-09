@@ -43,7 +43,7 @@ Tabs can be a considered an extension to the traditional promises.  Tabs are obs
 
 
 
-<br /> To [Wiki Home] | [Wiki Topics] | [Wiki Reference] | [Top] <br />
+<br /> To [Wiki Home][home] | [Wiki Topics][topics] | [Wiki Reference][reference] | [Top] <br />
 
 
 
