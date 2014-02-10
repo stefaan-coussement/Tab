@@ -1,72 +1,149 @@
 <a name="top" ></a>
 
-<a name="reference" ></a>
-
 <img src="./img/tab-logo106.png" alt="Tab logo" align="left" style="float:left;" /><img src="./img/1x1.png" align="left" style="float:left;" height="106" width="20" /><img src="./img/1x1.png" height="1" width="20" style="margin-top:45px;" />
 ## [Reference]
 <br />
+<br />
 
-<a name="cat-tab-object" ></a>
-### [Tab Object](#tab-object)
+### [Tab Object][ref-tab-object]
 > 
-> <a name="cat-tab-constructor" ></a>
-> #### [Tab Constructor](#tab-constructor)
-> * :construction: [ new Tab()][ref-new-tab]
-> * :construction: [ Tab()][ref-tab]
+> #### [Tab Constructor][ref-tab-constructor]
+> * [new Tab()][ref-new-tab]
+>   Create a new tab.
+>   
+> * [Tab()][ref-tab]
+>   Convert to a tab, create a new tab if required.
 > 
-> <a name="cat-tab-constructor-attributes" ></a>
-> #### [Tab Constructor Attributes][tab-constructor-attributes]
+> #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
 > * :thought_balloon: [ .context][ref-tab.context]
-> * :construction: [ .version][ref-tab.version]
+>   ...
+>   
+> * [.version][ref-tab.version]
+>   Version of this Tab library.
 >
-> <a name="cat-tab-constructor-methods" ></a>
-> #### [Tab Constructor Methods][]
-> * :construction: [ .eventually()][ref-tab.eventually]
-> * :construction: [ .isSettlingTab()][ref-tab.is-settling-tab]
-> * :construction: [ .isTab()][ref-tab.is-tab]
+> #### [Tab Constructor Methods][ref-tab-constructor-methods]
+> * [.eventually()][ref-tab.eventually]
+>   Filter out progress notifications for a given tab.
+> 
+> * [.isSettlingTab()][ref-tab.is-settling-tab]
+>   Are progress notifications being filtered out for a given tab?
+> 
+> * [.isTab()][ref-tab.is-tab]
+>   Was the given object created by this Tab library?
+> 
 > * :thought_balloon: [ .likeTab()][ref-tab.like-tab]
+>   ...
+> 
 > * :thought_balloon: [ .tabify()][ref-tab.tabify]
-> * :thought_balloon: [ .tabifyWith()][ref-tab.tabifyWith]
+>   ...
+> 
+> * :thought_balloon: [ .tabifyWith()][ref-tab.tabify-with]
+>   ...
+> 
 > * :thought_balloon: [ .untabify()][ref-tab.untabify]
-> * :thought_balloon: [ .untabifyWith()][ref-tab.untabifyWith]
+>   ...
+> 
+> * :thought_balloon: [ .untabifyWith()][ref-tab.untabify-with]
+>   ...
+> 
 > * :thought_balloon: [ .when()][ref-tab.when]
+>   ...
 >
-> <a name="cat-tab-prototype-methods" ></a>
-> #### [Tab Prototype Methods][]
+> #### [Tab Prototype Methods][ref-tab-prototype-methods]
 > * :thought_balloon: [ .cancel()][ref-tab.prototype.cancel]
-> * :construction: [ .catch()][ref-tab.prototype.catch]
-> * :thought_balloon: [ .count()][ref-tab.prototype.count]
-> * :construction: [ .defer()][ref-tab.prototype.defer]
-> * :thought_balloon: [ .deferWith()][ref-tab.prototype.deferWith]
-> * :eyeglasses: [ .delegate()][ref-tab.prototype.delegate]
-> * :construction: [ .do()][ref-tab.prototype.do]
-> * :thought_balloon: [ .end()][ref-tab.prototype.end]
-> * :thought_balloon: [ .evaluate()][ref-tab.prototype.evaluate]
-> * :construction: [ .eventually()][ref-tab.prototype.eventually]
-> * :construction: [ .finally()][ref-tab.prototype.finally]
-> * :construction: [ .fulfill()][ref-tab.prototype.fulfill]
-> * :thought_balloon: [ .hasDelegated()][ref-tab.prototype.has-delegated]
-> * :construction: [ .hasError()][ref-tab.prototype.has-error]
-> * :construction: [ .hasSettled()][ref-tab.prototype.has-settled]
-> * :construction: [ .hasValue()][ref-tab.prototype.has-value]
-> * :thought_balloon: [ .raise()][ref-tab.prototype.raise]
-> * :construction: [ .reject()][ref-tab.prototype.reject]
-> * :construction: [ .settle()][ref-tab.prototype.settle]
-> * :thought_balloon: [ .then()][ref-tab.prototype.then]
-> * :construction: [ .throw()][ref-tab.prototype.throw]
-> * :construction: [ .toString()][ref-tab.prototype.to-string]
-> * :construction: [ .try()][ref-tab.prototype.try]
-> * :thought_balloon: [ .undelegate()][ref-tab.prototype.undelegate]
-> * :construction: [ .update()][ref-tab.prototype.update]
-> * :construction: [ .valueOf()][ref-tab.prototype.value-of]
-> * :thought_balloon: [ .wrap()][ref-tab.prototype.wrap]
+>   ...
 >
-> <a name="cat-tab-instance-methods" ></a>
-> #### [Tab Instance Methods][]
-> * :thought_balloon: [ ._delegate()][ref-tab._delegate]
-> * :thought_balloon: [ ._hasDelegated()][ref-tab._has-delegated]
-> * :thought_balloon: [ ._trap()][ref-tab._trap]
+> * [.catch()][ref-tab.prototype.catch]
+>   Process error notifications for this tab.
+>
+> * :thought_balloon: [ .count()][ref-tab.prototype.count]
+>   ...
+>
+> * [.defer()][ref-tab.prototype.defer]
+>   Create a function that uses this tab to store its result.
+>
+> * :thought_balloon: [ .deferWith()][ref-tab.prototype.defer-with]
+>   ...
+>
+> * :eyeglasses: [ .delegate()][ref-tab.prototype.delegate]
+>   ...
+>
+> * [.do()][ref-tab.prototype.do]
+>   Create an notification processing scope for this tab.
+>
+> * :thought_balloon: [ .end()][ref-tab.prototype.end]
+>   ...
+>
+> * :thought_balloon: [ .evaluate()][ref-tab.prototype.evaluate]
+>   ...
+>
+> * [.eventually()][ref-tab.prototype.eventually]
+>   Filter out progress notifications for this tab.
+>
+> * [.finally()][ref-tab.prototype.finally]
+>   Process value and error notifications for this tab.
+>
+> * [.fulfill()][ref-tab.prototype.fulfill]
+>   Settle this tab with a value.
+>
+> * :thought_balloon: [ .hasDelegated()][ref-tab.prototype.has-delegated]
+>   ...
+>
+> * [.hasError()][ref-tab.prototype.has-error]
+>   Has this tab an error?
+>
+> * [.hasSettled()][ref-tab.prototype.has-settled]
+>   Has this tab settled?
+>
+> * [.hasValue()][ref-tab.prototype.has-value]
+>   Has this tab a value?
+>
+> * :thought_balloon: [ .raise()][ref-tab.prototype.raise]
+>   ...
+>
+> * [.reject()][ref-tab.prototype.reject]
+>   Settle this tab with an error.
+>
+> * [.settle()][ref-tab.prototype.settle]
+>   Settle this tab without changing its current value or error.
+>
+> * :thought_balloon: [ .then()][ref-tab.prototype.then]
+>   ...
+>
+> * [.throw()][ref-tab.prototype.throw]
+>   Set an error for this tab.
+>
+> * [.toString()][ref-tab.prototype.to-string]
+>   Get a string representation for this tab.
+>
+> * [.try()][ref-tab.prototype.try]
+>   Process value notifications for this tab.
+>
+> * :thought_balloon: [ .undelegate()][ref-tab.prototype.undelegate]
+>   ...
+>
+> * [.update()][ref-tab.prototype.update]
+>   Set a value for this tab
+>
+> * [.valueOf()][ref-tab.prototype.value-of]
+>   Get the principal value of this tab.
+>
+> * :thought_balloon: [ .wrap()][ref-tab.prototype.wrap]
+>   ...
+>
+> #### [Tab Instance Methods][ref-tab-instance-methods]
+> * :thought_balloon: [ ._delegate()][ref-tab._delegate]> 
+>   ...
+>
+> * :thought_balloon: [ ._hasDelegated()][ref-tab._has-delegated]> 
+>   ...
+>
+> * :thought_balloon: [ ._trap()][ref-tab._trap]> 
+>   ...
+>
 > * :thought_balloon: [ ._undelegate()][ref-tab._undelegate]
+>   ...
+>
 
 
 
@@ -76,63 +153,63 @@
 
 
 
-[top]: #top "back to the top of this page"
-[topics]: /doc/topics.md#topics "back to the 'Topics' section"
-[reference]: #reference "back to the 'Reference' section"
+[top]:       #top                        "back to the top of this page"
+[topics]:    /doc/topics.md#topics       "back to the 'Topics' section"
+[reference]: #reference                  "back to the 'Reference' section"
 
-[cat-tab-object]: #cat-tab-object "more attributes and methods under 'Tab Object'"
+[ref-tab-object]:                  #tab-object                                       "more attributes and methods under 'Tab Object'"
+[ref-tab-constructor]:             #tab-constructor                                  "more attributes and methods under 'Tab Constructor'"
+[ref-tab-constructor-attributes]:  #tab-constructor-attributes                       "more attributes under 'Tab Constructor Attributes'"
+[ref-tab-constructor-methods]:     #tab-constructor-methods                          "more methods under 'Tab Constructor Methods'"
+[ref-tab-prototype-methods]:       #tab-prototype-methods                            "more methods under 'Tab Prototype Methods'"
+[ref-tab-instance-methods]:        #tab-instance-methods                             "more methods under 'Tab Instance Methods'"
 
-[cat-tab-constructor]: #cat-tab-constructor "more attributes and methods under 'Tab Constructor'"
-[ref-new-tab]: tbd "!!! coming soon !!!"
-[ref-tab]: tbd "!!! coming soon !!!"
+[ref-new-tab]:                     /doc/reference/new-tab.md#top                     "!!! coming soon !!!"
+[ref-tab]:                         /doc/reference/tab.md#top                         "!!! coming soon !!!"
 
-[cat-tab-constructor-attributes]: #cat-tab-constructor-attributes "more attributes under 'Tab Constructor Attributes'"
-[ref-tab.context]: tbd "!!! having some vague ideas !!!"
-[ref-tab.version]: tbd "!!! coming soon !!!"
+[ref-tab.context]:                 /doc/reference/tab.context.md#top                 "!!! having some vague ideas !!!"
+[ref-tab.version]:                 /doc/reference/tab.version.md#top                 "!!! coming soon !!!"
 
-[cat-tab-constructor-methods]: #cat-tab-constructor-methods "more methods under 'Tab Constructor Methods'"
-[ref-tab.eventually]: tbd "!!! coming soon !!!"
-[ref-tab.is-settling-tab]: tbd "!!! coming soon !!!"
-[ref-tab.is-tab]: tbd "!!! coming soon !!!"
-[ref-tab.like-tab]: tbd "!!! having some vague ideas !!!"
-[ref-tab.tabify]: tbd "!!! having some vague ideas !!!"
-[ref-tab.tabifyWith]: tbd "!!! having some vague ideas !!!"
-[ref-tab.untabify]: tbd "!!! having some vague ideas !!!"
-[ref-tab.untabifyWith]: tbd "!!! having some vague ideas !!!"
-[ref-tab.when]: tbd "!!! having some vague ideas !!!"
+[ref-tab.eventually]:              /doc/reference/tab.eventually.md#top              "!!! coming soon !!!"
+[ref-tab.is-settling-tab]:         /doc/reference/tab.is-settling-tab.md#top         "!!! coming soon !!!"
+[ref-tab.is-tab]:                  /doc/reference/tab.is-tab.md#top                  "!!! coming soon !!!"
+[ref-tab.like-tab]:                /doc/reference/tab.like-tab.md#top                "!!! having some vague ideas !!!"
+[ref-tab.tabify]:                  /doc/reference/tab.tabify.md#top                  "!!! having some vague ideas !!!"
+[ref-tab.tabify-with]:             /doc/reference/tab.tabify-with.md#top             "!!! having some vague ideas !!!"
+[ref-tab.untabify]:                /doc/reference/tab.untabify.md#top                "!!! having some vague ideas !!!"
+[ref-tab.untabify-with]:           /doc/reference/tab.untabify-with.md#top           "!!! having some vague ideas !!!"
+[ref-tab.when]:                    /doc/reference/tab.when.md#top                    "!!! having some vague ideas !!!"
 
-[cat-tab-prototype-methods]: #cat-tab-prototype-methods "more methods under 'Tab Prototype Methods'"
-[ref-tab.prototype.cancel]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.catch]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.count]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.defer]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.deferWith]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.delegate]: tbd "!!! looking for my glasses !!!"
-[ref-tab.prototype.do]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.end]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.evaluate]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.eventually]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.finally]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.fulfill]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.has-delegated]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.has-error]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.has-settled]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.has-value]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.raise]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.reject]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.settle]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.then]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.throw]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.to-string]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.try]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.undelegate]: tbd "!!! having some vague ideas !!!"
-[ref-tab.prototype.update]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.value-of]: tbd "!!! coming soon !!!"
-[ref-tab.prototype.wrap]: tbd "!!! having some vague ideas !!!"
+[ref-tab.prototype.cancel]:        /doc/reference/tab.prototype.cancel.md#top        "!!! having some vague ideas !!!"
+[ref-tab.prototype.catch]:         /doc/reference/tab.prototype.catch.md#top         "!!! coming soon !!!"
+[ref-tab.prototype.count]:         /doc/reference/tab.prototype.count.md#top         "!!! having some vague ideas !!!"
+[ref-tab.prototype.defer]:         /doc/reference/tab.prototype.defer.md#top         "!!! coming soon !!!"
+[ref-tab.prototype.defer-with]:    /doc/reference/tab.prototype.defer-with.md#top    "!!! having some vague ideas !!!"
+[ref-tab.prototype.delegate]:      /doc/reference/tab.prototype.delegate.md#top      "!!! looking for my glasses !!!"
+[ref-tab.prototype.do]:            /doc/reference/tab.prototype.do.md#top            "!!! coming soon !!!"
+[ref-tab.prototype.end]:           /doc/reference/tab.prototype.end.md#top           "!!! having some vague ideas !!!"
+[ref-tab.prototype.evaluate]:      /doc/reference/tab.prototype.evaluate.md#top      "!!! having some vague ideas !!!"
+[ref-tab.prototype.eventually]:    /doc/reference/tab.prototype.eventually.md#top    "!!! coming soon !!!"
+[ref-tab.prototype.finally]:       /doc/reference/tab.prototype.finally.md#top       "!!! coming soon !!!"
+[ref-tab.prototype.fulfill]:       /doc/reference/tab.prototype.fulfill.md#top       "!!! coming soon !!!"
+[ref-tab.prototype.has-delegated]: /doc/reference/tab.prototype.has-delegated.md#top "!!! having some vague ideas !!!"
+[ref-tab.prototype.has-error]:     /doc/reference/tab.prototype.has-error.md#top     "!!! coming soon !!!"
+[ref-tab.prototype.has-settled]:   /doc/reference/tab.prototype.has-settled.md#top   "!!! coming soon !!!"
+[ref-tab.prototype.has-value]:     /doc/reference/tab.prototype.has-value.md#top     "!!! coming soon !!!"
+[ref-tab.prototype.raise]:         /doc/reference/tab.prototype.raise.md#top         "!!! having some vague ideas !!!"
+[ref-tab.prototype.reject]:        /doc/reference/tab.prototype.reject.md#top        "!!! coming soon !!!"
+[ref-tab.prototype.settle]:        /doc/reference/tab.prototype.settle.md#top        "!!! coming soon !!!"
+[ref-tab.prototype.then]:          /doc/reference/tab.prototype.then.md#top          "!!! having some vague ideas !!!"
+[ref-tab.prototype.throw]:         /doc/reference/tab.prototype.throw.md#top         "!!! coming soon !!!"
+[ref-tab.prototype.to-string]:     /doc/reference/tab.prototype.to-string.md#top     "!!! coming soon !!!"
+[ref-tab.prototype.try]:           /doc/reference/tab.prototype.try.md#top           "!!! coming soon !!!"
+[ref-tab.prototype.undelegate]:    /doc/reference/tab.prototype.undelegate.md#top    "!!! having some vague ideas !!!"
+[ref-tab.prototype.update]:        /doc/reference/tab.prototype.update.md#top        "!!! coming soon !!!"
+[ref-tab.prototype.value-of]:      /doc/reference/tab.prototype.value-of.md#top      "!!! coming soon !!!"
+[ref-tab.prototype.wrap]:          /doc/reference/tab.prototype.wrap.md#top          "!!! having some vague ideas !!!"
 
-[cat-tab-instance-methods]: #cat-tab-instance-methods "more methods under 'Tab Instance Methods'"
-[ref-tab._delegate]: tbd "!!! having some vague ideas !!!"
-[ref-tab._has-delegated]: tbd "!!! having some vague ideas !!!"
-[ref-tab._trap]: tbd "!!! having some vague ideas !!!"
-[ref-tab._undelegate]: tbd "!!! having some vague ideas !!!"
+[ref-tab._delegate]:               /doc/reference/tab._delegate.md#top               "!!! having some vague ideas !!!"
+[ref-tab._has-delegated]:          /doc/reference/tab._has-delegated.md#top          "!!! having some vague ideas !!!"
+[ref-tab._trap]:                   /doc/reference/tab._trap.md#top                   "!!! having some vague ideas !!!"
+[ref-tab._undelegate]:             /doc/reference/tab._undelegate.md#top             "!!! having some vague ideas !!!"
 
