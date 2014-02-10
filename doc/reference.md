@@ -12,140 +12,100 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 > #### [Tab Constructor][ref-tab-constructor]
 > * [new Tab()][ref-new-tab] :construction:  
 >   create a new tab.
->   
 > * [Tab()][ref-tab] :construction:  
 >   convert to a tab, create a new tab if required.
-> 
+>
 > #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
 > * [.context][ref-tab.context]  
 >   :thought_balloon:
->   
 > * [.version][ref-tab.version] :construction:  
 >   version of this Tab library.
 >
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
 > * [.eventually()][ref-tab.eventually] :construction:  
 >   filter out progress notifications for a given tab.
-> 
 > * [.isSettlingTab()][ref-tab.is-settling-tab] :construction:  
 >   are progress notifications being filtered out for a given tab?
-> 
 > * [.isTab()][ref-tab.is-tab] :construction:  
 >   was the given object created by this Tab library?
-> 
 > * [.likeTab()][ref-tab.like-tab]  
 >   :thought_balloon:
-> 
 > * [.tabify()][ref-tab.tabify]  
 >   :thought_balloon:
-> 
 > * [.tabifyWith()][ref-tab.tabify-with]  
 >   :thought_balloon:
-> 
 > * [.untabify()][ref-tab.untabify]  
 >   :thought_balloon:
-> 
 > * [.untabifyWith()][ref-tab.untabify-with]  
 >   :thought_balloon:
-> 
 > * [.when()][ref-tab.when]  
 >   :thought_balloon:
 >
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
 > * [.cancel()][ref-tab.prototype.cancel]  
 >   :thought_balloon:
->
 > * [.catch()][ref-tab.prototype.catch] :construction:  
 >   process error notifications for this tab.
->
 > * [.count()][ref-tab.prototype.count]  
 >   :thought_balloon:
->
 > * [.defer()][ref-tab.prototype.defer] :construction:  
 >   convert a function to use this tab to store its result.
->
 > * [.deferWith()][ref-tab.prototype.defer-with]  
 >   :thought_balloon:
->
 > * [.delegate()][ref-tab.prototype.delegate]  
 >   :eyeglasses:
->
 > * [.do()][ref-tab.prototype.do] :construction:  
 >   create an notification processing scope for this tab.
->
 > * [.end()][ref-tab.prototype.end]  
 >   :thought_balloon:
->
 > * [.evaluate()][ref-tab.prototype.evaluate]  
 >   :thought_balloon:
->
 > * [.eventually()][ref-tab.prototype.eventually] :construction:  
 >   filter out progress notifications for this tab.
->
 > * [.finally()][ref-tab.prototype.finally] :construction:  
 >   process value and error notifications for this tab.
->
 > * [.fulfill()][ref-tab.prototype.fulfill] :construction:  
 >   settle this tab with a value.
->
 > * [.hasDelegated()][ref-tab.prototype.has-delegated]  
 >   :thought_balloon:
->
 > * [.hasError()][ref-tab.prototype.has-error] :construction:  
 >   has this tab an error?
->
 > * [.hasSettled()][ref-tab.prototype.has-settled] :construction:  
 >   has this tab settled?
->
 > * [.hasValue()][ref-tab.prototype.has-value] :construction:  
 >   has this tab a value?
->
 > * [.raise()][ref-tab.prototype.raise]  
 >   :thought_balloon:
->
 > * [.reject()][ref-tab.prototype.reject] :construction:  
 >   settle this tab with an error.
->
 > * [.settle()][ref-tab.prototype.settle] :construction:  
 >   settle this tab without changing its current value or error.
->
 > * [.then()][ref-tab.prototype.then]  
 >   :thought_balloon:
->
 > * [.throw()][ref-tab.prototype.throw] :construction:  
 >   set an error for this tab.
->
 > * [.toString()][ref-tab.prototype.to-string] :construction:  
 >   get a string representation for this tab.
->
 > * [.try()][ref-tab.prototype.try] :construction:  
 >   process value notifications for this tab.
->
 > * [.undelegate()][ref-tab.prototype.undelegate]  
 >   :thought_balloon:
->
 > * [.update()][ref-tab.prototype.update] :construction:  
 >   set a value for this tab.
->
 > * [.valueOf()][ref-tab.prototype.value-of] :construction:  
 >   get the principal value of this tab.
->
 > * [.wrap()][ref-tab.prototype.wrap]  
 >   :thought_balloon:
 >
 > #### [Tab Instance Methods][ref-tab-instance-methods]
 > * [._delegate()][ref-tab._delegate]  
 >   :thought_balloon:
->
 > * [._hasDelegated()][ref-tab._has-delegated]  
 >   :thought_balloon:
->
 > * [._trap()][ref-tab._trap]  
 >   :thought_balloon:
->
 > * [._undelegate()][ref-tab._undelegate]  
 >   :thought_balloon:
->
 
 
 
@@ -159,12 +119,16 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 [topics]:    /doc/topics.md#topics       "back to the 'Topics' section"
 [reference]: #reference                  "back to the 'Reference' section"
 
+
+
 [ref-tab-object]:                  #tab-object                                       "more attributes and methods under 'Tab Object'"
 [ref-tab-constructor]:             #tab-constructor                                  "more attributes and methods under 'Tab Constructor'"
 [ref-tab-constructor-attributes]:  #tab-constructor-attributes                       "more attributes under 'Tab Constructor Attributes'"
 [ref-tab-constructor-methods]:     #tab-constructor-methods                          "more methods under 'Tab Constructor Methods'"
 [ref-tab-prototype-methods]:       #tab-prototype-methods                            "more methods under 'Tab Prototype Methods'"
 [ref-tab-instance-methods]:        #tab-instance-methods                             "more methods under 'Tab Instance Methods'"
+
+
 
 [ref-new-tab]:                     /doc/reference/new-tab.md#top                     "new Tab(): create a new tab."
 [ref-tab]:                         /doc/reference/tab.md#top                         "Tab(): convert to a tab, create a new tab if required."

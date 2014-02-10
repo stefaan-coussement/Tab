@@ -46,7 +46,7 @@ Check it out...
 > * [A Basic Promise][topic-a-basic-promise] :new:  
 >   using a Tab object as a promise.
 > * [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
->   :zzz:
+>   :thought_balloon:
 > * [Basic Concurrent Computing][topic-basic-concurrent-computing]  
 >   :thought_balloon:
 
@@ -78,7 +78,7 @@ Check it out...
 > * [Prioritizing Execution][topic-prioritizing-execution]  
 >   :thought_balloon:
 > * [Lazy Evaluation][topic-lazy-evaluation]  
->   :thought_balloon:
+>   :zzz:
 > * [Working With Remote Objects][topic-working-with-remote-objects]  
 >   :thought_balloon:
 > * [Enumerating Tabs][topic-enumerating-tabs]  
@@ -98,7 +98,7 @@ Check it out...
 
 ### [Where Are Tabs Lacking?][topic-where-are-tabs-lacking]
 > * [Debugging asynchronous events][topic-debugging-asynchronous-events]  
-> 
+>   :thought_balloon:
 
 
 
@@ -112,14 +112,18 @@ Check it out...
 [topics]:    #topics                     "back to the 'Topics' section"
 [reference]: /doc/reference.md#reference "back to the 'Reference' section"
 
+
+
 [topic-the-basics]:                              #the-basics                                                "more topics under 'The Basics'"
 [topic-where-are-tabs-helping]:                  #where-are-tabs-helping                                    "more topics under 'Where Are Tabs Helping'"
 [topic-where-are-tabs-lacking]:                  #where-are-tabs-lacking                                    "more topics under 'Where Are Tabs Lacking'"
 
-[topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab - creating and using a basic Tab object."
-[topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback - using a Tab object to handle callbacks."
-[topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise - using a Tab object as a promise."
-[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: !!! thinking hard !!!"
+
+
+[topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
+[topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
+[topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
+[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: ..."
 [topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: ..."
 
 [topic-keeping-clean-callback-signatures]:       /doc/topics/keeping-clean-callback-signatures.md#top       "Keeping Clean Callback Signatures: ..."
@@ -135,7 +139,7 @@ Check it out...
 [topic-timing-out-execution]:                    /doc/topics/timing-out-execution.md#top                    "Timing Out Execution: ..."
 [topic-delaying-execution]:                      /doc/topics/delaying-execution.md#top                      "Delaying Execution: ..."
 [topic-prioritizing-execution]:                  /doc/topics/prioritizing-execution.md#top                  "Prioritizing Execution: ..."
-[topic-lazy-evaluation]:                         /doc/topics/lazy-evaluation.md#top                         "Lazy Evaluation: ..."
+[topic-lazy-evaluation]:                         /doc/topics/lazy-evaluation.md#top                         "Lazy Evaluation: !!! thinking hard !!!"
 [topic-working-with-remote-objects]:             /doc/topics/working-with-remote-objects.md#top             "Working With Remote Objects: ..."
 [topic-enumerating-tabs]:                        /doc/topics/enumerating-tabs.md#top                        "Enumerating Tabs: ..."
 [topic-iterating-tabs]:                          /doc/topics/iterating-tabs.md#top                          "Iterating Tabs: ..."
