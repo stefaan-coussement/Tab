@@ -39,38 +39,66 @@ Check it out...
 ## [Topics][topics]
 
 ### [The Basics][topic-the-basics]
-> * [A Basic Tab][topic-a-basic-tab] :new:
-> * [A Basic Callback][topic-a-basic-callback] :new:
-> * [A Basic Promise][topic-a-basic-promise] :new:
-> * :zzz: [ Basic Lazy Evaluation][topic-basic-lazy-evaluation]
-> * :construction: [ Basic Concurrent Computing][topic-basic-concurrent-computing]
+> * [A Basic Tab][topic-a-basic-tab] :new:  
+>   creating and using a basic Tab object.
+> * [A Basic Callback][topic-a-basic-callback] :new:  
+>   using a Tab object to handle callbacks.
+> * [A Basic Promise][topic-a-basic-promise] :new:  
+>   using a Tab object as a promise.
+> * [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
+>   :zzz:
+> * [Basic Concurrent Computing][topic-basic-concurrent-computing]  
+>   :thought_balloon:
 
 ### [Where Are Tabs Helping?][topic-where-are-tabs-helping]
-> * :thought_balloon: [ Keeping Clean Callback Signatures][topic-keeping-clean-callback-signatures]
-> * :thought_balloon: [ Shallow Callback Nesting][topic-shallow-callback-nesting]
-> * :thought_balloon: [ Top-Down Control Flow][topic-top-down-control-flow]
-> * :thought_balloon: [ Predicting Execution Order][topic-predicting-execution-order]
-> * :thought_balloon: [ Modular Decomposition][topic-modular-decomposition]
-> * :thought_balloon: [ Aspect Oriented Programming][topic-aspect-oriented-programming]
-> * :thought_balloon: [ Exception Style Error Propagation][topic-exception-style-error-propagation]
-> * :thought_balloon: [ Monitoring Function Calls][topic-monitoring-function-calls]
-> * :thought_balloon: [ Throttling Execution][topic-throttling-execution]
-> * :thought_balloon: [ Cancelling Execution][topic-cancelling-execution]
-> * :thought_balloon: [ Timing Out Execution][topic-timing-out-execution]
-> * :thought_balloon: [ Delaying Execution][topic-delaying-execution]
-> * :thought_balloon: [ Prioritizing Execution][topic-prioritizing-execution]
-> * :thought_balloon: [ Lazy Evaluation][topic-lazy-evaluation]
-> * :thought_balloon: [ Working With Remote Objects][topic-working-with-remote-objects]
-> * :thought_balloon: [ Enumerating Tabs][topic-enumerating-tabs]
-> * :thought_balloon: [ Iterating Tabs][topic-iterating-tabs]
-> * :thought_balloon: [ Generating Tabs][topic-generating-tabs]
-> * :thought_balloon: [ Joining Results From Parallel Callbacks][topic-joining-results-from-parallel-execution]
-> * :thought_balloon: [ Synchronizing Execution][topic-synchronizing-execution]
-> * :thought_balloon: [ Isolating Information Providers][topic-isolating-information-providers]
-> * :thought_balloon: [ Isolating Information Consumers][topic-isolating-information-consumers]
+> * [Keeping Clean Callback Signatures][topic-keeping-clean-callback-signatures]  
+>   :thought_balloon:
+> * [Shallow Callback Nesting][topic-shallow-callback-nesting]  
+>   :thought_balloon:
+> * [Top-Down Control Flow][topic-top-down-control-flow]  
+>   :thought_balloon:
+> * [Predicting Execution Order][topic-predicting-execution-order]  
+>   :thought_balloon:
+> * [Modular Decomposition][topic-modular-decomposition]  
+>   :thought_balloon:
+> * [Aspect Oriented Programming][topic-aspect-oriented-programming]  
+>   :thought_balloon:
+> * [Exception Style Error Propagation][topic-exception-style-error-propagation]  
+>   :thought_balloon:
+> * [Monitoring Function Calls][topic-monitoring-function-calls]  
+>   :thought_balloon:
+> * [Throttling Execution][topic-throttling-execution]  
+>   :thought_balloon:
+> * [Cancelling Execution][topic-cancelling-execution]  
+>   :thought_balloon:
+> * [Timing Out Execution][topic-timing-out-execution]  
+>   :thought_balloon:
+> * [Delaying Execution][topic-delaying-execution]  
+>   :thought_balloon:
+> * [Prioritizing Execution][topic-prioritizing-execution]  
+>   :thought_balloon:
+> * [Lazy Evaluation][topic-lazy-evaluation]  
+>   :thought_balloon:
+> * [Working With Remote Objects][topic-working-with-remote-objects]  
+>   :thought_balloon:
+> * [Enumerating Tabs][topic-enumerating-tabs]  
+>   :thought_balloon:
+> * [Iterating Tabs][topic-iterating-tabs]  
+>   :thought_balloon:
+> * [Generating Tabs][topic-generating-tabs]  
+>   :thought_balloon:
+> * [Joining Results From Parallel Callbacks][topic-joining-results-from-parallel-execution]  
+>   :thought_balloon:
+> * [Synchronizing Execution][topic-synchronizing-execution]  
+>   :thought_balloon:
+> * [Isolating Information Providers][topic-isolating-information-providers]  
+>   :thought_balloon:
+> * [Isolating Information Consumers][topic-isolating-information-consumers]  
+>   :thought_balloon:
 
 ### [Where Are Tabs Lacking?][topic-where-are-tabs-lacking]
-> * :thought_balloon: [ Debugging asynchronous events][topic-debugging-asynchronous-events]
+> * [Debugging asynchronous events][topic-debugging-asynchronous-events]  
+> 
 
 
 
@@ -91,31 +119,31 @@ Check it out...
 [topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab - creating and using a basic Tab object."
 [topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback - using a Tab object to handle callbacks."
 [topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise - using a Tab object as a promise."
-[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "!!! thinking hard !!!"
-[topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "!!! coming soon !!!"
+[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: !!! thinking hard !!!"
+[topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: ..."
 
-[topic-keeping-clean-callback-signatures]:       /doc/topics/keeping-clean-callback-signatures.md#top       "!!! having some vague ideas !!!"
-[topic-shallow-callback-nesting]:                /doc/topics/shallow-callback-nesting.md#top                "!!! having some vague ideas !!!"
-[topic-top-down-control-flow]:                   /doc/topics/top-down-control-flow.md#top                   "!!! having some vague ideas !!!"
-[topic-predicting-execution-order]:              /doc/topics/predicting-execution-order.md#top              "!!! having some vague ideas !!!"
-[topic-modular-decomposition]:                   /doc/topics/modular-decomposition.md#top                   "!!! having some vague ideas !!!"
-[topic-aspect-oriented-programming]:             /doc/topics/aspect-oriented-programming].md#top            "!!! having some vague ideas !!!"
-[topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "!!! having some vague ideas !!!"
-[topic-monitoring-function-calls]:               /doc/topics/monitoring-function-calls.md#top               "!!! having some vague ideas !!!"
-[topic-throttling-execution]:                    /doc/topics/throttling-execution.md#top                    "!!! having some vague ideas !!!"
-[topic-cancelling-execution]:                    /doc/topics/cancelling-execution.md#top                    "!!! having some vague ideas !!!"
-[topic-timing-out-execution]:                    /doc/topics/timing-out-execution.md#top                    "!!! having some vague ideas !!!"
-[topic-delaying-execution]:                      /doc/topics/delaying-execution.md#top                      "!!! having some vague ideas !!!"
-[topic-prioritizing-execution]:                  /doc/topics/prioritizing-execution.md#top                  "!!! having some vague ideas !!!"
-[topic-lazy-evaluation]:                         /doc/topics/lazy-evaluation.md#top                         "!!! having some vague ideas !!!"
-[topic-working-with-remote-objects]:             /doc/topics/working-with-remote-objects.md#top             "!!! having some vague ideas !!!"
-[topic-enumerating-tabs]:                        /doc/topics/enumerating-tabs.md#top                        "!!! having some vague ideas !!!"
-[topic-iterating-tabs]:                          /doc/topics/iterating-tabs.md#top                          "!!! having some vague ideas !!!"
-[topic-generating-tabs]:                         /doc/topics/generating-tabs.md#top                         "!!! having some vague ideas !!!"
-[topic-joining-results-from-parallel-execution]: /doc/topics/joining-results-from-parallel-execution.md#top "!!! having some vague ideas !!!"
-[topic-synchronizing-execution]:                 /doc/topics/synchronizing-execution.md#top                 "!!! having some vague ideas !!!"
-[topic-isolating-information-providers]:         /doc/topics/isolating-information-providers.md#top         "!!! having some vague ideas !!!"
-[topic-isolating-information-consumers]:         /doc/topics/isolating-information-consumers.md#top         "!!! having some vague ideas !!!"
+[topic-keeping-clean-callback-signatures]:       /doc/topics/keeping-clean-callback-signatures.md#top       "Keeping Clean Callback Signatures: ..."
+[topic-shallow-callback-nesting]:                /doc/topics/shallow-callback-nesting.md#top                "Shallow Callback Nesting: ..."
+[topic-top-down-control-flow]:                   /doc/topics/top-down-control-flow.md#top                   "Top-Down Control Flow: ..."
+[topic-predicting-execution-order]:              /doc/topics/predicting-execution-order.md#top              "Predicting Execution Order: ..."
+[topic-modular-decomposition]:                   /doc/topics/modular-decomposition.md#top                   "Modular Decomposition: ..."
+[topic-aspect-oriented-programming]:             /doc/topics/aspect-oriented-programming].md#top            "Aspect Oriented Programming: ..."
+[topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: ..."
+[topic-monitoring-function-calls]:               /doc/topics/monitoring-function-calls.md#top               "Monitoring Function Calls: ..."
+[topic-throttling-execution]:                    /doc/topics/throttling-execution.md#top                    "Throttling Execution: ..."
+[topic-cancelling-execution]:                    /doc/topics/cancelling-execution.md#top                    "Cancelling Execution: ..."
+[topic-timing-out-execution]:                    /doc/topics/timing-out-execution.md#top                    "Timing Out Execution: ..."
+[topic-delaying-execution]:                      /doc/topics/delaying-execution.md#top                      "Delaying Execution: ..."
+[topic-prioritizing-execution]:                  /doc/topics/prioritizing-execution.md#top                  "Prioritizing Execution: ..."
+[topic-lazy-evaluation]:                         /doc/topics/lazy-evaluation.md#top                         "Lazy Evaluation: ..."
+[topic-working-with-remote-objects]:             /doc/topics/working-with-remote-objects.md#top             "Working With Remote Objects: ..."
+[topic-enumerating-tabs]:                        /doc/topics/enumerating-tabs.md#top                        "Enumerating Tabs: ..."
+[topic-iterating-tabs]:                          /doc/topics/iterating-tabs.md#top                          "Iterating Tabs: ..."
+[topic-generating-tabs]:                         /doc/topics/generating-tabs.md#top                         "Generating Tabs: ..."
+[topic-joining-results-from-parallel-execution]: /doc/topics/joining-results-from-parallel-execution.md#top "Joining Results From Parallel Execution: ..."
+[topic-synchronizing-execution]:                 /doc/topics/synchronizing-execution.md#top                 "Synchronizing Execution: ..."
+[topic-isolating-information-providers]:         /doc/topics/isolating-information-providers.md#top         "Isolating Information Providers: ..."
+[topic-isolating-information-consumers]:         /doc/topics/isolating-information-consumers.md#top         "Isolating Information Consumers: ..."
 
-[topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "!!! having some vague ideas !!!"
+[topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
 

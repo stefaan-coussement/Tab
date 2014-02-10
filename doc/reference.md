@@ -52,98 +52,98 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 >   :thought_balloon:
 >
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
-> * [**.cancel()**][ref-tab.prototype.cancel]  
+> * [.cancel()][ref-tab.prototype.cancel]  
 >   :thought_balloon:
 >
-> * [**.catch()**][ref-tab.prototype.catch] :construction:  
+> * [.catch()][ref-tab.prototype.catch] :construction:  
 >   process error notifications for this tab.
 >
-> * [**.count()**][ref-tab.prototype.count]  
+> * [.count()][ref-tab.prototype.count]  
 >   :thought_balloon:
 >
-> * [**.defer()**][ref-tab.prototype.defer] :construction:  
->   create a function that uses this tab to store its result.
+> * [.defer()][ref-tab.prototype.defer] :construction:  
+>   convert a function to use this tab to store its result.
 >
-> * [**.deferWith()**][ref-tab.prototype.defer-with]  
+> * [.deferWith()][ref-tab.prototype.defer-with]  
 >   :thought_balloon:
 >
-> * [**.delegate()**][ref-tab.prototype.delegate]  
+> * [.delegate()][ref-tab.prototype.delegate]  
 >   :eyeglasses:
 >
-> * [**.do()**][ref-tab.prototype.do] :construction:  
+> * [.do()][ref-tab.prototype.do] :construction:  
 >   create an notification processing scope for this tab.
 >
-> * [**.end()**][ref-tab.prototype.end]  
+> * [.end()][ref-tab.prototype.end]  
 >   :thought_balloon:
 >
-> * [**.evaluate()**][ref-tab.prototype.evaluate]  
+> * [.evaluate()][ref-tab.prototype.evaluate]  
 >   :thought_balloon:
 >
-> * [**.eventually()**][ref-tab.prototype.eventually] :construction:  
+> * [.eventually()][ref-tab.prototype.eventually] :construction:  
 >   filter out progress notifications for this tab.
 >
-> * [**.finally()**][ref-tab.prototype.finally]:construction:  
+> * [.finally()][ref-tab.prototype.finally] :construction:  
 >   process value and error notifications for this tab.
 >
-> * [**.fulfill()**][ref-tab.prototype.fulfill] :construction:  
+> * [.fulfill()][ref-tab.prototype.fulfill] :construction:  
 >   settle this tab with a value.
 >
-> * [**.hasDelegated()**][ref-tab.prototype.has-delegated]  
+> * [.hasDelegated()][ref-tab.prototype.has-delegated]  
 >   :thought_balloon:
 >
-> * [**.hasError()**][ref-tab.prototype.has-error] :construction:  
+> * [.hasError()][ref-tab.prototype.has-error] :construction:  
 >   has this tab an error?
 >
-> * [**.hasSettled()**][ref-tab.prototype.has-settled] :construction:  
+> * [.hasSettled()][ref-tab.prototype.has-settled] :construction:  
 >   has this tab settled?
 >
-> * [**.hasValue()**][ref-tab.prototype.has-value] :construction:  
+> * [.hasValue()][ref-tab.prototype.has-value] :construction:  
 >   has this tab a value?
 >
-> * [**.raise()**][ref-tab.prototype.raise]  
+> * [.raise()][ref-tab.prototype.raise]  
 >   :thought_balloon:
 >
-> * [**.reject()**][ref-tab.prototype.reject] :construction:  
+> * [.reject()][ref-tab.prototype.reject] :construction:  
 >   settle this tab with an error.
 >
-> * [**.settle()**][ref-tab.prototype.settle] :construction:  
+> * [.settle()][ref-tab.prototype.settle] :construction:  
 >   settle this tab without changing its current value or error.
 >
-> * [**.then()**][ref-tab.prototype.then]  
+> * [.then()][ref-tab.prototype.then]  
 >   :thought_balloon:
 >
-> * [**.throw()**][ref-tab.prototype.throw] :construction:  
+> * [.throw()][ref-tab.prototype.throw] :construction:  
 >   set an error for this tab.
 >
-> * [**.toString()**][ref-tab.prototype.to-string] :construction:  
+> * [.toString()][ref-tab.prototype.to-string] :construction:  
 >   get a string representation for this tab.
 >
-> * [**.try()**][ref-tab.prototype.try] :construction:  
+> * [.try()][ref-tab.prototype.try] :construction:  
 >   process value notifications for this tab.
 >
-> * [**.undelegate()**][ref-tab.prototype.undelegate]  
+> * [.undelegate()][ref-tab.prototype.undelegate]  
 >   :thought_balloon:
 >
-> * [**.update()**][ref-tab.prototype.update] :construction:  
+> * [.update()][ref-tab.prototype.update] :construction:  
 >   set a value for this tab.
 >
-> * [**.valueOf()**][ref-tab.prototype.value-of] :construction:  
+> * [.valueOf()][ref-tab.prototype.value-of] :construction:  
 >   get the principal value of this tab.
 >
-> * [**.wrap()**][ref-tab.prototype.wrap]  
+> * [.wrap()][ref-tab.prototype.wrap]  
 >   :thought_balloon:
 >
 > #### [Tab Instance Methods][ref-tab-instance-methods]
-> * [**._delegate()**][ref-tab._delegate]  
+> * [._delegate()][ref-tab._delegate]  
 >   :thought_balloon:
 >
-> * [**._hasDelegated()**][ref-tab._has-delegated]  
+> * [._hasDelegated()][ref-tab._has-delegated]  
 >   :thought_balloon:
 >
-> * [**._trap()**][ref-tab._trap]  
+> * [._trap()][ref-tab._trap]  
 >   :thought_balloon:
 >
-> * [**._undelegate()**][ref-tab._undelegate]  
+> * [._undelegate()][ref-tab._undelegate]  
 >   :thought_balloon:
 >
 
@@ -185,7 +185,7 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 [ref-tab.prototype.cancel]:        /doc/reference/tab.prototype.cancel.md#top        "Tab.prototype.cancel(): ..."
 [ref-tab.prototype.catch]:         /doc/reference/tab.prototype.catch.md#top         "Tab.prototype.catch(): process error notifications for this tab."
 [ref-tab.prototype.count]:         /doc/reference/tab.prototype.count.md#top         "Tab.prototype.count(): ..."
-[ref-tab.prototype.defer]:         /doc/reference/tab.prototype.defer.md#top         "Tab.prototype.defer(): create a function that uses this tab to store its result."
+[ref-tab.prototype.defer]:         /doc/reference/tab.prototype.defer.md#top         "Tab.prototype.defer(): convert a function to use this tab to store its result."
 [ref-tab.prototype.defer-with]:    /doc/reference/tab.prototype.defer-with.md#top    "Tab.prototype.deferWith(): ..."
 [ref-tab.prototype.delegate]:      /doc/reference/tab.prototype.delegate.md#top      "Tab.prototype.delegate(): !!! where are my glasses? !!!"
 [ref-tab.prototype.do]:            /doc/reference/tab.prototype.do.md#top            "Tab.prototype.do(): create an notification processing scope for this tab."
