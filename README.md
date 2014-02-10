@@ -1,9 +1,10 @@
 <a name="top" ></a>
 
-<img src="./doc/img/tab-logo96.png" alt="Tab logo" align="left" /><img src="./doc/img/1x1.png" align="left" height="96" width="20" />
+<img src="./doc/img/tab-logo96.png" alt="Tab logo" align="left" /><img src="./doc/img/1x1.png" align="left" height="96" width="20" /><img src="./img/1x1.png" height="10px" width="20" />
 # [Tab][top]
-A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 <br />
+
+A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
 
 **tab** (noun)
 > A projection, flap, or short strip attached to an object to facilitate opening, handling, or identification. <br /> [http://www.thefreedictionary.com/tab]
