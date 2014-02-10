@@ -10,140 +10,140 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 ### [Tab Object][ref-tab-object]
 > 
 > #### [Tab Constructor][ref-tab-constructor]
-> * [new Tab()][ref-new-tab]
+> * [new Tab()][ref-new-tab]  
 >   Create a new tab.
 >   
-> * [Tab()][ref-tab]
+> * [Tab()][ref-tab]  
 >   Convert to a tab, create a new tab if required.
 > 
 > #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
-> * :thought_balloon: [ .context][ref-tab.context]
+> * :thought_balloon: [ .context][ref-tab.context]  
 >   ...
 >   
-> * [.version][ref-tab.version]
+> * [.version][ref-tab.version]  
 >   Version of this Tab library.
 >
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
-> * [.eventually()][ref-tab.eventually]
+> * [.eventually()][ref-tab.eventually]  
 >   Filter out progress notifications for a given tab.
 > 
-> * [.isSettlingTab()][ref-tab.is-settling-tab]
+> * [.isSettlingTab()][ref-tab.is-settling-tab]  
 >   Are progress notifications being filtered out for a given tab?
 > 
-> * [.isTab()][ref-tab.is-tab]
+> * [.isTab()][ref-tab.is-tab]  
 >   Was the given object created by this Tab library?
 > 
-> * :thought_balloon: [ .likeTab()][ref-tab.like-tab]
+> * :thought_balloon: [ .likeTab()][ref-tab.like-tab]  
 >   ...
 > 
-> * :thought_balloon: [ .tabify()][ref-tab.tabify]
+> * :thought_balloon: [ .tabify()][ref-tab.tabify]  
 >   ...
 > 
-> * :thought_balloon: [ .tabifyWith()][ref-tab.tabify-with]
+> * :thought_balloon: [ .tabifyWith()][ref-tab.tabify-with]  
 >   ...
 > 
-> * :thought_balloon: [ .untabify()][ref-tab.untabify]
+> * :thought_balloon: [ .untabify()][ref-tab.untabify]  
 >   ...
 > 
-> * :thought_balloon: [ .untabifyWith()][ref-tab.untabify-with]
+> * :thought_balloon: [ .untabifyWith()][ref-tab.untabify-with]  
 >   ...
 > 
-> * :thought_balloon: [ .when()][ref-tab.when]
+> * :thought_balloon: [ .when()][ref-tab.when]  
 >   ...
 >
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
-> * :thought_balloon: [ .cancel()][ref-tab.prototype.cancel]
+> * :thought_balloon: [ .cancel()][ref-tab.prototype.cancel]  
 >   ...
 >
-> * [.catch()][ref-tab.prototype.catch]
+> * [.catch()][ref-tab.prototype.catch]  
 >   Process error notifications for this tab.
 >
-> * :thought_balloon: [ .count()][ref-tab.prototype.count]
+> * :thought_balloon: [ .count()][ref-tab.prototype.count]  
 >   ...
 >
-> * [.defer()][ref-tab.prototype.defer]
+> * [.defer()][ref-tab.prototype.defer]  
 >   Create a function that uses this tab to store its result.
 >
-> * :thought_balloon: [ .deferWith()][ref-tab.prototype.defer-with]
+> * :thought_balloon: [ .deferWith()][ref-tab.prototype.defer-with]  
 >   ...
 >
-> * :eyeglasses: [ .delegate()][ref-tab.prototype.delegate]
+> * :eyeglasses: [ .delegate()][ref-tab.prototype.delegate]  
 >   ...
 >
-> * [.do()][ref-tab.prototype.do]
+> * [.do()][ref-tab.prototype.do]  
 >   Create an notification processing scope for this tab.
 >
-> * :thought_balloon: [ .end()][ref-tab.prototype.end]
+> * :thought_balloon: [ .end()][ref-tab.prototype.end]  
 >   ...
 >
-> * :thought_balloon: [ .evaluate()][ref-tab.prototype.evaluate]
+> * :thought_balloon: [ .evaluate()][ref-tab.prototype.evaluate]  
 >   ...
 >
-> * [.eventually()][ref-tab.prototype.eventually]
+> * [.eventually()][ref-tab.prototype.eventually]  
 >   Filter out progress notifications for this tab.
 >
-> * [.finally()][ref-tab.prototype.finally]
+> * [.finally()][ref-tab.prototype.finally]  
 >   Process value and error notifications for this tab.
 >
-> * [.fulfill()][ref-tab.prototype.fulfill]
+> * [.fulfill()][ref-tab.prototype.fulfill]  
 >   Settle this tab with a value.
 >
-> * :thought_balloon: [ .hasDelegated()][ref-tab.prototype.has-delegated]
+> * :thought_balloon: [ .hasDelegated()][ref-tab.prototype.has-delegated]  
 >   ...
 >
-> * [.hasError()][ref-tab.prototype.has-error]
+> * [.hasError()][ref-tab.prototype.has-error]  
 >   Has this tab an error?
 >
-> * [.hasSettled()][ref-tab.prototype.has-settled]
+> * [.hasSettled()][ref-tab.prototype.has-settled]  
 >   Has this tab settled?
 >
-> * [.hasValue()][ref-tab.prototype.has-value]
+> * [.hasValue()][ref-tab.prototype.has-value]  
 >   Has this tab a value?
 >
-> * :thought_balloon: [ .raise()][ref-tab.prototype.raise]
+> * :thought_balloon: [ .raise()][ref-tab.prototype.raise]  
 >   ...
 >
-> * [.reject()][ref-tab.prototype.reject]
+> * [.reject()][ref-tab.prototype.reject]  
 >   Settle this tab with an error.
 >
-> * [.settle()][ref-tab.prototype.settle]
+> * [.settle()][ref-tab.prototype.settle]  
 >   Settle this tab without changing its current value or error.
 >
-> * :thought_balloon: [ .then()][ref-tab.prototype.then]
+> * :thought_balloon: [ .then()][ref-tab.prototype.then]  
 >   ...
 >
-> * [.throw()][ref-tab.prototype.throw]
+> * [.throw()][ref-tab.prototype.throw]  
 >   Set an error for this tab.
 >
-> * [.toString()][ref-tab.prototype.to-string]
+> * [.toString()][ref-tab.prototype.to-string]  
 >   Get a string representation for this tab.
 >
-> * [.try()][ref-tab.prototype.try]
+> * [.try()][ref-tab.prototype.try]  
 >   Process value notifications for this tab.
 >
-> * :thought_balloon: [ .undelegate()][ref-tab.prototype.undelegate]
+> * :thought_balloon: [ .undelegate()][ref-tab.prototype.undelegate]  
 >   ...
 >
-> * [.update()][ref-tab.prototype.update]
+> * [.update()][ref-tab.prototype.update]  
 >   Set a value for this tab
 >
-> * [.valueOf()][ref-tab.prototype.value-of]
+> * [.valueOf()][ref-tab.prototype.value-of]  
 >   Get the principal value of this tab.
 >
-> * :thought_balloon: [ .wrap()][ref-tab.prototype.wrap]
+> * :thought_balloon: [ .wrap()][ref-tab.prototype.wrap]  
 >   ...
 >
 > #### [Tab Instance Methods][ref-tab-instance-methods]
-> * :thought_balloon: [ ._delegate()][ref-tab._delegate]> 
+> * :thought_balloon: [ ._delegate()][ref-tab._delegate]  
 >   ...
 >
-> * :thought_balloon: [ ._hasDelegated()][ref-tab._has-delegated]> 
+> * :thought_balloon: [ ._hasDelegated()][ref-tab._has-delegated]  
 >   ...
 >
-> * :thought_balloon: [ ._trap()][ref-tab._trap]> 
+> * :thought_balloon: [ ._trap()][ref-tab._trap]  
 >   ...
 >
-> * :thought_balloon: [ ._undelegate()][ref-tab._undelegate]
+> * :thought_balloon: [ ._undelegate()][ref-tab._undelegate]  
 >   ...
 >
 
