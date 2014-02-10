@@ -2,7 +2,7 @@
 
 <a name="topic-a-basic-callback" ></a>
 
-<img src="../img/tab-logo106.png" alt="Tab logo" align="left" /><img src="../img/1x1.png" align="left" height="106" width="20" /><img src="../img/1x1.png" height="1" width="20" style="margin-top:45px;" />
+<img src="../img/tab-logo106.png" alt="Tab logo" align="left" style="float:left;" /><img src="../img/1x1.png" align="left" style="float:left;" height="106" width="20" /><img src="../img/1x1.png" height="1" width="20" style="margin-top:45px;" />
 ## [A Basic Callback][topic-a-basic-callback]
 <br />
 
