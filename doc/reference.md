@@ -2,7 +2,7 @@
 
 <a name="reference" ></a>
 
-<img src="./img/tab-logo112.png" alt="Tab logo" align="left" /><img src="./img/1x1.png" align="left" height="112px" width="20px" /><img src="./img/1x1.png" height="22px" width="20px" />
+<img src="./img/tab-logo104.png" alt="Tab logo" align="left" /><img src="./img/1x1.png" align="left" height="104" width="20" /><img src="./img/1x1.png" height="14" width="20" />
 ## [Reference]
 <br />
 
