@@ -1,8 +1,9 @@
 <a name="top" ></a>
 
-<img src="./doc/img/tab-logo128.png" alt="Tab logo" align="left" /><img src="./doc/img/1x1.png" align="left" height="128" width="20" /><img src="./doc/img/1x1.png" height="1" width="20" />
+<img src="./doc/img/tab-logo128.png" alt="Tab logo" align="left" /><img src="./doc/img/1x1.png" align="left" height="128" width="20" /><img src="./doc/img/1x1.png" height="1" width="20" style="margin-top:35px;" />
 # [Tab][top]
 A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
+
 <br />
 
 **tab** (noun)
