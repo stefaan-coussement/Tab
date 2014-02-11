@@ -1,8 +1,7 @@
 <a name="top" ></a>
 
-<img src="../img/tab-logo106.png" alt="Tab logo" align="left" style="float:left;" /><img src="../img/1x1.png" align="left" style="float:left;" height="106" width="20" /><img src="../img/1x1.png" height="1" width="20" style="margin-top:45px;" />
+<img src="../img/tab-logo66.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [A Basic Tap][topic-a-basic-tab]
-<br />
 
 ~~~~javascript
 var id, interval = 0,
