@@ -43,12 +43,13 @@
 
 
 
-[ref-tab-object]:                  /doc/reference.md#tab-object                      "more attributes and methods under 'Tab Object'"
-[ref-tab-constructor]:             /doc/reference.md#tab-constructor                 "more attributes and methods under 'Tab Constructor'"
-[ref-tab-constructor-attributes]:  /doc/reference.md#tab-constructor-attributes      "more attributes under 'Tab Constructor Attributes'"
-[ref-tab-constructor-methods]:     /doc/reference.md#tab-constructor-methods         "more methods under 'Tab Constructor Methods'"
-[ref-tab-prototype-methods]:       /doc/reference.md#tab-prototype-methods           "more methods under 'Tab Prototype Methods'"
-[ref-tab-instance-methods]:        /doc/reference.md#tab-instance-methods            "more methods under 'Tab Instance Methods'"
+[ref-tab-object]:                  #tab-object                                       "more attributes and methods under 'Tab Object'"
+[ref-tab-constructor]:             #tab-constructor                                  "more attributes and methods under 'Tab Constructor'"
+[ref-tab-constructor-attributes]:  #tab-constructor-attributes                       "more attributes under 'Tab Constructor Attributes'"
+[ref-tab-constructor-methods]:     #tab-constructor-methods                          "more methods under 'Tab Constructor Methods'"
+[ref-tab-prototype-methods]:       #tab-prototype-methods                            "more methods under 'Tab Prototype Methods'"
+[ref-tab-instance-methods]:        #tab-instance-methods                             "more methods under 'Tab Instance Methods'"
+[ref-other-elements]:              #other-elements                                   "more methods under 'Other Elements'"
 
 
 
@@ -58,6 +59,7 @@
 [ref-tab.context]:                 /doc/reference/tab.context.md#top                 "Tab.context: ..."
 [ref-tab.version]:                 /doc/reference/tab.version.md#top                 "Tab.version: version of this Tab library."
 
+[ref-tab.do]:                      /doc/reference/tab.do.md#top                      "Tab.do(): create an notification processing scope for a given tab."
 [ref-tab.eventually]:              /doc/reference/tab.eventually.md#top              "Tab.eventually: filter out progress notifications for a given tab."
 [ref-tab.is-settling-tab]:         /doc/reference/tab.is-settling-tab.md#top         "Tab.isSettlingTab: are progress notifications being filtered out for a given tab?"
 [ref-tab.is-tab]:                  /doc/reference/tab.is-tab.md#top                  "Tab.isTab: was the given object created by this Tab library?"
@@ -101,3 +103,5 @@
 [ref-tab._trap]:                   /doc/reference/tab._trap.md#top                   "tab._trap(): ..."
 [ref-tab._undelegate]:             /doc/reference/tab._undelegate.md#top             "tab._undelegate(): ..."
 
+[ref-scoping-function]:            /doc/reference/scoping-function.md#top            "scopingFunction: a function used as an argument in scoping Tab methods."
+[ref-processor-function]:          /doc/reference/processor-function.md#top          "processorFunction: a function used as an argument in processing Tab methods."
