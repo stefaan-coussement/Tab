@@ -11,9 +11,11 @@ A function used as an argument in scoping Tab methods.
 ### function scopingFunction( targetTab, sourceTab, parentTab ) : principalValue
 
 context:
+
 *   used in scoping Tab methods, typically with signature *scopingTabMethod( scopingFunction): newTab*
 
 subject:
+
 *   the tab that receives the forwarded or dispatched notifications.
 
     <img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
@@ -21,7 +23,8 @@ subject:
     this === newTab
     ~~~~
 
-arguments: 
+arguments:
+
 *   *targetTab : Tab*  
     the tab that receives the forwarded or dispatched notifications.
 
@@ -46,7 +49,8 @@ arguments:
     }
     ~~~~
 
-returns: 
+returns:
+
 *   *principalValue : any*  
 
 <br />

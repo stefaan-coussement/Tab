@@ -11,14 +11,17 @@ Filter out progress notifications for this tab.
 ### .eventually() : newSettlingTab
 
 effect:
+
 1.  ignores all received *progress*-notifications.
 1.  forwards a received *settled*-notification to *newSettlingTab*.
 
-returns: 
+returns:
+
 *   *newSettlingTab : Tab*  
     the tab that receives the forwarded notifications.
 
 example:
+
 ~~~~javascript
 var id, interval = 0,
     timer = new Tab();
@@ -38,21 +41,25 @@ timer
 ### .eventually( scopingFunction ) : newSettlingTab
 
 arguments:
-*   *function scopingFunction( targetTab, sourceTab, parentTab ) : principalValue*
+
+*   *function scopingFunction( targetTab, sourceTab, parentTab ) : principalValue*  
     a [scoping function][ref-scoping-function].
 
 effect:
+
 1.  ignores all received *progress*-notifications.
 1.  executes *scopingFunction* for a received *settled*-notification.
 1.  forwards the received *settled*-notification to its subscribers in *scopingFunction*.
 1.  [fulfills][ref-tab.prototype.fulfill] *newSettlingTab* with *principalValue*, provided *scopingFunction* didn't already [settle][ref-tab.prototype.settle] *newSettlingTab*, and provided *scopingFunction* didn't [defer][ref-tab.prototype.defer] processing for *newSettlingTab*.
 1.  [rejects][ref-tab.prototype.reject] *newSettlingTab* when *scopingFunction* throws, provided *scopingFunction* didn't already [settle][ref-tab.prototype.settle] *newSettlingTab*, and provided *scopingFunction* didn't [defer][ref-tab.prototype.defer] processing for *newSettlingTab*.
 
-returns: 
+returns:
+
 *   *newSettlingTab : Tab*  
     the tab that receives the forwarded or dispatched notifications.
 
 example: :construction:
+
 ~~~~javascript
 var id, interval = 0,
     counter = new Tab();
