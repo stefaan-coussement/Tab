@@ -68,13 +68,13 @@ We can also work with callbacks that have more than one argument
 var response = new Tab(), 
     text;
 
-httpGet("http://code.jquery.com/jquery.js", response.defer(Tab.prototype.update);
+httpGet("http://code.jquery.com/jquery.js", response.defer(Tab.prototype.update));
     // callback signature: 
     // function onreadystatechange(readyState, status, responseText)
 
 text = response.try(function (readyState, status, responseText) {
     if ((readyState === 4) && (status === 200)) {
-        text.resolve(responseText);
+        text.update(responseText);
     }
 });
 ~~~~
@@ -82,7 +82,7 @@ text = response.try(function (readyState, status, responseText) {
 Assuming a function `httpGet` that hides a lot of the detailed mechanics of working with `XMLHttpRequest`, in this example:
 
 * [Tab.prototype.update][ref-tab.prototype.update] updates `response` with all callback arguments.
-* [response.try()][ref-tab.prototype.try] picks up the value notification with the arguments from the callback.  When the conditions are right, it fulfills `text` with the fetched document.
+* [response.try()][ref-tab.prototype.try] picks up the value notification with the arguments from the callback.  When the conditions are right, it updates `text` with the fetched document.
 
 
 
