@@ -59,15 +59,36 @@ counter
 
 Compared to the previous example, in this example:
 
-* We moved the calculation of the interval to the procesor of `counter.try`.
+* We moved the calculation of the interval to the processor of `counter.try`.
 * [counter.defer( encapsulatedCallback )][ref-tab.prototype.defer] creates a new callback function, binding `counter` to [Tap.prototype.update][ref-tab.prototype.update] - this is the method we used in the previous example to update `counter`.  This deferred callback, when executed will now update `counter` without providing a specific value, and a notification will be sent to all subscribers of `counter`.  In the case an error is thrown in the encapsulated function, `counter` is set to the failed state.
+
+We can also work with callbacks that have more than one argument
+
+~~~~javascript
+var response = new Tab(), 
+    text;
+
+httpGet("http://code.jquery.com/jquery.js", response.defer(Tab.prototype.update);
+    // callback signature: 
+    // function onreadystatechange(readyState, status, responseText)
+
+text = response.try(function (readyState, status, responseText) {
+    if ((readyState === 4) && (status === 200)) {
+        text.resolve(responseText);
+    }
+});
+~~~~
+
+Assuming a function `httpGet` that hides a lot of the detailed mechanics of working with `XMLHttpRequest`, in this example:
+
+* [Tab.prototype.update][ref-tab.prototype.update] updates `response` with all callback arguments.
+* [response.try()][ref-tab.prototype.try] picks up the value notification with the arguments from the callback.  When the conditions are right, it fulfills `text` with the fetched document.
 
 
 
 <br /> Other Tab attributes and methods used in this topic:
 * [new Tab()][ref-new-tab]
-* [.try()][ref-tab.prototype.try]  
-* [.catch()][ref-tab.prototype.catch]  
+* [.catch()][ref-tab.prototype.catch]
 
 
 
