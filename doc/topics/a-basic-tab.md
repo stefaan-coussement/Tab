@@ -37,8 +37,8 @@ In this example:
 * [new Tab()][ref-new-tab] creates a new Tab object.
 * [counter.update()][ref-tab.prototype.update] updates `counter` with a new value and notifies all its subscribers. 
 * [counter.throw()][ref-tab.prototype.throw] sets `counter` to the failed state (this is probably not going to be necessary in this very simple example) and notifies all its subscribers.
-* [counter.try( onUpdatedProcessor )][ref-tab.prototype.try] subscribes to all notifications from `counter` and creates a new Tab object for further processing.  When an update notification is received, the processor function is executed.  When an error notification is received, the notification is passed on to all subscribers of the new tab created by this method.   
-* [.catch( onThrownProcessor )][ref-tab.prototype.catch] subscribes to all notifications from the tab created by `counter.try`.  When an error notification is received, the processor function is executed.
+* [counter.try( onUpdatedProcessor )][ref-tab.prototype.try] subscribes to all notifications from `counter` and creates a new Tab object for further processing.  When an 'updated' notification is received, the processor function is executed.  When a 'thrown' notification is received, the notification is passed on to all subscribers of the new tab created by this method.   
+* [.catch( onThrownProcessor )][ref-tab.prototype.catch] subscribes to all notifications from the tab created by `counter.try`.  When a 'thrown' notification is received, the processor function is executed.
 
 
 

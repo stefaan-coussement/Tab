@@ -29,9 +29,9 @@ counter
 Compared to the examples in [A Basic Callback][topic-a-basic-callback], in this example:
 
 * We dropped the `.catch()` calls to make the example shorter and easier to read.
-* We removed the `console.log("cuckoo")` and replaced it by a call to [this.fulfill()][ref-tab.prototype.fulfill].  This **settles** the tab that is created and returned by the  encapsulating `counter.try()` method, making its value final and non-mutable.
-* [.eventually()][ref-tab.prototype.eventually] filters the notifications, only letting those events through that are emitted after the tap settled.  From this point in the chain, none of the **progress** events from previous steps are forwarded, only **settled** events are passed on.  The method returns a new **settling** Tap object.  
-* The second [.try( onFulfilledProcessor )][ref-tab.prototype.try] call picks up the events from the settling tap.  When receiving a notification that the tap is fulfilled, the processor is executed.  
+* We removed the `console.log("cuckoo")` and replaced it by a call to [this.fulfill()][ref-tab.prototype.fulfill].  This *settles* the tab that is created and returned by the  encapsulating `counter.try()` method, making its value final and non-mutable.
+* [.eventually()][ref-tab.prototype.eventually] filters the notifications, only letting those notifications through that are dispatched after the tap settled.  From this point in the chain, none of the *progress*-notifications from previous steps are forwarded, only *settled*-notifications are passed on.  The method returns a new *settling* Tap object.  
+* The second [.try( onFulfilledProcessor )][ref-tab.prototype.try] call picks up the notifications from the settling tap.  When receiving a notification that the tap is fulfilled, the processor is executed.  
 
 Remark that we tried to make the two phases clear by using indentation.  Although this is certainly not required in this example, it can be a good idea to do this in more complex cases, since the `.eventually()` can be difficult to spot when surrounded by other code. 
 Alternatively, we can also use more explicit scoping functions as in next example.
@@ -68,7 +68,7 @@ Compared to the previous example, in this example:
 * `this.fulfill()` can now be replaced by `target.fulfill()`, probably making a lot of people very happy.
 * we also introduced a scoping function in [.eventually( scopingFunction )][ref-tab.prototype.eventually].
 
-If you don't need to progress notifications, this can be simplified.
+If you don't need to *progress*-notifications, this can be simplified.
 
 ~~~~javascript
 var id, interval = 0,
@@ -85,7 +85,7 @@ timer
 
 Compared to the previous examples, in this example:
 
-* We dropped the first `.try()` clause as we do no longer need the progress events.
+* We dropped the first `.try()` clause as we do no longer need the *progress*-notifications.
 * [timer.defer( encapsulatedCallback )][ref-tab.prototype.defer] creates a new callback function, binding `timer` to [Tab.prototype.fulfill][ref-tab.prototype.fulfill].  This encapsulated callback, when executed will now fulfill `timer` instead of updating it, and a notification will be sent to all subscribers of `timer`.
 
 Remark that in this very simple example, we can also keep updating `timer` instead of fulfilling it and drop the `.eventually()` clause.  However, fulfilling the tap corresponds better to the real situation: the expired status of a timeout is a final and non-mutable state. 
@@ -117,8 +117,8 @@ timer
 
 Compared to the previous example, in this example:
 
-* We now used [timer.reject()][ref-tab.prototype.reject] to **settle** `timer` into its error state instead of just throwing an error as we did in the examples in [A Basic Callback][topic-a-basic-callback].
-* [.catch()][ref-tab.prototype.catch], since executed on a **settling** Tab object, will now process the error notifications from the `timer.reject' method.
+* We now used [timer.reject()][ref-tab.prototype.reject] to settle `timer` into its error state instead of just throwing an error as we did in the examples in [A Basic Callback][topic-a-basic-callback].
+* [.catch()][ref-tab.prototype.catch], since executed on a settling Tab object, will now process the *error*-notifications from the `timer.reject' method.
 
 Remark that in this very simple example, we can drop the `.eventually()` step, making the execution a bit faster. The `.fulfill()` method is equivalent to first applying the `.update()` method, and then applying [.settle()][ref-tab.prototype.settle].  This means that first an 'updated' notification will be sent out, followed by a 'fulfilled' notification.   
 

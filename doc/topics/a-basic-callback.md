@@ -82,7 +82,7 @@ text = response.try(function (readyState, status, responseText) {
 Assuming a function `httpGet` that hides a lot of the detailed mechanics of working with `XMLHttpRequest`, in this example:
 
 * [Tab.prototype.update][ref-tab.prototype.update] updates `response` with all callback arguments.
-* [response.try()][ref-tab.prototype.try] picks up the value notification with the arguments from the callback.  When the conditions are right, it updates `text` with the fetched document.
+* [response.try()][ref-tab.prototype.try] picks up the *value*-notification with the arguments from the callback.  When the conditions are right, it updates `text` with the fetched document.
 
 
 
