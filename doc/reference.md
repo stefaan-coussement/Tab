@@ -16,12 +16,14 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 >   convert to a tab, create a new tab if required.
 >
 > #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
-> * [.context][ref-tab.context]  
->   :thought_balloon:
 > * [.version][ref-tab.version] :construction:  
 >   version of this Tab library.
 >
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
+> * [.construct()][ref-tab.construct] :construction:  
+>   create a new tab.
+> * [.convert()][ref-tab.convert] :construction:  
+>   convert to a tab, create a new tab if required.
 > * [.do()][ref-tab.do] :construction:  
 >   create an notification processing scope for a given tab.
 > * [.eventually()][ref-tab.eventually] :construction:  
@@ -53,6 +55,8 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 > * [.defer()][ref-tab.prototype.defer] :construction:  
 >   convert a function to use this tab to store its result.
 > * [.deferWith()][ref-tab.prototype.defer-with]  
+>   :thought_balloon:
+> * [.define()][ref-tab.prototype.define]  
 >   :thought_balloon:
 > * [.delegate()][ref-tab.prototype.delegate]  
 >   :eyeglasses:
@@ -145,6 +149,8 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 [ref-tab.context]:                 /doc/reference/tab.context.md#top                 "Tab.context: ..."
 [ref-tab.version]:                 /doc/reference/tab.version.md#top                 "Tab.version: version of this Tab library."
 
+[ref-tab.construct]:               /doc/reference/tab.construct.md#top               "Tab.construct(): create a new tab."
+[ref-tab.convert]:                 /doc/reference/tab.convert.md#top                 "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.do]:                      /doc/reference/tab.do.md#top                      "Tab.do(): create an notification processing scope for a given tab."
 [ref-tab.eventually]:              /doc/reference/tab.eventually.md#top              "Tab.eventually: filter out progress notifications for a given tab."
 [ref-tab.is-settling-tab]:         /doc/reference/tab.is-settling-tab.md#top         "Tab.isSettlingTab: are progress notifications being filtered out for a given tab?"
@@ -161,6 +167,7 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 [ref-tab.prototype.count]:         /doc/reference/tab.prototype.count.md#top         "Tab.prototype.count(): ..."
 [ref-tab.prototype.defer]:         /doc/reference/tab.prototype.defer.md#top         "Tab.prototype.defer(): convert a function to use this tab to store its result."
 [ref-tab.prototype.defer-with]:    /doc/reference/tab.prototype.defer-with.md#top    "Tab.prototype.deferWith(): ..."
+[ref-tab.prototype.define]:        /doc/reference/tab.prototype.define.md#top        "Tab.prototype.define(): ..."
 [ref-tab.prototype.delegate]:      /doc/reference/tab.prototype.delegate.md#top      "Tab.prototype.delegate(): !!! where are my glasses? !!!"
 [ref-tab.prototype.do]:            /doc/reference/tab.prototype.do.md#top            "Tab.prototype.do(): create an notification processing scope for this tab."
 [ref-tab.prototype.end]:           /doc/reference/tab.prototype.end.md#top           "Tab.prototype.end(): ..."
