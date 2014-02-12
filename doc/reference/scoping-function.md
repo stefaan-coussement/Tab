@@ -8,7 +8,7 @@ A function used as an argument in scoping Tab methods.
 <br />
 
 ---
-### function scopingFunction( targetTab, sourceTab, parentTab ) : principalValue
+### function scopingFunction( targetTab, sourceTab, parentTab ) : value
 
 context:
 
@@ -51,7 +51,7 @@ arguments:
 
 returns:
 
-*   *principalValue : any*  
+*   *value : any*  
 
 <br />
 
@@ -65,7 +65,7 @@ Other attributes and methods in this family:
 
 
 
-<br /> Back to [Top] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
+<br /> Back to [Top] | [Topics] | [Reference] / [Other Elements][ref-other-elements] <br />
 
 
 

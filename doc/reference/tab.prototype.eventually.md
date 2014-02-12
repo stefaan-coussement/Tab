@@ -40,9 +40,14 @@ timer
 ---
 ### .eventually( scopingFunction ) : newSettlingTab
 
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
+~~~~
+tab.eventually(scopingFunction) ~ tab.eventually().do(scopingFunction)
+~~~~
+
 arguments:
 
-*   *function scopingFunction( targetTab, sourceTab, parentTab ) : principalValue*  
+*   *function scopingFunction( targetTab, sourceTab, parentTab ) : value*  
     a [scoping function][ref-scoping-function].
 
 effect:
@@ -50,7 +55,7 @@ effect:
 1.  ignores all received *progress*-notifications.
 1.  executes *scopingFunction* for a received *settled*-notification.
 1.  forwards the received *settled*-notification to its subscribers in *scopingFunction*.
-1.  [fulfills][ref-tab.prototype.fulfill] *newSettlingTab* with *principalValue*, provided *scopingFunction* didn't already [settle][ref-tab.prototype.settle] *newSettlingTab*, and provided *scopingFunction* didn't [defer][ref-tab.prototype.defer] processing for *newSettlingTab*.
+1.  [fulfills][ref-tab.prototype.fulfill] *newSettlingTab* with the returned *value* from *scopingFunction*, provided *scopingFunction* didn't already [settle][ref-tab.prototype.settle] *newSettlingTab*, and provided *scopingFunction* didn't [defer][ref-tab.prototype.defer] processing for *newSettlingTab*.
 1.  [rejects][ref-tab.prototype.reject] *newSettlingTab* when *scopingFunction* throws, provided *scopingFunction* didn't already [settle][ref-tab.prototype.settle] *newSettlingTab*, and provided *scopingFunction* didn't [defer][ref-tab.prototype.defer] processing for *newSettlingTab*.
 
 returns:
