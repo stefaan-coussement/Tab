@@ -1,119 +1,30 @@
 <a name="top" ></a>
 
-<img src="./img/tab-logo87.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" /><img src="./img/1x1.png" align="left" style="float:left;" height="79" width="20" />
-# [Tab][top]
-A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
+<img src="../img/tab-logo66.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.prototype.evaluate()][ref-tab.prototype.evaluate]
+
+...
+
 <br />
 
-## [Reference]
+---
+### tab.evaluate() » value
 
-### [Tab Object][ref-tab-object]
-> 
-> #### [Tab Constructor][ref-tab-constructor]
-> * [new Tab()][ref-new-tab] :construction:  
->   construct a new tab, delegate if needed.
-> * [Tab()][ref-tab] :construction:  
->   convert to a tab, create a new tab if required.
->
-> #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
-> * [.version][ref-tab.version] :construction:  
->   version of this Tab library.
->
-> #### [Tab Constructor Methods][ref-tab-constructor-methods]
-> * [.construct()][ref-tab.construct] :construction:  
->   construct a new tab, delegate if needed.
-> * [.convert()][ref-tab.convert] :construction:  
->   convert to a tab, create a new tab if required.
-> * [.create()][ref-tab.create] :construction:  
->   create a new tab, fulfill if needed.
-> * [.isTab()][ref-tab.is-tab] :construction:  
->   was the given object created by this Tab library?
-> * [.likeTab()][ref-tab.like-tab]  
->   :thought_balloon:
-> * [.when()][ref-tab.when]  
->   :thought_balloon:
->
-> #### [Tab Prototype Methods][ref-tab-prototype-methods]
-> * [.cancel()][ref-tab.prototype.cancel]  
->   :thought_balloon:
-> * [.catch()][ref-tab.prototype.catch] :construction:  
->   process error notifications for this tab.
-> * [.count()][ref-tab.prototype.count]  
->   :thought_balloon:
-> * [.defer()][ref-tab.prototype.defer] :construction:  
->   convert a function to use this tab to store its result.
-> * [.deferWith()][ref-tab.prototype.defer-with]  
->   :thought_balloon:
-> * [.define()][ref-tab.prototype.define]  
->   :thought_balloon:
-> * [.delegate()][ref-tab.prototype.delegate]  
->   :eyeglasses:
-> * [.do()][ref-tab.prototype.do] :construction:  
->   create an notification processing scope for this tab.
-> * [.end()][ref-tab.prototype.end]  
->   :thought_balloon:
-> * [.evaluate()][ref-tab.prototype.evaluate]  
->   :thought_balloon:
-> * [.eventually()][ref-tab.prototype.eventually]  
->   filter out progress notifications for this tab.
-> * [.finally()][ref-tab.prototype.finally] :construction:  
->   process value and error notifications for this tab.
-> * [.fulfill()][ref-tab.prototype.fulfill] :construction:  
->   settle this tab with a value.
-> * [.hasError()][ref-tab.prototype.has-error] :construction:  
->   has this tab an error?
-> * [.hasSettled()][ref-tab.prototype.has-settled] :construction:  
->   has this tab settled?
-> * [.hasProgressed()][ref-tab.prototype.has-progressed] :construction:  
->   has this tab progressed?
-> * [.hasValue()][ref-tab.prototype.has-value] :construction:  
->   has this tab a value?
-> * [.isDelegating()][ref-tab.prototype.is-delegating]  
->   :thought_balloon:
-> * [.isSettling()][ref-tab.prototype.is-settling] :construction:  
->   are progress notifications being filtered out for this tab?
-> * [.raise()][ref-tab.prototype.raise]  
->   :thought_balloon:
-> * [.reject()][ref-tab.prototype.reject] :construction:  
->   settle this tab with an error.
-> * [.settle()][ref-tab.prototype.settle] :construction:  
->   settle this tab without changing its current value or error.
-> * [.then()][ref-tab.prototype.then]  
->   :thought_balloon:
-> * [.throw()][ref-tab.prototype.throw] :construction:  
->   set an error for this tab.
-> * [.toString()][ref-tab.prototype.to-string] :construction:  
->   get a string representation for this tab.
-> * [.try()][ref-tab.prototype.try] :construction:  
->   process value notifications for this tab.
-> * [.undelegate()][ref-tab.prototype.undelegate]  
->   :thought_balloon:
-> * [.update()][ref-tab.prototype.update] :construction:  
->   set a value for this tab.
-> * [.valueOf()][ref-tab.prototype.value-of] :construction:  
->   get the principal value of this tab.
-> * [.wrap()][ref-tab.prototype.wrap]  
->   :thought_balloon:
->
-> #### [Tab Instance Methods][ref-tab-instance-methods]
-> * [._delegate()][ref-tab._delegate]  
->   :thought_balloon:
-> * [._isDelegating()][ref-tab._is-delegating]  
->   :thought_balloon:
-> * [._trap()][ref-tab._trap]  
->   :thought_balloon:
-> * [._undelegate()][ref-tab._undelegate]  
->   :thought_balloon:
->
-> #### [Other Elements][ref-other-elements]
-> * [Scoping Function][ref-scoping-function]  
->   a function used as an argument in scoping Tab methods.
-> * [Processor Function][ref-processor-function] :construction:  
->   a function used as an argument in processing Tab methods.
+<br />
+
+---
+### lazyTab.evaluate( ...arguments ) » value
+
+<br />
+
+---
+
+Other attributes and methods in this family:
+* 
 
 
 
-<br /> Back to [Top] | [Topics] | [Reference] <br />
+<br /> Back to [Top] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
 
 
 
@@ -121,7 +32,46 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 
 [top]:       #top                        "back to the top of this page"
 [topics]:    /doc/topics.md#topics       "back to the 'Topics' section"
-[reference]: #reference                  "back to the 'Reference' section"
+[reference]: /doc/reference.md#reference "back to the 'Reference' section"
+
+
+
+[topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
+[topic-where-are-tabs-helping]:                  /doc/topics.md#where-are-tabs-helping                      "more topics under 'Where Are Tabs Helping'"
+[topic-where-are-tabs-lacking]:                  /doc/topics.md#where-are-tabs-lacking                      "more topics under 'Where Are Tabs Lacking'"
+
+
+
+[topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
+[topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
+[topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
+[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: ..."
+[topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: ..."
+
+[topic-keeping-clean-callback-signatures]:       /doc/topics/keeping-clean-callback-signatures.md#top       "Keeping Clean Callback Signatures: ..."
+[topic-shallow-callback-nesting]:                /doc/topics/shallow-callback-nesting.md#top                "Shallow Callback Nesting: ..."
+[topic-top-down-control-flow]:                   /doc/topics/top-down-control-flow.md#top                   "Top-Down Control Flow: ..."
+[topic-predicting-execution-order]:              /doc/topics/predicting-execution-order.md#top              "Predicting Execution Order: ..."
+[topic-modular-decomposition]:                   /doc/topics/modular-decomposition.md#top                   "Modular Decomposition: ..."
+[topic-aspect-oriented-programming]:             /doc/topics/aspect-oriented-programming].md#top            "Aspect Oriented Programming: ..."
+[topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: ..."
+[topic-monitoring-function-calls]:               /doc/topics/monitoring-function-calls.md#top               "Monitoring Function Calls: ..."
+[topic-throttling-execution]:                    /doc/topics/throttling-execution.md#top                    "Throttling Execution: ..."
+[topic-cancelling-execution]:                    /doc/topics/cancelling-execution.md#top                    "Cancelling Execution: ..."
+[topic-timing-out-execution]:                    /doc/topics/timing-out-execution.md#top                    "Timing Out Execution: ..."
+[topic-delaying-execution]:                      /doc/topics/delaying-execution.md#top                      "Delaying Execution: ..."
+[topic-prioritizing-execution]:                  /doc/topics/prioritizing-execution.md#top                  "Prioritizing Execution: ..."
+[topic-lazy-evaluation]:                         /doc/topics/lazy-evaluation.md#top                         "Lazy Evaluation: !!! thinking hard !!!"
+[topic-working-with-remote-objects]:             /doc/topics/working-with-remote-objects.md#top             "Working With Remote Objects: ..."
+[topic-enumerating-tabs]:                        /doc/topics/enumerating-tabs.md#top                        "Enumerating Tabs: ..."
+[topic-iterating-tabs]:                          /doc/topics/iterating-tabs.md#top                          "Iterating Tabs: ..."
+[topic-generating-tabs]:                         /doc/topics/generating-tabs.md#top                         "Generating Tabs: ..."
+[topic-joining-results-from-parallel-execution]: /doc/topics/joining-results-from-parallel-execution.md#top "Joining Results From Parallel Execution: ..."
+[topic-synchronizing-execution]:                 /doc/topics/synchronizing-execution.md#top                 "Synchronizing Execution: ..."
+[topic-isolating-information-providers]:         /doc/topics/isolating-information-providers.md#top         "Isolating Information Providers: ..."
+[topic-isolating-information-consumers]:         /doc/topics/isolating-information-consumers.md#top         "Isolating Information Consumers: ..."
+
+[topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
 
 
 
