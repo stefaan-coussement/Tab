@@ -60,23 +60,23 @@ The general goal is to help with callbacks, promises, pipelines, lazy evaluation
 
 ### Check it out
 
-* [A Basic Tab][topic-a-basic-tab] :new:  
+* [A Basic Tab][topic-a-basic-tab]  
   creating and using a basic Tab object.
 
-* [A Basic Callback][topic-a-basic-callback] :new:  
+* [A Basic Callback][topic-a-basic-callback]  
   using a Tab object to handle callbacks.
 
-* [A Basic Promise][topic-a-basic-promise] :new:  
+* [A Basic Promise][topic-a-basic-promise]  
   using a Tab object as a promise.
 
-* [A Basic Pipeline][topic-a-basic-pipeline]  
-  :thought_balloon:
+* [Basic Pipelining][topic-basic-pipelining]  
+  using Tab objects for pipelining.
 
 * [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
-  :thought_balloon:
+  using a Tab object for lazy evaluation.
 
 * [Basic Concurrent Computing][topic-basic-concurrent-computing]  
-  :thought_balloon:
+  using a Tab object to handle concurrent computing.
 
 
 
