@@ -86,13 +86,13 @@ The following is a maintained, and thus regularly updated and re-organized list 
 
 1.  Basic Tabs
 
-    1. provide the means to capture a future value in a tab and notify its observers when the value becomes available.
+    1. :ok: provide the means to capture a future value in a tab and notify its observers when the value becomes available.
     
-    1. provide the means to capture special values in a tab, such as `undefined`, `null` and other tabs.
+    1. :ok: provide the means to capture special values in a tab, such as `undefined`, `null` and other tabs.
     
-    1. provide the means to capture a future error in a tab and notify its observers when the error becomes available.
+    1. :ok: provide the means to capture a future error in a tab and notify its observers when the error becomes available.
     
-    1. provide the means to work with progress events, both for updatable values and recoverable exceptions (reject brings a promise into a final and non-mutable state that we cannot recover from).
+    1. :ok: provide the means to work with progress events, including recoverable exceptions (reject brings a promise into a final and non-mutable state that we cannot recover from).
     
     1. provide the means to work with foreign tabs (tabs created by another tab-like constructor).
     
@@ -129,7 +129,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
 
 1.  Pipelining
 
-    1. use a fluid API wherever it makes sense (a Deferred object is not chainable).
+    1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
     
     2. provide the means to dynamically and asynchronously process events by pushing them into a pipeline of tabs.
     
@@ -151,15 +151,18 @@ The following is a maintained, and thus regularly updated and re-organized list 
         * wait for the value of all tabs to calculate a result (similar to boolean logic)
         * wait for the value of the first tabs in sequence to calculate a result (similar to javascript `||` and `&&`)  
         * wait for the value of the first tabs in time to calculate a result
-        
-    
 
 1.  Miscellaneous
 
     1. provide the means to augment a tab with contextual information that stays accessible through the chain of tabs that are created when handling events (f.i. using the .then method).
     
     1. provide the means to throttle the execution of event handlers (f.i. only four outstanding http requests allowed at one time).
+        
+    1. for use in *ES5* environments, provide a getter for `.length` as an alternative for the `.count()` method, hence making Tab better line-up with intuitive Javascript practise.
     
+    1. provide an experimental version that uses *ES.next* weak maps instead of closures.
+    
+    1. investigate if we can provide an experimental interface to set and get the value of a tab, using *ES.next* proxies.  There may be a major limitation that protype methods defined for Tab cannot be trapped and applied to the contained object, unless **all** of the current prototype methods are moved to a corresponding constructor method, essentially breaking the requirement of a fluid API.  Instead, we may introduce a special `.value` attribute or method to serve as a proxy for the contained object? ...
 
 
 
@@ -188,43 +191,3 @@ There are a lot of other projects that were (and still are) influencing this pro
 
 
 <br /> Back to [Top] | [Project] | [Topics] | [Reference] <br />
-[$$$$$ start of links $$$$$]: #
-
-[top]:       #top                        "back to the top of this page."
-[project]:   /doc/project.md#the-project "back to the 'Project' section."
-[topics]:    /doc/topics.md#topics       "back to the 'Topics' section."
-[reference]: /doc/reference.md#reference "back to the 'Reference' section."
-
-
-
-[topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
-
-[topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
-[topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
-[topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
-[topic-basic-pipelining]:                        /doc/topics/basic-pipelining.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
-[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
-[topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
-
-
-
-[ref-tab-object]:                   /doc/reference.md#tab-object                       "more attributes and methods under 'Tab Object'"
-[ref-tab-constructor]:              /doc/reference.md#tab-constructor                  "more attributes and methods under 'Tab Constructor'"
-[ref-tab-constructor-attributes]:   /doc/reference.md#tab-constructor-attributes       "more attributes under 'Tab Constructor Attributes'"
-[ref-tab-constructor-methods]:      /doc/reference.md#tab-constructor-methods          "more methods under 'Tab Constructor Methods'"
-[ref-tab-prototype-methods]:        /doc/reference.md#tab-prototype-methods            "more methods under 'Tab Prototype Methods'"
-[ref-tab-instance-methods]:         /doc/reference.md#tab-instance-methods             "more methods under 'Tab Instance Methods'"
-[ref-other-elements]:               /doc/reference.md#other-elements                   "more methods under 'Other Elements'"
-
-[ref-new-tab]:                      /doc/reference/new-tab.md#top                      "new Tab(): construct a new tab, encapsulate a given tab if requested."
-[ref-tab]:                          /doc/reference/tab.md#top                          "Tab(): convert to a tab, create a new tab if required."
-
-[ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
-
-[ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
-[ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
-
-[ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
-[ref-tab.prototype.value-of]:       /doc/reference/tab.prototype.value-of.md#top       "Tab.prototype.valueOf(): get the principal value of this tab."
-
-[ref-the-javascript-object]:        /doc/reference/the-javascript-object.md#top        "The Javascript Object: the structure of the javascript object."

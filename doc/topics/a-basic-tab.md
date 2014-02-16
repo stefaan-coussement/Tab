@@ -101,9 +101,7 @@ In this example:
 There are a lot of javascript methods that will implicitly call this `.valueOf()` method.  Try the following.
 
 ~~~~javascript
-var i = newTab()
-
-i = Tab.return(1);
+var i = Tab.return(1);
 
 log(i + 1); // > 2
 ~~~~
@@ -113,21 +111,15 @@ In this example:
 * [Tab.return()][ref-tab.return] returns a new Tab object with value `1`.
 * when `i` is accessed to add 1, `.valueOf()` is applied by the addition operator.  This is true for some javascript methods, but not for all.  For instance `console.log` will log the object without applying the `.valueOf()` method.  So when in doubt... and you don't have time to read (and understand) the ECMA specification, and you don't have time to experiment with lots of different browsers, then it's probably best to apply it explicitly.
 
-In ES5 environments, we also defined `getters` and `setters` for Tab objects
+Finally, the following will fail.
 
 ~~~~javascript
-var i = newTab()
+var i = Tab.return(1);
 
-i = 1;
-i = i + 1;
-
-log(i); // > 2
+log(++i); // throws
 ~~~~
 
-In general:
-
-* [Tab.getter][ref-tab.getter] is equivalent to the `.valueOf()` method.
-* [Tab.setter][ref-tab.setter] is equivalent to the `.return()` method.
+Supporting this would need the *Proxy* object that is on the program for *ES.next*.  We may try to implement some experimental version at some point in time.  So watch this space.
 
 
 
