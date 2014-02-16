@@ -25,26 +25,38 @@ Get help with callbacks, promises, pipelines, lazy evaluation and concurrent com
 > 
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
 > 
->   * [Tab.construct()][ref-tab.construct] :construction:  
+>   * [Tab.construct()][ref-tab.construct]  
 >     construct a new tab, encapsulate a given tab if requested.
->   * [Tab.convert()][ref-tab.convert] :construction:  
+>   * [Tab.convert()][ref-tab.convert]  
 >     convert to a tab, create a new tab if required.
+>   * [Tab.isTab()][ref-tab.is-tab]  
+>     was the given object created by this Tab constructor?
+>   * [Tab.return()][ref-tab.return]  
+>     construct a new tab an set its value.
+>   * [Tab.throw()][ref-tab.throw]  
+>     construct a new tab and put it in the failed state.
 >   
 > 
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
 > 
+>   * [.catch()][ref-tab.prototype.catch]  
+>     process 'thrown' notifications for this tab and create a new tab with the result.
+>   * [.finally()][ref-tab.prototype.finally]  
+>     process 'returned' and 'thrown' notifications for this tab and create a new tab with the result.
+>   * [.hasThrown()][ref-tab.prototype.has-thrown]  
+>     has this tab thrown an error?
+>   * [.return()][ref-tab.prototype.return]  
+>     update the value of this tab.
+>   * [.throw()][ref-tab.prototype.throw]  
+>     put this tab in the failed state.
 >   * [.toString()][ref-tab.prototype.to-string]  
 >     get a string representation for this tab.
+>   * [.try()][ref-tab.prototype.try]  
+>     process 'returned' notifications for this tab and create a new tab with the result.
 >   * [.valueOf()][ref-tab.prototype.value-of]  
 >     get the principal value of this tab.
 >   
 >
-> #### [Tab Instance Methods][ref-tab-instance-methods]
-> 
->   *   
->     
->   
-> 
 > #### [Other Elements][ref-other-elements]
 > 
 >   * [The Javascript Object][ref-the-javascript-object]  
