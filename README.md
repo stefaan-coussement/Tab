@@ -41,6 +41,7 @@ The general goal is to help with callbacks, promises, pipelines, lazy evaluation
 >**pipeline** (programming)
 > In software engineering, a pipeline consists of a chain of processing elements (processes, threads, coroutines, etc.), arranged so that the output of each element is the input of the next; the name is by analogy to a physical pipeline. Usually some amount of buffering is provided between consecutive elements. The information that flows in these pipelines is often a stream of records, bytes or bits, and the elements of a pipeline may be called filters; this is also called the pipes and filters design pattern. Connecting elements into a pipeline is analogous to function composition.  
 > [http://en.wikipedia.org/wiki/Pipeline_(software)]
+<<<<<<< HEAD
 >
 > When a programming language is originally designed without any syntax to nest function calls, pipeline programming is a simple syntax change to add it. The programmer connects notional program modules into a flow structure, by analogy to a physical pipeline carrying reaction products through a chemical or other plant.  
 > [http://en.wikipedia.org/wiki/Pipeline_programming]
@@ -48,6 +49,15 @@ The general goal is to help with callbacks, promises, pipelines, lazy evaluation
 > In computing, reactive programming is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that the underlying execution model will automatically propagate changes through the data flow.  
 > [http://en.wikipedia.org/wiki/Reactive_programming]
 >
+=======
+>
+> When a programming language is originally designed without any syntax to nest function calls, pipeline programming is a simple syntax change to add it. The programmer connects notional program modules into a flow structure, by analogy to a physical pipeline carrying reaction products through a chemical or other plant.  
+> [http://en.wikipedia.org/wiki/Pipeline_programming]
+>
+> In computing, reactive programming is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that the underlying execution model will automatically propagate changes through the data flow.  
+> [http://en.wikipedia.org/wiki/Reactive_programming]
+>
+>>>>>>> 35094618d3d24f8a894d6c96463125ed463a72f6
 >**lazy evaluation** (programming)
 > In programming language theory, lazy evaluation, or call-by-need is an evaluation strategy which delays the evaluation of an expression until its value is needed (non-strict evaluation) and which also avoids repeated evaluations (sharing). The sharing can reduce the running time of certain functions by an exponential factor over other non-strict evaluation strategies, such as call-by-name.  
 > [http://en.wikipedia.org/wiki/Lazy_evaluation]
