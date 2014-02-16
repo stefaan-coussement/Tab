@@ -1,8 +1,8 @@
 <a name="top" ></a>
 
-<img src="./img/tab-logo87.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" /><img src="./img/1x1.png" align="left" style="float:left;" height="79" width="20" />
+<img src="./img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="./img/1x1.png" align="left" style="float:left;" height="79" width="20" />
 # [Tab][top]
-A javascript object to help with callbacks, promises, lazy evaluation and concurrent computing.
+Get help with callbacks, promises, pipelines, lazy evaluation and concurrent computing.
 <br />
 
 ## [Reference]
@@ -10,179 +10,88 @@ A javascript object to help with callbacks, promises, lazy evaluation and concur
 ### [Tab Object][ref-tab-object]
 > 
 > #### [Tab Constructor][ref-tab-constructor]
-> * [new Tab()][ref-new-tab] :construction:  
->   construct a new tab, delegate if needed.
-> * [Tab()][ref-tab] :construction:  
->   convert to a tab, create a new tab if required.
->
+> 
+>   * [new Tab()][ref-new-tab]  
+>     construct a new tab, encapsulate a given tab if requested.
+>   * [Tab()][ref-tab]  
+>     convert to a tab, create a new tab if required.
+>   
+> 
 > #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
-> * [.version][ref-tab.version] :construction:  
->   version of this Tab library.
->
+> 
+>   * [Tab.version][ref-tab.version]  
+>     the version of this Tab library.
+>   
+> 
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
-> * [.construct()][ref-tab.construct] :construction:  
->   construct a new tab, delegate if needed.
-> * [.convert()][ref-tab.convert] :construction:  
->   convert to a tab, create a new tab if required.
-> * [.create()][ref-tab.create] :construction:  
->   create a new tab, fulfill if needed.
-> * [.isTab()][ref-tab.is-tab] :construction:  
->   was the given object created by this Tab library?
-> * [.likeTab()][ref-tab.like-tab]  
->   :thought_balloon:
-> * [.when()][ref-tab.when]  
->   :thought_balloon:
->
+> 
+>   * [Tab.construct()][ref-tab.construct] :construction:  
+>     construct a new tab, encapsulate a given tab if requested.
+>   * [Tab.convert()][ref-tab.convert] :construction:  
+>     convert to a tab, create a new tab if required.
+>   
+> 
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
-> * [.cancel()][ref-tab.prototype.cancel]  
->   :thought_balloon:
-> * [.catch()][ref-tab.prototype.catch] :construction:  
->   process error notifications for this tab.
-> * [.count()][ref-tab.prototype.count]  
->   :thought_balloon:
-> * [.defer()][ref-tab.prototype.defer] :construction:  
->   convert a function to use this tab to store its result.
-> * [.deferWith()][ref-tab.prototype.defer-with]  
->   :thought_balloon:
-> * [.define()][ref-tab.prototype.define]  
->   :thought_balloon:
-> * [.delegate()][ref-tab.prototype.delegate]  
->   :eyeglasses:
-> * [.do()][ref-tab.prototype.do] :construction:  
->   create an notification processing scope for this tab.
-> * [.end()][ref-tab.prototype.end]  
->   :thought_balloon:
-> * [.evaluate()][ref-tab.prototype.evaluate]  
->   :thought_balloon:
-> * [.eventually()][ref-tab.prototype.eventually]  
->   filter out progress notifications for this tab.
-> * [.finally()][ref-tab.prototype.finally] :construction:  
->   process value and error notifications for this tab.
-> * [.fulfill()][ref-tab.prototype.fulfill] :construction:  
->   settle this tab with a value.
-> * [.hasError()][ref-tab.prototype.has-error] :construction:  
->   has this tab an error?
-> * [.hasSettled()][ref-tab.prototype.has-settled] :construction:  
->   has this tab settled?
-> * [.hasProgressed()][ref-tab.prototype.has-progressed] :construction:  
->   has this tab progressed?
-> * [.hasValue()][ref-tab.prototype.has-value] :construction:  
->   has this tab a value?
-> * [.isDelegating()][ref-tab.prototype.is-delegating]  
->   :thought_balloon:
-> * [.isSettling()][ref-tab.prototype.is-settling] :construction:  
->   are progress notifications being filtered out for this tab?
-> * [.raise()][ref-tab.prototype.raise]  
->   :thought_balloon:
-> * [.reject()][ref-tab.prototype.reject] :construction:  
->   settle this tab with an error.
-> * [.settle()][ref-tab.prototype.settle] :construction:  
->   settle this tab without changing its current value or error.
-> * [.then()][ref-tab.prototype.then]  
->   :thought_balloon:
-> * [.throw()][ref-tab.prototype.throw] :construction:  
->   set an error for this tab.
-> * [.toString()][ref-tab.prototype.to-string] :construction:  
->   get a string representation for this tab.
-> * [.try()][ref-tab.prototype.try] :construction:  
->   process value notifications for this tab.
-> * [.undelegate()][ref-tab.prototype.undelegate]  
->   :thought_balloon:
-> * [.update()][ref-tab.prototype.update] :construction:  
->   set a value for this tab.
-> * [.valueOf()][ref-tab.prototype.value-of] :construction:  
->   get the principal value of this tab.
-> * [.wrap()][ref-tab.prototype.wrap]  
->   :thought_balloon:
+> 
+>   * [.toString()][ref-tab.prototype.to-string]  
+>     get a string representation for this tab.
+>   * [.valueOf()][ref-tab.prototype.value-of]  
+>     get the principal value of this tab.
+>   
 >
 > #### [Tab Instance Methods][ref-tab-instance-methods]
-> * [._delegate()][ref-tab._delegate]  
->   :thought_balloon:
-> * [._isDelegating()][ref-tab._is-delegating]  
->   :thought_balloon:
-> * [._trap()][ref-tab._trap]  
->   :thought_balloon:
-> * [._undelegate()][ref-tab._undelegate]  
->   :thought_balloon:
->
+> 
+>   *   
+>     
+>   
+> 
 > #### [Other Elements][ref-other-elements]
-> * [Scoping Function][ref-scoping-function]  
->   a function used as an argument in scoping Tab methods.
-> * [Processor Function][ref-processor-function] :construction:  
->   a function used as an argument in processing Tab methods.
+> 
+>   * [The Javascript Object][ref-the-javascript-object]  
+>     the structure of the javascript object.
+>   
+> 
 
 
 
-<br /> Back to [Top] | [Topics] | [Reference] <br />
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] <br />
+[$$$$$ start of links $$$$$]: #
+
+[top]:       #top                        "back to the top of this page."
+[project]:   /doc/project.md#the-project "back to the 'Project' section."
+[topics]:    /doc/topics.md#topics       "back to the 'Topics' section."
+[reference]: /doc/reference.md#reference "back to the 'Reference' section."
 
 
 
+[topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
 
-
-[top]:       #top                        "back to the top of this page"
-[topics]:    /doc/topics.md#topics       "back to the 'Topics' section"
-[reference]: #reference                  "back to the 'Reference' section"
-
-
-
-[ref-tab-object]:                   #tab-object                                        "more attributes and methods under 'Tab Object'"
-[ref-tab-constructor]:              #tab-constructor                                   "more attributes and methods under 'Tab Constructor'"
-[ref-tab-constructor-attributes]:   #tab-constructor-attributes                        "more attributes under 'Tab Constructor Attributes'"
-[ref-tab-constructor-methods]:      #tab-constructor-methods                           "more methods under 'Tab Constructor Methods'"
-[ref-tab-prototype-methods]:        #tab-prototype-methods                             "more methods under 'Tab Prototype Methods'"
-[ref-tab-instance-methods]:         #tab-instance-methods                              "more methods under 'Tab Instance Methods'"
-[ref-other-elements]:               #other-elements                                    "more methods under 'Other Elements'"
+[topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
+[topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
+[topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
+[topic-basic-pipelining]:                        /doc/topics/basic-pipelining.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
+[topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
+[topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
 
 
 
-[ref-new-tab]:                      /doc/reference/new-tab.md#top                      "new Tab(): construct a new tab, delegate if needed."
+[ref-tab-object]:                   /doc/reference.md#tab-object                       "more attributes and methods under 'Tab Object'"
+[ref-tab-constructor]:              /doc/reference.md#tab-constructor                  "more attributes and methods under 'Tab Constructor'"
+[ref-tab-constructor-attributes]:   /doc/reference.md#tab-constructor-attributes       "more attributes under 'Tab Constructor Attributes'"
+[ref-tab-constructor-methods]:      /doc/reference.md#tab-constructor-methods          "more methods under 'Tab Constructor Methods'"
+[ref-tab-prototype-methods]:        /doc/reference.md#tab-prototype-methods            "more methods under 'Tab Prototype Methods'"
+[ref-tab-instance-methods]:         /doc/reference.md#tab-instance-methods             "more methods under 'Tab Instance Methods'"
+[ref-other-elements]:               /doc/reference.md#other-elements                   "more methods under 'Other Elements'"
+
+[ref-new-tab]:                      /doc/reference/new-tab.md#top                      "new Tab(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab]:                          /doc/reference/tab.md#top                          "Tab(): convert to a tab, create a new tab if required."
 
-[ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: ..."
-[ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: version of this Tab library."
+[ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, delegate if needed."
+[ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
-[ref-tab.create]:                   /doc/reference/tab.construct.md#top                "Tab.create(): create a new tab, fulfill if needed."
-[ref-tab.is-tab]:                   /doc/reference/tab.is-tab.md#top                   "Tab.isTab: was the given object created by this Tab library?"
-[ref-tab.like-tab]:                 /doc/reference/tab.like-tab.md#top                 "Tab.likeTab: ..."
-[ref-tab.when]:                     /doc/reference/tab.when.md#top                     "Tab.when: ..."
 
-[ref-tab.prototype.cancel]:         /doc/reference/tab.prototype.cancel.md#top         "Tab.prototype.cancel(): ..."
-[ref-tab.prototype.catch]:          /doc/reference/tab.prototype.catch.md#top          "Tab.prototype.catch(): process error notifications for this tab."
-[ref-tab.prototype.count]:          /doc/reference/tab.prototype.count.md#top          "Tab.prototype.count(): ..."
-[ref-tab.prototype.defer]:          /doc/reference/tab.prototype.defer.md#top          "Tab.prototype.defer(): convert a function to use this tab to store its result."
-[ref-tab.prototype.defer-with]:     /doc/reference/tab.prototype.defer-with.md#top     "Tab.prototype.deferWith(): ..."
-[ref-tab.prototype.define]:         /doc/reference/tab.prototype.define.md#top         "Tab.prototype.define(): ..."
-[ref-tab.prototype.delegate]:       /doc/reference/tab.prototype.delegate.md#top       "Tab.prototype.delegate(): !!! where are my glasses? !!!"
-[ref-tab.prototype.do]:             /doc/reference/tab.prototype.do.md#top             "Tab.prototype.do(): create an notification processing scope for this tab."
-[ref-tab.prototype.end]:            /doc/reference/tab.prototype.end.md#top            "Tab.prototype.end(): ..."
-[ref-tab.prototype.evaluate]:       /doc/reference/tab.prototype.evaluate.md#top       "Tab.prototype.evaluate(): ..."
-[ref-tab.prototype.eventually]:     /doc/reference/tab.prototype.eventually.md#top     "Tab.prototype.eventually(): filter out progress notifications for this tab."
-[ref-tab.prototype.finally]:        /doc/reference/tab.prototype.finally.md#top        "Tab.prototype.finally(): process value and error notifications for this tab."
-[ref-tab.prototype.fulfill]:        /doc/reference/tab.prototype.fulfill.md#top        "Tab.prototype.fulfill(): settle this tab with a value."
-[ref-tab.prototype.has-error]:      /doc/reference/tab.prototype.has-error.md#top      "Tab.prototype.hasError(): has this tab an error?"
-[ref-tab.prototype.has-progressed]: /doc/reference/tab.prototype.has-progressed.md#top "Tab.prototype.hasProgressed(): has this tab progressed?"
-[ref-tab.prototype.has-settled]:    /doc/reference/tab.prototype.has-settled.md#top    "Tab.prototype.hasSettled(): has this tab settled?"
-[ref-tab.prototype.has-value]:      /doc/reference/tab.prototype.has-value.md#top      "Tab.prototype.hasValue(): has this tab a value?"
-[ref-tab.prototype.is-delegating]:  /doc/reference/tab.prototype.is-delegating.md#top  "Tab.prototype.isDelegating(): ..."
-[ref-tab.prototype.is-settling]:    /doc/reference/tab.is-settling.md#top              "Tab.prototype.isSettling: are progress notifications being filtered out for this tab?"
-[ref-tab.prototype.raise]:          /doc/reference/tab.prototype.raise.md#top          "Tab.prototype.raise(): ..."
-[ref-tab.prototype.reject]:         /doc/reference/tab.prototype.reject.md#top         "Tab.prototype.reject(): settle this tab with an error."
-[ref-tab.prototype.settle]:         /doc/reference/tab.prototype.settle.md#top         "Tab.prototype.settle(): settle this tab without changing its current value or error."
-[ref-tab.prototype.then]:           /doc/reference/tab.prototype.then.md#top           "Tab.prototype.then(): ..."
-[ref-tab.prototype.throw]:          /doc/reference/tab.prototype.throw.md#top          "Tab.prototype.throw(): set an error for this tab."
 [ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
-[ref-tab.prototype.try]:            /doc/reference/tab.prototype.try.md#top            "Tab.prototype.try(): process value notifications for this tab."
-[ref-tab.prototype.undelegate]:     /doc/reference/tab.prototype.undelegate.md#top     "Tab.prototype.undelegate(): ..."
-[ref-tab.prototype.update]:         /doc/reference/tab.prototype.update.md#top         "Tab.prototype.update(): set a value for this tab."
 [ref-tab.prototype.value-of]:       /doc/reference/tab.prototype.value-of.md#top       "Tab.prototype.valueOf(): get the principal value of this tab."
-[ref-tab.prototype.wrap]:           /doc/reference/tab.prototype.wrap.md#top           "Tab.prototype.wrap(): ..."
 
-[ref-tab._delegate]:                /doc/reference/tab._delegate.md#top                "tab._delegate(): ..."
-[ref-tab._is-delegating]:           /doc/reference/tab._is-delegating.md#top           "tab._is-delegating(): ..."
-[ref-tab._trap]:                    /doc/reference/tab._trap.md#top                    "tab._trap(): ..."
-[ref-tab._undelegate]:              /doc/reference/tab._undelegate.md#top              "tab._undelegate(): ..."
-
-[ref-scoping-function]:             /doc/reference/scoping-function.md#top             "scopingFunction: a function used as an argument in scoping Tab methods."
-[ref-processor-function]:           /doc/reference/processor-function.md#top           "processorFunction: a function used as an argument in processing Tab methods."
+[ref-the-javascript-object]:        /doc/reference/the-javascript-object.md#top        "The Javascript Object: the structure of the javascript object."
