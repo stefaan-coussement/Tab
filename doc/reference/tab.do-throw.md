@@ -1,32 +1,21 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.prototype.capture()][ref-tab.prototype.capture]
+## [Tab.prototype.doThrow()][ref-tab.do-throw]
 
-Create a function that uses this tab to store another function's arguments, and then executes the other function.
+Create a function that puts a given tab in the failed state.
 
 <br />
 
 ---
-### target.capture() » newFunction
+### Tab.doThrow( target ) » newFunction
 
 core principle:
 
 ````
-target.capture().call(subject, ...arguments)
+Tab.doThrow(target).call(subject, ...arguments)
 ~
-target.return(...arguments);
-````
-
-### target.capture( processor ) » newFunction
-
-core principle:
-
-````
-target.capture(processor).call(subject, ...arguments)
-~
-target.return(...arguments);
-processor.call(subject, ...arguments);
+target.throw(...arguments);
 ````
 
 <br />
@@ -37,24 +26,10 @@ processor.call(subject, ...arguments);
 The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
 
 ````javascript
-function capture( processor ) {
-    var target = Tab(this)
-        captor, deferred;
+function doThrow(target) {
+    var target = Tab(target);
 
-    captor = Tab.Ext.defer({ target: target });
-
-    deferred = function () {
-        captor(...arguments);
-        return processor.call(this, ...arguments);
-    }
-
-    if (processor) {
-       // ensure deferred can be used as 'new' constructor 
-       deferred.prototype = Object.create(processor.prototype);
-       deferred.prototype.constructor = deferred;
-    }
-
-    return deferred;
+    return Tab.Ext.defer({ target: target }, Tab.prototype.throw.bind(target));
 }
 ````
 
@@ -63,9 +38,12 @@ function capture( processor ) {
 ---
 
 Other methods in this family:
-*   [.captureWith()][ref-tab.prototype.capture-with]
-*   [.defer()][ref-tab.prototype.defer]
-*   [.trace()][ref-tab.prototype.trace]
+*   [Tab.doCapture()][ref-tab.do-capture]
+*   [Tab.doCaptureWith()][ref-tab.do-capture-with]
+*   [Tab.doDefer()][ref-tab.do-defer]
+*   [Tab.doReturn()][ref-tab.do-return]
+*   [Tab.doTrace()][ref-tab.do-trace]
+<br />
 *   [Tab.Ext.defer()][ref-tab.ext.defer]
 
 
@@ -109,25 +87,32 @@ Other methods in this family:
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
-[ref-tab.get-context]:              /doc/reference/tab.get-context.md#top              "Tab.getContext(): get the execution context for a processor function."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
+[ref-tab.do-capture]:               /doc/reference/tab.do-capture.md#top               "Tab.doCapture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
+[ref-tab.do-capture-with]:          /doc/reference/tab.do-capture-with.md#top          "Tab.doCaptureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
+[ref-tab.do-defer]:                 /doc/reference/tab.do-defer.md#top                 "Tab.doDefer(): create a function that uses a given tab to store another function's result."
+[ref-tab.do-return]:                /doc/reference/tab.do-return.md#top                "Tab.doReturn(): create a function that updates the value of a given tab."
+[ref-tab.do-throw]:                 /doc/reference/tab.do-throw.md#top                 "Tab.doThrow(): create a function that puts a given tab in the failed state."
+[ref-tab.do-trace]:                 /doc/reference/tab.do-trace.md#top                 "Tab.doTrace(): create a function that uses a given tab to store another function's subject, arguments, and result."
+[ref-tab.get-context]:              /doc/reference/tab.get-context.md#top              "Tab.getContext(): get the execution context for a processor function."
 [ref-tab.is-tab]:                   /doc/reference/tab.is-tab.md#top                   "Tab.isTab(): was the given object created by this Tab constructor?"
-[ref-tab.return]:                   /doc/reference/tab.return.md#top                   "Tab.return(): construct a new tab an set its value."
-[ref-tab.throw]:                    /doc/reference/tab.throw.md#top                    "Tab.throw(): construct a new tab and put it in the failed state."
+[ref-tab.new-return]:               /doc/reference/tab.new-return.md#top               "Tab.newReturn(): create a new tab that is initialized with a given value."
+[ref-tab.new-throw]:                /doc/reference/tab.new-throw.md#top                "Tab.newThrow(): create a new tab that is put in the failed state."
 
-[ref-tab.prototype.capture]:        /doc/reference/tab.prototype.capture.md#top        "Tab.prototype.capture(): create a function that uses this tab to store another function's arguments, and then executes the other function."
-[ref-tab.prototype.capture-with]:   /doc/reference/tab.prototype.capture-with.md#top   "Tab.prototype.captureWith(): create a function that uses this tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.prototype.catch]:          /doc/reference/tab.prototype.catch.md#top          "Tab.prototype.catch(): process 'thrown' notifications for this tab and create a new tab with the result."
-[ref-tab.prototype.defer]:          /doc/reference/tab.prototype.defer.md#top          "Tab.prototype.defer(): create a function that uses this tab to store another function's result."
 [ref-tab.prototype.finally]:        /doc/reference/tab.prototype.finally.md#top        "Tab.prototype.finally(): process 'returned' and 'thrown' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.has-thrown]:     /doc/reference/tab.prototype.has-thrown.md#top     "Tab.prototype.hasThrown(): has this tab thrown an error?"
 [ref-tab.prototype.return]:         /doc/reference/tab.prototype.return.md#top         "Tab.prototype.return(): update the value of this tab."
 [ref-tab.prototype.throw]:          /doc/reference/tab.prototype.throw.md#top          "Tab.prototype.throw(): put this tab in the failed state."
 [ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
-[ref-tab.prototype.trace]:          /doc/reference/tab.prototype.trace.md#top          "Tab.prototype.trace(): create a function that uses this tab to store another function's subject, arguments, and result."
 [ref-tab.prototype.try]:            /doc/reference/tab.prototype.try.md#top            "Tab.prototype.try(): process 'returned' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.value-of]:       /doc/reference/tab.prototype.value-of.md#top       "Tab.prototype.valueOf(): get the principal value of this tab."
 
 [ref-tab.ext]:                      /doc/reference/tab.ext.md#top                      "Tab.Ext: resources for extending the Tab library."
 
-[ref-tab.ext.defer]:                /doc/reference/tab.ext.defer.md#top                    "Tab.Ext.defer(): the basic method to create deferred functions."
+[ref-tab.ext.defer]:                /doc/reference/tab.ext.defer.md#top                "Tab.Ext.defer(): the basic method to create deferred functions."
+[ref-tab.ext.initialize]:           /doc/reference/tab.ext.initialize.md#top           "Tab.Ext.defer(): the basic method to initialize methods that process notifications from a tab."
+[ref-tab.ext.has-thrown]:           /doc/reference/tab.ext.has-thrown.md#top           "Tab.Ext.hasThrown(): the basic method to check if a tab has thrown an error."
+[ref-tab.ext.return]:               /doc/reference/tab.ext.return.md#top               "Tab.Ext.defer(): the basic method to update the value of a tab."
+[ref-tab.ext.subscribe]:            /doc/reference/tab.ext.subscribe.md#top            "Tab.Ext.defer(): the basic method to subscribe to notifications from a tab."
+[ref-tab.ext.throw]:                /doc/reference/tab.ext.throw.md#top                "Tab.Ext.defer(): the basic method to set a tab in the failed state."

@@ -1,32 +1,54 @@
 <a name="top" ></a>
 
-<img src="./img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="./img/1x1.png" align="left" style="float:left;" height="79" width="20" />
-# [Tab][top]
-Get help with callbacks, promises, pipelining, lazy evaluation and concurrent computing.
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.prototype.doReturn()][ref-tab.do-return]
+
+Create a function that updates the value of a given tab.
+
 <br />
 
-## [Topics][topics]
+---
+### Tab.doReturn( target ) » newFunction
 
-### [The Basics][topic-the-basics]
-> 
->   * [A Basic Tab][topic-a-basic-tab] :new:  
->     creating and using a basic Tab object.
->   * [A Basic Callback][topic-a-basic-callback] :new:  
->     using a Tab object to handle callbacks.
->   * [A Basic Promise][topic-a-basic-promise] :new:  
->     using a Tab object as a promise.
->   * [Basic Pipelining][topic-basic-pipelining]  
->     using Tab objects for pipelining.
->   * [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
->     using a Tab object for lazy evaluation.
->   * [Basic Concurrent Computing][topic-basic-concurrent-computing]  
->     using a Tab object to handle concurrent computing.
->   
-> 
+core principle:
+
+````
+Tab.doReturn(target).call(subject, ...arguments)
+~
+target.return(...arguments);
+````
+
+<br />
+
+---
+### Concepts
+
+The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
+
+````javascript
+function doReturn(target) {
+    var target = Tab(target);
+
+    return Tab.Ext.defer({ target: target });
+}
+````
+
+<br />
+
+---
+
+Other methods in this family:
+*   [Tab.doCapture()][ref-tab.do-capture]
+*   [Tab.doCaptureWith()][ref-tab.do-capture-with]
+*   [Tab.doDefer()][ref-tab.do-defer]
+*   [Tab.doThrow()][ref-tab.do-throw]
+*   [Tab.doTrace()][ref-tab.do-trace]
+<br />
+*   [Tab.Ext.defer()][ref-tab.ext.defer]
 
 
 
-<br /> Back to [Top] | [Project] | [Topics] | [Reference] <br />
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
 [$$$$$ start of links $$$$$]: #
 
 [top]:       #top                        "back to the top of this page."
