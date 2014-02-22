@@ -176,4 +176,4 @@ In this example:
 
 [ref-tab.ext]:                      /doc/reference/tab.ext.md#top                      "Tab.Ext: resources for extending the Tab library."
 
-[ref-tab.ext.defer]:                /doc/reference/tab.defer.md#top                    "Tab.Ext.defer(): the basic method to create deferred functions."
+[ref-tab.ext.defer]:                /doc/reference/tab.ext.defer.md#top                    "Tab.Ext.defer(): the basic method to create deferred functions."
