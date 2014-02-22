@@ -19,7 +19,7 @@ The following illustrates the main concepts.  The actual implementation may be s
 
 ````javascript
 function valueOf() {
-    if (this instanceof Tab) {
+    if (this.isTab()) {
         if (this._thrown) {
             throw this._values[0];
         }
@@ -39,6 +39,7 @@ function valueOf() {
 ---
 
 Other methods in this family:
+*   [Tab.isTab()][ref-tab.is-tab]
 *   [.toString()][ref-tab.prototype.to-string]
 
 

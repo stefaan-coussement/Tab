@@ -1,14 +1,14 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.prototype.toString()][ref-tab.prototype.to-string]
+## [Tab.isTab()][ref-tab.is-tab]
 
-Get a string representation for this tab.
+Was the given object created by this Tab library?
 
 <br />
 
 ---
-### tab.toString() » stringValue
+### Tab.isTab( object ) » booleanValue
 
 <br />
 
@@ -18,14 +18,8 @@ Get a string representation for this tab.
 The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
 
 ````javascript
-function toString() {
-    if (this.isTab()) {
-        return "[object Tab]";
-    }
-    else {
-        // not a tab
-        return this.toString();
-    }
+function isTab() {
+    return (this instanceof Tab);
 }
 ````
 
@@ -34,9 +28,9 @@ function toString() {
 ---
 
 Other methods in this family:
-*   [Tab.isTab()][ref-tab.is-tab]
+*   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
 
 
 
-<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Constructor Methods][ref-tab-constructor-methods] <br />
