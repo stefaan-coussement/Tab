@@ -1,3 +1,86 @@
+<a name="top" ></a>
+
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.prototype.trace()][ref-tab.prototype.trace]
+
+Create a function that uses this tab to store another function's subject, arguments, and result.
+
+<br />
+
+---
+### target.trace( ?message = "" ) » newFunction
+
+core principle:
+
+````
+target.trace().call(subject, ...arguments)
+~
+target.return(message, subject, ...arguments);
+````
+
+### target.trace( ?message = "", processor ) » newFunction
+
+core principle:
+
+````
+target.capture(processor).call(subject, ...arguments)
+~
+try {
+    target.return(message, subject, ...arguments, 
+                  "returned", processor.call(subject, ...arguments));
+}
+catch (e) {
+    target.return(message, subject, ...arguments, 
+                  "trown", e);
+}
+````
+
+<br />
+
+---
+### Concepts
+
+The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
+
+````javascript
+function capture( processor ) {
+    var target = Tab(this)
+        tracer;
+
+    if (processor) {
+        tracer = function () {
+            try {
+                target.return(message, subject, ...arguments, 
+                              "returned", processor.call(subject, ...arguments));
+            }
+            catch (e) {
+                target.return(message, subject, ...arguments, 
+                              "trown", e);
+            }
+        }
+
+        // ensure tracer can be used as 'new' constructor 
+        tracer.prototype = Object.create(processor.prototype);
+        tracer.prototype.constructor = tracer;
+    }
+
+    return Tab.Ext.defer({ target: target }, tracer);
+}
+````
+
+<br />
+
+---
+
+Other methods in this family:
+*   [.capture()][ref-tab.prototype.capture]
+*   [.captureWith()][ref-tab.prototype.capture-with]
+*   [.defer()][ref-tab.prototype.defer]
+*   [Tab.Ext.defer()][ref-tab.ext.defer]
+
+
+
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
 [$$$$$ start of links $$$$$]: #
 
 [top]:       #top                        "back to the top of this page."

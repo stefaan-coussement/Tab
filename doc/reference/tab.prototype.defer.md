@@ -1,3 +1,66 @@
+<a name="top" ></a>
+
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.prototype.defer()][ref-tab.prototype.defer]
+
+Create a function that uses this tab to store another function's result.
+
+<br />
+
+---
+### target.defer() » newFunction
+
+core principle:
+
+````
+target.defer().call(subject, ...arguments) 
+~ 
+target.return(...arguments)
+````
+
+### target.defer( processor ) » newFunction
+
+core principle:
+
+````
+target.defer(processor).call(subject, ...arguments)
+~
+try {
+    target.return(processor.call(subject, ...arguments));
+}
+catch (e) {
+    target.throw(e);
+}
+````
+
+<br />
+
+---
+### Concepts
+
+The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
+
+````javascript
+function defer( processor ) {
+    var target = Tab(this);
+
+    return Tab.Ext.defer({ target: target }, processor);
+}
+````
+
+<br />
+
+---
+
+Other methods in this family:
+*   [.capture()][ref-tab.prototype.capture]
+*   [.captureWith()][ref-tab.prototype.capture-with]
+*   [.trace()][ref-tab.prototype.trace]
+*   [Tab.Ext.defer()][ref-tab.ext.defer]
+
+
+
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
 [$$$$$ start of links $$$$$]: #
 
 [top]:       #top                        "back to the top of this page."

@@ -1,3 +1,122 @@
+<a name="top" ></a>
+
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [A Basic Callback][topic-a-basic-callback]
+
+In the first example of [A Basic Tab][topic-a-basic-tab] there is still quite a bit of processing in the callback function for `setInterval`.  We can do better.
+
+~~~~javascript
+var id, interval = 0,
+    counter = new Tab();
+
+id = setInterval(counter.defer(function () {
+    interval += 1;
+    return interval;
+}), 1000);
+
+counter
+.try(function (value) {
+    if (value <= 3600) {
+        console.log(value % 2 === 1 ? "tick" : "tock");
+    }
+    if (value === 3600) {
+        clearInterval(id);
+        console.log("cuckoo");
+    }
+})
+.catch(function (error) {
+    console.log(error);
+});
+~~~~
+
+Compared to the example in [A Basic Tab][topic-a-basic-tab], in this example:
+
+* [counter.defer( encapsulatedCallback )][ref-tab.prototype.defer] creates a new callback function, binding `counter` to the encapsulated callback.  This new deferred callback, when executed, will 
+*  `counter` with the return value of the encapsulated function, and a notification will be sent to all subscribers of `counter`.  In the case an error is thrown in the encapsulated function, `counter` is set to the failed state, and a notification will be sent to all subscribers of `counter`. 
+ 
+However, we can still do better.   
+
+~~~~javascript
+var id, interval = 0,
+    counter = new Tab();
+
+id = setInterval(Tab.prototype.return.bind(counter), 1000);
+
+counter
+.try(function () {
+    interval += 1;
+    if (interval <= 3600) {
+        console.log(interval % 2 === 1 ? "tick" : "tock");
+    }
+    if (value === 3600) {
+        clearInterval(id);
+        console.log("cuckoo");
+    }
+})
+.catch(function (error) {
+    console.log(error);
+});
+~~~~
+
+Compared to the previous example, in this example:
+
+* We moved the calculation of the interval to the processor of `counter.try`.
+* [Tap.prototype.return][ref-tab.prototype.return] - this is the method we used in the example in [A Basic Tab][topic-a-basic-tab] to update `counter` - is bound to `counter`.  This callback, when executed will now update `counter` without providing a specific value, and a notification will be sent to all subscribers of `counter`.  In the unlikely case an error is thrown in the `return` method, `counter` is set to the failed state.
+
+We can also work with callbacks that have more than one argument.  The following assumes a function `httpGet` that hides a lot of the detailed mechanics of working with `XMLHttpRequest`, and that expects a callback with multiple arguments - a selection of the attributes of an `XMLHTTPRequest`-object.
+
+~~~~javascript
+var response = new Tab(), 
+    text;
+
+httpGet("http://code.jquery.com/jquery.js", Tab.prototype.return.bind(response));
+
+text = response.try(function (responseText, responseStatus, readyState) {
+    if ((readyState === 4) && (responseStatus === 200)) {
+        this.return(responseText);
+    }
+    else {
+        this.defer();
+    }
+});
+~~~~
+
+In this example:
+
+* [Tab.prototype.return][ref-tab.prototype.return] updates `response` with **all** callback arguments.
+* [response.try()][ref-tab.prototype.try] picks up the 'returned' notification with the arguments from the callback.  
+* `this` refers to the new Tab object that is created by the `.try()` method.  In this specific case, we could also use `text`.
+* When the conditions are right, [this.return()][ref-tab.prototype.return] updates `text` with the fetched document.  Alternatively, we could also just `return` the text, as we illustrated higher.
+* When the conditions are not right, [this.defer()][ref-tab.prototype.defer] defers the update further until next time the callback is called.  This avoids that the `undefined` return is interpreted as a valid value to update `text` - there is no way to distinguish between a function that returns `undefined` and a function that doesn't return anything.
+
+>>>>>>>>> defer inner async function calls.
+
+>>>>>>>>> better to do this using try.
+
+>>>>>>>>> capture, captureWith.
+
+>>>>>>>>> trace.
+
+
+
+### Methods introduced in this topic:
+
+* [.capture()][ref-tab.prototype.capture]  
+* [.captureWith()][ref-tab.prototype.capture-with]  
+* [.defer()][ref-tab.prototype.defer]  
+* [.trace()][ref-tab.prototype.trace]  
+
+
+
+### Other methods used in this topic:
+
+* [new Tab()][ref-new-tab]
+* [.try()][ref-tab.prototype.try]
+* [.catch()][ref-tab.prototype.catch]
+
+
+
+<br /> Back to [Top] | [Project] | [Topics] / [The Basics][topic-the-basics] | [Reference] <br />
 [$$$$$ start of links $$$$$]: #
 
 [top]:       #top                        "back to the top of this page."

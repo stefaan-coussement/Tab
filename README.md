@@ -100,18 +100,16 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     1. provide the means to cancel a tab, both its subscription for the events from other tabs and its ongoing action undertaken as a consequence of such past events.
     
-
 1.  Callbacks
 
-    1. provide the means to encapsulate a callback into a promise to capture the callback's result, without needing to change the encapsulated callback's signature.
+    1. :ok: provide the means to use a tab to capture the arguments of a callback, including cases where callbacks can have multiple arguments.
     
-    1. provide the means to capture multiple values in a tab without needing to encapsulate these values in an object.
+    1. :ok: provide the means to use a tab to capture the arguments for a callback, without executing the original callback, and then use the original callback as the processor of the tab's notification.
     
-    1. provide the means to capture an error in a tab with some contextual information.
+    1. :ok: provide the means to capture a callback's result, without needing to change the callback's signature.
     
-    1. provide the ability to use the methods for updating the value of a tab as a callback, basically avoiding the definition of a lambda.
+    1. :ok: provide the means to capture a callback's error in a tab, without needing to change the callback's signature.
     
-
 1.  Promises
 
     1. provide the means to settle a tab with a value or error, i.e. a final and non-mutable state, and notify its observers.
@@ -126,7 +124,6 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     1. keep interoperability with [NodeJS](http://nodejs.org/) promises where possible.
     
-
 1.  Pipelining
 
     1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
@@ -135,14 +132,12 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     3. provide the means to encapsulate a pipeline of tabs in a function that then can be used as a module to compose longer pipelines.
     
-
 1.  Lazy Evaluation
 
     1. provide the means to define a tab without effectively executing the definition until the tab's result is needed (promises don't support lazy evaluation).
     
     1. provide the means for a tab to define dependencies on other tabs without triggering their evaluation (lazy evaluation).
     
-
 1.  Concurrent Computing
 
     1. provide the means to combine the results from multiple sources into a single tab.
@@ -151,18 +146,23 @@ The following is a maintained, and thus regularly updated and re-organized list 
         * wait for the value of all tabs to calculate a result (similar to boolean logic)
         * wait for the value of the first tabs in sequence to calculate a result (similar to javascript `||` and `&&`)  
         * wait for the value of the first tabs in time to calculate a result
-
+        
+    
 1.  Miscellaneous
-
-    1. provide the means to augment a tab with contextual information that stays accessible through the chain of tabs that are created when handling events (f.i. using the .then method).
+    
+    1. :ok: provide the means to use a tab to capture the subject and arguments of a method, for instance for use during testing.
+    
+    1. :ok: provide the means to use a tab to capture the subject, arguments and result or error of a method, for instance for use during testing.
+    
+    1. provide the means to augment a tab with contextual information that stays accessible through the chain of tabs that are created when handling events (f.i. using the .try method).
     
     1. provide the means to throttle the execution of event handlers (f.i. only four outstanding http requests allowed at one time).
-        
+    
     1. for use in *ES5* environments, provide a getter for `.length` as an alternative for the `.count()` method, hence making Tab better line-up with intuitive Javascript practise.
     
     1. provide an experimental version that uses *ES.next* weak maps instead of closures.
     
-    1. investigate if we can provide an experimental interface to set and get the value of a tab, using *ES.next* proxies.  There may be a major limitation that protype methods defined for Tab cannot be trapped and applied to the contained object, unless **all** of the current prototype methods are moved to a corresponding constructor method, essentially breaking the requirement of a fluid API.  Instead, we may introduce a special `.value` attribute or method to serve as a proxy for the contained object? ...
+    1. investigate if we can provide an experimental interface to set and get the value of a tab, using *ES.next* proxies.  It is however impossible to provide full proxying on a tab.  The prototype methods defined for Tab cannot be trapped and applied to the contained object, unless **all** of the current prototype methods are moved to a corresponding constructor method, essentially breaking the requirement of a fluid API.  Instead, we may introduce a special `.value` attribute to serve as a full proxy for the contained object? ...
 
 
 
@@ -217,26 +217,37 @@ There are a lot of other projects that were (and still are) influencing this pro
 [ref-tab-constructor-methods]:      /doc/reference.md#tab-constructor-methods          "more methods under 'Tab Constructor Methods'"
 [ref-tab-prototype-methods]:        /doc/reference.md#tab-prototype-methods            "more methods under 'Tab Prototype Methods'"
 [ref-tab-instance-methods]:         /doc/reference.md#tab-instance-methods             "more methods under 'Tab Instance Methods'"
-[ref-other-elements]:               /doc/reference.md#other-elements                   "more methods under 'Other Elements'"
+[ref-tab.ext-object]:               /doc/reference.md#tab.ext-object                   "more attributes and methods under 'Tab.Ext Object'"
+[ref-tab.ext-methods]:               /doc/reference.md#tab.ext-methods                 "more attributes and methods under 'Tab.Ext Methods'"
 
 [ref-new-tab]:                      /doc/reference/new-tab.md#top                      "new Tab(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab]:                          /doc/reference/tab.md#top                          "Tab(): convert to a tab, create a new tab if required."
 
+[ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
+[ref-tab.context.pop]:              /doc/reference/tab.context.pop.md#top              "Tab.context.pop(): re-instate the previous execution context for a processor function."
+[ref-tab.context.push]:             /doc/reference/tab.context.push.md#top             "Tab.context.push(): create a new execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.get-context]:              /doc/reference/tab.get-context.md#top              "Tab.getContext(): get the execution context for a processor function."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.is-tab]:                   /doc/reference/tab.is-tab.md#top                   "Tab.isTab(): was the given object created by this Tab constructor?"
 [ref-tab.return]:                   /doc/reference/tab.return.md#top                   "Tab.return(): construct a new tab an set its value."
 [ref-tab.throw]:                    /doc/reference/tab.throw.md#top                    "Tab.throw(): construct a new tab and put it in the failed state."
 
+[ref-tab.prototype.capture]:        /doc/reference/tab.prototype.capture.md#top        "Tab.prototype.capture(): create a function that uses this tab to store another function's arguments, and then executes the other function."
+[ref-tab.prototype.capture-with]:   /doc/reference/tab.prototype.capture-with.md#top   "Tab.prototype.captureWith(): create a function that uses this tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.prototype.catch]:          /doc/reference/tab.prototype.catch.md#top          "Tab.prototype.catch(): process 'thrown' notifications for this tab and create a new tab with the result."
+[ref-tab.prototype.defer]:          /doc/reference/tab.prototype.defer.md#top          "Tab.prototype.defer(): create a function that uses this tab to store another function's result."
 [ref-tab.prototype.finally]:        /doc/reference/tab.prototype.finally.md#top        "Tab.prototype.finally(): process 'returned' and 'thrown' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.has-thrown]:     /doc/reference/tab.prototype.has-thrown.md#top     "Tab.prototype.hasThrown(): has this tab thrown an error?"
 [ref-tab.prototype.return]:         /doc/reference/tab.prototype.return.md#top         "Tab.prototype.return(): update the value of this tab."
 [ref-tab.prototype.throw]:          /doc/reference/tab.prototype.throw.md#top          "Tab.prototype.throw(): put this tab in the failed state."
 [ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
+[ref-tab.prototype.trace]:          /doc/reference/tab.prototype.trace.md#top          "Tab.prototype.trace(): create a function that uses this tab to store another function's subject, arguments, and result."
 [ref-tab.prototype.try]:            /doc/reference/tab.prototype.try.md#top            "Tab.prototype.try(): process 'returned' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.value-of]:       /doc/reference/tab.prototype.value-of.md#top       "Tab.prototype.valueOf(): get the principal value of this tab."
 
-[ref-the-javascript-object]:        /doc/reference/the-javascript-object.md#top        "The Javascript Object: the structure of the javascript object."
+[ref-tab.ext]:                      /doc/reference/tab.ext.md#top                      "Tab.Ext: resources for extending the Tab library."
+
+[ref-tab.ext.defer]:                /doc/reference/tab.defer.md#top                    "Tab.Ext.defer(): the basic method to create deferred functions."

@@ -12,55 +12,52 @@ Get help with callbacks, promises, pipelines, lazy evaluation and concurrent com
 > #### [Tab Constructor][ref-tab-constructor]
 > 
 >   * [new Tab()][ref-new-tab]  
->     construct a new tab, encapsulate a given tab if requested.
 >   * [Tab()][ref-tab]  
->     convert to a tab, create a new tab if required.
 >   
 > 
 > #### [Tab Constructor Attributes][ref-tab-constructor-attributes]
 > 
+>   * [Tab.context][ref-tab.context]  
+>       * [Tab.context.pop()][ref-tab.context.pop]  
+>       * [Tab.context.push()][ref-tab.context.push]  
 >   * [Tab.version][ref-tab.version]  
->     the version of this Tab library.
 >   
 > 
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
 > 
 >   * [Tab.construct()][ref-tab.construct]  
->     construct a new tab, encapsulate a given tab if requested.
+>   * [Tab.getContext()][ref-tab.get-context]  
 >   * [Tab.convert()][ref-tab.convert]  
->     convert to a tab, create a new tab if required.
 >   * [Tab.isTab()][ref-tab.is-tab]  
->     was the given object created by this Tab constructor?
 >   * [Tab.return()][ref-tab.return]  
->     construct a new tab an set its value.
 >   * [Tab.throw()][ref-tab.throw]  
->     construct a new tab and put it in the failed state.
 >   
 > 
 > #### [Tab Prototype Methods][ref-tab-prototype-methods]
 > 
+>   * [.capture()][ref-tab.prototype.capture]  
+>   * [.captureWith()][ref-tab.prototype.capture-with]  
 >   * [.catch()][ref-tab.prototype.catch]  
->     process 'thrown' notifications for this tab and create a new tab with the result.
+>   * [.defer()][ref-tab.prototype.defer]  
 >   * [.finally()][ref-tab.prototype.finally]  
->     process 'returned' and 'thrown' notifications for this tab and create a new tab with the result.
 >   * [.hasThrown()][ref-tab.prototype.has-thrown]  
->     has this tab thrown an error?
 >   * [.return()][ref-tab.prototype.return]  
->     update the value of this tab.
 >   * [.throw()][ref-tab.prototype.throw]  
->     put this tab in the failed state.
 >   * [.toString()][ref-tab.prototype.to-string]  
->     get a string representation for this tab.
+>   * [.trace()][ref-tab.prototype.trace]  
 >   * [.try()][ref-tab.prototype.try]  
->     process 'returned' notifications for this tab and create a new tab with the result.
 >   * [.valueOf()][ref-tab.prototype.value-of]  
->     get the principal value of this tab.
 >   
->
-> #### [Other Elements][ref-other-elements]
 > 
->   * [The Javascript Object][ref-the-javascript-object]  
->     the structure of the javascript object.
+
+### [Tab.Ext Object][ref-tab.ext-object]
+> 
+>   * [Tab.Ext][ref-tab.ext]  
+>   
+> 
+> #### [Tab.Ext Methods][ref-tab.ext-methods]
+> 
+>   * [Tab.Ext.defer()][ref-tab.ext.defer]
 >   
 > 
 
@@ -93,26 +90,37 @@ Get help with callbacks, promises, pipelines, lazy evaluation and concurrent com
 [ref-tab-constructor-methods]:      /doc/reference.md#tab-constructor-methods          "more methods under 'Tab Constructor Methods'"
 [ref-tab-prototype-methods]:        /doc/reference.md#tab-prototype-methods            "more methods under 'Tab Prototype Methods'"
 [ref-tab-instance-methods]:         /doc/reference.md#tab-instance-methods             "more methods under 'Tab Instance Methods'"
-[ref-other-elements]:               /doc/reference.md#other-elements                   "more methods under 'Other Elements'"
+[ref-tab.ext-object]:               /doc/reference.md#tab.ext-object                   "more attributes and methods under 'Tab.Ext Object'"
+[ref-tab.ext-methods]:               /doc/reference.md#tab.ext-methods                 "more attributes and methods under 'Tab.Ext Methods'"
 
 [ref-new-tab]:                      /doc/reference/new-tab.md#top                      "new Tab(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab]:                          /doc/reference/tab.md#top                          "Tab(): convert to a tab, create a new tab if required."
 
+[ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
+[ref-tab.context.pop]:              /doc/reference/tab.context.pop.md#top              "Tab.context.pop(): re-instate the previous execution context for a processor function."
+[ref-tab.context.push]:             /doc/reference/tab.context.push.md#top             "Tab.context.push(): create a new execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.get-context]:              /doc/reference/tab.get-context.md#top              "Tab.getContext(): get the execution context for a processor function."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.is-tab]:                   /doc/reference/tab.is-tab.md#top                   "Tab.isTab(): was the given object created by this Tab constructor?"
 [ref-tab.return]:                   /doc/reference/tab.return.md#top                   "Tab.return(): construct a new tab an set its value."
 [ref-tab.throw]:                    /doc/reference/tab.throw.md#top                    "Tab.throw(): construct a new tab and put it in the failed state."
 
+[ref-tab.prototype.capture]:        /doc/reference/tab.prototype.capture.md#top        "Tab.prototype.capture(): create a function that uses this tab to store another function's arguments, and then executes the other function."
+[ref-tab.prototype.capture-with]:   /doc/reference/tab.prototype.capture-with.md#top   "Tab.prototype.captureWith(): create a function that uses this tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.prototype.catch]:          /doc/reference/tab.prototype.catch.md#top          "Tab.prototype.catch(): process 'thrown' notifications for this tab and create a new tab with the result."
+[ref-tab.prototype.defer]:          /doc/reference/tab.prototype.defer.md#top          "Tab.prototype.defer(): create a function that uses this tab to store another function's result."
 [ref-tab.prototype.finally]:        /doc/reference/tab.prototype.finally.md#top        "Tab.prototype.finally(): process 'returned' and 'thrown' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.has-thrown]:     /doc/reference/tab.prototype.has-thrown.md#top     "Tab.prototype.hasThrown(): has this tab thrown an error?"
 [ref-tab.prototype.return]:         /doc/reference/tab.prototype.return.md#top         "Tab.prototype.return(): update the value of this tab."
 [ref-tab.prototype.throw]:          /doc/reference/tab.prototype.throw.md#top          "Tab.prototype.throw(): put this tab in the failed state."
 [ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
+[ref-tab.prototype.trace]:          /doc/reference/tab.prototype.trace.md#top          "Tab.prototype.trace(): create a function that uses this tab to store another function's subject, arguments, and result."
 [ref-tab.prototype.try]:            /doc/reference/tab.prototype.try.md#top            "Tab.prototype.try(): process 'returned' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.value-of]:       /doc/reference/tab.prototype.value-of.md#top       "Tab.prototype.valueOf(): get the principal value of this tab."
 
-[ref-the-javascript-object]:        /doc/reference/the-javascript-object.md#top        "The Javascript Object: the structure of the javascript object."
+[ref-tab.ext]:                      /doc/reference/tab.ext.md#top                      "Tab.Ext: resources for extending the Tab library."
+
+[ref-tab.ext.defer]:                /doc/reference/tab.defer.md#top                    "Tab.Ext.defer(): the basic method to create deferred functions."
