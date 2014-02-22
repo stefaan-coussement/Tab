@@ -57,6 +57,9 @@ function capture( processor ) {
                 target.return(message, subject, ...arguments, 
                               "trown", e);
             }
+
+            // avoid a second notification is sent on exit
+            target.defer();
         }
 
         // ensure tracer can be used as 'new' constructor 
