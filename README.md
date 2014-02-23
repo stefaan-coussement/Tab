@@ -2,7 +2,7 @@
 
 <img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/1x1.png" align="left" style="float:left;" height="79" width="20" />
 # [Tab][top]
-Get help with callbacks, promises, pipelines, lazy evaluation and concurrent computing.
+Get help with callbacks, pipelines, promises, lazy evaluation and concurrent computing.
 <br />
 
 ## [The Project][project]
@@ -25,18 +25,11 @@ Because this API seriously differs from the promises defined in other projects, 
 > To observe carefully.  To maintain a watch over, record activities of.  
 > [http://www.thefreedictionary.com/tab]
 
-The general goal is to help with callbacks, promises, pipelines, lazy evaluation and concurrent computing.
+The general goal is to help with callbacks, pipelines, promises, lazy evaluation and concurrent computing.
 
 >**callback** (programming)
 > In computer programming, a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time. The invocation may be immediate as in a synchronous callback or it might happen at later time, as in an asynchronous callback.  
 > [http://en.wikipedia.org/wiki/Callback_(computer_programming)]
->
->**promise** (programming)
-> In computer science, future, promise, and delay refer to constructs used for synchronizing in some concurrent programming languages. They describe an object that acts as a proxy for a result that is initially unknown, usually because the computation of its value is yet incomplete.  
-> [http://en.wikipedia.org/wiki/Promise_(programming)]
->
-> A promise is the final item in a stream. A stream itself is a way to shorten a very long sequence into a short one, and request only the items needed at the moment.  
-> [http://en.wikipedia.org/wiki/Promise_(computing)]
 >
 >**pipeline** (programming)
 > In software engineering, a pipeline consists of a chain of processing elements (processes, threads, coroutines, etc.), arranged so that the output of each element is the input of the next; the name is by analogy to a physical pipeline. Usually some amount of buffering is provided between consecutive elements. The information that flows in these pipelines is often a stream of records, bytes or bits, and the elements of a pipeline may be called filters; this is also called the pipes and filters design pattern. Connecting elements into a pipeline is analogous to function composition.  
@@ -47,6 +40,13 @@ The general goal is to help with callbacks, promises, pipelines, lazy evaluation
 >
 > In computing, reactive programming is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that the underlying execution model will automatically propagate changes through the data flow.  
 > [http://en.wikipedia.org/wiki/Reactive_programming]
+>
+>**promise** (programming)
+> In computer science, future, promise, and delay refer to constructs used for synchronizing in some concurrent programming languages. They describe an object that acts as a proxy for a result that is initially unknown, usually because the computation of its value is yet incomplete.  
+> [http://en.wikipedia.org/wiki/Promise_(programming)]
+>
+> A promise is the final item in a stream. A stream itself is a way to shorten a very long sequence into a short one, and request only the items needed at the moment.  
+> [http://en.wikipedia.org/wiki/Promise_(computing)]
 >
 >**lazy evaluation** (programming)
 > In programming language theory, lazy evaluation, or call-by-need is an evaluation strategy which delays the evaluation of an expression until its value is needed (non-strict evaluation) and which also avoids repeated evaluations (sharing). The sharing can reduce the running time of certain functions by an exponential factor over other non-strict evaluation strategies, such as call-by-name.  
@@ -66,11 +66,11 @@ The general goal is to help with callbacks, promises, pipelines, lazy evaluation
 * [A Basic Callback][topic-a-basic-callback]  
   using a Tab object to handle callbacks.
 
+* [A Basic Pipeline][topic-a-basic-pipeline]  
+  using Tab objects for pipelining.
+
 * [A Basic Promise][topic-a-basic-promise]  
   using a Tab object as a promise.
-
-* [Basic Pipelining][topic-basic-pipelining]  
-  using Tab objects for pipelining.
 
 * [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
   using a Tab object for lazy evaluation.
@@ -110,6 +110,14 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     1. :ok: provide the means to capture a callback's error in a tab, without needing to change the callback's signature.
     
+1.  Pipelines
+
+    1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
+    
+    2. :ok: provide the means to dynamically and asynchronously process notifications by pushing them into a pipeline of processing tabs.
+    
+    3. provide the means to encapsulate a pipeline of tabs in a function that then can be used as a module to compose longer pipelines.
+    
 1.  Promises
 
     1. provide the means to settle a tab with a value or error, i.e. a final and non-mutable state, and notify its observers.
@@ -123,14 +131,6 @@ The following is a maintained, and thus regularly updated and re-organized list 
     1. keep interoperability with [jQuery](http://jquery.com/) promises where possible.
     
     1. keep interoperability with [NodeJS](http://nodejs.org/) promises where possible.
-    
-1.  Pipelining
-
-    1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
-    
-    2. provide the means to dynamically and asynchronously process events by pushing them into a pipeline of tabs.
-    
-    3. provide the means to encapsulate a pipeline of tabs in a function that then can be used as a module to compose longer pipelines.
     
 1.  Lazy Evaluation
 
@@ -201,13 +201,25 @@ There are a lot of other projects that were (and still are) influencing this pro
 
 
 [topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
+[topic-where-are-tabs-helping]:                  /doc/topics.md#where-are-tabs-helping                      "more topics under 'Where Are Tabs Helping?'"
+[topic-where-are-tabs-lacking]:                  /doc/topics.md#where-are-tabs-lacking                      "more topics under 'Where Are Tabs Lacking?'"
 
 [topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
 [topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
+[topic-a-basic-pipeline]:                        /doc/topics/a-basic-pipeline.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
 [topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
-[topic-basic-pipelining]:                        /doc/topics/basic-pipelining.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
 [topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
 [topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
+
+[topic-clean-function-signatures]:               /doc/topics/clean-function-signatures.md#top               "Clean Function Signatures: using function signatures without callbacks."
+[topic-shallow-callback-nesting]:                /doc/topics/shallow-callback-nesting.md#top                "Shallow Callback Nesting: avoiding deeply nested functions."
+[topic-top-down-control-flow]:                   /doc/topics/top-down-control-flow.md#top                   "Top-Down Control Flow: turning inverted control-flow back around."
+[topic-predictable-execution-order]:             /doc/topics/predictable-execution-order.md#top             "Predictable Execution Order: avoiding issues with immediate callbacks."
+[topic-modular-decomposition]:                   /doc/topics/modular-decomposition.md#top                   "Modular Decomposition:  ..."
+[topic-aspect-oriented-programming]:             /doc/topics/aspect-oriented-programming.md#top             "Aspect Oriented Programming: ..."
+[topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: letting errors propagate through a sequence of processing tabs."
+
+[topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
 
 
 
@@ -228,22 +240,23 @@ There are a lot of other projects that were (and still are) influencing this pro
 [ref-tab.context.push]:             /doc/reference/tab.context.push.md#top             "Tab.context.push(): create a new execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
+[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
+[ref-tab.capture-with]:             /doc/reference/tab.capture-with.md#top             "Tab.captureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
-[ref-tab.do-capture]:               /doc/reference/tab.do-capture.md#top               "Tab.doCapture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
-[ref-tab.do-capture-with]:          /doc/reference/tab.do-capture-with.md#top          "Tab.doCaptureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
-[ref-tab.do-defer]:                 /doc/reference/tab.do-defer.md#top                 "Tab.doDefer(): create a function that uses a given tab to store another function's result."
-[ref-tab.do-return]:                /doc/reference/tab.do-return.md#top                "Tab.doReturn(): create a function that updates the value of a given tab."
-[ref-tab.do-throw]:                 /doc/reference/tab.do-throw.md#top                 "Tab.doThrow(): create a function that puts a given tab in the failed state."
-[ref-tab.do-trace]:                 /doc/reference/tab.do-trace.md#top                 "Tab.doTrace(): create a function that uses a given tab to store another function's subject, arguments, and result."
-[ref-tab.get-context]:              /doc/reference/tab.get-context.md#top              "Tab.getContext(): get the execution context for a processor function."
+[ref-tab.defer]:                    /doc/reference/tab.defer.md#top                    "Tab.defer(): create a function that uses a given tab to store another function's result."
+[ref-tab.defer-return]:             /doc/reference/tab.defer-return.md#top             "Tab.deferReturn(): create a function that updates the value of a given tab."
+[ref-tab.defer-throw]:              /doc/reference/tab.defer-throw.md#top              "Tab.deferThrow(): create a function that puts a given tab in the failed state."
 [ref-tab.is-tab]:                   /doc/reference/tab.is-tab.md#top                   "Tab.isTab(): was the given object created by this Tab constructor?"
 [ref-tab.new-return]:               /doc/reference/tab.new-return.md#top               "Tab.newReturn(): create a new tab that is initialized with a given value."
 [ref-tab.new-throw]:                /doc/reference/tab.new-throw.md#top                "Tab.newThrow(): create a new tab that is put in the failed state."
+[ref-tab.trace]:                    /doc/reference/tab.trace.md#top                    "Tab.trace(): create a function that uses a given tab to store another function's subject, arguments, and result."
 
 [ref-tab.prototype.catch]:          /doc/reference/tab.prototype.catch.md#top          "Tab.prototype.catch(): process 'thrown' notifications for this tab and create a new tab with the result."
 [ref-tab.prototype.finally]:        /doc/reference/tab.prototype.finally.md#top        "Tab.prototype.finally(): process 'returned' and 'thrown' notifications for this tab and create a new tab with the result."
+[ref-tab.prototype.has-returned]:   /doc/reference/tab.prototype.has-returned.md#top   "Tab.prototype.hasReturned(): has this tab an update value?"
 [ref-tab.prototype.has-thrown]:     /doc/reference/tab.prototype.has-thrown.md#top     "Tab.prototype.hasThrown(): has this tab thrown an error?"
+[ref-tab.prototype.raise]:          /doc/reference/tab.prototype.has-raise.md#top      "Tab.prototype.raise(): pass the values of this tab to the target tab of the enclosing processing method."
 [ref-tab.prototype.return]:         /doc/reference/tab.prototype.return.md#top         "Tab.prototype.return(): update the value of this tab."
 [ref-tab.prototype.throw]:          /doc/reference/tab.prototype.throw.md#top          "Tab.prototype.throw(): put this tab in the failed state."
 [ref-tab.prototype.to-string]:      /doc/reference/tab.prototype.to-string.md#top      "Tab.prototype.toString(): get a string representation for this tab."
@@ -254,6 +267,7 @@ There are a lot of other projects that were (and still are) influencing this pro
 
 [ref-tab.ext.defer]:                /doc/reference/tab.ext.defer.md#top                "Tab.Ext.defer(): the basic method to create deferred functions."
 [ref-tab.ext.initialize]:           /doc/reference/tab.ext.initialize.md#top           "Tab.Ext.defer(): the basic method to initialize methods that process notifications from a tab."
+[ref-tab.ext.has-returned]:         /doc/reference/tab.ext.has-returned.md#top         "Tab.Ext.hasReturned(): the basic method to check if a tab has returned a value."
 [ref-tab.ext.has-thrown]:           /doc/reference/tab.ext.has-thrown.md#top           "Tab.Ext.hasThrown(): the basic method to check if a tab has thrown an error."
 [ref-tab.ext.return]:               /doc/reference/tab.ext.return.md#top               "Tab.Ext.defer(): the basic method to update the value of a tab."
 [ref-tab.ext.subscribe]:            /doc/reference/tab.ext.subscribe.md#top            "Tab.Ext.defer(): the basic method to subscribe to notifications from a tab."
