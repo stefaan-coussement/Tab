@@ -2,7 +2,7 @@
 
 <img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/1x1.png" align="left" style="float:left;" height="79" width="20" />
 # [Tab][top]
-Get help with callbacks, pipelines, promises, lazy evaluation and concurrent computing.
+Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
 ## [The Project][project]
@@ -25,7 +25,7 @@ Because this API seriously differs from the promises defined in other projects, 
 > To observe carefully.  To maintain a watch over, record activities of.  
 > [http://www.thefreedictionary.com/tab]
 
-The general goal is to help with callbacks, pipelines, promises, lazy evaluation and concurrent computing.
+The general goal is to help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 
 >**callback** (programming)
 > In computer programming, a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time. The invocation may be immediate as in a synchronous callback or it might happen at later time, as in an asynchronous callback.  
@@ -37,6 +37,11 @@ The general goal is to help with callbacks, pipelines, promises, lazy evaluation
 >
 > When a programming language is originally designed without any syntax to nest function calls, pipeline programming is a simple syntax change to add it. The programmer connects notional program modules into a flow structure, by analogy to a physical pipeline carrying reaction products through a chemical or other plant.  
 > [http://en.wikipedia.org/wiki/Pipeline_programming]
+>
+>**stream** (programming)
+> In computer science, a stream is a sequence of data elements made available over time. A stream can be thought of as a conveyor belt that allows items to be processed one at a time rather than in large batches.  
+> Streams are processed differently from batch data – normal functions cannot operate on streams as a whole, as they have potentially unlimited data, and formally, streams are codata (potentially unlimited), not data (which is finite). Functions that operate on a stream, producing another stream, are known as filters, and can be connected in pipelines, analogously to function composition. Filters may operate on one item of a stream at a time, or may base an item of output on multiple items of input, such as a moving average.  
+> [http://en.wikipedia.org/wiki/Stream_(computing)]
 >
 > In computing, reactive programming is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that the underlying execution model will automatically propagate changes through the data flow.  
 > [http://en.wikipedia.org/wiki/Reactive_programming]
@@ -68,6 +73,9 @@ The general goal is to help with callbacks, pipelines, promises, lazy evaluation
 
 * [A Basic Pipeline][topic-a-basic-pipeline]  
   using Tab objects for pipelining.
+
+* [A Basic Stream][topic-a-basic-stream]  
+  using a Tab object to work with sequence of data elements.
 
 * [A Basic Promise][topic-a-basic-promise]  
   using a Tab object as a promise.
@@ -102,9 +110,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
 1.  Callbacks
 
-    1. :ok: provide the means to use a tab to capture the arguments of a callback, including cases where callbacks can have multiple arguments.
-    
-    1. :ok: provide the means to use a tab to capture the arguments for a callback, without executing the original callback, and then use the original callback as the processor of the tab's notification.
+    1. :ok: provide the means to use a tab to capture the arguments for a callback, without executing the original callback, and then use the original callback function as the processor of the tab's notification.
     
     1. :ok: provide the means to capture a callback's result, without needing to change the callback's signature.
     
@@ -114,13 +120,25 @@ The following is a maintained, and thus regularly updated and re-organized list 
 
     1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
     
-    2. :ok: provide the means to dynamically and asynchronously process notifications by pushing them into a pipeline of processing tabs.
+    2. :ok: provide the means to asynchronously process notifications by pushing them into a pipeline of processing tabs.
     
     3. provide the means to encapsulate a pipeline of tabs in a function that then can be used as a module to compose longer pipelines.
     
+1.  Streams
+
+    1. provide the means to generate a stream of data elements, without caching or recording the generated data elements.
+    
+    1. :ok: provide the means to generate a stream of data elements, caching the last generated data element for observers that register after that data element was generated.
+    
+    1. provide the means to generate a stream of data elements, recording the sequence of generated data elements for observers that register after the data elements were generated.
+    
+    1. provide the means to play back a cached data element or a recorded sequence of data elements using an reactive push-model.
+    
+    1. provide the means to play back a cached data element or a recorded sequence of data elements using a interactive pull model.
+    
 1.  Promises
 
-    1. provide the means to settle a tab with a value or error, i.e. a final and non-mutable state, and notify its observers.
+    1. provide the means to settle a tab with a value or error, i.e. a final and non-mutable data element, and notify its observers.
     
     1. provide the means to solve security concerns (isolation of provider and consumer) without penalizing other aspects of the API (solving security concerns is a primary goal in the promise design, in some ways limiting other API methods).
     
@@ -140,9 +158,9 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
 1.  Concurrent Computing
 
-    1. provide the means to combine the results from multiple sources into a single tab.
+    1. provide the means to combine multiple streams into a single tab.
     
-    1. provide the means to combine these results in a number of different ways:
+    1. provide the means to combine these streams in a number of different ways:
         * wait for the value of all tabs to calculate a result (similar to boolean logic)
         * wait for the value of the first tabs in sequence to calculate a result (similar to javascript `||` and `&&`)  
         * wait for the value of the first tabs in time to calculate a result
@@ -158,7 +176,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     1. provide the means to throttle the execution of event handlers (f.i. only four outstanding http requests allowed at one time).
     
-    1. for use in *ES5* environments, provide a getter for `.length` as an alternative for the `.count()` method, hence making Tab better line-up with intuitive Javascript practise.
+    1. provide the means to work with tabs in an ES3 environment.
     
     1. provide an experimental version that uses *ES.next* weak maps instead of closures.
     
@@ -203,10 +221,12 @@ There are a lot of other projects that were (and still are) influencing this pro
 [topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
 [topic-where-are-tabs-helping]:                  /doc/topics.md#where-are-tabs-helping                      "more topics under 'Where Are Tabs Helping?'"
 [topic-where-are-tabs-lacking]:                  /doc/topics.md#where-are-tabs-lacking                      "more topics under 'Where Are Tabs Lacking?'"
+[topic-advanced-topics]:                         /doc/topics.md#advanced-topics                             "more topics under 'Advanced Topics'"
 
 [topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
 [topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
 [topic-a-basic-pipeline]:                        /doc/topics/a-basic-pipeline.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
+[topic-a-basic-stream]:                          /doc/topics/a-basic-stream.md#top                          "A Basic Stream: using a Tab object to work with sequence of data elements."
 [topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
 [topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
 [topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
@@ -220,6 +240,10 @@ There are a lot of other projects that were (and still are) influencing this pro
 [topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: letting errors propagate through a sequence of processing tabs."
 
 [topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
+
+[topic-scheduling]:                              /doc/topics/scheduling.md#top                              "Scheduling: ..."
+[topic-streaming-caching-recording]:             /doc/topics/streaming-caching-recording.md#top             "Streaming, Caching, Recording: ..."
+[topic-extending-tab]:                           /doc/topics/extending-tab.md#top                           "Extending Tab: ..."
 
 
 
@@ -238,8 +262,7 @@ There are a lot of other projects that were (and still are) influencing this pro
 [ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
-[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
-[ref-tab.capture-with]:             /doc/reference/tab.capture-with.md#top             "Tab.captureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
+[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                    /doc/reference/tab.defer.md#top                    "Tab.defer(): create a function that uses a given tab to store another function's result."

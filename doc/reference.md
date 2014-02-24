@@ -2,7 +2,7 @@
 
 <img src="./img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="./img/1x1.png" align="left" style="float:left;" height="79" width="20" />
 # [Tab][top]
-Get help with callbacks, pipelines, promises, lazy evaluation and concurrent computing.
+Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
 ## [Reference]
@@ -24,7 +24,6 @@ Get help with callbacks, pipelines, promises, lazy evaluation and concurrent com
 > #### [Tab Constructor Methods][ref-tab-constructor-methods]
 > 
 >   * [Tab.capture()][ref-tab.capture]
->   * [Tab.captureWith()][ref-tab.capture-with]
 >   * [Tab.construct()][ref-tab.construct]
 >   * [Tab.convert()][ref-tab.convert]
 >   * [Tab.defer()][ref-tab.defer]
@@ -55,8 +54,8 @@ Get help with callbacks, pipelines, promises, lazy evaluation and concurrent com
 > 
 > #### [Tab.Ext Methods][ref-tab.ext-methods]
 > 
->   * [Tab.Ext.context.pop()][ref-tab.ext.context.pop] :construction:
->   * [Tab.Ext.context.push()][ref-tab.ext.context.push] :construction:
+>   * [Tab.Ext.context.pop()][ref-tab.ext.context.pop]
+>   * [Tab.Ext.context.push()][ref-tab.ext.context.push]
 >   * [Tab.Ext.defer()][ref-tab.ext.defer]
 >   * [Tab.Ext.initialize()][ref-tab.ext.initialize] :construction:
 >   * [Tab.Ext.return()][ref-tab.ext.return] :construction:
@@ -80,10 +79,12 @@ Get help with callbacks, pipelines, promises, lazy evaluation and concurrent com
 [topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
 [topic-where-are-tabs-helping]:                  /doc/topics.md#where-are-tabs-helping                      "more topics under 'Where Are Tabs Helping?'"
 [topic-where-are-tabs-lacking]:                  /doc/topics.md#where-are-tabs-lacking                      "more topics under 'Where Are Tabs Lacking?'"
+[topic-advanced-topics]:                         /doc/topics.md#advanced-topics                             "more topics under 'Advanced Topics'"
 
 [topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
 [topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
 [topic-a-basic-pipeline]:                        /doc/topics/a-basic-pipeline.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
+[topic-a-basic-stream]:                          /doc/topics/a-basic-stream.md#top                          "A Basic Stream: using a Tab object to work with sequence of data elements."
 [topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
 [topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
 [topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
@@ -97,6 +98,10 @@ Get help with callbacks, pipelines, promises, lazy evaluation and concurrent com
 [topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: letting errors propagate through a sequence of processing tabs."
 
 [topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
+
+[topic-scheduling]:                              /doc/topics/scheduling.md#top                              "Scheduling: ..."
+[topic-streaming-caching-recording]:             /doc/topics/streaming-caching-recording.md#top             "Streaming, Caching, Recording: ..."
+[topic-extending-tab]:                           /doc/topics/extending-tab.md#top                           "Extending Tab: ..."
 
 
 
@@ -115,8 +120,7 @@ Get help with callbacks, pipelines, promises, lazy evaluation and concurrent com
 [ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
-[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
-[ref-tab.capture-with]:             /doc/reference/tab.capture-with.md#top             "Tab.captureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
+[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                    /doc/reference/tab.defer.md#top                    "Tab.defer(): create a function that uses a given tab to store another function's result."

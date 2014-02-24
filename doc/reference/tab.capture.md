@@ -1,9 +1,9 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.prototype.capture()][ref-tab.capture]
+## [Tab.capture()][ref-tab.capture]
 
-Create a function that uses this tab to store another function's arguments, and then executes the other function.
+Create a function that uses this tab to store another function's subject and arguments, and then executes the other function.
 
 <br />
 
@@ -15,13 +15,17 @@ core principle:
 ````
 Tab.capture(target).call(subject, ...arguments)
 ~
-target.return(...arguments);
+target.return(subject, ...arguments);
 ````
-    
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
+
+### Tab.capture( target, message ) » newFunction
+
+core principle:
 
 ````
-Tab.capture(target) ~ Tab.deferReturn(target)
+Tab.capture(target, message).call(subject, ...arguments)
+~
+target.return(message, subject, ...arguments);
 ````
 
 ### Tab.capture( target, processor ) » newFunction
@@ -31,7 +35,18 @@ core principle:
 ````
 Tab.capture(target, processor).call(subject, ...arguments)
 ~
-target.return(...arguments);
+target.return(subject, ...arguments);
+processor.call(subject, ...arguments);
+````
+
+### Tab.capture( target, message, processor ) » newFunction
+
+core principle:
+
+````
+Tab.capture(target, message, processor).call(subject, ...arguments)
+~
+target.return(message, subject, ...arguments);
 processor.call(subject, ...arguments);
 ````
 
@@ -43,7 +58,7 @@ processor.call(subject, ...arguments);
 The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
 
 ````javascript
-function capture(target, processor) {
+function capture(processor) {
     var target = Tab(target),
         captor, deferred;
 
@@ -51,7 +66,7 @@ function capture(target, processor) {
 
     if (processor) {
        deferred = function () {
-           captor(...arguments);
+           captor(this, ...arguments);
            return processor.call(this, ...arguments);
        }
 
@@ -74,7 +89,6 @@ function capture(target, processor) {
 
 *   [Tab.context][ref-tab.context]
 <br />
-*   [Tab.captureWith()][ref-tab.capture-with]
 *   [Tab.defer()][ref-tab.defer]
 *   [Tab.deferReturn()][ref-tab.defer-return]
 *   [Tab.deferThrow()][ref-tab.defer-throw]
@@ -97,10 +111,12 @@ function capture(target, processor) {
 [topic-the-basics]:                              /doc/topics.md#the-basics                                  "more topics under 'The Basics'"
 [topic-where-are-tabs-helping]:                  /doc/topics.md#where-are-tabs-helping                      "more topics under 'Where Are Tabs Helping?'"
 [topic-where-are-tabs-lacking]:                  /doc/topics.md#where-are-tabs-lacking                      "more topics under 'Where Are Tabs Lacking?'"
+[topic-advanced-topics]:                         /doc/topics.md#advanced-topics                             "more topics under 'Advanced Topics'"
 
 [topic-a-basic-tab]:                             /doc/topics/a-basic-tab.md#top                             "A Basic Tab: creating and using a basic Tab object."
 [topic-a-basic-callback]:                        /doc/topics/a-basic-callback.md#top                        "A Basic Callback: using a Tab object to handle callbacks."
 [topic-a-basic-pipeline]:                        /doc/topics/a-basic-pipeline.md#top                        "A Basic Pipeline: using Tab objects for pipelining."
+[topic-a-basic-stream]:                          /doc/topics/a-basic-stream.md#top                          "A Basic Stream: using a Tab object to work with sequence of data elements."
 [topic-a-basic-promise]:                         /doc/topics/a-basic-promise.md#top                         "A Basic Promise: using a Tab object as a promise."
 [topic-basic-lazy-evaluation]:                   /doc/topics/basic-lazy-evaluation.md#top                   "Basic Lazy Evaluation: using a Tab object for lazy evaluation."
 [topic-basic-concurrent-computing]:              /doc/topics/basic-concurrent-computing.md#top              "Basic Concurrent Computing: using a Tab object to handle concurrent computing."
@@ -114,6 +130,10 @@ function capture(target, processor) {
 [topic-exception-style-error-propagation]:       /doc/topics/exception-style-error-propagation.md#top       "Exception Style Error Propagation: letting errors propagate through a sequence of processing tabs."
 
 [topic-debugging-asynchronous-events]:           /doc/topics/debugging-asynchronous-events.md#top           "Debugging Asynchronous Events: ..."
+
+[topic-scheduling]:                              /doc/topics/scheduling.md#top                              "Scheduling: ..."
+[topic-streaming-caching-recording]:             /doc/topics/streaming-caching-recording.md#top             "Streaming, Caching, Recording: ..."
+[topic-extending-tab]:                           /doc/topics/extending-tab.md#top                           "Extending Tab: ..."
 
 
 
@@ -132,8 +152,7 @@ function capture(target, processor) {
 [ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
-[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
-[ref-tab.capture-with]:             /doc/reference/tab.capture-with.md#top             "Tab.captureWith(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
+[ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's subject and arguments, and then executes the other function."
 [ref-tab.construct]:                /doc/reference/tab.construct.md#top                "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                  /doc/reference/tab.convert.md#top                  "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                    /doc/reference/tab.defer.md#top                    "Tab.defer(): create a function that uses a given tab to store another function's result."
