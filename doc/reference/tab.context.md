@@ -50,6 +50,28 @@ Tab.context.target.throw(error);
 <br />
 
 ---
+### Concepts
+
+The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
+
+````javascript
+Tab._context = {};
+
+Object.defineProperty(Tab._context, "target", {
+    value: new Tab(),
+    enumerable: true
+});
+
+Object.defineProperty(Tab, "context", {
+    get: function () {
+        return Tab._context;
+    }
+});
+````
+
+<br />
+
+---
 ### Other methods in this family
 
 *   [Tab.capture()][ref-tab.capture]
