@@ -43,8 +43,6 @@
 [ref-tab]:                          /doc/reference/tab.md#top                          "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                  /doc/reference/tab.context.md#top                  "Tab.context: the execution context for a processor function."
-[ref-tab.context.pop]:              /doc/reference/tab.context.pop.md#top              "Tab.context.pop(): re-instate the previous execution context for a processor function."
-[ref-tab.context.push]:             /doc/reference/tab.context.push.md#top             "Tab.context.push(): create a new execution context for a processor function."
 [ref-tab.version]:                  /doc/reference/tab.version.md#top                  "Tab.version: the version of this Tab library."
 
 [ref-tab.capture]:                  /doc/reference/tab.capture.md#top                  "Tab.capture(): create a function that uses a given tab to store another function's arguments, and then executes the other function."
@@ -72,8 +70,10 @@
 
 [ref-tab.ext]:                      /doc/reference/tab.ext.md#top                      "Tab.Ext: resources for extending the Tab library."
 
+[ref-tab.ext.context.pop]:          /doc/reference/tab.ext.context.pop.md#top          "Tab.Ext.context.pop(): the basic method to re-instate the previous execution context."
+[ref-tab.ext.context.push]:         /doc/reference/tab.ext.context.push.md#top         "Tab.Ext.context.push(): the basic method to create a new execution context."
 [ref-tab.ext.defer]:                /doc/reference/tab.ext.defer.md#top                "Tab.Ext.defer(): the basic method to create deferred functions."
-[ref-tab.ext.initialize]:           /doc/reference/tab.ext.initialize.md#top           "Tab.Ext.defer(): the basic method to initialize methods that process notifications from a tab."
-[ref-tab.ext.return]:               /doc/reference/tab.ext.return.md#top               "Tab.Ext.defer(): the basic method to update the value of a tab."
-[ref-tab.ext.subscribe]:            /doc/reference/tab.ext.subscribe.md#top            "Tab.Ext.defer(): the basic method to subscribe to notifications from a tab."
-[ref-tab.ext.throw]:                /doc/reference/tab.ext.throw.md#top                "Tab.Ext.defer(): the basic method to set a tab in the failed state."
+[ref-tab.ext.initialize]:           /doc/reference/tab.ext.initialize.md#top           "Tab.Ext.initialize(): the basic method to initialize methods that process notifications from a tab."
+[ref-tab.ext.return]:               /doc/reference/tab.ext.return.md#top               "Tab.Ext.return(): the basic method to update the value of a tab."
+[ref-tab.ext.subscribe]:            /doc/reference/tab.ext.subscribe.md#top            "Tab.Ext.subscribe(): the basic method to subscribe to notifications from a tab."
+[ref-tab.ext.throw]:                /doc/reference/tab.ext.throw.md#top                "Tab.Ext.throw(): the basic method to set a tab in the failed state."
