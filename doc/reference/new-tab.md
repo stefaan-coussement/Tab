@@ -23,7 +23,13 @@ Construct a new tab, encapsulate a given tab if requested.
 *   [Tab.construct()][ref-tab.construct]
 *   [Tab.convert()][ref-tab.convert]
 *   [Tab.isTab()][ref-tab.is-tab]
+*   [Tab.newReturn()][ref-tab.new-return]
+*   [Tab.newThrow()][ref-tab.new-throw]
 <br />
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.return()][ref-tab.prototype.return]
+*   [.throw()][ref-tab.prototype.throw]
 *   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
 
