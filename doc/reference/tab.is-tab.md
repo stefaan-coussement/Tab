@@ -28,6 +28,11 @@ function isTab() {
 ---
 ### Other methods in this family
 
+*   [Tab()][ref-tab]
+<br />
+*   [Tab.construct()][ref-tab.construct]
+*   [Tab.convert()][ref-tab.convert]
+<br />
 *   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
 

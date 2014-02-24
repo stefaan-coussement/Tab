@@ -39,7 +39,12 @@ function toString() {
 ---
 ### Other methods in this family
 
+*   [Tab()][ref-tab]
+<br />
+*   [Tab.construct()][ref-tab.construct]
+*   [Tab.convert()][ref-tab.convert]
 *   [Tab.isTab()][ref-tab.is-tab]
+<br />
 *   [.valueOf()][ref-tab.prototype.value-of]
 
 
