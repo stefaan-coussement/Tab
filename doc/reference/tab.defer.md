@@ -57,8 +57,10 @@ function defer(processor) {
 <br />
 
 ---
-### Other methods in this family
+### Other attributes and methods in this family
 
+*   [Tab.context][ref-tab.context]
+<br />
 *   [Tab.capture()][ref-tab.capture]
 *   [Tab.captureWith()][ref-tab.capture-with]
 *   [Tab.deferReturn()][ref-tab.defer-return]

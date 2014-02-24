@@ -64,8 +64,10 @@ function captureWith(processor) {
 <br />
 
 ---
-### Other methods in this family
+### Other attributes and methods in this family
 
+*   [Tab.context][ref-tab.context]
+<br />
 *   [Tab.capture()][ref-tab.capture]
 *   [Tab.defer()][ref-tab.defer]
 *   [Tab.deferReturn()][ref-tab.defer-return]

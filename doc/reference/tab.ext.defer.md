@@ -38,7 +38,7 @@ function defer(executionContext, processor) {
             if (target.isCancelled()) {
                 try {
                     // prepare inner context
-                    context = Tab.context.push(executionContext);
+                    context = Tab.Ext.context.push(executionContext);
                     context._deferred = false;
 
                     // execute processor
@@ -61,7 +61,7 @@ function defer(executionContext, processor) {
                 }
                 finally {
                     // cleanup inner context
-                    Tab.context.pop()
+                    Tab.Ext.context.pop()
                 }
             }
         };
