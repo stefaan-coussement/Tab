@@ -8,7 +8,7 @@ The version of this Tab library.
 <br />
 
 ---
-### Tab.version : string
+### Tab.version : string, read-only
 
 <br />
 

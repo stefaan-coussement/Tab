@@ -9,9 +9,6 @@ Construct a new tab, encapsulate a given tab if requested.
 
 ---
 ### new Tab() » newTab
-### new Tab( encapsulatedTab, ?encapsulatedTrapper ) » newTab
-
-* **function encapsulatedTrapper( subject, methodName, args ) » result**
 
 <br />
 

@@ -85,6 +85,30 @@ In this example:
 * `this` refers to the new Tab object that is created by the `.try()` method.  In this specific case, we could also use `text`.
 * When the conditions are right, [this.return()][ref-tab.prototype.return] updates `text` with the fetched document.  Alternatively, we could also just `return` the text, as we illustrated higher.
 
+We could also write the following
+
+~~~~javascript
+var response = new Tab(), 
+    text;
+
+httpGet("http://code.jquery.com/jquery.js", Tab.deferReturn(response));
+
+text = response.try(function (responseText, responseStatus, readyState) {
+    if ((readyState === 4) && (responseStatus === 200)) {
+        return responseText;
+    }
+    else {
+        Tab.defer();
+    }
+});
+~~~~
+
+Compared to previous example, in this example:
+
+* `text` is now a new tab created by the methods `response.try()`, instead explicitly needing to construct it.
+* A traditional return statement is used to update `text` with `responseText`.
+* When the conditions aren't right, [Tab.defer()][ref-tab.defer] defers the update further until next time the callback is called.  This avoids that the `undefined` return is interpreted as a valid value to update `text` - this is necessary because there is no way to distinguish between a function that returns `undefined` and a function that doesn't return anything.
+
 <br />
 
 ---

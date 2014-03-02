@@ -8,7 +8,7 @@ Convert to a tab, create a new tab if required.
 <br />
 
 ---
-### Tab( object, ?trapper ) » convertedTab
+### Tab( object ) » convertedTab
 
 <br />
 

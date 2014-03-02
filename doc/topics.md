@@ -47,7 +47,8 @@ Get help with callbacks, pipelines, streams, promises, lazy evaluation and concu
 
 ### [Where Are Tabs Lacking?][topic-where-are-tabs-lacking]
 > 
->   * [Debugging Asynchronous Events][topic-debugging-asynchronous-events] :construction:  
+>   * [Debugging Asynchronous Events][topic-debugging-asynchronous-events]  
+>     :construction:  
 >   
 > 
 
@@ -55,7 +56,7 @@ Get help with callbacks, pipelines, streams, promises, lazy evaluation and concu
 > 
 >   * [Scheduling][topic-scheduling]  
 >     :construction: 
->   * [Streaming, Caching, Recording][topic-streaming-caching-recording]  
+>   * [Streaming, Caching, Queuing, Recording][topic-streaming-caching-queuing-recording]  
 >     :construction: 
 >   * [Extending Tab][topic-extending-tab]  
 >     :construction: 
