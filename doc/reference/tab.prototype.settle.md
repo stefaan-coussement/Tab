@@ -1,14 +1,14 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.prototype.cancel()][ref-tab.prototype.cancel]
+## [Tab.prototype.settle()][ref-tab.prototype.settle]
 
-...
+Settle this tab without changing its current value or error.
 
 <br />
 
 ---
-### tab.cancel() » undefined
+### tab.settle() » tab
 
 <br />
 
