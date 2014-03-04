@@ -5,18 +5,18 @@
 
 Update the value of this tab (for ES3 environments).
 
-:warning: this method has been introduced for ECMASCRIPT 3 environments.  I you don't need to support such environments, use [Tab.prototype.return][ref-tab.prototype.return] instead.
+> :warning: 
+> this method has been introduced for ECMASCRIPT 3 environments.  I you don't need to support such environments, use [Tab.prototype.return][ref-tab.prototype.return] instead.
 
 <br />
 
 ---
 ### tab.doReturn( ?value, ...extraValues ) » tab
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
-
-````
-tab.doReturn(value) ~ tab.return(value)
-````
+> :bulb:
+> ````
+> tab.doReturn(value) ~ tab.return(value)
+> ````
 
 parameters:
 *   **value** : *any*  
