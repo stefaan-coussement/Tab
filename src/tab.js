@@ -62,10 +62,10 @@ Tab = (function (global) {
     //-
     function Tab() {
         if (this instanceof Tab) {
-            construct.apply(this, arguments);
+            return construct.apply(this, arguments);
         }
         else {
-            convert.apply(this, arguments);
+            return convert.apply(this, arguments);
         }
     }
 
@@ -134,6 +134,24 @@ Tab = (function (global) {
     Tab.isTab = isTab;
 
     //---------------------------------------------------------------------------------------------
+    //- Tab.newFulfill( ?value, ...extraValues ) >> newTab
+    //-
+    function newFulfill(value) {
+        // jshint unused: false
+        return fulfill.apply(construct(), arguments);
+    }
+    Tab.newFulfill = newFulfill;
+
+    //---------------------------------------------------------------------------------------------
+    //- Tab.newReject( ?error, ...extraValues ) >> newTab
+    //-
+    function newReject(error) {
+        // jshint unused: false
+        return reject.apply(construct(), arguments);
+    }
+    Tab.newReject = newReject;
+
+    //---------------------------------------------------------------------------------------------
     //- Tab.newReturn( ?value, ...extraValues ) >> newTab
     //-
     function newReturn(value) {
@@ -141,6 +159,15 @@ Tab = (function (global) {
         return doReturn.apply(construct(), arguments);
     }
     Tab.newReturn = newReturn;
+
+    //---------------------------------------------------------------------------------------------
+    //- Tab.newSettle() >> newTab
+    //-
+    function newSettle(value) {
+        // jshint unused: false
+        return settle.apply(construct(), arguments);
+    }
+    Tab.newSettle = newSettle;
 
     //---------------------------------------------------------------------------------------------
     //- Tab.newThrow( ?error, ...extraValues ) >> newTab
@@ -415,15 +442,27 @@ Tab = (function (global) {
     function toString() {
         // jshint validthis: true
         if (this instanceof Tab) {
-            if (this.hasThrown()) {
-                throw this._values[0].valueOf();
+            if (this.hasReturned()) {
+                if ((this._values.length > 0) && (this._values[0] != null)) {
+                    return this._values[0].toString();
+                }
+                else { // has returned without arguments
+                    return "";
+                }
             }
-            else {
-                return this._values[0].toString();
+            else if (this.hasThrown()) {
+                if ((this._values.length > 0) && (this._values[0] != null)) {
+                    throw this._values[0].valueOf();
+                }
+                else { // has thrown without arguments
+                    throw undefined;
+                }
+            }
+            else { // has not yet returned or thrown
+                return "";
             }
         }
-        else {
-            // not a tab
+        else { // not a tab
             return this.toString();
         }
     }
@@ -435,15 +474,27 @@ Tab = (function (global) {
     function valueOf() {
         // jshint validthis: true
         if (this instanceof Tab) {
-            if (this.hasThrown()) {
-                throw this._values[0].valueOf();
+            if (this.hasReturned()) {
+                if ((this._values.length > 0) && (this._values[0] != null)) {
+                    return this._values[0].valueOf();
+                }
+                else { // has returned without arguments
+                    return;
+                }
             }
-            else {
-                return this._values[0].valueOf();
+            if (this.hasThrown()) {
+                if ((this._values.length > 0) && (this._values[0] != null)) {
+                    throw this._values[0].valueOf();
+                }
+                else { // has thrown without arguments
+                    throw undefined;
+                }
+            }
+            else { // has not yet returned or thrown
+                return;
             }
         }
-        else {
-            // not a tab
+        else { // not a tab
             return this.valueOf();
         }
     }
@@ -759,107 +810,6 @@ Tab = (function (global) {
     "use strict";
 
     //---------------------------------------------------------------------------------------------
-    //- Tab.capture( target, ?processor ) >> newFunction
-    //- Tab.capture( target, message, ?processor ) >> newFunction
-    //-
-    function capture(target, processor) {
-        var message,
-            processReturn, captor;
-
-        // process arguments
-        target = Tab.convert(target);
-        if (typeof arguments[1] === "string") {
-            message = arguments[1];
-            processor = arguments[2];
-        }
-
-        // create a function to capture the deferred arguments, bind the message
-        if (message) {
-            processReturn = Tab.prototype.doReturn.bind(target, message);
-        }
-        else {
-            processReturn = Tab.prototype.doReturn.bind(target);
-        }
-
-        if (processor) {
-            // create a captor function
-            captor = function () {
-                // jshint validthis: true
-
-                // capture the arguments
-                processReturn.apply(null, arguments);
-
-                // execute processor
-                return processor.apply(this, arguments);
-            };
-
-            // ensure captor can be used as 'new' constructor 
-            captor.prototype = Object.create(processor.prototype);
-            captor.prototype.constructor = captor;
-
-            return Tab.X.defer({ target: null }, captor);
-        }
-        else {
-            return Tab.X.defer(null, function () {
-                processReturn.apply(null, arguments);
-            });
-        }
-    }
-    Tab.capture = capture;
-
-    //---------------------------------------------------------------------------------------------
-    //- Tab.captureWith( target, ?processor ) >> newFunction
-    //- Tab.captureWith( target, message, ?processor ) >> newFunction
-    //-
-    function captureWith(target, processor) {
-        var message,
-            processReturn, captor;
-
-        // process arguments
-        target = Tab.convert(target);
-        if (typeof arguments[1] === "string") {
-            message = arguments[1];
-            processor = arguments[2];
-        }
-
-        // create a function to capture the deferred subject and arguments, bind the message
-        if (message) {
-            processReturn = Tab.prototype.doReturn.bind(target, message);
-        }
-        else {
-            processReturn = Tab.prototype.doReturn.bind(target);
-        }
-
-        if (processor) {
-            // create a captor function
-            captor = function () {
-                // jshint validthis: true
-                var bindings;
-
-                // bind the subject and arguments
-                bindings = [this].concat(arguments);
-                processReturn.apply(null, bindings);
-
-                // execute processor
-                return processor.apply(this, bindings);
-            };
-
-            // ensure captor can be used as 'new' constructor 
-            captor.prototype = Object.create(processor.prototype);
-            captor.prototype.constructor = captor;
-
-            return Tab.X.defer({ target: null }, captor);
-        }
-        else {
-            return Tab.X.defer(null, function () {
-                // jshint validthis: true
-                processReturn.apply(null, [this].concat(arguments));
-            });
-        }
-    }
-    Tab.captureWith = captureWith;
-
-    //---------------------------------------------------------------------------------------------
     //- Tab.defer() >> undefined
     //- Tab.defer( target, ?processor ) >> newFunction
     //-
@@ -870,6 +820,24 @@ Tab = (function (global) {
     Tab.defer = defer;
 
     //---------------------------------------------------------------------------------------------
+    //- Tab.deferFulfill( target ) >> newFunction
+    //-
+    function deferFulfill(target) {
+        target = Tab.convert(target);
+        return Tab.X.defer(null, Tab.prototype.fulfill.bind(target));
+    }
+    Tab.deferFulfill = deferFulfill;
+
+    //---------------------------------------------------------------------------------------------
+    //- Tab.deferReject( target ) >> newFunction
+    //-
+    function deferReject(target) {
+        target = Tab.convert(target);
+        return Tab.X.defer(null, Tab.prototype.reject.bind(target));
+    }
+    Tab.deferReject = deferReject;
+
+    //---------------------------------------------------------------------------------------------
     //- Tab.deferReturn( target ) >> newFunction
     //-
     function deferReturn(target) {
@@ -877,6 +845,15 @@ Tab = (function (global) {
         return Tab.X.defer(null, Tab.prototype.doReturn.bind(target));
     }
     Tab.deferReturn = deferReturn;
+
+    //---------------------------------------------------------------------------------------------
+    //- Tab.deferSettle( target ) >> newFunction
+    //-
+    function deferSettle(target) {
+        target = Tab.convert(target);
+        return Tab.X.defer(null, Tab.prototype.settle.bind(target));
+    }
+    Tab.deferSettle = deferSettle;
 
     //---------------------------------------------------------------------------------------------
     //- Tab.deferThrow( target ) >> newFunction
@@ -915,145 +892,5 @@ Tab = (function (global) {
         }
     }
     Tab.deferWith = deferWith;
-
-    //---------------------------------------------------------------------------------------------
-    //- Tab.trace( target, ?processor ) >> newFunction
-    //- Tab.trace( target, message, ?processor ) >> newFunction
-    //-
-    function trace(target, processor) {
-        var message,
-            processReturn, tracer;
-
-        // process arguments
-        target = Tab.convert(target);
-        if (typeof arguments[1] === "string") {
-            message = arguments[1];
-            processor = arguments[2];
-        }
-
-        // create a function to capture the deferred subject, arguments and result, bind the message
-        if (message) {
-            processReturn = Tab.prototype.doReturn.bind(target, message);
-        }
-        else {
-            processReturn = Tab.prototype.doReturn.bind(target);
-        }
-
-        if (processor) {
-            // create a tracer function
-            tracer = function () {
-                var bindings, result;
-
-                // bind the arguments
-                bindings = [].concat(arguments);
-
-                // execute processor
-                try {
-                    result = processor.apply(this, arguments);
-
-                    // bind the result
-                    if (Tab.context._deferred) {
-                        bindings.push("deferred");
-                    }
-                    else {
-                        bindings.push("returned").push(result);
-                    }
-                    processReturn.apply(null, bindings);
-
-                    return result;
-                }
-                catch (error) {
-                    // bind the error
-                    bindings.push("thrown").push(error);
-                    processReturn.apply(null, bindings);
-
-                    throw error;
-                }
-            };
-
-            // ensure tracer can be used as 'new' constructor 
-            tracer.prototype = Object.create(processor.prototype);
-            tracer.prototype.constructor = tracer;
-
-            return Tab.X.defer({ target: null }, tracer);
-        }
-        else {
-            return Tab.X.defer(null, function () {
-                processReturn.apply(null, [].concat(arguments).push("returned"));
-            });
-        }
-    }
-    Tab.trace = trace;
-
-    //---------------------------------------------------------------------------------------------
-    //- Tab.traceWith( target, ?processor ) >> newFunction
-    //- Tab.traceWith( target, message, ?processor ) >> newFunction
-    //-
-    function traceWith(target, processor) {
-        var message,
-            processReturn, tracer;
-
-        // process arguments
-        target = Tab.convert(target);
-        if (typeof arguments[1] === "string") {
-            message = arguments[1];
-            processor = arguments[2];
-        }
-
-        // create a function to capture the deferred subject, arguments and result, bind the message
-        if (message) {
-            processReturn = Tab.prototype.doReturn.bind(target, message);
-        }
-        else {
-            processReturn = Tab.prototype.doReturn.bind(target);
-        }
-
-        if (processor) {
-            // create a tracer function
-            tracer = function () {
-                // jshint validthis: true
-                var bindings, result;
-
-                // bind the subject and arguments
-                bindings = [this].concat(arguments);
-
-                // execute processor
-                try {
-                    result = processor.apply(this, bindings);
-
-                    // bind the result
-                    if (Tab.context._deferred) {
-                        bindings.push("deferred");
-                    }
-                    else {
-                        bindings.push("returned").push(result);
-                    }
-                    processReturn.apply(null, bindings);
-
-                    return result;
-                }
-                catch (error) {
-                    // bind the error
-                    bindings.push("thrown").push(error);
-                    processReturn.apply(null, bindings);
-
-                    throw error;
-                }
-            };
-
-            // ensure tracer can be used as 'new' constructor 
-            tracer.prototype = Object.create(processor.prototype);
-            tracer.prototype.constructor = tracer;
-
-            return Tab.X.defer({ target: null }, tracer);
-        }
-        else {
-            return Tab.X.defer(null, function () {
-                // jshint validthis: true
-                processReturn.apply(null, [this].concat(arguments).push("returned"));
-            });
-        }
-    }
-    Tab.traceWith = traceWith;
 
 }(Tab));

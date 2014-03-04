@@ -10,20 +10,31 @@ Put this tab in the failed state.
 ---
 ### tab.throw( ?error, ...extraValues ) » tab
 
+parameters:
+*   **error** : *any*
+    the error to throw for the new tab.
+
+*   **...extraValues** : *...any*
+    extra information to store in this tab.
+
+returns:
+*   **tab** : *[object Tab]*
+    this tab, updated with the given error and extra values.
+
 <br />
 
 ---
 ### Other methods in this family
 
-*   [new Tab()][ref-new-tab]
-<br />
-*   [Tab.construct()][ref-tab.construct]
-*   [Tab.newReturn()][ref-tab.new-return]
 *   [Tab.newThrow()][ref-tab.new-throw]
 <br />
-*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.fulfill()][ref-tab.prototype.fulfill]
 *   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.onThrown()][ref-tab.prototype.on-thrown]
+*   [.reject()][ref-tab.prototype.reject]
 *   [.return()][ref-tab.prototype.return]
+*   [.settle()][ref-tab.prototype.settle]
 
 
 

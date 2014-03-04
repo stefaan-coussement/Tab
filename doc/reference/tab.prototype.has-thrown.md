@@ -8,28 +8,33 @@ Has this tab thrown an error?
 <br />
 
 ---
-### tab.hasThrown() » boolean
+### tab.hasThrown() » booleanValue
 
 core principle:
 
-````
+````javascript
 Tab.construct().hasThrown() === false
 tab.return().hasThrown() === false
 tab.throw().hasThrown() === true
 ````
 
+returns:
+*   **booleanValue** : *boolean*
+    
+    *   if this tab has previously thrown an error, then returns `true`.
+    *   otherwise, returns `false`.
+
 <br />
 
 ---
+### Other methods in this family
 
-*   [new Tab()][ref-new-tab]
-<br />
-*   [Tab.construct()][ref-tab.construct]
-*   [Tab.newReturn()][ref-tab.new-return]
 *   [Tab.newThrow()][ref-tab.new-throw]
 <br />
 *   [.hasReturned()][ref-tab.prototype.has-returned]
-*   [.return()][ref-tab.prototype.return]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onThrown()][ref-tab.prototype.on-thrown]
 *   [.throw()][ref-tab.prototype.throw]
 
 

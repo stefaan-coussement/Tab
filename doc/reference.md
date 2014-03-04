@@ -26,11 +26,17 @@ Get help with callbacks, pipelines, streams, promises, lazy evaluation and concu
 >   * [Tab.construct()][ref-tab.construct]
 >   * [Tab.convert()][ref-tab.convert]
 >   * [Tab.defer()][ref-tab.defer]
+>   * [Tab.deferFulfill()][ref-tab.defer-fulfill]
+>   * [Tab.deferReject()][ref-tab.defer-reject]
 >   * [Tab.deferReturn()][ref-tab.defer-return]
+>   * [Tab.deferSettle()][ref-tab.defer-settle]
 >   * [Tab.deferThrow()][ref-tab.defer-throw]
 >   * [Tab.deferWith()][ref-tab.defer-with]
 >   * [Tab.isTab()][ref-tab.is-tab]
+>   * [Tab.newFulfill()][ref-tab.new-fulfill]
+>   * [Tab.newReject()][ref-tab.new-reject]
 >   * [Tab.newReturn()][ref-tab.new-return]
+>   * [Tab.newSettle()][ref-tab.new-settle]
 >   * [Tab.newThrow()][ref-tab.new-throw]
 >   
 > 

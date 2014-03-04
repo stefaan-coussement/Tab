@@ -8,21 +8,32 @@ Update the value of this tab.
 <br />
 
 ---
-### tab.return( ?principalValue, ...extraValues ) » tab
+### tab.return( ?value, ...extraValues ) » tab
+
+parameters:
+*   **value** : *any*
+    the principal value to store in this tab.
+
+*   **...extraValues** : *...any*
+    extra information to store in this tab.
+
+returns:
+*   **tab** : *[object Tab]*
+    this tab, updated with the given values.
 
 <br />
 
 ---
 ### Other methods in this family
 
-*   [new Tab()][ref-new-tab]
-<br />
-*   [Tab.construct()][ref-tab.construct]
 *   [Tab.newReturn()][ref-tab.new-return]
-*   [Tab.newThrow()][ref-tab.new-throw]
 <br />
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.fulfill()][ref-tab.prototype.fulfill]
 *   [.hasReturned()][ref-tab.prototype.has-returned]
-*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.onReturned()][ref-tab.prototype.on-returned]
+*   [.reject()][ref-tab.prototype.reject]
+*   [.settle()][ref-tab.prototype.settle]
 *   [.throw()][ref-tab.prototype.throw]
 
 

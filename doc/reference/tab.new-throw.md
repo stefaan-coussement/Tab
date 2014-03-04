@@ -10,13 +10,22 @@ Create a new tab that is put in the failed state.
 ---
 ### Tab.newThrow( ?error, ...extraValues ) » newTab
 
-core principle:
+<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
 
 ````
-Tab.newThrow(error, ...extraValues)
-~
-Tab.construct().throw(error, ...extraValues)
+Tab.newThrow(error, ...extraValues) ~ Tab.construct().throw(error, ...extraValues)
 ````
+
+parameters:
+*   **error** : *any*
+    the error to throw for the new tab.
+
+*   **...extraValues** : *...any*
+    extra information to store in the new tab.
+
+returns:
+*   **newTab** : *[object Tab]*
+    a newly constructed Tab object, initialized with the given error and extra values.
 
 <br />
 
@@ -26,13 +35,15 @@ Tab.construct().throw(error, ...extraValues)
 *   [new Tab()][ref-new-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
+*   [Tab.newFulfill()][ref-tab.new-fulfill]
+*   [Tab.newReject()][ref-tab.new-reject]
 *   [Tab.newReturn()][ref-tab.new-return]
+*   [Tab.newSettle()][ref-tab.new-settle]
 <br />
-*   [.hasReturned()][ref-tab.prototype.has-returned]
 *   [.hasThrown()][ref-tab.prototype.has-thrown]
-*   [.return()][ref-tab.prototype.return]
+*   [.onThrown()][ref-tab.prototype.on-thrown]
 *   [.throw()][ref-tab.prototype.throw]
 
 
 
-<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Constructor Methods][ref-tab-constructor-methods] <br />

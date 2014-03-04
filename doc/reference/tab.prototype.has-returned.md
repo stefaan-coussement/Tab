@@ -8,29 +8,34 @@ Has this tab an update value?
 <br />
 
 ---
-### tab.hasReturned() » boolean
+### tab.hasReturned() » booleanValue
 
 core principle:
 
+````javascript
+Tab.construct().hasReturned() === false
+tab.return().hasReturned() === true
+tab.throw().hasReturned() === false
 ````
-Tab.construct().hasThrown() === false
-tab.return().hasThrown() === true
-tab.throw().hasThrown() === false
-````
+
+returns:
+*   **booleanValue** : *boolean*
+    
+    *   if this tab has previously been updated, then returns `true`.
+    *   otherwise, returns `false`.
 
 <br />
 
 ---
+### Other methods in this family
 
-*   [new Tab()][ref-new-tab]
-<br />
-*   [Tab.construct()][ref-tab.construct]
 *   [Tab.newReturn()][ref-tab.new-return]
-*   [Tab.newThrow()][ref-tab.new-throw]
 <br />
 *   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onReturned()][ref-tab.prototype.on-returned]
 *   [.return()][ref-tab.prototype.return]
-*   [.throw()][ref-tab.prototype.throw]
 
 
 

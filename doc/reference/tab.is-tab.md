@@ -10,31 +10,31 @@ Was the given object created by this Tab library?
 ---
 ### Tab.isTab( object ) » booleanValue
 
-<br />
-
----
-### Concepts
-
-The following illustrates the main concepts.  The actual implementation may be slightly different to be usable on a broad range of platforms and to optimize performance.
+core principle:
 
 ````javascript
-function isTab() {
-    return (this instanceof Tab);
-}
+return (object instanceof Tab);
 ````
+
+parameters:
+*   **object** : *any*
+
+returns:
+*   **booleanValue** : *boolean*
+    
+    *   if the object is an instance of this Tab library, then returns `true`.
+    *   otherwise, returns `false`.
 
 <br />
 
 ---
 ### Other methods in this family
 
+*   [new Tab()][ref-new-tab]
 *   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
 *   [Tab.convert()][ref-tab.convert]
-<br />
-*   [.toString()][ref-tab.prototype.to-string]
-*   [.valueOf()][ref-tab.prototype.value-of]
 
 
 
