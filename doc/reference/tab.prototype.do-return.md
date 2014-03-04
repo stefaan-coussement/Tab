@@ -5,7 +5,7 @@
 
 Update the value of this tab (for ES3 environments).
 
-> :warning: 
+> :warning:  
 > this method has been introduced for ECMASCRIPT 3 environments.  I you don't need to support such environments, use [Tab.prototype.return][ref-tab.prototype.return] instead.
 
 <br />
