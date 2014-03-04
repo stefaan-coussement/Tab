@@ -5,18 +5,18 @@
 
 Put this tab in the failed state (for ES3 environments).
 
-:warning: this method has been introduced for ECMASCRIPT 3 environments.  I you don't need to support such environments, use [Tab.prototype.throw][ref-tab.prototype.throw] instead.
+> :warning:  
+> this method has been introduced for ECMASCRIPT 3 environments.  I you don't need to support such environments, use [Tab.prototype.throw][ref-tab.prototype.throw] instead.
 
 <br />
 
 ---
 ### tab.doThrow( ?error, ...extraValues ) » tab
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
-
-````
-tab.doThrow(error) ~ tab.throw(error)
-````
+> :bulb:
+> ````
+> tab.doThrow(error) ~ tab.throw(error)
+> ````
 
 parameters:
 *   **error** : *any*  

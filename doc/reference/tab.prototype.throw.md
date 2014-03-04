@@ -5,7 +5,8 @@
 
 Put this tab in the failed state.
 
-:warning: this method is not available in an ECMASCRIPT 3 environment.  I you need to support such environments, use [Tab.prototype.doThrow][ref-tab.prototype.do-throw] instead.
+> :warning:  
+> this method is not available in an ECMASCRIPT 3 environment.  I you need to support such environments, use [Tab.prototype.doThrow][ref-tab.prototype.do-throw] instead.
 
 <br />
 

@@ -10,11 +10,10 @@ Create a new tab that is initialized with a given value.
 ---
 ### Tab.newReturn( ?value, ...extraValues ) » newTab
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
-
-````
-Tab.newReturn(value, ...extraValues) ~ Tab.construct().return(value, ...extraValues)
-````
+> :bulb:
+> ````
+> Tab.newReturn(value, ...extraValues) ~ Tab.construct().return(value, ...extraValues)
+> ````
 
 parameters:
 *   **value** : *any*  

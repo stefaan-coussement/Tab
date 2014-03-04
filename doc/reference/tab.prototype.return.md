@@ -5,7 +5,8 @@
 
 Update the value of this tab.
 
-:warning: this method is not available in an ECMASCRIPT 3 environment.  I you need to support such environments, use [Tab.prototype.doReturn][ref-tab.prototype.do-return] instead.
+> :warning:  
+> this method is not available in an ECMASCRIPT 3 environment.  I you need to support such environments, use [Tab.prototype.doReturn][ref-tab.prototype.do-return] instead.
 
 <br />
 

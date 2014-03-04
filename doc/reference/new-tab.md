@@ -10,11 +10,10 @@ Construct a new tab, encapsulate a given tab if requested.
 ---
 ### new Tab() » newTab
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
-
-````
-new Tab() ~ Tab.construct()
-````
+> :bulb:
+> ````
+> new Tab() ~ Tab.construct()
+> ````
 
 returns:
 *   **newTab** : *[object Tab]*  

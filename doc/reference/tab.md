@@ -10,11 +10,10 @@ Convert to a tab, create a new tab if required.
 ---
 ### Tab( object ) » convertedTab
 
-<img class="emoji" title=":bulb:" alt=":bulb:" src="https://github.global.ssl.fastly.net/images/icons/emoji/bulb.png" height="20" width="20" align="left" style="float:left; margin-top:5px;"><img src="../img/1x1.png" align="left" style="float:left;" height="10" width="5" />
-
-````
-Tab(object) ~ Tab.convert(object)
-````
+> :bulb:
+> ````
+> Tab(object) ~ Tab.convert(object)
+> ````
 
 core principle:
 
