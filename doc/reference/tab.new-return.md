@@ -17,14 +17,14 @@ Tab.newReturn(value, ...extraValues) ~ Tab.construct().return(value, ...extraVal
 ````
 
 parameters:
-*   **value** : *any*
+*   **value** : *any*  
     the principal value to store in the new tab.
 
-*   **...extraValues** : *...any*
+*   **...extraValues** : *...any*  
     extra information to store in the new tab.
 
 returns:
-*   **newTab** : *[object Tab]*
+*   **newTab** : *[object Tab]*  
     a newly constructed Tab object, initialized with the given values.
 
 <br />

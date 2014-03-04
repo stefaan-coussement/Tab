@@ -19,7 +19,7 @@ tab.throw().hasReturned() === false
 ````
 
 returns:
-*   **booleanValue** : *boolean*
+*   **booleanValue** : *boolean*  
     
     *   if this tab has previously been updated, then returns `true`.
     *   otherwise, returns `false`.

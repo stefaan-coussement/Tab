@@ -11,14 +11,14 @@ Put this tab in the failed state.
 ### tab.throw( ?error, ...extraValues ) » tab
 
 parameters:
-*   **error** : *any*
+*   **error** : *any*  
     the error to throw for the new tab.
 
-*   **...extraValues** : *...any*
+*   **...extraValues** : *...any*  
     extra information to store in this tab.
 
 returns:
-*   **tab** : *[object Tab]*
+*   **tab** : *[object Tab]*  
     this tab, updated with the given error and extra values.
 
 <br />

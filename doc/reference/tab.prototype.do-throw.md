@@ -17,14 +17,14 @@ tab.doThrow(error) ~ tab.throw(error)
 ````
 
 parameters:
-*   **error** : *any*
+*   **error** : *any*  
     the error to throw for the new tab.
 
-*   **...extraValues** : *...any*
+*   **...extraValues** : *...any*  
     extra information to store in this tab.
 
 returns:
-*   **tab** : *[object Tab]*
+*   **tab** : *[object Tab]*  
     this tab, updated with the given error and extra values.
 
 <br />

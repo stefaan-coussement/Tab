@@ -28,11 +28,11 @@ else {
 ````
 
 parameters:
-*   **object** : *any*
+*   **object** : *any*  
     the object to convert
 
 returns:
-*   **covertedTab** : *[object Tab]*
+*   **covertedTab** : *[object Tab]*  
     
     *   if the object is a Tab object, then returns the object.
     *   otherwise, returns a new Tab object and initialize its value with the given object.

@@ -17,7 +17,7 @@ new Tab() ~ Tab.construct()
 ````
 
 returns:
-*   **newTab** : *[object Tab]*
+*   **newTab** : *[object Tab]*  
     a newly constructed Tab object.
 
 <br />

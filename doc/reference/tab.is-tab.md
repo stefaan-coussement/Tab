@@ -17,10 +17,10 @@ return (object instanceof Tab);
 ````
 
 parameters:
-*   **object** : *any*
+*   **object** : *any*  
 
 returns:
-*   **booleanValue** : *boolean*
+*   **booleanValue** : *boolean*  
     
     *   if the object is an instance of this Tab library, then returns `true`.
     *   otherwise, returns `false`.

@@ -11,14 +11,14 @@ Update the value of this tab.
 ### tab.return( ?value, ...extraValues ) » tab
 
 parameters:
-*   **value** : *any*
+*   **value** : *any*  
     the principal value to store in this tab.
 
-*   **...extraValues** : *...any*
+*   **...extraValues** : *...any*  
     extra information to store in this tab.
 
 returns:
-*   **tab** : *[object Tab]*
+*   **tab** : *[object Tab]*  
     this tab, updated with the given values.
 
 <br />

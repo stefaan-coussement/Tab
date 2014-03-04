@@ -19,7 +19,7 @@ tab.throw().hasThrown() === true
 ````
 
 returns:
-*   **booleanValue** : *boolean*
+*   **booleanValue** : *boolean*  
     
     *   if this tab has previously thrown an error, then returns `true`.
     *   otherwise, returns `false`.

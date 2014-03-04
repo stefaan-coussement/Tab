@@ -17,14 +17,14 @@ Tab.newThrow(error, ...extraValues) ~ Tab.construct().throw(error, ...extraValue
 ````
 
 parameters:
-*   **error** : *any*
+*   **error** : *any*  
     the error to throw for the new tab.
 
-*   **...extraValues** : *...any*
+*   **...extraValues** : *...any*  
     extra information to store in the new tab.
 
 returns:
-*   **newTab** : *[object Tab]*
+*   **newTab** : *[object Tab]*  
     a newly constructed Tab object, initialized with the given error and extra values.
 
 <br />
