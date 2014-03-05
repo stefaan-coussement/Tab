@@ -1,3 +1,30 @@
+<a name="top" ></a>
+
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.X.defer()][ref-tab.x.defer]
+
+The basic method to send notifications for a tab.
+
+<br />
+
+---
+### Tab.X.notify( source, type, args ) >> source
+
+<br />
+
+---
+### Other methods in this family
+
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.return()][ref-tab.prototype.return]
+*   [.settle()][ref-tab.prototype.settle]
+*   [.throw()][ref-tab.prototype.throw]
+<br />
+*   [Tab.X.subscribe()][ref-tab.x.subscribe]
+
+
+
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab.X Methods][ref-tab.x-methods] <br />
 <!-- ##### start of links ##### -->
 
 [top]:       #top                        "back to the top of this page."
@@ -58,41 +85,41 @@
 [ref-tab.construct]:                 /doc/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab.convert]:                   /doc/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /doc/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
-[ref-tab.defer-fulfill]:             /doc/reference/tab.defer-fulfill.md#top             "Tab.deferFulfill(): create a function that updates the value of a given tab and blocks any further updates."
-[ref-tab.defer-reject]:              /doc/reference/tab.defer-reject.md#top              "Tab.deferReject(): create a function that puts a given tab in the failed state and blocks any further updates."
+[ref-tab.defer-fulfill]:             /doc/reference/tab.defer-fulfill.md#top             "Tab.deferFulfill(): create a function that updates the value of a given tab and silently blocks any further updates."
+[ref-tab.defer-reject]:              /doc/reference/tab.defer-reject.md#top              "Tab.deferReject(): create a function that puts a given tab in the failed state and silently blocks any further updates."
 [ref-tab.defer-return]:              /doc/reference/tab.defer-return.md#top              "Tab.deferReturn(): create a function that updates the value of a given tab."
-[ref-tab.defer-settle]:              /doc/reference/tab.defer-settle.md#top              "Tab.deferSettle(): create a function that blocks any further updates for a given tab."
+[ref-tab.defer-settle]:              /doc/reference/tab.defer-settle.md#top              "Tab.deferSettle(): create a function that silently blocks any further updates for a given tab."
 [ref-tab.defer-throw]:               /doc/reference/tab.defer-throw.md#top               "Tab.deferThrow(): create a function that puts a given tab in the failed state."
 [ref-tab.defer-with]:                /doc/reference/tab.defer.md#top                     "Tab.deferWith(): create a function that uses a given tab to store another function's result, using the new function's subject as a first argument for the other function."
 [ref-tab.is-tab]:                    /doc/reference/tab.is-tab.md#top                    "Tab.isTab(): was the given object created by this Tab constructor?"
-[ref-tab.new-fulfill]:               /doc/reference/tab.new-fulfill.md#top               "Tab.newFulfill(): create a new tab that is initialized with a given value and block any further updates."
-[ref-tab.new-reject]:                /doc/reference/tab.new-reject.md#top                "Tab.newReject(): create a new tab that is put in the failed state and block any further updates."
+[ref-tab.new-fulfill]:               /doc/reference/tab.new-fulfill.md#top               "Tab.newFulfill(): create a new tab that is initialized with a given value and silently block any further updates."
+[ref-tab.new-reject]:                /doc/reference/tab.new-reject.md#top                "Tab.newReject(): create a new tab that is put in the failed state and silently block any further updates."
 [ref-tab.new-return]:                /doc/reference/tab.new-return.md#top                "Tab.newReturn(): create a new tab that is initialized with a given value."
-[ref-tab.new-settle]:                /doc/reference/tab.new-settle.md#top                "Tab.newSettle(): create a new tab and block any further updates."
+[ref-tab.new-settle]:                /doc/reference/tab.new-settle.md#top                "Tab.newSettle(): create a new tab and silently block any further updates."
 [ref-tab.new-throw]:                 /doc/reference/tab.new-throw.md#top                 "Tab.newThrow(): create a new tab that is put in the failed state."
 
 [ref-tab.prototype.cancel]:          /doc/reference/tab.prototype.cancel.md#top          "Tab.prototype.cancel(): cancel all subscriptions and all scheduled processors for this tab."
 [ref-tab.prototype.do-return]:       /doc/reference/tab.prototype.do-return.md#top       "Tab.prototype.doReturn(): update the value of this tab (for ES3 environments)."
 [ref-tab.prototype.do-throw]:        /doc/reference/tab.prototype.do-throw.md#top        "Tab.prototype.doThrow(): put this tab in the failed state (for ES3 environments)."
-[ref-tab.prototype.fulfill]:         /doc/reference/tab.prototype.fulfill.md#top         "Tab.prototype.fulfill(): update the value of this tab and block any further updates."
+[ref-tab.prototype.fulfill]:         /doc/reference/tab.prototype.fulfill.md#top         "Tab.prototype.fulfill(): update the value of this tab and silently block any further updates."
 [ref-tab.prototype.has-returned]:    /doc/reference/tab.prototype.has-returned.md#top    "Tab.prototype.hasReturned(): has this tab returned a value?"
 [ref-tab.prototype.has-thrown]:      /doc/reference/tab.prototype.has-thrown.md#top      "Tab.prototype.hasThrown(): has this tab thrown an error?"
 [ref-tab.prototype.is-cancelled]:    /doc/reference/tab.prototype.is-cancelled.md#top    "Tab.prototype.isCancelled(): are all subscriptions for this tab cancelled?"
-[ref-tab.prototype.is-settled]:      /doc/reference/tab.prototype.is-settled.md#top      "Tab.prototype.isSettled(): are any further updates for the tab blocked?"
+[ref-tab.prototype.is-settled]:      /doc/reference/tab.prototype.is-settled.md#top      "Tab.prototype.isSettled(): are any further updates for this tab blocked?"
 [ref-tab.prototype.on-cancelled]:    /doc/reference/tab.prototype.on-cancelled.md#top    "Tab.prototype.onCancelled(): execute a processor when this tab is cancelled."
 [ref-tab.prototype.on-returned]:     /doc/reference/tab.prototype.on-returned.md#top     "Tab.prototype.onReturned(): execute a processor when this tab has returned a value."
 [ref-tab.prototype.on-settled]:      /doc/reference/tab.prototype.on-settled.md#top      "Tab.prototype.onSettled(): execute a processor when this tab is settled."
 [ref-tab.prototype.on-thrown]:       /doc/reference/tab.prototype.on-thrown.md#top       "Tab.prototype.onThrown(): execute a processor when this tab has thrown an error."
-[ref-tab.prototype.reject]:          /doc/reference/tab.prototype.reject.md#top          "Tab.prototype.reject(): put this tab in the failed state and block any further updates."
+[ref-tab.prototype.reject]:          /doc/reference/tab.prototype.reject.md#top          "Tab.prototype.reject(): put this tab in the failed state and silently block any further updates."
 [ref-tab.prototype.return]:          /doc/reference/tab.prototype.return.md#top          "Tab.prototype.return(): update the value of this tab."
-[ref-tab.prototype.settle]:          /doc/reference/tab.prototype.settle.md#top          "Tab.prototype.settle(): block any further updates for this tab."
+[ref-tab.prototype.settle]:          /doc/reference/tab.prototype.settle.md#top          "Tab.prototype.settle(): silently block any further updates for this tab."
 [ref-tab.prototype.throw]:           /doc/reference/tab.prototype.throw.md#top           "Tab.prototype.throw(): put this tab in the failed state."
 [ref-tab.prototype.to-string]:       /doc/reference/tab.prototype.to-string.md#top       "Tab.prototype.toString(): get a string representation for this tab."
 [ref-tab.prototype.value-of]:        /doc/reference/tab.prototype.value-of.md#top        "Tab.prototype.valueOf(): get the principal value of this tab."
 
 [ref-tab.schedulers.tick]:           /doc/reference/tab.schedulers.tick.md#top           "Tab.Schedulers.es5: a sequence number incremented in every turn"
 
-[ref-tab.schedulers.schedule-first]: /doc/reference/tab.schedulers.schedule-first.md#top "Tab.Schedulers.defer(): schedule a given callback first in the next turn."
+[ref-tab.schedulers.schedule-first]: /doc/reference/tab.schedulers.schedule-first.md#top "Tab.Schedulers.defer(): schedule a given callback before all other callbacks in the next turn."
 [ref-tab.schedulers.schedule-last]:  /doc/reference/tab.schedulers.schedule-last.md#top  "Tab.Schedulers.defer(): schedule a given callback after all other callbacks."
 [ref-tab.schedulers.schedule-next]:  /doc/reference/tab.schedulers.schedule-next.md#top  "Tab.Schedulers.notify(): schedule a given callback in the next turn."
 [ref-tab.schedulers.schedule-now]:   /doc/reference/tab.schedulers.schedule-now.md#top   "Tab.Schedulers.subscribe(): call the callback immediately."
