@@ -3,19 +3,58 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.prototype.cancel()][ref-tab.prototype.cancel]
 
-...
+Cancel all subscriptions and all scheduled processors for this tab.
 
 <br />
 
 ---
-### tab.cancel() » undefined
+### tab.cancel() » tab
+
+returns:
+*   **tab** : *[object Tab]*  
+    this tab, with all subscriptions and scheduled processors cancelled.
+
+core principles:
+
+````javascript
+Tab.construct().cancel().isCancelled() === true
+Tab.construct().cancel().hasReturned() === false
+Tab.construct().cancel().isSettled() === false
+Tab.construct().cancel().hasThrown() === true
+
+Tab.construct().return().cancel().hasReturned() === false
+Tab.construct().settle().cancel().isSettled() === false
+Tab.construct().throw().cancel().hasThrown() === true
+
+try { Tab.construct().cancel().return(); } catch (e) { e.message === "cancelled" }
+try { Tab.construct().cancel().settle(); } catch (e) { e.message === "cancelled" }
+try { Tab.construct().cancel().throw(); } catch (e) { e.message === "cancelled" }
+
+try { Tab.construct().cancel().valueOf(); } catch (e) { 
+    e instanceof Error
+    e.message === "cancelled"
+}
+
+try { Tab.construct().return(value).cancel().valueOf(); } catch (e) { e.message === "cancelled" }
+Tab.construct().settle().cancel().valueOf() === undefined
+try { Tab.construct().throw(error).cancel().valueOf(); } catch (e) { 
+    e !== error
+    e.message === "cancelled"
+}
+````
 
 <br />
 
 ---
+### Other methods in this family
 
-Other attributes and methods in this family:
-* 
+*   [.fulfill()][ref-tab.prototype.fulfill]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.onCancelled()][ref-tab.prototype.on-cancelled]
+*   [.reject()][ref-tab.prototype.reject]
+*   [.return()][ref-tab.prototype.return]
+*   [.settle()][ref-tab.prototype.settle]
+*   [.throw()][ref-tab.prototype.throw]
 
 
 

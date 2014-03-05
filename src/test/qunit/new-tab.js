@@ -28,12 +28,13 @@
     QUnit.module("new Tab()");
 
     QUnit.test("newTab = new Tab()", function() {
-        QUnit.expect(5);
+        QUnit.expect(6);
       
         var newTab = new Tab();
 
         QUnit.ok(Tab.isTab(newTab), 'Tab.isTab(newTab)');
         QUnit.ok(!newTab.hasReturned(), '!newTab.hasReturned()');
+        QUnit.ok(!newTab.hasThrown(), '!newTab.hasThrown()');
         QUnit.ok(!newTab.isCancelled(), '!newTab.isCancelled()');
         QUnit.ok(!newTab.isSettled(), '!newTab.isSettled()');
         QUnit.ok(newTab.valueOf() === undefined, 'newTab.valueOf() === undefined');

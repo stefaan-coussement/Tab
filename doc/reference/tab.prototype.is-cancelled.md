@@ -1,3 +1,55 @@
+<a name="top" ></a>
+
+<img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
+## [Tab.prototype.isCancelled()][ref-tab.prototype.is-cancelled]
+
+Are all subscriptions for this tab cancelled?
+
+<br />
+
+---
+### tab.isCancelled() » booleanValue
+
+returns:
+*   **booleanValue** : *boolean*  
+    
+    *   if this tab has been cancelled, then returns `true`.
+    *   otherwise, returns `false`.
+
+core principles:
+
+````javascript
+Tab.construct().isCancelled() === false
+
+Tab.construct().cancel().isCancelled() === true
+Tab.construct().return().isCancelled() === false
+Tab.construct().settle().isCancelled() === false
+Tab.construct().throw().isCancelled() === false
+
+Tab.construct().cancel().cancel().isCancelled() === true
+try { Tab.construct().cancel().return(); } catch (e) { e.message === "cancelled" }
+try { Tab.construct().cancel().settle(); } catch (e) { e.message === "cancelled" }
+try { Tab.construct().cancel().throw(); } catch (e) { e.message === "cancelled" }
+
+Tab.construct().return().cancel().isCancelled() === true
+Tab.construct().settle().cancel().isCancelled() === false
+Tab.construct().throw().cancel().isCancelled() === true
+````
+
+<br />
+
+---
+### Other methods in this family
+
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onCancelled()][ref-tab.prototype.on-cancelled]
+
+
+
+<br /> Back to [Top] | [Project] | [Topics] | [Reference] / [Tab Prototype Methods][ref-tab-prototype-methods] <br />
 <!-- ##### start of links ##### -->
 
 [top]:       #top                        "back to the top of this page."

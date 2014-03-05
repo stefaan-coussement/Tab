@@ -78,7 +78,7 @@
 [ref-tab.prototype.has-returned]:    /doc/reference/tab.prototype.has-returned.md#top    "Tab.prototype.hasReturned(): has this tab returned a value?"
 [ref-tab.prototype.has-thrown]:      /doc/reference/tab.prototype.has-thrown.md#top      "Tab.prototype.hasThrown(): has this tab thrown an error?"
 [ref-tab.prototype.is-cancelled]:    /doc/reference/tab.prototype.is-cancelled.md#top    "Tab.prototype.isCancelled(): are all subscriptions for this tab cancelled?"
-[ref-tab.prototype.is-settled]:      /doc/reference/tab.prototype.is-settled.md#top      "Tab.prototype.isSettled(): are any further updates for the tab blocked?"
+[ref-tab.prototype.is-settled]:      /doc/reference/tab.prototype.is-settled.md#top      "Tab.prototype.isSettled(): are any further updates for this tab blocked?"
 [ref-tab.prototype.on-cancelled]:    /doc/reference/tab.prototype.on-cancelled.md#top    "Tab.prototype.onCancelled(): execute a processor when this tab is cancelled."
 [ref-tab.prototype.on-returned]:     /doc/reference/tab.prototype.on-returned.md#top     "Tab.prototype.onReturned(): execute a processor when this tab has returned a value."
 [ref-tab.prototype.on-settled]:      /doc/reference/tab.prototype.on-settled.md#top      "Tab.prototype.onSettled(): execute a processor when this tab is settled."

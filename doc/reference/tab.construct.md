@@ -12,7 +12,7 @@ Construct a new tab, encapsulate a given tab if requested.
 
 > :bulb:
 > ````
-> new Tab.construct() ~ Tab()
+> Tab.construct() ~ new Tab()
 > ````
 
 returns:

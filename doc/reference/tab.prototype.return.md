@@ -24,6 +24,33 @@ returns:
 *   **tab** : *[object Tab]*  
     this tab, updated with the given values.
 
+core principles:
+
+````javascript
+Tab.construct().return().hasReturned() === true
+Tab.construct().return().hasThrown() === false
+Tab.construct().return().isCancelled() === false
+Tab.construct().return().isSettled() === false
+
+try { Tab.construct().cancel().return(); } catch (e) { e.message === "cancelled" }
+Tab.construct().settle().return().isSettled() === true
+Tab.construct().throw().return().hasThrown() === false
+
+Tab.construct().return().cancel().isCancelled() === true
+Tab.construct().return().settle().isSettled() === true
+Tab.construct().return().throw().hasThrown() === true
+
+Tab.construct().return(value).valueOf() === value
+Tab.construct().return(value1).return(value2).valueOf() === value2
+
+Tab.construct().settle().return(value).valueOf() === undefined
+Tab.construct().throw(error).return(value).valueOf() === value
+
+try { Tab.construct().return(value).cancel().valueOf(); } catch (e) { e.message === "cancelled" }
+Tab.construct().return(value).settle().valueOf() === value
+try { Tab.construct().return(value).throw(error).valueOf(); } catch (e) { e === error }
+````
+
 <br />
 
 ---

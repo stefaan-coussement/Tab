@@ -1,21 +1,53 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.prototype.hasSettled()][ref-tab.prototype.has-settled]
+## [Tab.prototype.isSettled()][ref-tab.prototype.is-settled]
 
-Has this tab settled?
-
-<br />
-
----
-### tab.hasSettled() » booleanValue
+Are any further updates for this tab blocked?
 
 <br />
 
 ---
+### tab.isSettled() » booleanValue
 
-Other attributes and methods in this family:
-* 
+returns:
+*   **booleanValue** : *boolean*  
+    
+    *   if this tab has been settled, then returns `true`.
+    *   otherwise, returns `false`.
+
+core principles:
+
+````javascript
+Tab.construct().isSettled() === false
+
+Tab.construct().cancel().isSettled() === false
+Tab.construct().return().isSettled() === false
+Tab.construct().settle().isSettled() === true
+Tab.construct().throw().isSettled() === false
+
+Tab.construct().settle().cancel().isSettled() === true
+Tab.construct().settle().return().isSettled() === true
+Tab.construct().settle().settle().isSettled() === true
+Tab.construct().settle().throw().isSettled() === true
+
+try { Tab.construct().cancel().settle(); } catch (e) { e.message === "cancelled" }
+Tab.construct().return().settle().isSettled() === true
+Tab.construct().throw().settle().isSettled() === true
+````
+
+<br />
+
+---
+### Other methods in this family
+
+*   [Tab.newSettle()][ref-tab.new-settle]
+<br />
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.onSettled()][ref-tab.prototype.on-settled]
+*   [.settle()][ref-tab.prototype.settle]
 
 
 

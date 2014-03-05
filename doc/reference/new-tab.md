@@ -10,14 +10,20 @@ Construct a new tab, encapsulate a given tab if requested.
 ---
 ### new Tab() » newTab
 
-> :bulb:
-> ````
-> new Tab() ~ Tab.construct()
-> ````
-
 returns:
 *   **newTab** : *[object Tab]*  
     a newly constructed Tab object.
+
+core principles:
+
+````javascript
+Tab.isTab(Tab.construct()) === true
+Tab.construct().hasReturned() === false
+Tab.construct().hasThrown() === false
+Tab.construct().isCancelled() === false
+Tab.construct().isSettled() === false
+Tab.construct().valueOf() === undefined
+````
 
 <br />
 

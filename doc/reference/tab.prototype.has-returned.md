@@ -10,19 +10,31 @@ Has this tab an update value?
 ---
 ### tab.hasReturned() » booleanValue
 
-core principle:
-
-````javascript
-Tab.construct().hasReturned() === false
-tab.return().hasReturned() === true
-tab.throw().hasReturned() === false
-````
-
 returns:
 *   **booleanValue** : *boolean*  
     
     *   if this tab has previously been updated, then returns `true`.
     *   otherwise, returns `false`.
+
+core principles:
+
+````javascript
+Tab.construct().hasReturned() === false
+
+Tab.construct().cancel().hasReturned() === false
+Tab.construct().return().hasReturned() === true
+Tab.construct().settle().hasReturned() === false
+Tab.construct().throw().hasReturned() === false
+
+Tab.construct().return().cancel().hasReturned() === false
+Tab.construct().return().return().hasReturned() === true
+Tab.construct().return().settle().hasReturned() === true
+Tab.construct().return().throw().hasReturned() === false
+
+try { Tab.construct().cancel().return(); } catch (e) { e.message === "cancelled" }
+Tab.construct().settle().return().hasReturned() === false
+Tab.construct().throw().return().hasReturned() === true
+````
 
 <br />
 

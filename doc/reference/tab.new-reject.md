@@ -1,34 +1,30 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.convert()][ref-tab.convert]
+## [Tab.newReject()][ref-tab.new-reject]
 
-Convert to a tab, create a new tab if required.
+Create a new tab that is put in the failed state and block any further updates.
 
 <br />
 
 ---
-### Tab( object ) » convertedTab
+### Tab.newReject( ?error, ...extraValues ) » newTab
 
 > :bulb:
 > ````
-> Tab.convert(object) ~ Tab(object)
+> Tab.newReject(error, ...extraValues) ~ Tab.construct().reject(error, ...extraValues)
 > ````
 
 parameters:
-*   **object** : *any*  
-    the object to convert
+*   **error** : *any*  
+    the error to throw for the new tab.
+
+*   **...extraValues** : *...any*  
+    extra information to store in the new tab.
 
 returns:
-*   **covertedTab** : *[object Tab]*  
-    
-    *   if the object is a Tab object, then returns the object.
-    *   otherwise, returns a new Tab object and initialize its value with the given object.
-
-        > :bulb:
-        > ````
-        > Tab.convert(object) ~ Tab.newReturn(object)
-        > ````
+*   **newTab** : *[object Tab]*  
+    a newly constructed Tab object, rejected with the given error and extra values.
 
 <br />
 
@@ -36,10 +32,18 @@ returns:
 ### Other methods in this family
 
 *   [new Tab()][ref-new-tab]
-*   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
-*   [Tab.isTab()][ref-tab.is-tab]
+*   [Tab.newFulfill()][ref-tab.new-fulfill]
+*   [Tab.newReturn()][ref-tab.new-return]
+*   [Tab.newSettle()][ref-tab.new-settle]
+*   [Tab.newThrow()][ref-tab.new-throw]
+<br />
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onSettled()][ref-tab.prototype.on-settled]
+*   [.onThrown()][ref-tab.prototype.on-thrown]
+*   [.reject()][ref-tab.prototype.reject]
 
 
 

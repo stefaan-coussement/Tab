@@ -3,19 +3,60 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.prototype.settle()][ref-tab.prototype.settle]
 
-Settle this tab without changing its current value or error.
+Block any further updates for this tab.
 
 <br />
 
 ---
 ### tab.settle() » tab
 
+returns:
+*   **tab** : *[object Tab]*  
+    this tab, blocked for any further updates.
+
+core principle:
+
+````javascript
+Tab.construct().settle().hasReturned() === false
+Tab.construct().settle().hasThrown() === false
+Tab.construct().settle().isCancelled() === false
+Tab.construct().settle().isSettled() === true
+
+try { Tab.construct().cancel().settle(); } catch (e) { e.message === "cancelled" }
+Tab.construct().return().settle().hasReturned() === true
+Tab.construct().throw().settle().hasThrown() === true
+
+Tab.construct().settle().cancel().isCancelled() === false
+Tab.construct().settle().return().hasReturned() === false
+Tab.construct().settle().throw().hasThrown() === false
+
+Tab.construct().settle().valueOf() === undefined
+
+Tab.construct().return(value).settle().valueOf() === value
+try { Tab.construct().throw(error).settle().valueOf(); } catch (e) { e === error }
+
+try { Tab.construct().settle().cancel().valueOf(); } catch (e) { e.message === "cancelled" }
+Tab.construct().settle().return(value).valueOf() === undefined
+Tab.construct().settle().throw(error).valueOf() === undefined
+
+Tab.construct().return(value1).settle().return(value2).valueOf() === value1
+try { Tab.construct().throw(error1).settle().throw(error2).valueOf(); } catch (e) { e === error1 }
+````
+
 <br />
 
 ---
+### Other methods in this family
 
-Other attributes and methods in this family:
-* 
+*   [Tab.newSettle()][ref-tab.new-settle]
+<br />
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.fulfill()][ref-tab.prototype.fulfill]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onSettled()][ref-tab.prototype.on-settled]
+*   [.reject()][ref-tab.prototype.reject]
+*   [.return()][ref-tab.prototype.return]
+*   [.throw()][ref-tab.prototype.throw]
 
 
 

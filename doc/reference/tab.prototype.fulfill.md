@@ -3,19 +3,45 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.prototype.fulfill()][ref-tab.prototype.fulfill]
 
-Settle this tab with a value.
+Update the value of this tab and block any further updates.
 
 <br />
 
 ---
-### tab.fulfill( ?principalValue, ...extraValues ) » tab
+### tab.fulfill( ?value, ...extraValues ) » tab
+
+> :bulb:
+> ````
+> tab.fulfill(value, ...extraValues) ~ tab.return(value, ...extraValues).settle()
+> ````
+
+parameters:
+*   **value** : *any*  
+    the principal value to store in this tab.
+
+*   **...extraValues** : *...any*  
+    extra information to store in this tab.
+
+returns:
+*   **tab** : *[object Tab]*  
+    this tab, fulfilled with the given values.
 
 <br />
 
 ---
+### Other methods in this family
 
-Other attributes and methods in this family:
-* 
+*   [Tab.newFulfill()][ref-tab.new-fulfill]
+<br />
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onReturned()][ref-tab.prototype.on-returned]
+*   [.onSettled()][ref-tab.prototype.on-settled]
+*   [.reject()][ref-tab.prototype.reject]
+*   [.return()][ref-tab.prototype.return]
+*   [.settle()][ref-tab.prototype.settle]
+*   [.throw()][ref-tab.prototype.throw]
 
 
 

@@ -3,19 +3,45 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.prototype.reject()][ref-tab.prototype.reject]
 
-Settle this tab with an error.
+Put this tab in the failed state and block any further updates.
 
 <br />
 
 ---
 ### tab.reject( ?error, ...extraValues ) » tab
 
+> :bulb:
+> ````
+> tab.reject(error) ~ tab.throw(error).settle()
+> ````
+
+parameters:
+*   **error** : *any*  
+    the error to throw for the new tab.
+
+*   **...extraValues** : *...any*  
+    extra information to store in this tab.
+
+returns:
+*   **tab** : *[object Tab]*  
+    this tab, rejected with the given error and extra values.
+
 <br />
 
 ---
+### Other methods in this family
 
-Other attributes and methods in this family:
-* 
+*   [Tab.newReject()][ref-tab.new-reject]
+<br />
+*   [.cancel()][ref-tab.prototype.cancel]
+*   [.fulfill()][ref-tab.prototype.fulfill]
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onThrown()][ref-tab.prototype.on-thrown]
+*   [.onSettled()][ref-tab.prototype.on-settled]
+*   [.return()][ref-tab.prototype.return]
+*   [.settle()][ref-tab.prototype.settle]
+*   [.throw()][ref-tab.prototype.throw]
 
 
 

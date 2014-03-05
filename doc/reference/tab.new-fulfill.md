@@ -1,34 +1,30 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.convert()][ref-tab.convert]
+## [Tab.newFulfill()][ref-tab.new-fulfill]
 
-Convert to a tab, create a new tab if required.
+Create a new tab that is initialized with a given value and block any further updates.
 
 <br />
 
 ---
-### Tab( object ) » convertedTab
+### Tab.newFulfill( ?value, ...extraValues ) » newTab
 
 > :bulb:
 > ````
-> Tab.convert(object) ~ Tab(object)
+> Tab.newFulfill(value, ...extraValues) ~ Tab.construct().fulfill(value, ...extraValues)
 > ````
 
 parameters:
-*   **object** : *any*  
-    the object to convert
+*   **value** : *any*  
+    the principal value to store in the new tab.
+
+*   **...extraValues** : *...any*  
+    extra information to store in the new tab.
 
 returns:
-*   **covertedTab** : *[object Tab]*  
-    
-    *   if the object is a Tab object, then returns the object.
-    *   otherwise, returns a new Tab object and initialize its value with the given object.
-
-        > :bulb:
-        > ````
-        > Tab.convert(object) ~ Tab.newReturn(object)
-        > ````
+*   **newTab** : *[object Tab]*  
+    a newly constructed Tab object, fulfilled with the given values.
 
 <br />
 
@@ -36,10 +32,18 @@ returns:
 ### Other methods in this family
 
 *   [new Tab()][ref-new-tab]
-*   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
-*   [Tab.isTab()][ref-tab.is-tab]
+*   [Tab.newReject()][ref-tab.new-reject]
+*   [Tab.newReturn()][ref-tab.new-fulfill]
+*   [Tab.newSettle()][ref-tab.new-settle]
+*   [Tab.newThrow()][ref-tab.new-throw]
+<br />
+*   [.fulfill()][ref-tab.prototype.fulfill]
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.onReturned()][ref-tab.prototype.on-returned]
+*   [.onSettled()][ref-tab.prototype.on-settled]
 
 
 

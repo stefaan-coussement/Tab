@@ -10,12 +10,6 @@ Was the given object created by this Tab library?
 ---
 ### Tab.isTab( object ) » booleanValue
 
-core principle:
-
-````javascript
-return (object instanceof Tab);
-````
-
 parameters:
 *   **object** : *any*  
 
@@ -24,6 +18,12 @@ returns:
     
     *   if the object is an instance of this Tab library, then returns `true`.
     *   otherwise, returns `false`.
+
+core principle:
+
+````javascript
+return (object instanceof Tab);
+````
 
 <br />
 

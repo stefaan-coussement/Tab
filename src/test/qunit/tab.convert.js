@@ -44,6 +44,7 @@
 
         QUnit.ok(Tab.isTab(convertedTab), 'Tab.isTab(convertedTab)');
         QUnit.ok(convertedTab.hasReturned(), 'convertedTab.hasReturned()');
+        QUnit.ok(!convertedTab.hasThrown(), '!convertedTab.hasThrown()');
         QUnit.ok(!convertedTab.isCancelled(), '!convertedTab.isCancelled()');
         QUnit.ok(!convertedTab.isSettled(), '!convertedTab.isSettled()');
         QUnit.ok(convertedTab.valueOf() === object, 'convertedTab.valueOf() === object');
@@ -56,6 +57,7 @@
 
         QUnit.ok(Tab.isTab(convertedTab), 'Tab.isTab(convertedTab)');
         QUnit.ok(convertedTab.hasReturned(), 'convertedTab.hasReturned()');
+        QUnit.ok(!convertedTab.hasThrown(), '!convertedTab.hasThrown()');
         QUnit.ok(!convertedTab.isCancelled(), '!convertedTab.isCancelled()');
         QUnit.ok(!convertedTab.isSettled(), '!convertedTab.isSettled()');
         QUnit.ok(convertedTab.valueOf() === undefined, 'convertedTab.valueOf() === undefined');

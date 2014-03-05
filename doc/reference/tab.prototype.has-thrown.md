@@ -10,19 +10,31 @@ Has this tab thrown an error?
 ---
 ### tab.hasThrown() » booleanValue
 
-core principle:
-
-````javascript
-Tab.construct().hasThrown() === false
-tab.return().hasThrown() === false
-tab.throw().hasThrown() === true
-````
-
 returns:
 *   **booleanValue** : *boolean*  
     
     *   if this tab has previously thrown an error, then returns `true`.
     *   otherwise, returns `false`.
+
+core principles:
+
+````javascript
+Tab.construct().hasThrown() === false
+
+Tab.construct().cancel().hasThrown() === true
+Tab.construct().return().hasThrown() === false
+Tab.construct().settle().hasThrown() === false
+Tab.construct().throw().hasThrown() === true
+
+Tab.construct().throw().cancel().hasThrown() === true
+Tab.construct().throw().return().hasThrown() === false
+Tab.construct().throw().settle().hasThrown() === true
+Tab.construct().throw().throw().hasThrown() === true
+
+try { Tab.construct().cancel().throw(); } catch (e) { e.message === "cancelled" }
+Tab.construct().return().throw().hasThrown() === true
+Tab.construct().settle().throw().hasThrown() === false
+````
 
 <br />
 
