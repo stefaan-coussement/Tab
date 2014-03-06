@@ -25,30 +25,58 @@
 	"use strict";
 	// jshint quotmark: false
   
-    QUnit.module("Tab.construct()");
+    QUnit.module("Tab.newThrow()");
 
-    QUnit.test("Tab.construct object", function() {
+    QUnit.test("Tab.newThrow object", function() {
         QUnit.expect(3);
       
-        QUnit.strictEqual(typeof Tab.construct, "function", 'typeof Tab.construct === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.construct), "[object Function]", 'Object.prototype.toString.call(Tab.construct) === "[object Function]"');
+        QUnit.strictEqual(typeof Tab.newThrow, "function", 'typeof Tab.newThrow === "function"');
+        QUnit.strictEqual(Object.prototype.toString.call(Tab.newThrow), "[object Function]", 'Object.prototype.toString.call(Tab.newThrow) === "[object Function]"');
 
-        QUnit.strictEqual(Tab.construct.length, 0, 'Tab.construct.length === 0');
+        QUnit.strictEqual(Tab.newThrow.length, 1, 'Tab.newThrow.length === 1');
     });
 
-    QUnit.test("newTab = Tab.construct()", function() {
+    QUnit.test("newTab = Tab.newThrow(error)", function() {
         QUnit.expect(6);
       
-        var newTab = Tab.construct();
+        var error = "error",
+            newTab = Tab.newThrow(error);
 
         QUnit.strictEqual(Tab.isTab(newTab), true, 'Tab.isTab(newTab) === true');
 
         QUnit.strictEqual(newTab.hasReturned(), false, 'newTab.hasReturned() === false');
-        QUnit.strictEqual(newTab.hasThrown(), false, 'newTab.hasThrown() === false');
+        QUnit.strictEqual(newTab.hasThrown(), true, 'newTab.hasThrown() === true');
         QUnit.strictEqual(newTab.isCancelled(), false, 'newTab.isCancelled() === false');
         QUnit.strictEqual(newTab.isSettled(), false, 'newTab.isSettled() === false');
 
-        QUnit.strictEqual(newTab.valueOf(), undefined, 'newTab.valueOf() === undefined');
+        QUnit.strictEqual(
+            (function () {
+                try { newTab.valueOf(); } catch (e) { return e; }
+            }()),
+            error,
+            'try { newTab.valueOf(); } catch (e) { e === error }'
+        );
+    });
+
+    QUnit.test("tab = Tab.newThrow(error1).doThrow(error2)", function() {
+        QUnit.expect(5);
+      
+        var error1 = "error1",
+            error2 = "error2",
+            tab = Tab.newThrow(error1).doThrow(error2);
+
+        QUnit.strictEqual(tab.hasReturned(), false, 'tab.hasReturned() === false');
+        QUnit.strictEqual(tab.hasThrown(), true, 'tab.hasThrown() === true');
+        QUnit.strictEqual(tab.isCancelled(), false, 'tab.isCancelled() === false');
+        QUnit.strictEqual(tab.isSettled(), false, 'tab.isSettled() === false');
+
+        QUnit.strictEqual(
+            (function () {
+                try { tab.valueOf(); } catch (e) { return e; }
+            }()),
+            error2,
+            'try { tab.valueOf(); } catch (e) { e === error2 }'
+        );
     });
 
 }());

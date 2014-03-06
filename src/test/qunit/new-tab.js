@@ -32,12 +32,14 @@
       
         var newTab = new Tab();
 
-        QUnit.ok(Tab.isTab(newTab), 'Tab.isTab(newTab)');
-        QUnit.ok(!newTab.hasReturned(), '!newTab.hasReturned()');
-        QUnit.ok(!newTab.hasThrown(), '!newTab.hasThrown()');
-        QUnit.ok(!newTab.isCancelled(), '!newTab.isCancelled()');
-        QUnit.ok(!newTab.isSettled(), '!newTab.isSettled()');
-        QUnit.ok(newTab.valueOf() === undefined, 'newTab.valueOf() === undefined');
+        QUnit.strictEqual(Tab.isTab(newTab), true, 'Tab.isTab(newTab) === true');
+
+        QUnit.strictEqual(newTab.hasReturned(), false, 'newTab.hasReturned() === false');
+        QUnit.strictEqual(newTab.hasThrown(), false, 'newTab.hasThrown() === false');
+        QUnit.strictEqual(newTab.isCancelled(), false, 'newTab.isCancelled() === false');
+        QUnit.strictEqual(newTab.isSettled(), false, 'newTab.isSettled() === false');
+
+        QUnit.strictEqual(newTab.valueOf(), undefined, 'newTab.valueOf() === undefined');
     });
 
 }());

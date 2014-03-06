@@ -23,43 +23,14 @@
 
 (function () {
 	"use strict";
-	// jshint quotmark: false
+	// jshint quotmark: false, es3: false
   
-    QUnit.module("Tab.isTab()");
+    QUnit.module("Tab.prototype.return()");
 
-    QUnit.test("Tab.isTab object", function() {
-        QUnit.expect(3);
-      
-        QUnit.strictEqual(typeof Tab.isTab, "function", 'typeof Tab.isTab === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.isTab), "[object Function]", 'Object.prototype.toString.call(Tab.isTab) === "[object Function]"');
-
-        QUnit.strictEqual(Tab.isTab.length, 1, 'Tab.isTab.length === 1');
-    });
-
-    QUnit.test("booleanValue = Tab.isTab(tab)", function() {
+    QUnit.test("Tab.prototype.return object", function() {
         QUnit.expect(1);
-      
-        var tab = Tab.construct(),
-            booleanValue = Tab.isTab(tab);
 
-        QUnit.strictEqual(booleanValue, true, 'booleanValue === true');
-    });
-
-    QUnit.test("booleanValue = Tab.isTab(object)", function() {
-        QUnit.expect(1);
-      
-        var object = {},
-            booleanValue = Tab.isTab(object);
-
-        QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
-    });
-
-    QUnit.test("booleanValue = Tab.isTab()", function() {
-        QUnit.expect(1);
-      
-        var booleanValue = Tab.isTab();
-
-        QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
+        QUnit.strictEqual(Tab.prototype.return, Tab.prototype.doReturn, 'Tab.prototype.return === Tab.prototype.doReturn');
     });
 
 }());

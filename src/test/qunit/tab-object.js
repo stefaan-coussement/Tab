@@ -29,10 +29,12 @@
     QUnit.module("Tab");
 
     QUnit.test("Tab object", function() {
-        QUnit.expect(4);
+        QUnit.expect(5);
       
         QUnit.strictEqual(typeof Tab, "function", 'typeof Tab === "function"');
         QUnit.strictEqual(Object.prototype.toString.call(Tab), "[object Function]", 'Object.prototype.toString.call(Tab) === "[object Function]"');
+
+        QUnit.strictEqual(Tab.length, 0, 'Tab.length === 0');
                    
         QUnit.strictEqual(Object.keys(Tab).length, 19, 'Object.keys(Tab).length');
         QUnit.strictEqual(Object.getOwnPropertyNames(Tab).length - functionPropertyNames, 20, 'Object.getOwnPropertyNames(Tab).length');

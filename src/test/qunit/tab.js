@@ -35,36 +35,42 @@
             convertedTab = Tab(tab);
             // jshint newcap: true
 
-        QUnit.ok(convertedTab === tab, 'convertedTab === tab');
+        QUnit.strictEqual(convertedTab, tab, 'convertedTab === tab');
     });
 
     QUnit.test("convertedTab = Tab(object)", function() {
-        QUnit.expect(5);
+        QUnit.expect(6);
       
         var object = {},
             // jshint newcap: false
             convertedTab = Tab(object);
             // jshint newcap: true
 
-        QUnit.ok(Tab.isTab(convertedTab), 'Tab.isTab(convertedTab)');
-        QUnit.ok(convertedTab.hasReturned(), 'convertedTab.hasReturned()');
-        QUnit.ok(!convertedTab.isCancelled(), '!convertedTab.isCancelled()');
-        QUnit.ok(!convertedTab.isSettled(), '!convertedTab.isSettled()');
-        QUnit.ok(convertedTab.valueOf() === object, 'convertedTab.valueOf() === object');
+        QUnit.strictEqual(Tab.isTab(convertedTab), true, 'Tab.isTab(convertedTab) === true');
+
+        QUnit.strictEqual(convertedTab.hasReturned(), true, 'convertedTab.hasReturned() === true');
+        QUnit.strictEqual(convertedTab.hasThrown(), false, 'convertedTab.hasThrown() === false');
+        QUnit.strictEqual(convertedTab.isCancelled(), false, 'convertedTab.isCancelled() === false');
+        QUnit.strictEqual(convertedTab.isSettled(), false, 'convertedTab.isSettled() === false');
+
+        QUnit.strictEqual(convertedTab.valueOf(), object, 'convertedTab.valueOf() === object');
     });
 
     QUnit.test("convertedTab = Tab()", function() {
-        QUnit.expect(5);
+        QUnit.expect(6);
 
         var // jshint newcap: false
             convertedTab = Tab();
             // jshint newcap: true
 
-        QUnit.ok(Tab.isTab(convertedTab), 'Tab.isTab(convertedTab)');
-        QUnit.ok(convertedTab.hasReturned(), 'convertedTab.hasReturned()');
-        QUnit.ok(!convertedTab.isCancelled(), '!convertedTab.isCancelled()');
-        QUnit.ok(!convertedTab.isSettled(), '!convertedTab.isSettled()');
-        QUnit.ok(convertedTab.valueOf() === undefined, 'convertedTab.valueOf() === undefined');
+        QUnit.strictEqual(Tab.isTab(convertedTab), true, 'Tab.isTab(convertedTab) === true');
+
+        QUnit.strictEqual(convertedTab.hasReturned(), true, 'convertedTab.hasReturned() === true');
+        QUnit.strictEqual(convertedTab.hasThrown(), false, 'convertedTab.hasThrown() === false');
+        QUnit.strictEqual(convertedTab.isCancelled(), false, 'convertedTab.isCancelled() === false');
+        QUnit.strictEqual(convertedTab.isSettled(), false, 'convertedTab.isSettled() === false');
+        
+        QUnit.strictEqual(convertedTab.valueOf(), undefined, 'convertedTab.valueOf() === undefined');
     });
 
 }());

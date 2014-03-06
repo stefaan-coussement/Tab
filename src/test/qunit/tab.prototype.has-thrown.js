@@ -11,7 +11,7 @@
 //
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 // FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -22,44 +22,58 @@
 /*global QUnit: true, Tab: true */
 
 (function () {
-	"use strict";
-	// jshint quotmark: false
-  
-    QUnit.module("Tab.isTab()");
+    "use strict";
+    // jshint quotmark: false
 
-    QUnit.test("Tab.isTab object", function() {
+    QUnit.module("Tab.prototype.hasThrown()");
+
+    QUnit.test("Tab.prototype.hasThrown object", function() {
         QUnit.expect(3);
-      
-        QUnit.strictEqual(typeof Tab.isTab, "function", 'typeof Tab.isTab === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.isTab), "[object Function]", 'Object.prototype.toString.call(Tab.isTab) === "[object Function]"');
 
-        QUnit.strictEqual(Tab.isTab.length, 1, 'Tab.isTab.length === 1');
+        QUnit.strictEqual(typeof Tab.prototype.hasThrown, "function", 'typeof Tab.prototype.hasThrown === "function"');
+        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.hasThrown), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.hasThrown) === "[object Function]"');
+
+        QUnit.strictEqual(Tab.prototype.hasThrown.length, 0, 'Tab.prototype.hasThrown.length === 0');
     });
 
-    QUnit.test("booleanValue = Tab.isTab(tab)", function() {
+    QUnit.test("booleanValue = Tab.construct().hasThrown()", function() {
         QUnit.expect(1);
-      
-        var tab = Tab.construct(),
-            booleanValue = Tab.isTab(tab);
+
+        var booleanValue = Tab.construct().hasThrown();
+
+        QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
+    });
+
+    QUnit.test("booleanValue = Tab.construct().cancel().hasThrown()", function() {
+        QUnit.expect(1);
+
+        var booleanValue = Tab.construct().cancel().hasThrown();
 
         QUnit.strictEqual(booleanValue, true, 'booleanValue === true');
     });
 
-    QUnit.test("booleanValue = Tab.isTab(object)", function() {
+    QUnit.test("booleanValue = Tab.construct().doReturn().hasThrown()", function() {
         QUnit.expect(1);
-      
-        var object = {},
-            booleanValue = Tab.isTab(object);
+
+        var booleanValue = Tab.construct().doReturn().hasThrown();
 
         QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
     });
 
-    QUnit.test("booleanValue = Tab.isTab()", function() {
+    QUnit.test("booleanValue = Tab.construct().settle().hasThrown()", function() {
         QUnit.expect(1);
-      
-        var booleanValue = Tab.isTab();
+
+        var booleanValue = Tab.construct().settle().hasThrown();
 
         QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
+    });
+
+    QUnit.test("booleanValue = Tab.construct().doThrow().hasThrown()", function() {
+        QUnit.expect(1);
+
+        var booleanValue = Tab.construct().doThrow().hasThrown();
+
+        QUnit.strictEqual(booleanValue, true, 'booleanValue === true');
     });
 
 }());
