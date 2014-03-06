@@ -163,7 +163,7 @@ Tab = (function (global) {
     //---------------------------------------------------------------------------------------------
     //- Tab.newSettle() >> newTab
     //-
-    function newSettle(value) {
+    function newSettle() {
         // jshint unused: false
         return settle.apply(construct(), arguments);
     }
@@ -189,10 +189,9 @@ Tab = (function (global) {
         if (this instanceof Tab) {
             if(!this._completed) {
                 this.doThrow(new Error("cancelled"));
+
                 this._completed = "cancelled";
                 _notify(this, "cancelled");
-
-                // cancelled notifications are scheduled now so it's safe to cleanup this tab
                 this._callbacks = null;
             }
 
@@ -282,10 +281,17 @@ Tab = (function (global) {
         var deferred;
 
         if (this instanceof Tab) {
-            deferred = _defer({ source: this, target: null }, processor);
-            _subscribe(this, this, "cancelled", deferred, {
-                scheduler: Tab.Schedulers.scheduleNow
-            });
+            if (this._completed !== "settled") {
+                deferred = _defer({ source: this, target: null }, processor);
+                if (this._completed) { // (this._completed === "cancelled")
+                    Tab.Schedulers.scheduleNow(null, deferred);
+                }
+                else {
+                    _subscribe(null, this, "cancelled", deferred, {
+                        scheduler: Tab.Schedulers.scheduleNow
+                    });
+                }
+            }
 
             return this;
         }
@@ -304,8 +310,15 @@ Tab = (function (global) {
         var deferred;
 
         if (this instanceof Tab) {
-            deferred = _defer({ source: this, target: null }, processor);
-            _subscribe(this, this, "returned", deferred);
+            if (this._started === "returned") {
+                deferred = _defer({ source: this, target: null }, processor);
+                if (this._completed) {
+                    Tab.Schedulers.scheduleNext(this, deferred);
+                }
+                else {
+                    _subscribe(this, this, "returned", deferred);
+                }
+            }
 
             return this;
         }
@@ -324,8 +337,15 @@ Tab = (function (global) {
         var deferred;
 
         if (this instanceof Tab) {
-            deferred = _defer({ source: this, target: null }, processor);
-            _subscribe(this, this, "settled", deferred);
+            if (this._completed !== "cancelled") {
+                deferred = _defer({ source: this, target: null }, processor);
+                if (this._completed) { // (this._completed === "settled")
+                    Tab.Schedulers.scheduleNext(this, deferred);
+                }
+                else {
+                    _subscribe(this, this, "settled", deferred);
+                }
+            }
 
             return this;
         }
@@ -345,8 +365,15 @@ Tab = (function (global) {
 
         if (this instanceof Tab) {
             // create source and target tabs
-            deferred = _defer({ source: this, target: null }, processor);
-            _subscribe(this, this, "thrown", deferred);
+            if (this._started === "thrown") {
+                deferred = _defer({ source: this, target: null }, processor);
+                if (this._completed) {
+                    Tab.Schedulers.scheduleNext(this, deferred);
+                }
+                else {
+                    _subscribe(this, this, "thrown", deferred);
+                }
+            }
 
             return this;
         }
@@ -373,7 +400,12 @@ Tab = (function (global) {
     function doReturn(value) {
         // jshint validthis: true, unused: false
         if (this instanceof Tab) {
-            if(!this._completed) {
+            if (this._completed) {
+                if (this._completed === "cancelled") {
+                    throw this._values[0].valueOf();
+                }
+            }
+            else {
                 this._values = arguments;
                 this._started = "returned";
                 _notify(this, "returned", arguments);
@@ -397,9 +429,15 @@ Tab = (function (global) {
     function settle() {
         // jshint validthis: true
         if (this instanceof Tab) {
-            if(!this._completed) {
+            if (this._completed) {
+                if (this._completed === "cancelled") {
+                    throw this._values[0].valueOf();
+                }
+            }
+            else {
                 this._completed = "settled";
-                _notify(this, "settled", arguments);
+                _notify(this, "settled");
+                this._callbacks = null;
             }
 
             return this;
@@ -418,7 +456,12 @@ Tab = (function (global) {
     function doThrow(error) {
         // jshint validthis: true, unused: false
         if (this instanceof Tab) {
-            if(!this._completed) {
+            if (this._completed) {
+                if (this._completed === "cancelled") {
+                    throw this._values[0].valueOf();
+                }
+            }
+            else {
                 this._values = arguments;
                 this._started = "thrown";
                 _notify(this, "thrown", arguments);
@@ -447,7 +490,7 @@ Tab = (function (global) {
                     return this._values[0].toString();
                 }
                 else { // has returned without arguments
-                    return "";
+                    return;
                 }
             }
             else if (this.hasThrown()) {
@@ -459,7 +502,7 @@ Tab = (function (global) {
                 }
             }
             else { // has not yet returned or thrown
-                return "";
+                return;
             }
         }
         else { // not a tab
@@ -515,14 +558,17 @@ Tab = (function (global) {
             tick = 0;
 
         function processScheduler(scheduler) {
-            var id;
+            var requester = scheduler._requester,
+                id;
 
-            if (!scheduler._requester.isCancelled()) {
+            if (!requester || !requester.isCancelled()) {
                 id = setImmediate(scheduler);
 
-                scheduler._requester.onCancelled(function () {
-                    clearImmediate(id);
-                });
+                if (requester) {
+                    requester.onCancelled(function () {
+                        clearImmediate(id);
+                    });
+                }
             }
         }
 
@@ -568,7 +614,7 @@ Tab = (function (global) {
         //-
         function scheduleFirst(requester, callback) {
             function scheduler() {
-                if (!requester.isCancelled()) {
+                if (!requester || !requester.isCancelled()) {
                     next.unshift(callback);
                     process();
                 }
@@ -585,7 +631,7 @@ Tab = (function (global) {
         //-
         function scheduleLast(requester, callback) {
             function scheduler() {
-                if (!requester.isCancelled()) {
+                if (!requester || !requester.isCancelled()) {
                     last.push(callback);
                     process();
                 }
@@ -602,7 +648,7 @@ Tab = (function (global) {
         //-
         function scheduleNext(requester, callback) {
             function scheduler() {
-                if (!requester.isCancelled()) {
+                if (!requester || !requester.isCancelled()) {
                     next.push(callback);
                     process();
                 }
@@ -619,7 +665,7 @@ Tab = (function (global) {
         //-
         function scheduleNow(requester, callback) {
             function scheduler() {
-                if (!requester.isCancelled()) {
+                if (!requester || !requester.isCancelled()) {
                     callback();
                 }
             }
