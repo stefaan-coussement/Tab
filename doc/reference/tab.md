@@ -32,7 +32,7 @@ if (Tab.isTab(object)) {
     return object;
 }
 else {
-    return Tab.construct().return(object);
+    return (new Tab()).return(object);
 }
 ````
 

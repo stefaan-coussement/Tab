@@ -17,14 +17,14 @@ returns:
 core principles:
 
 ````javascript
-Tab.isTab(Tab.construct()) === true
+Tab.isTab(newTab) === true
 
-Tab.construct().hasReturned() === false
-Tab.construct().hasThrown() === false
-Tab.construct().isCancelled() === false
-Tab.construct().isSettled() === false
+newTab.hasReturned() === false
+newTab.hasThrown() === false
+newTab.isCancelled() === false
+newTab.isSettled() === false
 
-Tab.construct().valueOf() === undefined
+newTab.valueOf() === undefined
 ````
 
 <br />
