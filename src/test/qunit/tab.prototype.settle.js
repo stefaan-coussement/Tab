@@ -151,5 +151,23 @@
         );
     });
 
+    QUnit.test("Tab.prototype.settle.call(object)", function() {
+        QUnit.expect(1);
+      
+        var object = { name: "object" };
+
+        QUnit.strictEqual((function () {
+                try {
+                    Tab.prototype.settle.call(object);
+                }
+                catch (e) {
+                    return (e instanceof TypeError);
+                }
+            }()),
+            true,
+            'try ( Tab.prototype.settle.call(object); } catch (e) { e instanceof TypeError }'
+        );
+    });
+
 }());
 

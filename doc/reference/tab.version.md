@@ -8,9 +8,23 @@ The version of this Tab library.
 <br />
 
 ---
-### Tab.version : *string, read-only*
+### Tab.version : *[object Object]*
 
-A string representing the version of this Tab library
+The version object of this Tab library.
+
+### Tab.version.valueOf() » versionNumber
+
+returns:
+*   **versionNumber** : *number*  
+    a number representing the version of this Tab library.  
+    Newer versions will have a version number that is greather than the version number of older versions.
+
+### Tab.version.toString() » versionString
+
+returns:
+*   **versionString** : *string*  
+    a string representing the version of this Tab library.  
+    Version strings will adhere to the [*semantic versioning*](http://semver.org/) rules.
 
 <br />
 

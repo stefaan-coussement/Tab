@@ -76,5 +76,23 @@
         QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
     });
 
+    QUnit.test("Tab.prototype.isCancelled.call(object)", function() {
+        QUnit.expect(1);
+      
+        var object = { name: "object" };
+
+        QUnit.strictEqual((function () {
+                try {
+                    Tab.prototype.isCancelled.call(object);
+                }
+                catch (e) {
+                    return (e instanceof TypeError);
+                }
+            }()),
+            true,
+            'try ( Tab.prototype.isCancelled.call(object); } catch (e) { e instanceof TypeError }'
+        );
+    });
+
 }());
 

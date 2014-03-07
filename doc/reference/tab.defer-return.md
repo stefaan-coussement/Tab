@@ -23,8 +23,11 @@ core principle:
 ````
 Tab.deferReturn(target).call(null, ...arguments)
 ~
-target.return(...arguments);
+function () {
+    target.return(...arguments);
+}
 ````
+remark that the `.return` method is encapsulated in a function that doesn't return to avoid that `target` is leaked to the user of the deferred function.
 
 <br />
 

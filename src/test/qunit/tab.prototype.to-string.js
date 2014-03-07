@@ -130,6 +130,20 @@
         );
     });
 
+    QUnit.test("stringValue = Tab.newThrow().toString()", function() {
+        QUnit.expect(1);
+      
+        var tab = Tab.newThrow();
+
+        QUnit.strictEqual(
+            (function () {
+                try { tab.toString(); } catch (e) { return e; }
+            }()),
+            undefined,
+            'try { Tab.newThrow().toString(); } catch (e) { e === undefined }'
+        );
+    });
+
     QUnit.test('stringValue = Tab.prototype.toString.call(object); object.toString() === "string for object"', function() {
         QUnit.expect(1);
       

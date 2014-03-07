@@ -1,22 +1,21 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [Tab.X.defer()][ref-tab.x.defer]
+## [Tab.X.es5()][ref-tab.x.es5]
 
 Is this library running in an ES5 environment?
 
 <br />
 
 ---
-### Tab.X.es5 : *boolean*
+### Tab.X.es5 : *thruty*
 
 <br />
 
 ---
 ### Other methods in this family
 
-*   [.return()][ref-tab.prototype.return]
-*   [.throw()][ref-tab.prototype.throw]
+*   
 
 
 

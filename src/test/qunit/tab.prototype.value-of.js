@@ -130,6 +130,20 @@
         );
     });
 
+    QUnit.test("value = Tab.newThrow().valueOf()", function() {
+        QUnit.expect(1);
+      
+        var tab = Tab.newThrow();
+
+        QUnit.strictEqual(
+            (function () {
+                try { tab.valueOf(); } catch (e) { return e; }
+            }()),
+            undefined,
+            'try { Tab.newThrow().valueOf(); } catch (e) { e === undefined }'
+        );
+    });
+
     QUnit.test('value = Tab.prototype.valueOf.call(object); object.valueOf() === "value of object"', function() {
         QUnit.expect(1);
       

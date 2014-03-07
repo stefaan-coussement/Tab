@@ -23,8 +23,11 @@ core principle:
 ````
 Tab.deferFulfill(target).call(null, ...arguments)
 ~
-target.fulfill(...arguments);
+function () {
+    target.fulfill(...arguments);
+}
 ````
+remark that the `.fulfill` method is encapsulated in a function that doesn't return to avoid that `target` is leaked to the user of the deferred function.
 
 <br />
 

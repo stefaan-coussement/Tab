@@ -76,5 +76,23 @@
         QUnit.strictEqual(booleanValue, true, 'booleanValue === true');
     });
 
+    QUnit.test("Tab.prototype.hasThrown.call(object)", function() {
+        QUnit.expect(1);
+      
+        var object = { name: "object" };
+
+        QUnit.strictEqual((function () {
+                try {
+                    Tab.prototype.hasThrown.call(object);
+                }
+                catch (e) {
+                    return (e instanceof TypeError);
+                }
+            }()),
+            true,
+            'try ( Tab.prototype.hasThrown.call(object); } catch (e) { e instanceof TypeError }'
+        );
+    });
+
 }());
 

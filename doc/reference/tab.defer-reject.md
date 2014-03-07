@@ -23,8 +23,11 @@ core principle:
 ````
 Tab.deferReject(target).call(null, ...arguments)
 ~
-target.reject(...arguments);
+function () {
+    target.reject(...arguments);
+}
 ````
+remark that the `.reject` method is encapsulated in a function that doesn't return to avoid that `target` is leaked to the user of the deferred function.
 
 <br />
 

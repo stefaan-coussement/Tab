@@ -23,8 +23,11 @@ core principle:
 ````
 Tab.deferThrow(target).call(null, ...arguments)
 ~
-target.throw(...arguments);
+function () {
+    target.throw(...arguments);
+}
 ````
+remark that the `.throw` method is encapsulated in a function that doesn't return to avoid that `target` is leaked to the user of the deferred function.
 
 <br />
 

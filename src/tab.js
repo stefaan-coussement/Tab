@@ -27,10 +27,12 @@
 
 Tab = (function (global) {
     "use strict";
-    var version = "0.1",
+    var versionString = "1.0.0-alpha.1+1",
+
+        version,
         context,
-        es5,
-        setImmediate, clearImmediate;
+
+        es5;
 
     es5 = (function () {
         // jshint es3: false
@@ -39,19 +41,8 @@ Tab = (function (global) {
             test.return = function () {};
             return true;
         }
-        catch (e) {
-            return false;
-        }
+        catch (e) {}
     }());
-
-    if (global.setImmediate) {
-        setImmediate = global.setImmediate;
-        clearImmediate = global.clearImmediate;
-    }
-    else {
-        setImmediate = function (callback) { return global.setTimeout(callback, 0); };
-        clearImmediate = function (id) { global.clearTimeout(id); };
-    }
 
     //*********************************************************************************************
     //*********************************************************************************************
@@ -93,13 +84,16 @@ Tab = (function (global) {
     //---------------------------------------------------------------------------------------------
     //- Tab.version
     //-
-    Object.defineProperty(Tab, "version", {
-        get: function () {
-            return version;
-        },
-        configurable: true,
-        enumerable: true
-    });
+    version = {};
+    Tab.version = version;
+
+    version.toString = function () {
+        return versionString;
+    };
+
+    version.valueOf = function () {
+        return parseInt(versionString.split("+")[1], 10);
+    };
 
     //*********************************************************************************************
     //*********************************************************************************************
@@ -191,7 +185,7 @@ Tab = (function (global) {
                 this.doThrow(new Error("cancelled"));
 
                 this._completed = "cancelled";
-                _notify(this, "cancelled");
+                Tab.X.notify(this, "cancelled");
                 this._callbacks = null;
             }
 
@@ -282,12 +276,12 @@ Tab = (function (global) {
 
         if (this instanceof Tab) {
             if (this._completed !== "settled") {
-                deferred = _defer({ source: this, target: null }, processor);
+                deferred = Tab.X.defer({ source: this, target: null }, processor);
                 if (this._completed) { // (this._completed === "cancelled")
                     Tab.Schedulers.scheduleNow(null, deferred);
                 }
                 else {
-                    _subscribe(null, this, "cancelled", deferred, {
+                    Tab.X.subscribe(null, this, "cancelled", deferred, {
                         scheduler: Tab.Schedulers.scheduleNow
                     });
                 }
@@ -311,12 +305,12 @@ Tab = (function (global) {
 
         if (this instanceof Tab) {
             if (this._started === "returned") {
-                deferred = _defer({ source: this, target: null }, processor);
+                deferred = Tab.X.defer({ source: this, target: null }, processor);
                 if (this._completed) {
                     Tab.Schedulers.scheduleNext(this, deferred);
                 }
                 else {
-                    _subscribe(this, this, "returned", deferred);
+                    Tab.X.subscribe(this, this, "returned", deferred);
                 }
             }
 
@@ -338,12 +332,12 @@ Tab = (function (global) {
 
         if (this instanceof Tab) {
             if (this._completed !== "cancelled") {
-                deferred = _defer({ source: this, target: null }, processor);
+                deferred = Tab.X.defer({ source: this, target: null }, processor);
                 if (this._completed) { // (this._completed === "settled")
                     Tab.Schedulers.scheduleNext(this, deferred);
                 }
                 else {
-                    _subscribe(this, this, "settled", deferred);
+                    Tab.X.subscribe(this, this, "settled", deferred);
                 }
             }
 
@@ -366,12 +360,12 @@ Tab = (function (global) {
         if (this instanceof Tab) {
             // create source and target tabs
             if (this._started === "thrown") {
-                deferred = _defer({ source: this, target: null }, processor);
+                deferred = Tab.X.defer({ source: this, target: null }, processor);
                 if (this._completed) {
                     Tab.Schedulers.scheduleNext(this, deferred);
                 }
                 else {
-                    _subscribe(this, this, "thrown", deferred);
+                    Tab.X.subscribe(this, this, "thrown", deferred);
                 }
             }
 
@@ -408,7 +402,7 @@ Tab = (function (global) {
             else {
                 this._values = arguments;
                 this._started = "returned";
-                _notify(this, "returned", arguments);
+                Tab.X.notify(this, "returned", arguments);
             }
 
             return this;
@@ -436,7 +430,7 @@ Tab = (function (global) {
             }
             else {
                 this._completed = "settled";
-                _notify(this, "settled");
+                Tab.X.notify(this, "settled");
                 this._callbacks = null;
             }
 
@@ -464,7 +458,7 @@ Tab = (function (global) {
             else {
                 this._values = arguments;
                 this._started = "thrown";
-                _notify(this, "thrown", arguments);
+                Tab.X.notify(this, "thrown", arguments);
             }
 
             return this;
@@ -552,10 +546,24 @@ Tab = (function (global) {
 
     Tab.Schedulers = (function () {
         var Schedulers = {},
+
             next= [],
             last= [],
             processing,
-            tick = 0;
+            tick = 0,
+
+            setImmediate,
+            clearImmediate;
+
+
+        if (global.setImmediate) {
+            setImmediate = global.setImmediate;
+            clearImmediate = global.clearImmediate;
+        }
+        else {
+            setImmediate = function (callback) { return global.setTimeout(callback, 0); };
+            clearImmediate = function (id) { global.clearTimeout(id); };
+        }
 
         function processScheduler(scheduler) {
             var requester = scheduler._requester,
@@ -685,161 +693,170 @@ Tab = (function (global) {
     //---------------------------------------------------------------------------------------------
     //- Tab.X
     //-
-    Tab.X = {};
+    Tab.X = (function () {
+        var X = {};
 
-    //---------------------------------------------------------------------------------------------
-    //- Tab.X.es5
-    //-
-    Tab.X.es5 = es5;
+        //-----------------------------------------------------------------------------------------
+        //- Tab.X.es5
+        //-
+        X.es5 = es5;
 
-    //---------------------------------------------------------------------------------------------
-    //- Tab.X.defer( contextProperties, ?processor, ?directives ) >> newFunction
-    //-
-    //- accepts directives:
-    //- * noUpdate
-    //-
-    function _defer(contextProperties, processor, directives) {
-        var target = contextProperties.target,
-            deferred, canUpdate, pushContext;
+        //-----------------------------------------------------------------------------------------
+        //- Tab.X.defer( contextProperties, ?processor, ?directives ) >> newFunction
+        //-
+        //- accepts directives:
+        //- * noUpdate
+        //-
+        function defer(contextProperties, processor, directives) {
+            var target, deferred, canUpdate, pushContext;
 
-        // set the _deferred flag in the outer context
-        if (context._deferred === false) { //  not just falsy
-            context._deferred = true;
-        }
+            // set the _deferred flag in the outer context
+            if (context._deferred === false) { //  not just falsy
+                context._deferred = true;
+            }
 
-        // create deferred function
-        if (!contextProperties) {
-            canUpdate = target && (!directives || !directives.noUpdate);
+            // create deferred function
+            if (contextProperties) {
+                target = contextProperties && contextProperties.target;
+                canUpdate = target && (!directives || !directives.noUpdate);
 
-            if (processor) {
-                // function to create a new inner context
-                pushContext = function (contextProperties) {
-                    var oldContext = context;
+                if (processor) {
+                    // function to create a new inner context
+                    pushContext = function (contextProperties) {
+                        var oldContext = context;
 
-                    context = Object.create(context);
+                        context = Object.create(context);
 
-                    Object.keys(contextProperties).forEach(function (key) {
-                        Object.defineProperty(context, key, {
-                            value: contextProperties[key],
-                            enumerable: true
+                        Object.keys(contextProperties).forEach(function (key) {
+                            Object.defineProperty(context, key, {
+                                value: contextProperties[key],
+                                enumerable: true
+                            });
                         });
-                    });
 
-                    Object.defineProperty(context, "context", {
-                        get: function () {
-                            return oldContext;
+                        Object.defineProperty(context, "context", {
+                            get: function () {
+                                return oldContext;
+                            }
+                        });
+                    };
+
+                    deferred = function () {
+                        var result;
+
+                        try {
+                            // prepare inner context
+                            pushContext(contextProperties);
+                            context._deferred = false;
+
+                            // execute processor
+                            result = processor.apply(this, arguments);
+                            if ((this instanceof deferred) && (typeof result !== "object")) {
+                                result = this;
+                            }
+
+                            // process result
+                            if (canUpdate && !context._deferred) {
+                                target.doReturn(result);
+                            }
+
+                            // preserve external behaviour of processor
+                            return result;
                         }
-                    });
-                };
+                        catch (error) {
+                            // process error
+                            if (canUpdate) {
+                                target.doThrow(error);
+                            }
 
-                deferred = function () {
-                    var result;
-
-                    try {
-                        // prepare inner context
-                        pushContext(contextProperties);
-                        context._deferred = false;
-
-                        // execute processor
-                        result = processor.apply(this, arguments);
-
-                        // process result
-                        if (canUpdate && !context._deferred) {
-                            target.doReturn(result);
+                            // preserve external behaviour of processor
+                            throw error;
                         }
+                        finally {
+                            // cleanup inner context
+                            context = context.context;
+                        }
+                    };
 
-                        // preserve external behaviour of processor
-                        return result;
-                    }
-                    catch (error) {
-                        // process error
+                    // ensure deferred can be used as a 'new' constructor 
+                    deferred.prototype = Object.create(processor.prototype);
+                    deferred.prototype.constructor = deferred;
+
+                    return deferred;
+                }
+                else {
+                    return function () {
                         if (canUpdate) {
-                            target.doThrow(error);
+                            // process immediate result
+                            doReturn.apply(target, arguments);
                         }
-
-                        // preserve external behaviour of processor
-                        throw error;
-                    }
-                    finally {
-                        // cleanup inner context
-                        context = context.context;
-                    }
-                };
-
-                // ensure deferred can be used as a 'new' constructor 
-                deferred.prototype = Object.create(processor.prototype);
-                deferred.prototype.constructor = deferred;
-
-                return deferred;
+                    };
+                }
             }
             else {
-                return function () {
-                    if (canUpdate) {
-                        // process immediate result
-                        doReturn.apply(target, arguments);
-                    }
-                };
+                return processor;
             }
         }
-        else {
-            return processor;
+        X.defer = defer;
+
+        //-----------------------------------------------------------------------------------------
+        //- Tab.X.notify( source, type, args ) >> source
+        //-
+        function notify(source, type, args) {
+            var callbacks, i, n;
+
+            if (!source._callbacks) {
+                return;
+            }
+
+            if (!source._callbacks[type]) {
+                return;
+            }
+
+            // notify all subscribers
+            callbacks = source._callbacks[type];
+            for (i = 0, n = callbacks.length; i < n; i += 1) {
+                callbacks[i].call(null, args);
+            }
+
+            return source;
         }
-    }
-    Tab.X.defer = _defer;
+        X.notify = notify;
 
-    //---------------------------------------------------------------------------------------------
-    //- Tab.X.notify( source, type, args ) >> source
-    //-
-    function _notify(source, type, args) {
-        var callbacks, i, n;
+        //-----------------------------------------------------------------------------------------
+        //- Tab.X.subscribe( subscriber, source, type, deferred, ?directives ) >> subscriber
+        //-
+        //- accepts directives:
+        //- * scheduler
+        //-
+        function subscribe(subscriber, source, type, deferred, directives) {
+            var scheduler;
 
-        if (!source._callbacks) {
-            return;
+            if (!source._callbacks) {
+                source._callbacks = {};
+            }
+
+            if (!source._callbacks[type]) {
+                source._callbacks[type] = [];
+            }
+
+            // prepare scheduler - use ScheduleNext as a default
+            scheduler = (directives && directives.scheduler) || Tab.Schedulers.scheduleNext;
+
+            // prepare subscriber - create one if none given
+            subscriber = subscriber || construct();
+
+            // subscribe
+            source._callbacks[type].push(scheduler.bind(subscriber, deferred));
+
+            return subscriber;
         }
+        X.subscribe = subscribe;
 
-        if (!source._callbacks[type]) {
-            return;
-        }
+        //-----------------------------------------------------------------------------------------
 
-        // notify all subscribers
-        callbacks = source._callbacks[type];
-        for (i = 0, n = callbacks.length; i < n; i += 1) {
-            callbacks[i].call(null, args);
-        }
-
-        return source;
-    }
-    Tab.X.notify = _notify;
-
-    //---------------------------------------------------------------------------------------------
-    //- Tab.X.subscribe( subscriber, source, type, deferred, ?directives ) >> subscriber
-    //-
-    //- accepts directives:
-    //- * scheduler
-    //-
-    function _subscribe(subscriber, source, type, deferred, directives) {
-        var scheduler;
-
-        if (!source._callbacks) {
-            source._callbacks = {};
-        }
-
-        if (!source._callbacks[type]) {
-            source._callbacks[type] = [];
-        }
-
-        // prepare scheduler - use ScheduleNext as a default
-        scheduler = (directives && directives.scheduler) || Tab.Schedulers.scheduleNext;
-
-        // prepare subscriber - create one if none given
-        subscriber = subscriber || construct();
-
-        // subscribe
-        source._callbacks[type].push(scheduler.bind(subscriber, deferred));
-
-        return subscriber;
-    }
-    Tab.X.subscribe = _subscribe;
+        return X;
+    }());
 
     //*********************************************************************************************
     //*********************************************************************************************
@@ -854,13 +871,13 @@ Tab = (function (global) {
 
 (function (Tab) {
     "use strict";
+    var slice = Array.prototype.slice;
 
     //---------------------------------------------------------------------------------------------
     //- Tab.defer() >> undefined
     //- Tab.defer( target, ?processor ) >> newFunction
     //-
     function defer(target, processor) {
-        target = (target != null) ? Tab.convert(target) : null;
         return Tab.X.defer({ target: target }, processor);
     }
     Tab.defer = defer;
@@ -869,8 +886,10 @@ Tab = (function (global) {
     //- Tab.deferFulfill( target ) >> newFunction
     //-
     function deferFulfill(target) {
-        target = Tab.convert(target);
-        return Tab.X.defer(null, Tab.prototype.fulfill.bind(target));
+        return Tab.X.defer(null, function () {
+            // encapsulate and do not return, to avoid leaking target
+            Tab.prototype.fulfill.apply(target, arguments);
+        });
     }
     Tab.deferFulfill = deferFulfill;
 
@@ -878,8 +897,10 @@ Tab = (function (global) {
     //- Tab.deferReject( target ) >> newFunction
     //-
     function deferReject(target) {
-        target = Tab.convert(target);
-        return Tab.X.defer(null, Tab.prototype.reject.bind(target));
+        return Tab.X.defer(null, function () {
+            // encapsulate and do not return, to avoid leaking target
+            Tab.prototype.reject.apply(target, arguments);
+        });
     }
     Tab.deferReject = deferReject;
 
@@ -887,8 +908,10 @@ Tab = (function (global) {
     //- Tab.deferReturn( target ) >> newFunction
     //-
     function deferReturn(target) {
-        target = Tab.convert(target);
-        return Tab.X.defer(null, Tab.prototype.doReturn.bind(target));
+        return Tab.X.defer(null, function () {
+            // encapsulate and do not return, to avoid leaking target
+            Tab.prototype.doReturn.apply(target, arguments);
+        });
     }
     Tab.deferReturn = deferReturn;
 
@@ -896,8 +919,10 @@ Tab = (function (global) {
     //- Tab.deferSettle( target ) >> newFunction
     //-
     function deferSettle(target) {
-        target = Tab.convert(target);
-        return Tab.X.defer(null, Tab.prototype.settle.bind(target));
+        return Tab.X.defer(null, function () {
+            // encapsulate and do not return, to avoid leaking target
+            target.settle();
+        });
     }
     Tab.deferSettle = deferSettle;
 
@@ -905,8 +930,10 @@ Tab = (function (global) {
     //- Tab.deferThrow( target ) >> newFunction
     //-
     function deferThrow(target) {
-        target = Tab.convert(target);
-        return Tab.X.defer(null, Tab.prototype.doThrow.bind(target));
+        return Tab.X.defer(null, function () {
+            // encapsulate and do not return, to avoid leaking target
+            Tab.prototype.doThrow.apply(target, arguments);
+        });
     }
     Tab.deferThrow = deferThrow;
 
@@ -916,24 +943,25 @@ Tab = (function (global) {
     function deferWith(target, processor) {
         var deferrer;
 
-        target = Tab.convert(target);
         if (processor) {
             // create a deferrer function
             deferrer = function () {
                 // jshint validthis: true
-                return processor.apply(null, [this].concat(arguments));
-            };
+                var args = slice.call(arguments, 0);
+                args.unshift(this);
 
-            // ensure deferrer can be used as 'new' constructor 
-            deferrer.prototype = Object.create(processor.prototype);
-            deferrer.prototype.constructor = deferrer;
+                return processor.apply(null, args);
+            };
 
             return Tab.X.defer({ target: target }, deferrer);
         }
         else {
             return Tab.X.defer(null, function () {
                 // jshint validthis: true
-                Tab.prototype.doReturn.apply(null, [this].concat(arguments));
+                var args = slice.call(arguments, 0);
+                args.unshift(this);
+
+                Tab.prototype.doReturn.apply(target, args);
             });
         }
     }

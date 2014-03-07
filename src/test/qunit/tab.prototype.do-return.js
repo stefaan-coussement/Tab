@@ -148,5 +148,23 @@
         QUnit.strictEqual(tab.valueOf(), value, 'tab.valueOf() === value');
     });
 
+    QUnit.test("Tab.prototype.doReturn.call(object)", function() {
+        QUnit.expect(1);
+      
+        var object = { name: "object" };
+
+        QUnit.strictEqual((function () {
+                try {
+                    Tab.prototype.doReturn.call(object);
+                }
+                catch (e) {
+                    return (e instanceof TypeError);
+                }
+            }()),
+            true,
+            'try ( Tab.prototype.doReturn.call(object); } catch (e) { e instanceof TypeError }'
+        );
+    });
+
 }());
 
