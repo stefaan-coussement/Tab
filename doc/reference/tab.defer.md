@@ -48,6 +48,9 @@ returns:
 *   **newFunction** : *function*  
     a newly constructed function that uses a given tab to store a processor's result.
 
+throws:
+*   *TypeError* if processor is not a function and not equal to `undefeined` or `null`.
+
 core principle:
 
 ````

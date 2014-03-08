@@ -52,7 +52,7 @@
 [ref-new-tab]:                       /doc/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
 [ref-tab]:                           /doc/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
-[ref-tab.context]:                   /doc/reference/tab.context.md#top                   "Tab.context: the execution context for a processor function."
+[ref-tab.context]:                   /doc/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /doc/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
 [ref-tab.construct]:                 /doc/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."

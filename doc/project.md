@@ -61,6 +61,8 @@ The general goal is to help with callbacks, pipelines, streams, promises, lazy e
 >Concurrent computing is a form of computing in which several computations are executing during overlapping time periods – concurrently – instead of sequentially (one completing before the next starts). This is a property of a system – this may be an individual program, a computer, or a network – and there is a separate execution point or "thread of control" for each computation ("process"). A concurrent system is one where a computation can make progress without waiting for all other computations to complete – where more than one computation can make progress at "the same time".  
 >[http://en.wikipedia.org/wiki/Concurrent_computing]
 
+We are re-using names of methods of other APIs, even when the semantics of the methods are very different.   Equally, we are using different names, even if the semantics of the methods are identical to the methods in the other APIs.  This is not done to create confusion - although it certainly does - but because a lot of the method names are overloaded with a lot of very different semantics.  Especially in the *Promise*-world, we felt that it is simply impossible to come up with an intuitively understandable set of names and at the same time adhere to the semantics of the different libraries where these names are also used.
+
 
 
 ### Check it out
@@ -96,7 +98,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
 
     1. :ok: provide the means to capture a future value in a tab and notify its observers when the value becomes available.
     
-    1. :ok: provide the means to capture special values in a tab, such as `undefined`, `null` and other tabs.
+    1. :ok: provide the means to capture special values in a tab, such as `undefined`, `null` and other tabs (promises typically can't store promises without adopting the state and value of the stored promise).
     
     1. :ok: provide the means to capture a future error in a tab and notify its observers when the error becomes available.
     
@@ -106,7 +108,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
     1. provide the means to work with remote tabs (via a message interface).
     
-    1. provide the means to cancel a tab, both its subscription for the events from other tabs and its ongoing action undertaken as a consequence of such past events.
+    1. :ok: provide the means to cancel a tab, both its subscription for the events from other tabs and its ongoing action undertaken as a consequence of such past events.
     
 1.  Callbacks
 
@@ -118,9 +120,9 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
 1.  Pipelines
 
-    1. :ok: use a fluid API wherever it makes sense (a Deferred object is not chainable).
+    1. use a fluent API wherever it makes sense (a Deferred object is not chainable).
     
-    2. :ok: provide the means to asynchronously process notifications by pushing them into a pipeline of processing tabs.
+    2. provide the means to asynchronously process notifications by pushing them into a pipeline of processing tabs.
     
     3. provide the means to encapsulate a pipeline of tabs in a function that then can be used as a module to compose longer pipelines.
     
@@ -138,7 +140,7 @@ The following is a maintained, and thus regularly updated and re-organized list 
     
 1.  Promises
 
-    1. provide the means to settle a tab with a value or error, i.e. a final and non-mutable data element, and notify its observers.
+    1. :ok: provide the means to settle a tab with a value or error, i.e. a final and non-mutable data element, and notify its observers.
     
     1. provide the means to solve security concerns (isolation of provider and consumer) without penalizing other aspects of the API (solving security concerns is a primary goal in the promise design, in some ways limiting other API methods).
     
@@ -166,11 +168,15 @@ The following is a maintained, and thus regularly updated and re-organized list 
         * wait for the value of the first tabs in time to calculate a result
         
     
+1.  Debugging
+    
+    1. provide the means to log messages without needing to break the fluent chain.
+    
+    1. provide the means to use a tab to capture the subject and arguments of a method, for instance for use during testing.
+    
+    1. provide the means to use a tab to capture the subject, arguments and result or error of a method, for instance for use during testing.
+    
 1.  Miscellaneous
-    
-    1. :ok: provide the means to use a tab to capture the subject and arguments of a method, for instance for use during testing.
-    
-    1. :ok: provide the means to use a tab to capture the subject, arguments and result or error of a method, for instance for use during testing.
     
     1. provide the means to augment a tab with contextual information that stays accessible through the chain of tabs that are created when handling events (f.i. using the .try method).
     

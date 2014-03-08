@@ -3,7 +3,7 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.context][ref-tab.context]
 
-The execution context for a processor function.
+The processing context for a processor function.
 
 <br />
 
