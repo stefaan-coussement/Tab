@@ -9,7 +9,6 @@ call add-links-all ..
 call add-links-all ..\project
 call add-links-all ..\topics
 call add-links-all ..\reference
-pause
 goto end
 
 :folder
