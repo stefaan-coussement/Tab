@@ -1,4 +1,2 @@
-_local
-
-_links.md.lnk
-_local.lnk
+node_modules
+_*.*
