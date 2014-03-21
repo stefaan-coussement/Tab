@@ -28,11 +28,9 @@
     QUnit.module("Tab.deferThrow()");
 
     QUnit.test("Tab.deferThrow object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.deferThrow, "function", 'typeof Tab.deferThrow === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.deferThrow), "[object Function]", 'Object.prototype.toString.call(Tab.deferThrow) === "[object Function]"');
-
         QUnit.strictEqual(Tab.deferThrow.length, 1, 'Tab.deferThrow.length === 1');
     });
 

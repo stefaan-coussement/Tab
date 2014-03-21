@@ -28,11 +28,9 @@
     QUnit.module("Tab.newSettle()");
 
     QUnit.test("Tab.newSettle object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.newSettle, "function", 'typeof Tab.newSettle === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.newSettle), "[object Function]", 'Object.prototype.toString.call(Tab.newSettle) === "[object Function]"');
-
         QUnit.strictEqual(Tab.newSettle.length, 0, 'Tab.newSettle.length === 0');
     });
 

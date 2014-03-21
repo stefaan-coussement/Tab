@@ -45,22 +45,18 @@
     });
 
     QUnit.test("Tab.version.toString()", function() {
-        QUnit.expect(4);
+        QUnit.expect(3);
       
         QUnit.strictEqual(typeof Tab.version.toString, "function", 'typeof Tab.version.toString === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.version.toString), "[object Function]", 'Object.prototype.toString.call(Tab.version.toString) === "[object Function]"');
-
         QUnit.strictEqual(Tab.version.toString.length, 0, 'Tab.version.toString.length === 0');
 
         QUnit.strictEqual(typeof Tab.version.toString(), "string", 'typeof Tab.version.toString() === "string"');
     });
 
     QUnit.test("Tab.version.valueOf()", function() {
-        QUnit.expect(4);
+        QUnit.expect(3);
       
         QUnit.strictEqual(typeof Tab.version.valueOf, "function", 'typeof Tab.version.valueOf === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.version.valueOf), "[object Function]", 'Object.prototype.toString.call(Tab.version.valueOf) === "[object Function]"');
-
         QUnit.strictEqual(Tab.version.valueOf.length, 0, 'Tab.version.valueOf.length === 0');
 
         QUnit.strictEqual(typeof Tab.version.valueOf(), "number", 'typeof Tab.version.valueOf() === "number"');

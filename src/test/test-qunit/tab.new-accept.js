@@ -25,22 +25,20 @@
 	"use strict";
 	// jshint quotmark: false
   
-    QUnit.module("Tab.newFulfill()");
+    QUnit.module("Tab.newAccept()");
 
-    QUnit.test("Tab.newFulfill object", function() {
-        QUnit.expect(3);
+    QUnit.test("Tab.newAccept object", function() {
+        QUnit.expect(2);
       
-        QUnit.strictEqual(typeof Tab.newFulfill, "function", 'typeof Tab.newFulfill === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.newFulfill), "[object Function]", 'Object.prototype.toString.call(Tab.newFulfill) === "[object Function]"');
-
-        QUnit.strictEqual(Tab.newFulfill.length, 1, 'Tab.newFulfill.length === 1');
+        QUnit.strictEqual(typeof Tab.newAccept, "function", 'typeof Tab.newAccept === "function"');
+        QUnit.strictEqual(Tab.newAccept.length, 1, 'Tab.newAccept.length === 1');
     });
 
-    QUnit.test("newTab = Tab.newFulfill(value)", function() {
+    QUnit.test("newTab = Tab.newAccept(value)", function() {
         QUnit.expect(6);
       
         var value = "value",
-            newTab = Tab.newFulfill(value);
+            newTab = Tab.newAccept(value);
 
         QUnit.strictEqual(Tab.isTab(newTab), true, 'Tab.isTab(newTab) === true');
 
@@ -52,12 +50,12 @@
         QUnit.strictEqual(newTab.valueOf(), value, 'newTab.valueOf() === value');
     });
 
-    QUnit.test("tab = Tab.newFulfill(value1).doReturn(value2)", function() {
+    QUnit.test("tab = Tab.newAccept(value1).doReturn(value2)", function() {
         QUnit.expect(5);
       
         var value1 = "value1",
             value2 = "value2",
-            tab = Tab.newFulfill(value1).doReturn(value2);
+            tab = Tab.newAccept(value1).doReturn(value2);
 
         QUnit.strictEqual(tab.hasReturned(), true, 'tab.hasReturned() === true');
         QUnit.strictEqual(tab.hasThrown(), false, 'tab.hasThrown() === false');

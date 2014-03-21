@@ -28,11 +28,9 @@
     QUnit.module("Tab.convert()");
 
     QUnit.test("Tab.convert object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.convert, "function", 'typeof Tab.convert === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.convert), "[object Function]", 'Object.prototype.toString.call(Tab.convert) === "[object Function]"');
-
         QUnit.strictEqual(Tab.convert.length, 1, 'Tab.convert.length === 1');
     });
 

@@ -28,11 +28,9 @@
     QUnit.module("Tab.deferSettle()");
 
     QUnit.test("Tab.deferSettle object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.deferSettle, "function", 'typeof Tab.deferSettle === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.deferSettle), "[object Function]", 'Object.prototype.toString.call(Tab.deferSettle) === "[object Function]"');
-
         QUnit.strictEqual(Tab.deferSettle.length, 1, 'Tab.deferSettle.length === 1');
     });
 

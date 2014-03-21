@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.isCancelled()");
 
     QUnit.test("Tab.prototype.isCancelled object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
 
         QUnit.strictEqual(typeof Tab.prototype.isCancelled, "function", 'typeof Tab.prototype.isCancelled === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.isCancelled), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.isCancelled) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.isCancelled.length, 0, 'Tab.prototype.isCancelled.length === 0');
     });
 

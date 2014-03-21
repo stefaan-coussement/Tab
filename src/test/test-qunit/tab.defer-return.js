@@ -28,11 +28,9 @@
     QUnit.module("Tab.deferReturn()");
 
     QUnit.test("Tab.deferReturn object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.deferReturn, "function", 'typeof Tab.deferReturn === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.deferReturn), "[object Function]", 'Object.prototype.toString.call(Tab.deferReturn) === "[object Function]"');
-
         QUnit.strictEqual(Tab.deferReturn.length, 1, 'Tab.deferReturn.length === 1');
     });
 

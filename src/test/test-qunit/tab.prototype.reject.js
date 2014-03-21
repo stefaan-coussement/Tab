@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.reject()");
 
     QUnit.test("Tab.prototype.reject object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.prototype.reject, "function", 'typeof Tab.prototype.reject === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.reject), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.reject) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.reject.length, 1, 'Tab.prototype.reject.length === 1');
     });
 

@@ -28,11 +28,9 @@
     QUnit.module("Tab.construct()");
 
     QUnit.test("Tab.construct object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.construct, "function", 'typeof Tab.construct === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.construct), "[object Function]", 'Object.prototype.toString.call(Tab.construct) === "[object Function]"');
-
         QUnit.strictEqual(Tab.construct.length, 0, 'Tab.construct.length === 0');
     });
 

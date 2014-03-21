@@ -23,41 +23,37 @@
 
 (function () {
 	"use strict";
-	// jshint quotmark: false
+	// jshint quotmark: false, es3: false
   
-    QUnit.module("Tab.isTab()");
+    QUnit.module("Tab.Schedulers.tick");
 
-    QUnit.test("Tab.isTab object", function() {
-        QUnit.expect(2);
-      
-        QUnit.strictEqual(typeof Tab.isTab, "function", 'typeof Tab.isTab === "function"');
-        QUnit.strictEqual(Tab.isTab.length, 1, 'Tab.isTab.length === 1');
-    });
-
-    QUnit.test("booleanValue = Tab.isTab(tab)", function() {
+    QUnit.test("Tab.Schedulers.tick object", function() {
         QUnit.expect(1);
       
-        var tab = Tab.construct(),
-            booleanValue = Tab.isTab(tab);
-
-        QUnit.strictEqual(booleanValue, true, 'booleanValue === true');
+        QUnit.strictEqual(typeof Tab.Schedulers.tick, "number", 'typeof Tab.Schedulers.tick === "number"');
     });
 
-    QUnit.test("booleanValue = Tab.isTab(object)", function() {
-        QUnit.expect(1);
+    QUnit.asyncTest("Tab.Schedulers.tick - schedule - tick - schedule - tick", function() {
+        QUnit.expect(5);
       
-        var object = {},
-            booleanValue = Tab.isTab(object);
+        var firstTick = Tab.Schedulers.tick,
+            currentTick = Tab.Schedulers.tick;
 
-        QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
-    });
+        Tab.Schedulers.scheduleNext(null, function () {
+            currentTick = Tab.Schedulers.tick;
+            QUnit.ok(true, 'scheduleNext executed');
+            QUnit.strictEqual(currentTick, firstTick + 1, 'currentTick === firstTick + 1');
 
-    QUnit.test("booleanValue = Tab.isTab()", function() {
-        QUnit.expect(1);
-      
-        var booleanValue = Tab.isTab();
+            Tab.Schedulers.scheduleNext(null, function () {
+                QUnit.start();
 
-        QUnit.strictEqual(booleanValue, false, 'booleanValue === false');
+                currentTick = Tab.Schedulers.tick;
+                QUnit.ok(true, 'nested scheduleNext executed');
+                QUnit.strictEqual(currentTick, firstTick + 2, 'currentTick === firstTick + 2');
+            });
+        });
+
+        QUnit.strictEqual(currentTick, firstTick, 'currentTick === firstTick');
     });
 
 }());

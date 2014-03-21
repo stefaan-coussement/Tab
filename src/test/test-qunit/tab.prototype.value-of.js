@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.valueOf()");
 
     QUnit.test("Tab.prototype.valueOf object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.prototype.valueOf, "function", 'typeof Tab.prototype.valueOf === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.valueOf), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.valueOf) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.valueOf.length, 0, 'Tab.prototype.valueOf.length === 0');
     });
 

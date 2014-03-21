@@ -28,11 +28,9 @@
     QUnit.module("Tab.newReject()");
 
     QUnit.test("Tab.newReject object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.newReject, "function", 'typeof Tab.newReject === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.newReject), "[object Function]", 'Object.prototype.toString.call(Tab.newReject) === "[object Function]"');
-
         QUnit.strictEqual(Tab.newReject.length, 1, 'Tab.newReject.length === 1');
     });
 

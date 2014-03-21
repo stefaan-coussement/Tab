@@ -18,15 +18,15 @@
     Tab.defer = defer;
 
     //---------------------------------------------------------------------------------------------
-    //- Tab.deferFulfill( target ) >> newFunction
+    //- Tab.deferAccept( target ) >> newFunction
     //-
-    function deferFulfill(target) {
+    function deferAccept(target) {
         return Tab.X.defer(null, function () {
             // encapsulate and do not return, to avoid leaking target
-            Tab.prototype.fulfill.apply(target, arguments);
+            Tab.prototype.accept.apply(target, arguments);
         });
     }
-    Tab.deferFulfill = deferFulfill;
+    Tab.deferAccept = deferAccept;
 
     //---------------------------------------------------------------------------------------------
     //- Tab.deferReject( target ) >> newFunction

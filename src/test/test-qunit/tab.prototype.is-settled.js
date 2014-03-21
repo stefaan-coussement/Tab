@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.isSettled()");
 
     QUnit.test("Tab.prototype.isSettled object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
 
         QUnit.strictEqual(typeof Tab.prototype.isSettled, "function", 'typeof Tab.prototype.isSettled === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.isSettled), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.isSettled) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.isSettled.length, 0, 'Tab.prototype.isSettled.length === 0');
     });
 

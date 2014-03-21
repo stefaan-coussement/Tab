@@ -25,18 +25,16 @@
 	"use strict";
 	// jshint quotmark: false
   
-    QUnit.module("Tab.deferFulfill()");
+    QUnit.module("Tab.deferAccept()");
 
-    QUnit.test("Tab.deferFulfill object", function() {
-        QUnit.expect(3);
+    QUnit.test("Tab.deferAccept object", function() {
+        QUnit.expect(2);
       
-        QUnit.strictEqual(typeof Tab.deferFulfill, "function", 'typeof Tab.deferFulfill === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.deferFulfill), "[object Function]", 'Object.prototype.toString.call(Tab.deferFulfill) === "[object Function]"');
-
-        QUnit.strictEqual(Tab.deferFulfill.length, 1, 'Tab.deferFulfill.length === 1');
+        QUnit.strictEqual(typeof Tab.deferAccept, "function", 'typeof Tab.deferAccept === "function"');
+        QUnit.strictEqual(Tab.deferAccept.length, 1, 'Tab.deferAccept.length === 1');
     });
 
-    QUnit.test("deferred = Tab.deferFulfill(target)", function() {
+    QUnit.test("deferred = Tab.deferAccept(target)", function() {
         QUnit.expect(4);
       
         var target = new Tab(),
@@ -44,7 +42,7 @@
             subject = { name: "subject" },
             value = "value";
          
-        deferred = Tab.deferFulfill(target);
+        deferred = Tab.deferAccept(target);
 
         // deferred returns undefined?
         QUnit.strictEqual(deferred.call(subject, value), undefined, 'deferred.call(subject, value) === undefined');
@@ -55,7 +53,7 @@
         QUnit.strictEqual(target.valueOf(), value, 'target.valueOf() === value');
     });
 
-    QUnit.asyncTest("deferred = Tab.deferFulfill(target) - async", function() {
+    QUnit.asyncTest("deferred = Tab.deferAccept(target) - async", function() {
         QUnit.expect(7);
       
         var target = new Tab(),
@@ -63,7 +61,7 @@
             subject = { name: "subject" },
             value = "value";
          
-        deferred = Tab.deferFulfill(target);
+        deferred = Tab.deferAccept(target);
 
         setTimeout(function () {
             QUnit.start();

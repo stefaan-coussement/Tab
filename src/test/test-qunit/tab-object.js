@@ -29,11 +29,9 @@
     QUnit.module("Tab");
 
     QUnit.test("Tab object", function() {
-        QUnit.expect(5);
+        QUnit.expect(4);
       
         QUnit.strictEqual(typeof Tab, "function", 'typeof Tab === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab), "[object Function]", 'Object.prototype.toString.call(Tab) === "[object Function]"');
-
         QUnit.strictEqual(Tab.length, 0, 'Tab.length === 0');
                    
         QUnit.strictEqual(Object.keys(Tab).length, 19, 'Object.keys(Tab).length');
@@ -49,14 +47,14 @@
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "construct"),    'Tab.construct');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "convert"),      'Tab.convert');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "defer"),        'Tab.defer');
-        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferFulfill"), 'Tab.deferFulfill');
+        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferAccept"),  'Tab.deferAccept');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferReject"),  'Tab.deferReject');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferReturn"),  'Tab.deferReturn');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferSettle"),  'Tab.deferSettle');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferThrow"),   'Tab.deferThrow');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "deferWith"),    'Tab.deferWith');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "isTab"),        'Tab.isTab');
-        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "newFulfill"),   'Tab.newFulfill');
+        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "newAccept"),    'Tab.newAccept');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "newReject"),    'Tab.newReject');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "newReturn"),    'Tab.newReturn');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab, "newSettle"),    'Tab.newSettle');
@@ -81,10 +79,10 @@
     QUnit.test("Tab.prototype properties", function() {
         QUnit.expect(19);
     
+        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "accept"),      'Tab.prototype.accept');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "cancel"),      'Tab.prototype.cancel');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "doReturn"),    'Tab.prototype.doReturn');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "doThrow"),     'Tab.prototype.doThrow');
-        QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "fulfill"),     'Tab.prototype.fulfill');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "hasReturned"), 'Tab.prototype.hasReturned');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "hasThrown"),   'Tab.prototype.hasThrown');
         QUnit.ok(Object.prototype.hasOwnProperty.call(Tab.prototype, "isCancelled"), 'Tab.prototype.isCancelled');

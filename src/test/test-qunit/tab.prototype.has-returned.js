@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.hasReturned()");
 
     QUnit.test("Tab.prototype.hasReturned object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
 
         QUnit.strictEqual(typeof Tab.prototype.hasReturned, "function", 'typeof Tab.prototype.hasReturned === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.hasReturned), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.hasReturned) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.hasReturned.length, 0, 'Tab.prototype.hasReturned.length === 0');
     });
 

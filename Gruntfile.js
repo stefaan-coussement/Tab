@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 },
-                files: [ 'src/test/test-qunit-blanket.html', 'src/test/<%= pkg.name %>.js', 'src/test/qunit/*.js' ],
+                files: [ 'src/test/test-qunit-blanket.html', 'src/test/<%= pkg.name %>.js', 'src/test/test-qunit/*.js' ],
                 tasks: 'clean'
             }
         }

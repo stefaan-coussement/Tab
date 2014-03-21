@@ -28,11 +28,9 @@
     QUnit.module("Tab.deferReject()");
 
     QUnit.test("Tab.deferReject object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.deferReject, "function", 'typeof Tab.deferReject === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.deferReject), "[object Function]", 'Object.prototype.toString.call(Tab.deferReject) === "[object Function]"');
-
         QUnit.strictEqual(Tab.deferReject.length, 1, 'Tab.deferReject.length === 1');
     });
 

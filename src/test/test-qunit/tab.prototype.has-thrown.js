@@ -28,11 +28,9 @@
     QUnit.module("Tab.prototype.hasThrown()");
 
     QUnit.test("Tab.prototype.hasThrown object", function() {
-        QUnit.expect(3);
+        QUnit.expect(2);
 
         QUnit.strictEqual(typeof Tab.prototype.hasThrown, "function", 'typeof Tab.prototype.hasThrown === "function"');
-        QUnit.strictEqual(Object.prototype.toString.call(Tab.prototype.hasThrown), "[object Function]", 'Object.prototype.toString.call(Tab.prototype.hasThrown) === "[object Function]"');
-
         QUnit.strictEqual(Tab.prototype.hasThrown.length, 0, 'Tab.prototype.hasThrown.length === 0');
     });
 
