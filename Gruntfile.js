@@ -10,10 +10,13 @@ module.exports = function(grunt) {
         version: '<%= pkg.version %>'.split('+')[0],
 
         concat: {
+            // docs
             readme: {
-                src: 'doc/project.md',
+                src: 'docs/project.md',
                 dest: 'README.md'
             },
+
+            // code
             license: {
                 options: {
                     banner: '/*\n',
@@ -22,33 +25,40 @@ module.exports = function(grunt) {
                 src: 'LICENSE',
                 dest: '_license.js'
             },
-            test: {
-                src: [ '<%= concat.license.dest %>', 'src/<%= pkg.name %>-core.js', 'src/<%= pkg.name %>-callbacks.js' ],
-                dest: 'src/test/<%= pkg.name %>.js'
-            },
-            tab: {
-                src: '<%= concat.test.dest %>',
+            build: {
+                src: [
+                    '<%= concat.license.dest %>',
+                    'source/<%= pkg.name %>-core.js',
+                    'source/<%= pkg.name %>-callbacks.js'
+                ],
                 dest: '<%= pkg.name %>.js'
+            },
+            testBuild: {
+                src: '<%= concat.build.dest %>',
+                dest: 'test/<%= pkg.name %>.js'
             }
         },
 
         exec: {
+            // docs
             docs: {
                 cmd: 'cmd /C call add-links-all.bat',
-                cwd: 'doc/_build'
+                cwd: 'build'
             }
         },
 
         jshint: {
+            // code
             options: {
                 jshintrc: true
             },
-            test: [ '<%= concat.test.dest %>', 'src/test/qunit/*.js' ]
+            test: [ '<%= concat.testBuild.dest %>', 'src/test/test-qunit/*.js' ]
         },
 
-        qunit: [ 'src/test/test-qunit.html' ],
+        qunit: [ 'test/test-build-qunit.html' ],
 
         uglify: {
+            // code
             tab: {
                 options: {
                     banner: '/* <%= pkg.name %>.js - version <%= version %>, <%= grunt.template.today("yyyy-mmm-dd HH:MM") %>, license <%= pkg.license %>, copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n',
@@ -62,28 +72,34 @@ module.exports = function(grunt) {
         clean: [ '<%= concat.license.dest %>' ],
 
         watch: {
-            docs: {
-                files: 'doc/_links.md',
+            // docs
+            links: {
+                files: 'docs/_links.md',
                 tasks: 'exec:docs'
             },
             readme: {
-                files: 'doc/project.md',
+                files: 'docs/project.md',
                 tasks: 'concat:readme'
             },
-            test: {
-                files: 'src/<%= pkg.name %>-*.js',
-                tasks: [ 'concat:license', 'concat:test', 'clean' ]
+
+            // code
+            build: {
+                files: 'source/<%= pkg.name %>-*.js',
+                tasks: [ 'concat:license', 'concat:build', 'clean' ]
             },
+
+            // reload
             reload: {
                 options: {
                     livereload: true
                 },
-                files: [ 'src/test/test-qunit-blanket.html', 'src/test/<%= pkg.name %>.js', 'src/test/test-qunit/*.js' ],
+                files: [ 'src/test/test-qunit*.html', 'src/test/<%= pkg.name %>*.js', 'src/test/test-qunit/*.js' ],
                 tasks: 'clean'
             }
         }
     });
 
+    // Tasks.
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -92,9 +108,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-exec');
 
-    // Tasks.
     grunt.registerTask('default', [ 'watch' ]);
-    grunt.registerTask('_', [ 'watch' ]);
 
-    grunt.registerTask('build', [ 'concat:license', 'concat:test', 'jshint', 'qunit', 'concat:tab', 'uglify', 'clean' ]);
+    grunt.registerTask('docs', [ 'exec:docs', 'concat:readme' ]);
+    grunt.registerTask('test', [  ]);
+    grunt.registerTask('build', [ 'concat:license', 'concat:build', 'concat:testBuild', 'jshint', 'qunit', 'uglify', 'clean' ]);
 };
