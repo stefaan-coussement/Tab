@@ -8,7 +8,6 @@ call remove-links-all ..\docs
 call remove-links-all ..\docs\project
 call remove-links-all ..\docs\topics
 call remove-links-all ..\docs\reference
-pause
 goto end
 
 :folder

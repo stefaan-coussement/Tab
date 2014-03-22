@@ -1,4 +1,4 @@
-node_modules
-_*.*
-/src/test/tab.js
+_*
+/node_modules
 /.sublime-grunt.cache
+/test/*.js
