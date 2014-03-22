@@ -32,10 +32,18 @@ module.exports = function(grunt) {
                     'source/<%= pkg.name %>-callbacks.js'
                 ],
                 dest: '<%= pkg.name %>.js'
+            }
+        },
+
+        copy: {
+            // code
+            testCode: {
+                src: 'source/*.js',
+                dest: 'test/'
             },
             testBuild: {
                 src: '<%= concat.build.dest %>',
-                dest: 'test/<%= pkg.name %>.js'
+                dest: 'test/'
             }
         },
 
@@ -52,7 +60,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            test: [ '<%= concat.testBuild.dest %>', 'src/test/test-qunit/*.js' ]
+            test: [ 'test/<%= pkg.name %>.js', 'test/test-qunit/*.js' ]
         },
 
         qunit: [ 'test/test-build-qunit.html' ],
@@ -85,7 +93,7 @@ module.exports = function(grunt) {
             // code
             build: {
                 files: 'source/<%= pkg.name %>-*.js',
-                tasks: [ 'concat:license', 'concat:build', 'clean' ]
+                tasks: 'build'
             },
 
             // reload
@@ -93,8 +101,14 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 },
-                files: [ 'src/test/test-qunit*.html', 'src/test/<%= pkg.name %>*.js', 'src/test/test-qunit/*.js' ],
-                tasks: 'clean'
+                files: [ 'source/test/test-qunit*.html', 'source/test/test-qunit/*.js' ]
+            },
+            reload2: {
+                options: {
+                    livereload: true
+                },
+                files: [ 'source/<%= pkg.name %>-*.js' ],
+                tasks: 'test'
             }
         }
     });
@@ -102,6 +116,7 @@ module.exports = function(grunt) {
     // Tasks.
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -111,6 +126,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [ 'watch' ]);
 
     grunt.registerTask('docs', [ 'exec:docs', 'concat:readme' ]);
-    grunt.registerTask('test', [  ]);
-    grunt.registerTask('build', [ 'concat:license', 'concat:build', 'concat:testBuild', 'jshint', 'qunit', 'uglify', 'clean' ]);
+    grunt.registerTask('test', [ 'copy:testCode' ]);
+    grunt.registerTask('build', [ 'concat:license', 'concat:build', 'copy:testBuild', 'jshint', 'qunit', 'uglify', 'clean' ]);
 };
