@@ -283,12 +283,12 @@ Tab = (function (global) {
         var deferred;
 
         if (this instanceof Tab) {
-            if (this._started === "returned") {
+            if (!this._completed || (this._started === "returned")) {
                 deferred = Tab.X.defer({ source: this, target: null }, processor);
-                if (this._completed) {
-                    Tab.Schedulers.scheduleNext(this, deferred);
+                if (this._started === "returned") {
+                    Tab.Schedulers.scheduleNext(this, deferred, void 0, this._values);
                 }
-                else {
+                if (!this._completed) {
                     Tab.X.subscribe(this, this, "returned", deferred);
                 }
             }
@@ -338,12 +338,12 @@ Tab = (function (global) {
 
         if (this instanceof Tab) {
             // create source and target tabs
-            if (this._started === "thrown") {
+            if (!this._completed || (this._started === "thrown")) {
                 deferred = Tab.X.defer({ source: this, target: null }, processor);
-                if (this._completed) {
-                    Tab.Schedulers.scheduleNext(this, deferred);
+                if (this._started === "thrown") {
+                    Tab.Schedulers.scheduleNext(this, deferred, void 0, this._values);
                 }
-                else {
+                if (!this._completed) {
                     Tab.X.subscribe(this, this, "thrown", deferred);
                 }
             }
@@ -544,7 +544,7 @@ Tab = (function (global) {
             var requester = item.requester;
 
             if (!requester || !requester.isCancelled()) {
-                item.callback();
+                item.callback.apply(item.subject, item.args);
             }
         }
 
@@ -607,13 +607,15 @@ Tab = (function (global) {
         });
 
         //-----------------------------------------------------------------------------------------
-        //- Tab.Schedulers.scheduleFirst( requester, callback )
+        //- Tab.Schedulers.scheduleFirst( requester, callback, subject, args )
         //-
-        function scheduleFirst(requester, callback) {
+        function scheduleFirst(requester, callback, subject, args) {
             if (!requester || !requester.isCancelled()) {
                 next.unshift({
                     requester: requester,
-                    callback: callback
+                    callback: callback,
+                    subject: subject,
+                    args: args
                 });
                 process();
             }
@@ -621,13 +623,15 @@ Tab = (function (global) {
         Schedulers.scheduleFirst = scheduleFirst;
 
         //-----------------------------------------------------------------------------------------
-        //- Tab.Schedulers.scheduleLast( requester, callback )
+        //- Tab.Schedulers.scheduleLast( requester, callback, subject, args )
         //-
-        function scheduleLast(requester, callback) {
+        function scheduleLast(requester, callback, subject, args) {
             if (!requester || !requester.isCancelled()) {
                 last.push({
                     requester: requester,
-                    callback: callback
+                    callback: callback,
+                    subject: subject,
+                    args: args
                 });
                 process();
             }
@@ -635,13 +639,15 @@ Tab = (function (global) {
         Schedulers.scheduleLast = scheduleLast;
 
         //-----------------------------------------------------------------------------------------
-        //- Tab.Schedulers.scheduleNext( requester, callback )
+        //- Tab.Schedulers.scheduleNext( requester, callback, subject, args )
         //-
-        function scheduleNext(requester, callback) {
+        function scheduleNext(requester, callback, subject, args) {
             if (!requester || !requester.isCancelled()) {
                 next.push({
                     requester: requester,
-                    callback: callback
+                    callback: callback,
+                    subject: subject,
+                    args: args
                 });
                 process();
             }
@@ -651,9 +657,9 @@ Tab = (function (global) {
         //-----------------------------------------------------------------------------------------
         //- Tab.Schedulers.scheduleNow( requester, callback )
         //-
-        function scheduleNow(requester, callback) {
+        function scheduleNow(requester, callback, subject, args) {
             if (!requester || !requester.isCancelled()) {
-                callback();
+                callback.apply(subject, args);
             }
         }
         Schedulers.scheduleNow = scheduleNow;
@@ -792,7 +798,7 @@ Tab = (function (global) {
             // notify all subscribers
             callbacks = source._callbacks[type];
             for (i = 0, n = callbacks.length; i < n; i += 1) {
-                callbacks[i].call(null, args);
+                callbacks[i].call(null, void 0, args);
             }
 
             return source;

@@ -24,6 +24,7 @@
 (function () {
 	"use strict";
 	// jshint quotmark: false, es3: false
+    var thisUndefined = (function () { return this; }).call(undefined);
   
     QUnit.module("Tab.Schedulers.scheduleFirst()");
 
@@ -31,16 +32,17 @@
         QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.Schedulers.scheduleFirst, "function", 'typeof Tab.Schedulers.scheduleFirst === "function"');
-        QUnit.strictEqual(Tab.Schedulers.scheduleFirst.length, 2, 'Tab.Schedulers.scheduleFirst.length === 2');
+        QUnit.strictEqual(Tab.Schedulers.scheduleFirst.length, 4, 'Tab.Schedulers.scheduleFirst.length === 4');
     });
 
-    QUnit.asyncTest("Tab.Schedulers.scheduleFirst(null, function () { currentTick = Tab.Schedulers.tick; value += 1; }) - first scheduleNext", function() {
-        QUnit.expect(7);
+    QUnit.asyncTest("Tab.Schedulers.scheduleFirst(null, function () { currentTick = Tab.Schedulers.tick; value += 1; }, void 0, [argument]) - first scheduleNext", function() {
+        QUnit.expect(10);
         QUnit.stop(); // add an additional semaphore
       
         var firstTick = Tab.Schedulers.tick,
             currentTick,
-            value = 0;
+            value = 0,
+            argument = "argument";
 
         Tab.Schedulers.scheduleNext(null, function () {
             QUnit.start();
@@ -62,7 +64,14 @@
 
             QUnit.strictEqual(value, 1, 'value === 1');
             QUnit.strictEqual(currentTick, firstTick + 1, 'currentTick === firstTick + 1');
-        });
+
+            // processor called with thisUndefined
+            QUnit.strictEqual(this, thisUndefined, 'processor.call(subject, argument) - this === thisUndefined');
+
+            // processor called with returned value
+            QUnit.strictEqual(arguments.length, 1, 'processor.call(subject, argument) - arguments.length === 1');
+            QUnit.strictEqual(arguments[0], argument, 'processor.call(subject, argument) - arguments[0] === argument');
+        }, void 0, [argument]);
 
         QUnit.strictEqual(currentTick, undefined, 'currentTick === undefined');
     });

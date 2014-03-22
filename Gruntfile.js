@@ -38,7 +38,9 @@ module.exports = function(grunt) {
         copy: {
             // code
             testCode: {
-                src: 'source/*.js',
+                expand: true,
+                cwd: 'source/',
+                src: '*.js',
                 dest: 'test/'
             },
             testBuild: {
@@ -52,6 +54,26 @@ module.exports = function(grunt) {
             docs: {
                 cmd: 'cmd /C call add-links-all.bat',
                 cwd: 'build'
+            },
+
+            // code
+            serve: {
+                cmd: 'start /min grunt connect:test:keepalive'
+            },
+            ie: {
+                cmd: 'start C:/"Program Files"/"Internet Explorer"/iexplore.exe http://localhost:9999/test-qunit-blanket.html'
+            },
+            ff: {
+                cmd: 'start C:/"Program Files"/"Mozilla Firefox"/firefox.exe http://localhost:9999/test-qunit-blanket.html'
+            },
+            chrome: {
+                cmd: 'start C:/Users/Stefaan/AppData/Local/Google/Chrome/Application/chrome.exe http://localhost:9999/test-qunit-blanket.html'
+            },
+            safari: {
+                cmd: 'start C:/"Program Files"/Safari/safari.exe http://localhost:9999/test-qunit-blanket.html'
+            },
+            opera: {
+                cmd: 'start C:/"Program Files"/Opera/opera.exe http://localhost:9999/test-qunit-blanket.html'
             }
         },
 
@@ -79,7 +101,25 @@ module.exports = function(grunt) {
 
         clean: [ '<%= concat.license.dest %>' ],
 
+        connect: {
+            test: {
+                options: {
+                    port: 9999,
+                    base: 'test'
+                }
+            }
+        },
+
         watch: {
+            // reload
+            reload: {
+                options: {
+                    livereload: true
+                },
+                files: [ 'source/<%= pkg.name %>-*.js', 'test/test-qunit*.html', 'test/test-qunit/*.js' ],
+                tasks: 'test'
+            },
+
             // docs
             links: {
                 files: 'docs/_links.md',
@@ -94,21 +134,6 @@ module.exports = function(grunt) {
             build: {
                 files: 'source/<%= pkg.name %>-*.js',
                 tasks: 'build'
-            },
-
-            // reload
-            reload: {
-                options: {
-                    livereload: true
-                },
-                files: [ 'source/test/test-qunit*.html', 'source/test/test-qunit/*.js' ]
-            },
-            reload2: {
-                options: {
-                    livereload: true
-                },
-                files: [ 'source/<%= pkg.name %>-*.js' ],
-                tasks: 'test'
             }
         }
     });
@@ -116,6 +141,7 @@ module.exports = function(grunt) {
     // Tasks.
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
@@ -126,6 +152,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [ 'watch' ]);
 
     grunt.registerTask('docs', [ 'exec:docs', 'concat:readme' ]);
-    grunt.registerTask('test', [ 'copy:testCode' ]);
+    grunt.registerTask('test', [ 'copy:testCode', 'exec:serve', 'exec:ie', 'exec:ff', 'watch:reload' ]);
     grunt.registerTask('build', [ 'concat:license', 'concat:build', 'copy:testBuild', 'jshint', 'qunit', 'uglify', 'clean' ]);
 };

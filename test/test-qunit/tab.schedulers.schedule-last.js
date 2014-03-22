@@ -24,7 +24,8 @@
 (function (global) {
 	"use strict";
 	// jshint quotmark: false, es3: false
-    var setImmediate;
+    var thisUndefined = (function () { return this; }).call(undefined),
+        setImmediate;
 
     if (global.setImmediate) {
         setImmediate = global.setImmediate;
@@ -39,16 +40,17 @@
         QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.Schedulers.scheduleLast, "function", 'typeof Tab.Schedulers.scheduleLast === "function"');
-        QUnit.strictEqual(Tab.Schedulers.scheduleLast.length, 2, 'Tab.Schedulers.scheduleLast.length === 2');
+        QUnit.strictEqual(Tab.Schedulers.scheduleLast.length, 4, 'Tab.Schedulers.scheduleLast.length === 4');
     });
 
-    QUnit.asyncTest("Tab.Schedulers.scheduleLast(null, function () { currentTick = Tab.Schedulers.tick; value += 1; }) - then scheduleNext", function() {
-        QUnit.expect(7);
+    QUnit.asyncTest("Tab.Schedulers.scheduleLast(null, function () { currentTick = Tab.Schedulers.tick; value += 1; }, void 0, [argument]) - then scheduleNext", function() {
+        QUnit.expect(10);
         QUnit.stop(); // add an additional semaphore
       
         var firstTick = Tab.Schedulers.tick,
             currentTick,
-            value = 0;
+            value = 0,
+            argument = "argument";
 
         Tab.Schedulers.scheduleLast(null, function () {
             QUnit.start();
@@ -59,7 +61,14 @@
 
             QUnit.strictEqual(value, 2, 'value === 2');
             QUnit.strictEqual(currentTick, firstTick + 1, 'currentTick === firstTick + 1');
-        });
+
+            // processor called with thisUndefined
+            QUnit.strictEqual(this, thisUndefined, 'processor.call(subject, argument) - this === thisUndefined');
+
+            // processor called with returned value
+            QUnit.strictEqual(arguments.length, 1, 'processor.call(subject, argument) - arguments.length === 1');
+            QUnit.strictEqual(arguments[0], argument, 'processor.call(subject, argument) - arguments[0] === argument');
+        }, void 0, [argument]);
 
         Tab.Schedulers.scheduleNext(null, function () {
             QUnit.start();

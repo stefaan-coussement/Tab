@@ -146,6 +146,25 @@
         QUnit.strictEqual(tab.valueOf(), value, 'tab.valueOf() === value');
     });
 
+    QUnit.asyncTest("tab = Tab.construct().onReturned(function () { value = 1; }).doReturn()", function() {
+        QUnit.expect(3);
+      
+        var value = 0,
+            tab;
+
+        tab = Tab.construct()
+        .onReturned(function () {
+            QUnit.start();
+
+            value = 1;
+            QUnit.ok(true, "onReturned executed");
+            QUnit.strictEqual(value, 1, 'value === 1');
+        })
+        .doReturn();
+
+        QUnit.strictEqual(value, 0, 'value === 0');
+    });
+
     QUnit.test("Tab.prototype.doReturn.call(object)", function() {
         QUnit.expect(1);
       

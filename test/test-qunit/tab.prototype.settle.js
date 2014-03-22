@@ -149,6 +149,25 @@
         );
     });
 
+    QUnit.asyncTest("tab = Tab.construct().onSettled(function () { value = 1; }).settle()", function() {
+        QUnit.expect(3);
+      
+        var value = 0,
+            tab;
+
+        tab = Tab.construct()
+        .onSettled(function () {
+            QUnit.start();
+
+            value = 1;
+            QUnit.ok(true, "onSettled executed");
+            QUnit.strictEqual(value, 1, 'value === 1');
+        })
+        .settle();
+
+        QUnit.strictEqual(value, 0, 'value === 0');
+    });
+
     QUnit.test("Tab.prototype.settle.call(object)", function() {
         QUnit.expect(1);
       

@@ -24,6 +24,7 @@
 (function () {
 	"use strict";
 	// jshint quotmark: false, es3: false
+    var thisUndefined = (function () { return this; }).call(undefined);
   
     QUnit.module("Tab.Schedulers.scheduleNext()");
 
@@ -31,14 +32,15 @@
         QUnit.expect(2);
       
         QUnit.strictEqual(typeof Tab.Schedulers.scheduleNext, "function", 'typeof Tab.Schedulers.scheduleNext === "function"');
-        QUnit.strictEqual(Tab.Schedulers.scheduleNext.length, 2, 'Tab.Schedulers.scheduleNext.length === 2');
+        QUnit.strictEqual(Tab.Schedulers.scheduleNext.length, 4, 'Tab.Schedulers.scheduleNext.length === 4');
     });
 
-    QUnit.asyncTest("Tab.Schedulers.scheduleNext(null, function () { currentTick = Tab.Schedulers.tick; })", function() {
-        QUnit.expect(3);
+    QUnit.asyncTest("Tab.Schedulers.scheduleNext(null, function () { currentTick = Tab.Schedulers.tick; }, void 0, [argument])", function() {
+        QUnit.expect(6);
       
         var firstTick = Tab.Schedulers.tick,
-            currentTick;
+            currentTick,
+            argument = "argument";
 
         Tab.Schedulers.scheduleNext(null, function () {
             QUnit.start();
@@ -47,7 +49,14 @@
             QUnit.ok(true, 'scheduler executed');
 
             QUnit.strictEqual(currentTick, firstTick + 1, 'currentTick === firstTick + 1');
-        });
+
+            // processor called with thisUndefined
+            QUnit.strictEqual(this, thisUndefined, 'processor.call(subject, argument) - this === thisUndefined');
+
+            // processor called with returned value
+            QUnit.strictEqual(arguments.length, 1, 'processor.call(subject, argument) - arguments.length === 1');
+            QUnit.strictEqual(arguments[0], argument, 'processor.call(subject, argument) - arguments[0] === argument');
+        }, void 0, [argument]);
 
         QUnit.strictEqual(currentTick, undefined, 'currentTick === undefined');
     });
