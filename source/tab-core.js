@@ -6,7 +6,7 @@
 
 Tab = (function (global) {
     "use strict";
-    var versionString = "1.0.0-alpha.1+1",
+    var versionString = "1.0.0-a1+1",
 
         version,
         context,
@@ -531,14 +531,8 @@ Tab = (function (global) {
             processing,
             tick = 0,
 
-            setImmediate;
-
-        if (global.setImmediate) {
-            setImmediate = global.setImmediate;
-        }
-        else {
-            setImmediate = function (callback) { return global.setTimeout(callback, 0); };
-        }
+            setImmediate = global.setImmediate ||
+                           function (callback) { return global.setTimeout(callback, 0); };
 
         function processItem(item) {
             var requester = item.requester;
