@@ -5,7 +5,7 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
-[![Build Status](https://secure.travis-ci.org/stefaan-coussement/tab.png?branch=next)](https://travis-ci.org/stefaan-coussement/tab)
+[![Build Status](https://secure.travis-ci.org/stefaan-coussement/tab.png?branch=master)](https://travis-ci.org/stefaan-coussement/tab)
 
 ## [The Project][project]
 

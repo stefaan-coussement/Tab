@@ -5,6 +5,8 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
+[![Build Status](https://secure.travis-ci.org/stefaan-coussement/tab.png?branch=master)](https://travis-ci.org/stefaan-coussement/tab)
+
 ## [The Project][project]
 
 This project was started out of an interest in javascript promises.  However, in our view, a lot of the designs we looked into have some short-comings.  
