@@ -1,6 +1,6 @@
 <a name="top" ></a>
 
-<img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="http://raw2.github.com/stefaan-coussement/Tab/master/doc/img/1x1.png" align="left" style="float:left;" height="79" width="20" />
+<img src="http://raw2.github.com/stefaan-coussement/Tab/master/docs/img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-8px;" height="87" /><img src="http://raw2.github.com/stefaan-coussement/Tab/master/docs/img/1x1.png" align="left" style="float:left;" height="79" width="20" />
 # [Tab][top]
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
