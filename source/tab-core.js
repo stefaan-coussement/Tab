@@ -13,6 +13,7 @@ Tab = (function (global) {
 
         es5;
 
+
     es5 = (function () {
         // jshint es3: false
         try {
