@@ -25,7 +25,7 @@
 	"use strict";
 	// jshint quotmark: false
     var thisUndefined = (function () { return this; }).call(undefined);
-  
+ 
     QUnit.module("Tab.prototype.onCancelled()");
 
     QUnit.test("Tab.prototype.onCancelled object", function() {

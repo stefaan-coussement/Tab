@@ -29,7 +29,8 @@ module.exports = function(grunt) {
                 src: [
                     '<%= concat.license.dest %>',
                     'source/<%= pkg.name %>-core.js',
-                    'source/<%= pkg.name %>-callbacks.js'
+                    'source/<%= pkg.name %>-callbacks.js',
+                    'source/<%= pkg.name %>-polyfill.js'
                 ],
                 dest: '<%= pkg.name %>.js'
             }
@@ -85,7 +86,9 @@ module.exports = function(grunt) {
             test: [ 'test/<%= pkg.name %>.js', 'test/test-qunit/*.js' ]
         },
 
-        qunit: [ 'test/test-build-qunit.html' ],
+        qunit: {
+            test: [ 'test/test-build-qunit.html' ]
+        },
 
         uglify: {
             // code

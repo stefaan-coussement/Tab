@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Tab = (function (global) {
     "use strict";
-    var versionString = "1.0.0-alpha.1+1",
+    var versionString = "1.0.0-a1+1",
 
         version,
         context,
@@ -554,14 +554,8 @@ Tab = (function (global) {
             processing,
             tick = 0,
 
-            setImmediate;
-
-        if (global.setImmediate) {
-            setImmediate = global.setImmediate;
-        }
-        else {
-            setImmediate = function (callback) { return global.setTimeout(callback, 0); };
-        }
+            setImmediate = global.setImmediate ||
+                           function (callback) { return global.setTimeout(callback, 0); };
 
         function processItem(item) {
             var requester = item.requester;
@@ -975,3 +969,24 @@ Tab = (function (global) {
     Tab.deferWith = deferWith;
 
 }(Tab));
+
+//#################################################################################################
+//# POLYFILL
+//#################################################################################################
+
+(function () {
+	"use strict";
+	// jshint freeze: false
+
+	if (!Function.prototype.bind) {
+		Function.prototype.bind = function (subject) {
+			var thisFunction = this,
+                args = (arguments.length <= 1) ? [] : Array.prototype.slice.call(arguments, 1);
+
+            // at this moment we don't use this on Constructors
+			return function () {
+                return thisFunction.apply(subject, args.concat(Array.prototype.slice.call(arguments, 0)));
+			};
+		};
+	}
+}());
