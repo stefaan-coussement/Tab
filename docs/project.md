@@ -5,9 +5,11 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
-//img.shields.io/badge/stability-experimental-orange.svg)
+![Stability](https://img.shields.io/badge/stability-experimental-orange.svg)
 
-[//travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
+![Version](https://img.shields.io/badge/semver-1.0.0--alpha.1+5-blue.svg)
+
+[![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
 
 ## [The Project][project]
 
