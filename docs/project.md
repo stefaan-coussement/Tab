@@ -5,66 +5,21 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
-![Version](/docs/img/version.svg) ![Build](/docs/img/build.svg)
+![test](http://img.shields.io/badge/stability-experimental-orange.svg)
+
 [![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
 
 ## [The Project][project]
 
-This project was started out of an interest in javascript promises.  However, in our view, a lot of the designs we looked into have some short-comings.  
+This project was started out of an interest in javascript promises.
 
 Then came CommonJS modules...
 
-And then came an article about Microsoft's reactive extensions...  
+And then came Microsoft's reactive extensions...  
 
-What if we would combine some of the aspects of promises, modules and reactive extensions?  So the end result is an attempt to put a slightly different slant on asynchronous programming.
-
-Because this API seriously differs from the promises defined in other projects, we avoided a name that is closely linked to previous implementations such as *promises*, *futures*, *deferreds*, *vows*, *delays*, *eventuals*.  We also wanted to avoid the '-able' suffix like in *Observables*.  We eventually went for *Tabs*.
-
->**tab** (noun)
-> A projection, flap, or short strip attached to an object to facilitate opening, handling, or identification.  
-> [http://www.thefreedictionary.com/tab]
->
->**keep tabs on** (idiom)
-> To observe carefully.  To maintain a watch over, record activities of.  
-> [http://www.thefreedictionary.com/tab]
+What if we would combine some of the aspects of promises, modules and reactive extensions?  So the end result is an attempt to put a slightly different slant on these libraries.
 
 The general goal is to help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
-
->**callback** (programming)
-> In computer programming, a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time. The invocation may be immediate as in a synchronous callback or it might happen at later time, as in an asynchronous callback.  
-> [http://en.wikipedia.org/wiki/Callback_(computer_programming)]
->
->**pipeline** (programming)
-> In software engineering, a pipeline consists of a chain of processing elements (processes, threads, coroutines, etc.), arranged so that the output of each element is the input of the next; the name is by analogy to a physical pipeline. Usually some amount of buffering is provided between consecutive elements. The information that flows in these pipelines is often a stream of records, bytes or bits, and the elements of a pipeline may be called filters; this is also called the pipes and filters design pattern. Connecting elements into a pipeline is analogous to function composition.  
-> [http://en.wikipedia.org/wiki/Pipeline_(software)]
->
-> When a programming language is originally designed without any syntax to nest function calls, pipeline programming is a simple syntax change to add it. The programmer connects notional program modules into a flow structure, by analogy to a physical pipeline carrying reaction products through a chemical or other plant.  
-> [http://en.wikipedia.org/wiki/Pipeline_programming]
->
->**stream** (programming)
-> In computer science, a stream is a sequence of data elements made available over time. A stream can be thought of as a conveyor belt that allows items to be processed one at a time rather than in large batches.  
-> Streams are processed differently from batch data – normal functions cannot operate on streams as a whole, as they have potentially unlimited data, and formally, streams are codata (potentially unlimited), not data (which is finite). Functions that operate on a stream, producing another stream, are known as filters, and can be connected in pipelines, analogously to function composition. Filters may operate on one item of a stream at a time, or may base an item of output on multiple items of input, such as a moving average.  
-> [http://en.wikipedia.org/wiki/Stream_(computing)]
->
-> In computing, reactive programming is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to express static or dynamic data flows with ease in the programming languages used, and that the underlying execution model will automatically propagate changes through the data flow.  
-> [http://en.wikipedia.org/wiki/Reactive_programming]
->
->**promise** (programming)
-> In computer science, future, promise, and delay refer to constructs used for synchronizing in some concurrent programming languages. They describe an object that acts as a proxy for a result that is initially unknown, usually because the computation of its value is yet incomplete.  
-> [http://en.wikipedia.org/wiki/Promise_(programming)]
->
-> A promise is the final item in a stream. A stream itself is a way to shorten a very long sequence into a short one, and request only the items needed at the moment.  
-> [http://en.wikipedia.org/wiki/Promise_(computing)]
->
->**lazy evaluation** (programming)
-> In programming language theory, lazy evaluation, or call-by-need is an evaluation strategy which delays the evaluation of an expression until its value is needed (non-strict evaluation) and which also avoids repeated evaluations (sharing). The sharing can reduce the running time of certain functions by an exponential factor over other non-strict evaluation strategies, such as call-by-name.  
-> [http://en.wikipedia.org/wiki/Lazy_evaluation]
->
->**concurrent computing** (programming)
->Concurrent computing is a form of computing in which several computations are executing during overlapping time periods – concurrently – instead of sequentially (one completing before the next starts). This is a property of a system – this may be an individual program, a computer, or a network – and there is a separate execution point or "thread of control" for each computation ("process"). A concurrent system is one where a computation can make progress without waiting for all other computations to complete – where more than one computation can make progress at "the same time".  
->[http://en.wikipedia.org/wiki/Concurrent_computing]
-
-We are re-using names of methods of other APIs, even when the semantics of the methods are very different.   Equally, we are using different names, even if the semantics of the methods are identical to the methods in the other APIs.  This is not done to create confusion - although it certainly does - but because a lot of the method names are overloaded with a lot of very different semantics.  Especially in the *Promise*-world, we felt that it is simply impossible to come up with an intuitively understandable set of names and at the same time adhere to the semantics of the different libraries where these names are also used.
 
 
 
@@ -76,32 +31,32 @@ We are re-using names of methods of other APIs, even when the semantics of the m
 * [A Basic Callback][topic-a-basic-callback]  
   using a Tab object to handle callbacks.
 
-* [A Basic Pipeline][topic-a-basic-pipeline]  
+* [A Basic Pipeline][topic-a-basic-pipeline] :construction:  
   using Tab objects for pipelining.
 
-* [A Basic Stream][topic-a-basic-stream]  
+* [A Basic Stream][topic-a-basic-stream] :construction:  
   using a Tab object to work with sequence of data elements.
 
-* [A Basic Promise][topic-a-basic-promise]  
+* [A Basic Promise][topic-a-basic-promise] :construction:  
   using a Tab object as a promise.
 
-* [Basic Lazy Evaluation][topic-basic-lazy-evaluation]  
+* [Basic Lazy Evaluation][topic-basic-lazy-evaluation] :construction:  
   using a Tab object for lazy evaluation.
 
-* [Basic Concurrent Computing][topic-basic-concurrent-computing]  
+* [Basic Concurrent Computing][topic-basic-concurrent-computing] :construction:  
   using a Tab object to handle concurrent computing.
 
 
 
 ### Goals
 
-The following is a maintained, and thus regularly updated and re-organized list of goals (in no particular order).  Some may seem a bit obscure without proper explanation.  Where needed and when time allows, we will create [topics][topics] to discuss them in more detail.  
+The following is a maintained, and thus regularly updated and re-organized list of goals (in no particular order).  Some may seem a bit obscure without further explanation.  Where needed and when time allows, we will create [topics][topics] to discuss some of them in more detail.  
 
 1.  Basic Tabs
 
     1. :ok: provide the means to capture a future value in a tab and notify its observers when the value becomes available.
     
-    1. :ok: provide the means to capture special values in a tab, such as `undefined`, `null` and other tabs (promises typically can't store promises without adopting the state and value of the stored promise).
+    1. :ok: provide the means to capture special values in a tab, such as `undefined`, `null`.
     
     1. :ok: provide the means to capture a future error in a tab and notify its observers when the error becomes available.
     

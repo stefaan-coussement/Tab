@@ -3,26 +3,25 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [A Basic Callback][topic-a-basic-callback]
 
-In the first example of [A Basic Tab][topic-a-basic-tab] there is still quite a bit of processing in the callback function for `setInterval`.  We can do better.
+>**callback** (programming)
+> In computer programming, a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time. The invocation may be immediate as in a synchronous callback or it might happen at later time, as in an asynchronous callback.  
+> [http://en.wikipedia.org/wiki/Callback_(computer_programming)]
+
+
+In the first example of [A Basic Tab][topic-a-basic-tab] there is still quite a bit of processing in the callback function for `XMLHTTP.request`.  We can do better.
 
 ````javascript
-var id, interval = 0,
-    counter = new Tab();
+var options = new Tab();
 
-id = setInterval(Tab.defer(counter, function () {
-    interval += 1;
-    return interval;
-}), 1000);
+XMLHTTP.request("GET", "http://mydomain.com/options.json", 
+    Tab.defer(options, function (responseText) {
+         return(JSON.parse(responseText));
+    })
+);
 
-counter
+options
 .try(function (value) {
-    if (value <= 3600) {
-        console.log(value % 2 === 1 ? "tick" : "tock");
-    }
-    if (value === 3600) {
-        clearInterval(id);
-        console.log("cuckoo");
-    }
+    console.log(value);
 })
 .catch(function (error) {
     console.log(error);
@@ -31,26 +30,20 @@ counter
 
 Compared to the example in [A Basic Tab][topic-a-basic-tab], in this example:
 
-* [Tab.defer( counter, encapsulatedCallback )][ref-tab.defer] creates a new callback function, binding `counter` to the encapsulated callback.  This new deferred callback, when executed, will update `counter` with the return value of the encapsulated function, and a notification will be sent to all subscribers of `counter`.  In the case an error is thrown in the encapsulated function, `counter` is set to the failed state, and a notification will be sent to all subscribers of `counter`. 
+* [Tab.defer( options, encapsulatedCallback )][ref-tab.defer] creates a new callback function, binding `options` to the encapsulated callback.  This new deferred callback, when executed, will update `options` with the return value of the encapsulated function, and a notification will be sent to all subscribers of `options`.  In the case an error is thrown in the encapsulated function, `options` is set to the failed state, and a notification will be sent to all subscribers of `options`. 
  
 However, we can still do better.   
 
 ````javascript
-var id, interval = 0,
-    counter = new Tab();
+var options = new Tab();
 
-id = setInterval(Tab.deferReturn(counter), 1000);
+XMLHTTP.request("GET", "http://mydomain.com/options.json", 
+    Tab.deferReturn(options)
+);
 
-counter
-.try(function () {
-    interval += 1;
-    if (interval <= 3600) {
-        console.log(interval % 2 === 1 ? "tick" : "tock");
-    }
-    if (value === 3600) {
-        clearInterval(id);
-        console.log("cuckoo");
-    }
+options
+.try(function (value) {
+    console.log(JSON.parse(value));
 })
 .catch(function (error) {
     console.log(error);
@@ -59,39 +52,39 @@ counter
 
 Compared to the previous example, in this example:
 
-* We moved the calculation of the interval to the processor of `counter.try`.
-* [Tab.deferReturn( counter )][ref-tab.defer-return] binds [Tab.prototype.return()][ref-tab.prototype.return] to `counter` - the latter method is what we used in the example in [A Basic Tab][topic-a-basic-tab] to update `counter`.  This callback, when executed will now update `counter` without providing a specific value, and a notification will be sent to all subscribers of `counter`.  In the unlikely case an error is thrown in the `return` method, `counter` is set to the failed state.   This is a *sugar* method for something like `Tab.defer(response, Tab.prototype.return.bind(response))`
+* We moved the parsing of the JSON object to the processor of `options.try`.
+* [Tab.deferReturn( options )][ref-tab.defer-return] binds [Tab.prototype.return()][ref-tab.prototype.return] to `options` - the latter method is what we used in the example in [A Basic Tab][topic-a-basic-tab] to update `options`.  This callback, when executed will now update `options` without the arguments passed to the callback, and a notification will be sent to all subscribers of `options`.  In the unlikely case an error is thrown in the `return` method, `options` is set to the failed state.   This is a *sugar* method for something like `Tab.defer(null, Tab.prototype.return.bind(options))`
 
-We can also work with callbacks that have more than one argument.  The following assumes a function `httpGet` that hides a lot of the detailed mechanics of working with `XMLHttpRequest`, and that expects a callback with multiple arguments - a selection of the attributes of an `XMLHTTPRequest`-object.
+We can also work with callbacks that have more than one argument.
 
 ````javascript
-var response = new Tab(), 
-    text = new Tab();
+var response = new Tab();
 
-httpGet("http://code.jquery.com/jquery.js", Tab.deferReturn(response));
+XMLHTTP.request("GET", "http://mydomain.com/options.json", 
+    Tab.deferYield(response)
+);
 
 response
 .try(function (responseText, responseStatus, readyState) {
     if ((readyState === 4) && (responseStatus === 200)) {
-        text.return(responseText);
+        console.log(JSON.parse(responseText));
     }
 });
 ````
 
 In this example:
 
-* [Tab.deferReturn( response )][ref-tab.defer-return], when called-back, updates `response` with **all** callback arguments.
-* [response.try()][ref-tab.prototype.try] picks up the 'returned' notification with the arguments from the callback.  
-* `this` refers to the new Tab object that is created by the `.try()` method.  In this specific case, we could also use `text`.
-* When the conditions are right, [this.return()][ref-tab.prototype.return] updates `text` with the fetched document.  Alternatively, we could also just `return` the text, as we illustrated higher.
+* [Tab.deferYield( response )][ref-tab.defer-yield], when called-back, updates `response` with **all** callback arguments.  In this case, we are using '.deferYield' instead of '.deferReturn' because it must be possible to call the deferred callback multiple times.  The first call of the deferred callback is not guaranteed to return the final result.
+* [response.try()][ref-tab.prototype.try] picks up the 'yielded' notification with the arguments from the callback.  
 
 We could also write the following
 
 ~~~~javascript
-var response = new Tab(), 
-    text;
+var response = new Tab();
 
-httpGet("http://code.jquery.com/jquery.js", Tab.deferReturn(response));
+XMLHTTP.request("GET", "http://mydomain.com/options.json", 
+    Tab.deferYield(response)
+);
 
 text = response.try(function (responseText, responseStatus, readyState) {
     if ((readyState === 4) && (responseStatus === 200)) {
@@ -105,8 +98,8 @@ text = response.try(function (responseText, responseStatus, readyState) {
 
 Compared to previous example, in this example:
 
-* `text` is now a new tab created by the methods `response.try()`, instead explicitly needing to construct it.
-* A traditional return statement is used to update `text` with `responseText`.
+* `text` is now a new tab created by the methods `response.try()`.
+* A traditional return statement is used to update `text` with the final `responseText`.
 * When the conditions aren't right, [Tab.defer()][ref-tab.defer] defers the update further until next time the callback is called.  This avoids that the `undefined` return is interpreted as a valid value to update `text` - this is necessary because there is no way to distinguish between a function that returns `undefined` and a function that doesn't return anything.
 
 <br />
@@ -114,12 +107,11 @@ Compared to previous example, in this example:
 ---
 ### Methods introduced in this topic (and some related methods)
 
-* [Tab.capture()][ref-tab.capture]
-* [Tab.captureWith()][ref-tab.capture-with]
 * [Tab.defer()][ref-tab.defer]
+* [Tab.deferRaise()][ref-tab.defer-raise]
 * [Tab.deferReturn()][ref-tab.defer-return]
 * [Tab.deferThrow()][ref-tab.defer-throw]
-* [Tab.trace()][ref-tab.trace]
+* [Tab.deferYield()][ref-tab.defer-yield]
 
 
 
@@ -128,7 +120,6 @@ Compared to previous example, in this example:
 * [new Tab()][ref-new-tab]
 <br />
 * [.catch()][ref-tab.prototype.catch]
-* [.return()][ref-tab.prototype.return]
 * [.try()][ref-tab.prototype.try]
 
 
