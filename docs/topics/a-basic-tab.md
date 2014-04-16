@@ -1,7 +1,7 @@
 <a name="top" ></a>
 
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
-## [A Basic Tap][topic-a-basic-tab]
+## [A Basic Tab][topic-a-basic-tab]
 
 >**tab** (noun)
 > A projection, flap, or short strip attached to an object to facilitate opening, handling, or identification.  

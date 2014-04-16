@@ -47,16 +47,16 @@ requestAddress(name)
         .try(function () {
             console.log(name + ": sent");
         })
-        .raise();
+        .reraise();
     })
-    .raise();
+    .reraise();
 })
 .catch(function (error) { 
     console.log(name + ": error");
 });
 ````
 
-You use the `.raise()` method to propagate the errors to `Tab.context.target`.  Inside the processor function of a processing method (such as `.try()`), this is set to the new tab that was created and returned by the processing method.
+The `.reraise()` method is used to propagate the errors to `Tab.context.target`.  Inside the processor function of a processing method such as `.try()`, this is the new tab that was created and returned by the processing method.
 
 ````javascript
 // using pipelined tabs:
@@ -76,7 +76,7 @@ The main difference between the traditional `catch` block and the Tab method `.c
 
 One of the biggest problems with asynchronous functions is that the exceptions thrown are not caught.  Some javascript engines will log a message, but there is no mechanism to catch them.
 
-The Tabs library has a special tab exactly for that purpose.  As illustrated higher, you use the `.raise()` method to propagate the errors to `Tab.context.target`, the new tab that was created and returned by the enclosing processing method.  Outside any enclosing processing method, this `Tab.context.target` is a catch-all tab that can be used to catch otherwise unhandled errors.
+The Tabs library has a special tab exactly for that purpose.  As illustrated higher, you use the `.reraise()` method to propagate the errors to `Tab.context.target`, the new tab that was created and returned by the enclosing processing method.  Outside any enclosing processing method, this `Tab.context.target` is a catch-all tab that can be used to catch otherwise unhandled errors.
 
 ````javascript
 // using pipelined tabs, leaving errors unhandled:
@@ -87,7 +87,7 @@ requestAddress(name)
 .try(function () {
     console.log(name + ": sent");
 })
-.raise();
+.reraise();
 
 // catching unhandled errors
 
@@ -96,8 +96,6 @@ Tab.context.target
     console.log(name + ": error");
 });
 ````
-
-Remark that a regular error handler may be added somewhere else in the code, so it may not be there at the moment an error is thrown.  Hence, we need some indication that we don't expect any other part of the program to take care of this, we need to explicitly `.raise()` the unhandled errors.  
 
 
 
@@ -108,7 +106,7 @@ Remark that a regular error handler may be added somewhere else in the code, so 
 
 * [Tab.context][ref-tab.context]
 <br />
-* [.raise()][ref-tab.prototype.raise]
+* [.reraise()][ref-tab.prototype.reraise]
 * [.try()][ref-tab.prototype.try]
 
 

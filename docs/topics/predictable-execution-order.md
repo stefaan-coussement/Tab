@@ -36,7 +36,7 @@ This example will not work as expected when the callback is executed immediately
 * the *loaded*-message will be logged before the *loading*-message.  
 * the value returned by `loadOptions` is not yet assigned to the `loadingURL` and thus the *loaded*-message will log an undefined URL.
 
-One way to solve issues like this is to introduce a status variable, and to add the URL  as an argument to the callback.
+One way to solve issues like this is to introduce a status variable.  We also need to add the URL as an argument to the callback to make it available to the callback before `loadOptions` returns.
 
 ````javascript
 var cache = {}, loadingURL, status;
@@ -73,7 +73,7 @@ if (status == “loaded”) {
 }
 ````
 
-Although the previous code is over-kill for this specific simple example, it should be clear that this technique can become quite complicated.
+It is clear that this technique can become quite complicated.
 Instead, it is usually better to avoid calling the callback immediately using the `setImmediate()` (or `setTimeout()`) function.
 
 ````javascript
@@ -126,10 +126,10 @@ function loadOptions(module) {
 }
 
 loadingTab = loadOptions("myModule");
-console.log("options loading for " + loadingURL);
+console.log("options loading for " + loadingTab.URL);
 
 loadingTab.try(function (options) {
-    console.log("options loaded for " + loadingURL + ": " + JSON.stringify(options));
+    console.log("options loaded for " + loadingTab.URL + ": " + JSON.stringify(options));
 });
 ````
 
