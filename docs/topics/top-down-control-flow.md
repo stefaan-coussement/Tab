@@ -39,13 +39,20 @@ getAddress(name, function (address) {
 });
 ````
 
-Things can get a bit more complex when we try to avoid changing the signature of the original functions and avoid the deep nesting of callbacks.  One of the many available techniques, all with their particular advantages and disadvantages, could be something like the following example.
+Things can get a bit more complex when we try to avoid changing the signature of the original functions and avoid the deep nesting of callbacks.  One of the many available techniques, all with their particular advantages and disadvantages, could end up to be something like the following example.
 
 ````javascript
 // using a sequence of callbacks: 
 
-(function (doComposeMessage) {
-    return doComposeMessage(getAddress(name));
+(function () {
+    return function (doGetAddress) {
+        return doGetAddress(name);
+    };
+})
+(function (name) { // defines doGetAddress
+    return function (doComposeMessage) {
+        return doComposeMessage(getAddress(name));
+    };
 })
 (function (address) { // defines doComposeMessage
     return function (doSendMessage) {

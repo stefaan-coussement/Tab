@@ -3,7 +3,7 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Exception Style Error Propagation][topic-exception-style-error-propagation]
 
-Error handling is rather cumbersome when using callbacks and is often forgotten (*nodeJS* APIs avoid this by specifying the error callbacks as the first argument in a function).
+Error handling is rather cumbersome when using callbacks and is often forgotten (*nodeJS* APIs avoids this by specifying the error callbacks as the first argument in a function).
 
 
 ````javascript
@@ -37,28 +37,6 @@ requestAddress(name, function (address) {
 Tabs provide an elegant solution by automatically propagating the error through the chain of processing tabs until an error handler is found, similar to exceptions bubbling up the chain of synchronously calling functions until an exception-handler is found.
 
 ````javascript
-// using nested tabs:
-
-requestAddress(name)
-.try(function (address) { 
-    composeMessage(address)
-    .try(function (message) {
-        sendMessage(message)
-        .try(function () {
-            console.log(name + ": sent");
-        })
-        .reraise();
-    })
-    .reraise();
-})
-.catch(function (error) { 
-    console.log(name + ": error");
-});
-````
-
-The `.reraise()` method is used to propagate the errors to `Tab.context.target`.  Inside the processor function of a processing method such as `.try()`, this is the new tab that was created and returned by the processing method.
-
-````javascript
 // using pipelined tabs:
 
 requestAddress(name)
@@ -74,9 +52,75 @@ requestAddress(name)
 
 The main difference between the traditional `catch` block and the Tab method `.catch()` is that the former will only catch errors thrown in the immediately preceding `try` block, while the latter will catch errors thrown in the preceding `.try()` method and every other method preceding that `.try()` method.
 
-One of the biggest problems with asynchronous functions is that the exceptions thrown are not caught.  Some javascript engines will log a message, but there is no mechanism to catch them.
+This error propagation becomes a bit more difficult when nesting tabs.
 
-The Tabs library has a special tab exactly for that purpose.  As illustrated higher, you use the `.reraise()` method to propagate the errors to `Tab.context.target`, the new tab that was created and returned by the enclosing processing method.  Outside any enclosing processing method, this `Tab.context.target` is a catch-all tab that can be used to catch otherwise unhandled errors.
+````javascript
+// using nested tabs:
+
+requestAddress(name)
+.try(function (address) { 
+    composeMessage(address)
+    .try(function () {
+        sendMessage(message)
+        .try(function () {
+            console.log(name + ": sent");
+        });
+    )};
+})
+.catch(function (error) { 
+    console.log(name + ": error");
+});
+````
+
+In this example, errors are not propagated from a processor to the Tab object created by the encapsulating `.try()` method.
+
+One way to propagate these errors is by returning the inner Tab objects.
+
+````javascript
+// using nested tabs:
+
+requestAddress(name)
+.try(function (address) { 
+    return composeMessage(address)
+    .try(function () {
+        return sendMessage(message)
+        .try(function () {
+            console.log(name + ": sent");
+        });
+    )};
+})
+.catch(function (error) { 
+    console.log(name + ": error");
+});
+````
+
+The Tab object created by the encapsulating `.try()` is now delegating to the returned tab, effectively propagating the errors.  
+
+However this returns both the value and the errors.  We may only want to propagate the errors.
+
+````javascript
+// using nested tabs:
+
+requestAddress(name)
+.try(function (address) { 
+    composeMessage(address)
+    .try(function (message) {
+        sendMessage(message)
+        .try(function () {
+            console.log(name + ": sent");
+        })
+        .rethrow();
+    })
+    .rethrow();
+})
+.catch(function (error) { 
+    console.log(name + ": error");
+});
+````
+
+The `.rethrow()` method is used to propagate the errors to the Tab object created by the encapsulating `.try()` method.
+
+One of the biggest problems with asynchronous functions is that the exceptions are not caught.  Some javascript engines will log a message, but there is no mechanism to catch them.
 
 ````javascript
 // using pipelined tabs, leaving errors unhandled:
@@ -87,15 +131,17 @@ requestAddress(name)
 .try(function () {
     console.log(name + ": sent");
 })
-.reraise();
+.rethrow();
 
 // catching unhandled errors
 
-Tab.context.target
+Tab.target
 .catch(function (error) {
     console.log(name + ": error");
 });
 ````
+
+The Tabs library has a special tab exactly for that purpose.  As illustrated in previous examples, you use the `.rethrow()` method to propagate the errors to the the new tab that is created and returned by the enclosing processing method.  This also works outside a processing function.  In this case, the error is thrown on `Tab.target`, the Tab object specially created for this purpose.
 
 
 
@@ -106,7 +152,7 @@ Tab.context.target
 
 * [Tab.context][ref-tab.context]
 <br />
-* [.reraise()][ref-tab.prototype.reraise]
+* [.rethrow()][ref-tab.prototype.rethrow]
 * [.try()][ref-tab.prototype.try]
 
 

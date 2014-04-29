@@ -57,7 +57,7 @@ function loadOptions(module, callback) {
 }
 
 loadingURL = loadOptions("myModule", function (options, optionsURL) {
-    if (status == "loading") {
+    if (status !== "loading") {
         // log a fake message in case the result is immediately available
         console.log("options loading for " + optionsURL);
     }
@@ -66,15 +66,15 @@ loadingURL = loadOptions("myModule", function (options, optionsURL) {
     status = "loaded";
 });
 
-if (status == “loaded”) { 
+if (status !== “loaded”) { 
     // avoid logging a message if the text is already loaded
     console.log("options loading for " + loadingURL);
     status = "loading";
 }
 ````
 
-It is clear that this technique can become quite complicated.
-Instead, it is usually better to avoid calling the callback immediately using the `setImmediate()` (or `setTimeout()`) function.
+It is clear that this technique can quickly become quite complicated.
+Instead, it is often better to avoid calling the callback immediately using the `setImmediate()` (or `setTimeout()`) function.
 
 ````javascript
 var cache = {}, loadingURL;
@@ -132,6 +132,8 @@ loadingTab.try(function (options) {
     console.log("options loaded for " + loadingTab.URL + ": " + JSON.stringify(options));
 });
 ````
+
+Remark that in this example we also moved the processing of the callback to the end - which corresponds better with the expected order of execution.
 
 
 

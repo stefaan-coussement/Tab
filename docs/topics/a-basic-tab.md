@@ -16,7 +16,7 @@ A Tab object is essentially a container for some value - a value that may not ye
 ````javascript
 var options = new Tab();
 
-XMLHTTP.request("GET", "http://mydomain.com/options.json", 
+HTTP.request("GET", "http://mydomain.com/options.json", 
     function (responseText) {
         try (
             options.return(JSON.parse(responseText));
