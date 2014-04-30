@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 					'<%= concat.license.dest %>',
 					'source/<%= pkg.name %>.js',
 					'source/<%= pkg.name %>-basics.js',
-					'source/<%= pkg.name %>-scheduler.js',
+					'source/<%= pkg.name %>-scheduling.js',
 					'source/<%= pkg.name %>-extending.js',
 					'source/function-polyfill.js'
 				],
