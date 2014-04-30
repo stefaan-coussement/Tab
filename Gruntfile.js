@@ -141,8 +141,7 @@ module.exports = function(grunt) {
 								return '[Stability](https://img.shields.io/badge/stability-' + stability + '-' + colorMap[stability] + '.svg)';
 							}
 						}
-					],
-					force: true
+					]
 				},
 				src: 'docs/project.md',
 				dest: 'docs/project.md'
