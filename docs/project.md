@@ -5,11 +5,7 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
-![Stability](https://img.shields.io/badge/stability-experimental-orange.svg)
-
-![Version](https://img.shields.io/badge/semver-1.0.0--alpha.1+5-blue.svg)
-
-[![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
+[![Version](https://img.shields.io/badge/semver-1.0.0--alpha.1+x-blue.svg)](https://semver.org/) ![Stability](https://img.shields.io/badge/stability-unstable-yellow.svg) [![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
 
 ## [The Project][project]
 
@@ -226,13 +222,13 @@ There are a lot of other projects that were (and still are) influencing this pro
 [ref-tab.x-attributes]:              /docs/reference.md#tabx-attributes                   "more attributes and methods under 'Tab.X Attributes'"
 [ref-tab.x-methods]:                 /docs/reference.md#tabx-methods                      "more attributes and methods under 'Tab.X Methods'"
 
-[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
+[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, delegate to a given tab if requested."
 [ref-tab]:                           /docs/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                   /docs/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /docs/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, delegate to a given tab if requested."
 [ref-tab.convert]:                   /docs/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /docs/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
 [ref-tab.defer-raise]:               /docs/reference/tab.defer-raise.md#top               "Tab.deferRaise(): create a function that puts a given tab in the failed state."

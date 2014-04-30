@@ -10,39 +10,66 @@ Convert to a tab, create a new tab if required.
 ---
 ### Tab( object ) » convertedTab
 
-> :bulb:
-> ````
-> Tab.convert(object) ~ Tab(object)
-> ````
-
 parameters:
 *   **object** : *any*  
-    the object to convert
+    an object to convert.
 
 returns:
 *   **covertedTab** : *[object Tab]*  
+    the converted Tab object.
     
-    *   if the object is a Tab object, then returns the object.
+    *   if object is a Tab object, then returns the object.
     *   otherwise, returns a new Tab object and initialize its value with the given object.
 
         > :bulb:
         > ````
-        > Tab.convert(object) ~ Tab.newReturn(object)
+        > if (Tab.isTab(object)) {
+        >     Tab.convert(object) ~~~ Tab.construct().accept(object)
+        > }
         > ````
+
+core assertions:
+
+````javascript
+if (Tab.isTab(object)) {
+    assert(covertedTab === object);
+}
+else {
+    assert(Tab.isTab(covertedTab) === true);
+
+    assert(covertedTab.isCancelled() === false);
+    assert(covertedTab.isSuspended() === false);
+    assert(covertedTab.isCompleted() === true);
+    assert(covertedTab.isSettled() === true);
+    assert(covertedTab.hasAccepted() === true);
+    assert(covertedTab.toString() === object.toString());
+    assert(covertedTab.valueOf() === object.valueOf());
+}
+````
 
 <br />
 
 ---
-### Other methods in this family
+### Methods in this family
 
 *   [new Tab()][ref-new-tab]
 *   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
+*   [Tab.convert()][ref-tab.convert]
 *   [Tab.isTab()][ref-tab.is-tab]
 <br />
 *   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
+
+### Other Methods used on this page
+
+*   [.accept()][ref-tab.prototype.accept]
+*   [.hasAccepted()][ref-tab.prototype.has-accepted]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.isCompleted()][ref-tab.prototype.is-completed]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.isSuspended()][ref-tab.prototype.is-suspended]
 
 
 
@@ -98,13 +125,13 @@ returns:
 [ref-tab.x-attributes]:              /docs/reference.md#tabx-attributes                   "more attributes and methods under 'Tab.X Attributes'"
 [ref-tab.x-methods]:                 /docs/reference.md#tabx-methods                      "more attributes and methods under 'Tab.X Methods'"
 
-[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
+[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, delegate to a given tab if requested."
 [ref-tab]:                           /docs/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                   /docs/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /docs/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, delegate to a given tab if requested."
 [ref-tab.convert]:                   /docs/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /docs/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
 [ref-tab.defer-raise]:               /docs/reference/tab.defer-raise.md#top               "Tab.deferRaise(): create a function that puts a given tab in the failed state."

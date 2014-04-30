@@ -10,38 +10,19 @@ Convert to a tab, create a new tab if required.
 ---
 ### Tab( object ) » convertedTab
 
-parameters:
-*   **object** : *any*  
-    the object to convert
 
-returns:
-*   **covertedTab** : *[object Tab]*  
-    
-    *   if the object is a Tab object, then returns the object.
-    *   otherwise, returns a new Tab object and initialize its value with the given object.
-
-        > :bulb:
-        > ````
-        > Tab(object) ~ Tab.newReturn(object)
-        > ````
-
-core principle:
-
-````javascript
-if (Tab.isTab(object)) {
-    return object;
-}
-else {
-    return (new Tab()).return(object);
-}
-````
+> :bulb:
+> ````
+> Tab(object) ~~~ Tab.convert(object)
+> ````
 
 <br />
 
 ---
-### Other methods in this family
+### Methods in this family
 
 *   [new Tab()][ref-new-tab]
+*   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
 *   [Tab.convert()][ref-tab.convert]
@@ -104,13 +85,13 @@ else {
 [ref-tab.x-attributes]:              /docs/reference.md#tabx-attributes                   "more attributes and methods under 'Tab.X Attributes'"
 [ref-tab.x-methods]:                 /docs/reference.md#tabx-methods                      "more attributes and methods under 'Tab.X Methods'"
 
-[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
+[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, delegate to a given tab if requested."
 [ref-tab]:                           /docs/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                   /docs/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /docs/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, delegate to a given tab if requested."
 [ref-tab.convert]:                   /docs/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /docs/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
 [ref-tab.defer-raise]:               /docs/reference/tab.defer-raise.md#top               "Tab.deferRaise(): create a function that puts a given tab in the failed state."

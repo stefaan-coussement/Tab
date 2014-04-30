@@ -3,45 +3,30 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [new Tab()][ref-new-tab]
 
-Construct a new tab, encapsulate a given tab if requested.
+Construct a new tab, delegate to a given tab if requested.
 
 <br />
 
 ---
-### new Tab() » newTab
+### new Tab( ?object ) » newTab
 
-returns:
-*   **newTab** : *[object Tab]*  
-    a newly constructed Tab object.
-
-core principles:
-
-````javascript
-Tab.isTab(newTab) === true
-
-newTab.hasReturned() === false
-newTab.hasThrown() === false
-newTab.isCancelled() === false
-newTab.isSettled() === false
-
-newTab.valueOf() === undefined
-````
+> :bulb:
+> ````
+> new Tab() ~~~ Tab.construct()
+> new Tab(object) ~~~ Tab.construct(object)
+> ````
 
 <br />
 
 ---
-### Other methods in this family
+### Methods in this family
 
+*   [new Tab()][ref-new-tab]
 *   [Tab()][ref-tab]
 <br />
 *   [Tab.construct()][ref-tab.construct]
 *   [Tab.convert()][ref-tab.convert]
 *   [Tab.isTab()][ref-tab.is-tab]
-*   [Tab.newFulfill()][ref-tab.new-fulfill]
-*   [Tab.newReject()][ref-tab.new-reject]
-*   [Tab.newReturn()][ref-tab.new-return]
-*   [Tab.newSettle()][ref-tab.new-settle]
-*   [Tab.newThrow()][ref-tab.new-throw]
 <br />
 *   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
@@ -100,13 +85,13 @@ newTab.valueOf() === undefined
 [ref-tab.x-attributes]:              /docs/reference.md#tabx-attributes                   "more attributes and methods under 'Tab.X Attributes'"
 [ref-tab.x-methods]:                 /docs/reference.md#tabx-methods                      "more attributes and methods under 'Tab.X Methods'"
 
-[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
+[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, delegate to a given tab if requested."
 [ref-tab]:                           /docs/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                   /docs/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /docs/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, delegate to a given tab if requested."
 [ref-tab.convert]:                   /docs/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /docs/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
 [ref-tab.defer-raise]:               /docs/reference/tab.defer-raise.md#top               "Tab.deferRaise(): create a function that puts a given tab in the failed state."

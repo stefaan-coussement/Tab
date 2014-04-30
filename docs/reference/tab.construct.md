@@ -3,40 +3,84 @@
 <img src="../img/tab-logo128.png" alt="Tab logo" align="left" style="float:left; margin-top:-22px;" height="66" /><img src="../img/1x1.png" align="left" style="float:left;" height="44" width="20" />
 ## [Tab.construct()][ref-tab.construct]
 
-Construct a new tab, encapsulate a given tab if requested.
+Construct a new tab, delegate to a given tab if requested.
 
 <br />
 
 ---
-### Tab.construct() » newTab
+### Tab.construct( ?object ) » newTab
 
-> :bulb:
-> ````
-> Tab.construct() ~ new Tab()
-> ````
+parameters:
+*   **object** : *any*  
+    an object to use as a delegatee for the newly constructed Tab object.
 
 returns:
 *   **newTab** : *[object Tab]*  
-    a newly constructed Tab object.
+    the newly constructed Tab object.
+
+    > :bulb:
+    > ````
+    > Tab.construct(object) ~~~ Tab.construct(Tab.convert(object))
+    > Tab.construct(object) ~~~ Tab.construct().delegate(object)
+    > ````
+
+core assertions:
+
+````javascript
+assert(Tab.isTab(newTab) === true);
+
+if (arguments.length === 0) {
+    assert(newTab.isCancelled() === false);
+    assert(newTab.isSuspended() === false);
+    assert(newTab.isCompleted() === false);
+    assert(newTab.isSettled() === false);
+    assert(newTab.toString() === "");
+    assert(newTab.valueOf() === undefined);
+}
+else {
+    assert(newTab.isCancelled() === Tab.convert(object).isCancelled());
+    assert(newTab.isSuspended() === Tab.convert(object).isSuspended());
+    assert(newTab.hasYielded() === Tab.convert(object).hasYielded());
+    assert(newTab.hasRaised() === Tab.convert(object).hasRaised());
+    assert(newTab.isCompleted() === Tab.convert(object).isCompleted());
+    assert(newTab.hasReturned() === Tab.convert(object).hasReturned());
+    assert(newTab.hasThrown() === Tab.convert(object).hasThrown());
+    assert(newTab.isSettled() === Tab.convert(object).isSettled());
+    assert(newTab.hasAccepted() === Tab.convert(object).hasAccepted());
+    assert(newTab.hasRejected() === Tab.convert(object).hasRejected());
+    assert(newTab.toString() === Tab.convert(object).toString());
+    assert(newTab.valueOf() === Tab.convert(object).valueOf());
+}
+````
 
 <br />
 
 ---
-### Other methods in this family
+### Methods in this family
 
 *   [new Tab()][ref-new-tab]
 *   [Tab()][ref-tab]
 <br />
+*   [Tab.construct()][ref-tab.construct]
 *   [Tab.convert()][ref-tab.convert]
 *   [Tab.isTab()][ref-tab.is-tab]
-*   [Tab.newFulfill()][ref-tab.new-fulfill]
-*   [Tab.newReject()][ref-tab.new-reject]
-*   [Tab.newReturn()][ref-tab.new-return]
-*   [Tab.newSettle()][ref-tab.new-settle]
-*   [Tab.newThrow()][ref-tab.new-throw]
 <br />
 *   [.toString()][ref-tab.prototype.to-string]
 *   [.valueOf()][ref-tab.prototype.value-of]
+
+### Other Methods used on this page
+
+*   [.delegate()][ref-tab.prototype.delegate]
+*   [.hasYielded()][ref-tab.prototype.has-yielded]
+*   [.hasRaised()][ref-tab.prototype.has-raised]
+*   [.hasReturned()][ref-tab.prototype.has-returned]
+*   [.hasThrown()][ref-tab.prototype.has-thrown]
+*   [.hasAccepted()][ref-tab.prototype.has-accepted]
+*   [.hasRejected()][ref-tab.prototype.has-rejected]
+*   [.isCancelled()][ref-tab.prototype.is-cancelled]
+*   [.isCompleted()][ref-tab.prototype.is-completed]
+*   [.isSettled()][ref-tab.prototype.is-settled]
+*   [.isSuspended()][ref-tab.prototype.is-suspended]
 
 
 
@@ -92,13 +136,13 @@ returns:
 [ref-tab.x-attributes]:              /docs/reference.md#tabx-attributes                   "more attributes and methods under 'Tab.X Attributes'"
 [ref-tab.x-methods]:                 /docs/reference.md#tabx-methods                      "more attributes and methods under 'Tab.X Methods'"
 
-[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, encapsulate a given tab if requested."
+[ref-new-tab]:                       /docs/reference/new-tab.md#top                       "new Tab(): construct a new tab, delegate to a given tab if requested."
 [ref-tab]:                           /docs/reference/tab.md#top                           "Tab(): convert to a tab, create a new tab if required."
 
 [ref-tab.context]:                   /docs/reference/tab.context.md#top                   "Tab.context: the processing context for a processor function."
 [ref-tab.version]:                   /docs/reference/tab.version.md#top                   "Tab.version: the version of this Tab library."
 
-[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, encapsulate a given tab if requested."
+[ref-tab.construct]:                 /docs/reference/tab.construct.md#top                 "Tab.construct(): construct a new tab, delegate to a given tab if requested."
 [ref-tab.convert]:                   /docs/reference/tab.convert.md#top                   "Tab.convert(): convert to a tab, create a new tab if required."
 [ref-tab.defer]:                     /docs/reference/tab.defer.md#top                     "Tab.defer(): create a function that uses a given tab to store another function's result."
 [ref-tab.defer-raise]:               /docs/reference/tab.defer-raise.md#top               "Tab.deferRaise(): create a function that puts a given tab in the failed state."
