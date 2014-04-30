@@ -220,5 +220,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('docs', [ 'replace:links', 'replace:badges', 'copy:readme' ]);
 	grunt.registerTask('test', [ 'copy:testCode', 'exec:serve', 'exec:ie', 'exec:ff', 'watch:reload' ]);
 	grunt.registerTask('build', [ 'concat:license', 'concat:build', 'copy:testBuild', 'jshint', 'qunit', 'uglify', 'clean' ]);
-	grunt.registerTask('travis', [ 'build', 'docs' ]);
+	grunt.registerTask('travis', [ 'docs', 'build' ]);
 };
