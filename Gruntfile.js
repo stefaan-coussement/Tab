@@ -25,7 +25,8 @@ module.exports = function(grunt) {
 					'source/<%= pkg.name %>.js',
 					'source/<%= pkg.name %>-basics.js',
 					'source/<%= pkg.name %>-scheduler.js',
-					'source/<%= pkg.name %>-extending.js'
+					'source/<%= pkg.name %>-extending.js',
+					'source/function-polyfill.js'
 				],
 				dest: '<%= pkg.name %>.js'
 			}
@@ -52,7 +53,7 @@ module.exports = function(grunt) {
 		},
 
 		exec: {
-			// code
+			// local testing
 			serve: {
 				cmd: 'start /min grunt connect:test:keepalive'
 			},
@@ -161,6 +162,7 @@ module.exports = function(grunt) {
 		clean: [ '<%= concat.license.dest %>' ],
 
 		connect: {
+			// local testing
 			test: {
 				options: {
 					port: 9999,
@@ -170,7 +172,7 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			// reload
+			// local testing
 			reload: {
 				options: {
 					livereload: true

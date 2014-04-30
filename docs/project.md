@@ -5,7 +5,7 @@
 Get help with callbacks, pipelines, streams, promises, lazy evaluation and concurrent computing.
 <br />
 
-[![Version](https://img.shields.io/badge/semver-1.0.0--alpha.1+x-blue.svg)](https://semver.org/) ![Stability](https://img.shields.io/badge/stability-unstable-yellow.svg) [![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab)
+[![Version](https://img.shields.io/badge/semver-1.0.0--alpha.1+x-blue.svg)](https://semver.org/) [![Build Status](https://travis-ci.org/stefaan-coussement/Tab.svg)](https://travis-ci.org/stefaan-coussement/Tab) ![Stability](https://img.shields.io/badge/stability-unstable-yellow.svg)
 
 ## [The Project][project]
 
