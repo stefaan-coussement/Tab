@@ -95,7 +95,13 @@ module.exports = function(grunt) {
 						{
 							match: /(<!-- ##### start of links ##### -->[\s\S]*|$)/,
 							replacement: function() {
+try {
+grunt.log.writeln([">>>>> grunt.file.read"]);
 								return grunt.file.read('docs/_links.md');
+}
+catch (e) {
+grunt.log.writeln([">>>>> grunt.file.read failed"]);
+}
 							}
 						}
 					],
