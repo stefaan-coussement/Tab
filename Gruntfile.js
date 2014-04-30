@@ -98,7 +98,8 @@ module.exports = function(grunt) {
 								return grunt.file.read('docs/_links.md');
 							}
 						}
-					]
+					],
+					force: true
 				},
 				src: [ 'docs/**/*.md', '!docs/**/_*.md' ],
 				dest: './'
@@ -140,7 +141,8 @@ module.exports = function(grunt) {
 								return '[Stability](https://img.shields.io/badge/stability-' + stability + '-' + colorMap[stability] + '.svg)';
 							}
 						}
-					]
+					],
+					force: true
 				},
 				src: 'docs/project.md',
 				dest: 'docs/project.md'
