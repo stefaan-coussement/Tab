@@ -14,7 +14,7 @@
 		"url": "https://github.com/stefaan-coussement/Tab/issues"
 	},
 	"scripts": {
-		"test": "grunt -v travis"
+		"test": "grunt travis"
 	},
 	"devDependencies": {
 		"grunt": "^0.4.3",
